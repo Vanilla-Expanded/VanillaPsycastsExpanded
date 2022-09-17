@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+   <ResearchProjectDef>
+      <defName>VPE_EltexGear</defName>
+      <label>eltex gear</label>
+      <tab>VanillaExpanded</tab>
+      <description>Tailor and craft complex eltex apparel, capable of improving psychic focus of your psycasters, as well as an eltex-infused staff.</description>
+      <baseCost>3000</baseCost>
+      <techLevel>Spacer</techLevel>
+      <prerequisites>
+         <li>ComplexClothing</li>
+      </prerequisites>
+      <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+      <requiredResearchFacilities>
+         <li>MultiAnalyzer</li>
+      </requiredResearchFacilities>
+      <researchViewX>8.00</researchViewX>
+      <researchViewY>5.65</researchViewY>
+   </ResearchProjectDef>
+   
+   <ResearchProjectDef>
+      <defName>VPE_CasterGear</defName>
+      <label>caster gear</label>
+      <tab>VanillaExpanded</tab>
+      <description>Craft simple psycaster apparel, armor and gear using eltex.</description>
+      <baseCost>1000</baseCost>
+      <techLevel>Medieval</techLevel>
+      <prerequisites>
+         <li>NobleApparel</li>
+      </prerequisites>
+      <researchViewX>7.00</researchViewX>
+      <researchViewY>5.65</researchViewY>
+   </ResearchProjectDef>
+   
+</Defs>

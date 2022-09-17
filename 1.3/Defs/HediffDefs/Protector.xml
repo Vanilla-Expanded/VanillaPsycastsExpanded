@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Healing</defName>
+		<label>psychic healing</label>
+		<description>Psychically-induced healing boost.</description>
+		<stages>
+			<li>
+				<naturalHealingFactor>3</naturalHealingFactor>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_BlockBleeding</defName>
+		<label>psychic stabilization</label>
+		<description>Psychically-induced stasis that stops any bleeding.</description>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_SparksYellow</stateEffecter>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Immunity</defName>
+		<label>psychic immunity</label>
+		<description>Psychically-induced immunity boost.</description>
+		<stages>
+			<li>
+				<statOffsets>
+					<ImmunityGainSpeed>3</ImmunityGainSpeed>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Overshield</defName>
+		<label>psychic overshield</label>
+		<description>Psychically-induced personal skipbarrier. Impenetrable by ranged projectiles.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_Overshield</hediffClass>
+		<comps>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDowned"/>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDespawn"/>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>VPE_GuardianSkipBarrier</defName>
+		<label>guardian skipbarrier</label>
+		<description>Psychically crafted defensive barrier that generates large amounts of psychic heat in order to sustain itself.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_GuardianSkipBarrier</hediffClass>
+		<stages>
+			<li>
+				<statOffsets>
+					<MoveSpeed>-1</MoveSpeed>
+				</statOffsets>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDowned"/>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDespawn"/>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_RegrowLimbs</defName>
+		<label>psychic regeneration</label>
+		<description>Psychically-induced tissue regeneration, which can close open wounds and regenerate missing body parts.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_RegrowLimbs</hediffClass>
+	</HediffDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>VPE_Regenerating</defName>
+		<label>regenerating</label>
+		<description>Regenerating wounds, new and old.</description>
+		<tendable>false</tendable>
+		<injuryProps>
+			<painPerSeverity>0</painPerSeverity>
+			<canMerge>false</canMerge>
+			<destroyedLabel>Destroyed</destroyedLabel>
+		</injuryProps>
+		<comps>
+		      <li Class="HediffCompProperties_SeverityPerDay">
+					<severityPerDay>-4</severityPerDay>
+					<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+	</HediffDef>
+</Defs>

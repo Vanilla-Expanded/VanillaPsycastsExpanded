@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Royalty</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/HediffDef[defName="PsychicAmplifier"]/maxSeverity</xpath>
+                </li>
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/HediffDef[defName="PsychicAmplifier"]/stages</xpath>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/HediffDef[defName="PsychicComa"]/comps/li[@Class="HediffCompProperties_Disappears"]</xpath>
+                    <value>
+                        <showRemainingTime>true</showRemainingTime>
+                    </value>
+                </li>
+                <li Class="PatchOperationConditional">
+                    <xpath>Defs/StatDef[defName="MeditationFocusStrength"]/parts</xpath>
+                    <match Class="PatchOperationAdd">
+                        <xpath>Defs/StatDef[defName="MeditationFocusStrength"]/parts</xpath>
+                        <value>
+                            <li Class="VanillaPsycastsExpanded.StatPart_NearbyFoci" />
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs/StatDef[defName="MeditationFocusStrength"]</xpath>
+                        <value>
+                            <parts>
+                                <li Class="VanillaPsycastsExpanded.StatPart_NearbyFoci" />
+                            </parts>
+                        </value>
+                    </nomatch>
+                </li>
+                <li Class="PatchOperationSequence">
+                    <operations>
+                        <li Class="PatchOperationAddModExtension">
+                            <xpath>/Defs/MeditationFocusDef[defName="Dignified"]</xpath>
+                            <value>
+                                <li Class="VanillaPsycastsExpanded.MeditationFocusExtension">
+                                    <icon>UI/PsyfocusIcons/PsyfocusDignified</icon>
+                                </li>
+                            </value>
+                        </li>
+                        <li Class="PatchOperationAddModExtension">
+                            <xpath>/Defs/MeditationFocusDef[defName="Flame"]</xpath>
+                            <value>
+                                <li Class="VanillaPsycastsExpanded.MeditationFocusExtension">
+                                    <icon>UI/PsyfocusIcons/PsyfocusFlame</icon>
+                                </li>
+                            </value>
+                        </li>
+                        <li Class="PatchOperationAddModExtension">
+                            <xpath>/Defs/MeditationFocusDef[defName="Natural"]</xpath>
+                            <value>
+                                <li Class="VanillaPsycastsExpanded.MeditationFocusExtension">
+                                    <icon>UI/PsyfocusIcons/PsyfocusNatural</icon>
+                                    <canBeUnlocked>false</canBeUnlocked>
+                                </li>
+                            </value>
+                        </li>
+                        <li Class="PatchOperationAddModExtension">
+                            <xpath>/Defs/MeditationFocusDef[defName="Artistic"]</xpath>
+                            <value>
+                                <li Class="VanillaPsycastsExpanded.MeditationFocusExtension">
+                                    <icon>UI/PsyfocusIcons/PsyfocusArtistic</icon>
+                                </li>
+                            </value>
+                        </li>
+                        <li Class="PatchOperationAddModExtension">
+                            <xpath>/Defs/MeditationFocusDef[defName="Morbid"]</xpath>
+                            <value>
+                                <li Class="VanillaPsycastsExpanded.MeditationFocusExtension">
+                                    <icon>UI/PsyfocusIcons/PsyfocusMorbid</icon>
+                                </li>
+                            </value>
+                        </li>
+                        <li Class="PatchOperationAddModExtension">
+                            <xpath>/Defs/MeditationFocusDef[defName="Minimal"]</xpath>
+                            <value>
+                                <li Class="VanillaPsycastsExpanded.MeditationFocusExtension">
+                                    <icon>UI/PsyfocusIcons/PsyfocusMinimal</icon>
+                                </li>
+                            </value>
+                        </li>
+                    </operations>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>VPE_Skipdoor</defName>
+		<label>skipdoor</label>
+		<thingClass>VanillaPsycastsExpanded.Skipmaster.Skipdoor</thingClass>
+		<description>A psychic entry-point to a portal network.</description>
+		<statBases>
+			<MaxHitPoints>600</MaxHitPoints>
+		</statBases>
+		<drawerType>RealtimeOnly</drawerType>
+		<tickerType>Normal</tickerType>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>VPE_IceCrystal</defName>
+		<label>ice crystal</label>
+		<description>A small crystal of ice that cools down the temperature in the room. Can help freeze perishable items.</description>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Effects/Frostshaper/IceCrystal/IceCrystal</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<allowFlip>false</allowFlip>
+			<shadowData>
+				<volume>(0.9,0.3,0.9)</volume>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0,0.6,0.1)</rect>
+			</damageData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>30</pathCost>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<fillPercent>0.40</fillPercent>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+		</statBases>
+		<selectable>true</selectable>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+		<placeWorkers>
+			<li>PlaceWorker_CoolerSimple</li>
+		</placeWorkers>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<comps>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>-20</heatPerSecond>
+			</li>
+			<li>
+				<compClass>VFECore.Abilities.CompSpawnedBuilding</compClass>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>2.9</glowRadius>
+				<glowColor>(255,255,255,0)</glowColor>
+			</li>
+		</comps>
+	</ThingDef>
+
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>VPE_IceWall</defName>
+		<label>ice wall</label>
+		<description>A fragile wall made of ice. It will melt in heat.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Effects/Frostshaper/IceWall/IceWall_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Effects/Frostshaper/IceWall/IceWall_MenuIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<MeditationFocusStrength>0.22</MeditationFocusStrength>
+		</statBases>
+		<costStuffCount>5</costStuffCount>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Normal</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded><!-- Best affordance needed for stone -->
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<fertility>0</fertility>
+		<building>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+			<relatedBuildCommands>
+				<li>Door</li>
+				<li>Autodoor</li>
+			</relatedBuildCommands>
+		</building>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Minimal</li>
+				</focusTypes>
+			</li>
+			<li>
+				<compClass>VanillaPsycastsExpanded.CompMelter</compClass>
+			</li>
+		</comps>
+		<damageMultipliers>
+			<li>
+				<damageDef>Bomb</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<damageDef>Thump</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+		</damageMultipliers>
+	</ThingDef>
+</Defs>

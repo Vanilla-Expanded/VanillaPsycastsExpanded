@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EFCF22D0-D660-4310-96D8-ED065982913A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VanillaPsycastsExpanded</RootNamespace>
+    <AssemblyName>VanillaPsycastsExpanded</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlienRace">
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\839005762\1.3\Assemblies\AlienRace.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="VFECore">
+      <HintPath>..\..\..\..\VanillaExpandedFramework\1.3\Assemblies\VFECore.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AI\JobGivers\JobGiver_Clean.cs" />
+    <Compile Include="AI\JobGivers\JobGiver_Flee.cs" />
+    <Compile Include="AI\JobGivers\JobGiver_Flick.cs" />
+    <Compile Include="Common\AbilityExtension_JoinFaction.cs" />
+    <Compile Include="Common\HediffComp_DisappearsOnDespawn.cs" />
+    <Compile Include="Common\HediffComp_SpawnMote.cs" />
+    <Compile Include="Common\HediffComp_DisappearsOnDowned.cs" />
+    <Compile Include="Common\HediffComp_SpawnFilth.cs" />
+    <Compile Include="Common\Hediff_NoMerge.cs" />
+    <Compile Include="Common\IChannelledPsycast.cs" />
+    <Compile Include="Common\IMinHeatGiver.cs" />
+    <Compile Include="Events\RaidStrategyWorker_ImmediateAttack_Psycasters.cs" />
+    <Compile Include="Graphics\IAnimationOneTime.cs" />
+    <Compile Include="Graphics\MoteAttachedMovingAround.cs" />
+    <Compile Include="Graphics\MoteAttachedOneTime.cs" />
+    <Compile Include="HarmonyPatches\HediffUtility_CanHealNaturally_Patch.cs" />
+    <Compile Include="HarmonyPatches\IncidentWorker_RaidEnemy_GetLetterText_Patch.cs" />
+    <Compile Include="HarmonyPatches\Mote_Patches.cs" />
+    <Compile Include="HarmonyPatches\PawnGen_Patch.cs" />
+    <Compile Include="Events\PawnGroupMaker_PsycasterRaid.cs" />
+    <Compile Include="HarmonyPatches\PawnGroupMaker_CanGenerateFrom_Patch.cs" />
+    <Compile Include="HarmonyPatches\PawnUtility_ShouldSendNotificationAbout_Patch.cs" />
+    <Compile Include="Comps\CompFleckEmitter.cs" />
+    <Compile Include="Events\GenStep_EltexMeteor.cs" />
+    <Compile Include="HarmonyPatches\Pawn_HealthTracker_ShouldBeDeadFromLethalDamageThreshold_Patch.cs" />
+    <Compile Include="Misc\BackCompatabilityConverter_Psytrainers.cs" />
+    <Compile Include="Misc\BackCompatibilityConverter_Constructs.cs" />
+    <Compile Include="Misc\GenRadialCached.cs" />
+    <Compile Include="Misc\WoundWithShader.cs" />
+    <Compile Include="ModCompatibility.cs" />
+    <Compile Include="Paths\Archon\Hediff_Hallucination.cs" />
+    <Compile Include="Common\AbilityExtension_GameCondition.cs" />
+    <Compile Include="Paths\FrostShaper\Ability_IceBreath.cs" />
+    <Compile Include="Paths\Necropath\Ability_Resurrect.cs" />
+    <Compile Include="Paths\Necropath\Ability_SpawnSkeleton.cs" />
+    <Compile Include="Paths\Necropath\Ability_TargetCorpse.cs" />
+    <Compile Include="Paths\Necropath\DeathActionWorker_Skeleton.cs" />
+    <Compile Include="Paths\Necropath\Hediff_Deathshield.cs" />
+    <Compile Include="Paths\Necropath\SoulFromSky.cs" />
+    <Compile Include="Paths\Necropath\StatPart_PsycastBodiesConsumed.cs" />
+    <Compile Include="Misc\FixedTemperatureZone.cs" />
+    <Compile Include="GameComponent_PsycastsManager.cs" />
+    <Compile Include="Misc\GoodwillImpactDelayed.cs" />
+    <Compile Include="Graphics\MoteBetween.cs" />
+    <Compile Include="Graphics\MoteCastBubble.cs" />
+    <Compile Include="HarmonyPatches\Room_Patches.cs" />
+    <Compile Include="HarmonyPatches\MeditationFocusDef_EnablingThingsExplanation_Patch.cs" />
+    <Compile Include="HarmonyPatches\PawnUtility_GetMaxPsylinkLevel_Patch.cs" />
+    <Compile Include="HarmonyPatches\Pawn_NeedsTracker_ShouldHaveNeed_Patch.cs" />
+    <Compile Include="HarmonyPatches\Pawn_SkillTracker_Learn_Patch.cs" />
+    <Compile Include="HarmonyPatches\Pawn_Spawn_Patches.cs" />
+    <Compile Include="HarmonyPatches\RitualOutcomeEffectWorker_Bestowing_Apply_Patch.cs" />
+    <Compile Include="HarmonyPatches\ThingSetMaker_Meteorite_Reset.cs" />
+    <Compile Include="HarmonyPatches\ThoughtWorker_PsychicDrone_CurrentStateInternal_Patch.cs" />
+    <Compile Include="HarmonyPatches\Transferable_CanAdjustBy_Patch.cs" />
+    <Compile Include="HarmonyPatches\GenTemperature_GetTemperatureForCell_Patch.cs" />
+    <Compile Include="HarmonyPatches\GlobalControls_TemperatureString_Patch.cs" />
+    <Compile Include="HarmonyPatches\Pawn_JobTracker_StartJob_Patch.cs" />
+    <Compile Include="HarmonyPatches\TradeDeal_TryExecute_Patch.cs" />
+    <Compile Include="Common\Hediff_Overlay.cs" />
+    <Compile Include="Events\IncidentWorker_EltexMeteorite.cs" />
+    <Compile Include="MapComponent_PsycastsManager.cs" />
+    <Compile Include="MentalStates\MentalState_FriendlyManhunter.cs" />
+    <Compile Include="Common\AbilityExtension_GiveTrait.cs" />
+    <Compile Include="Paths\Archon\Ability_DrainPsyessence.cs" />
+    <Compile Include="Paths\Archon\Ability_PsychicComa.cs" />
+    <Compile Include="Paths\Archon\Ability_GroupLink.cs" />
+    <Compile Include="Paths\Archon\Hediff_GroupLink.cs" />
+    <Compile Include="Paths\Archon\Ability_GoodwillImpact.cs" />
+    <Compile Include="Paths\Archon\AbilityExtension_AbilityOffsetPrisonerResistance.cs" />
+    <Compile Include="Paths\Archon\Ability_WordOf.cs" />
+    <Compile Include="Paths\Archon\Hediff_PsychicPain.cs" />
+    <Compile Include="Paths\Archotechist\Ability_BerserkPulse.cs" />
+    <Compile Include="Paths\Chronopath\AbilityExtension_Foretelling.cs" />
+    <Compile Include="Paths\FrostShaper\AbilityExtension_SpawnSnowAround.cs" />
+    <Compile Include="Paths\FrostShaper\AbilityExtension_SpawnTemperatureArea.cs" />
+    <Compile Include="Paths\FrostShaper\Ability_IceBlock.cs" />
+    <Compile Include="Paths\FrostShaper\Ability_IceWall.cs" />
+    <Compile Include="Paths\FrostShaper\Ability_SnapFreeze.cs" />
+    <Compile Include="Paths\FrostShaper\CompMelter.cs" />
+    <Compile Include="Paths\FrostShaper\Hediff_IceBlock.cs" />
+    <Compile Include="Paths\FrostShaper\Hediff_BlizzardSource.cs" />
+    <Compile Include="Paths\FrostShaper\JobDriver_StandFreeze.cs" />
+    <Compile Include="Paths\Harmonist\Ability_HealthSwap.cs" />
+    <Compile Include="Paths\Harmonist\Ability_LocationSwap.cs" />
+    <Compile Include="Paths\Harmonist\Ability_LuckTransfer.cs" />
+    <Compile Include="Paths\Necropath\Ability_Corpsetalk.cs" />
+    <Compile Include="Paths\Necropath\Ability_ConsumeBodies.cs" />
+    <Compile Include="Paths\Necropath\Ability_ParalysisPulse.cs" />
+    <Compile Include="Paths\Necropath\Ability_StealVitality.cs" />
+    <Compile Include="Paths\Necropath\Hediff_BodiesConsumed.cs" />
+    <Compile Include="Paths\Necropath\Hediff_CorpseTalk.cs" />
+    <Compile Include="Paths\Necropath\Hediff_Liferot.cs" />
+    <Compile Include="Paths\Nightstalker\Ability_Assassinate.cs" />
+    <Compile Include="Paths\Nightstalker\Ability_TeleportDark.cs" />
+    <Compile Include="Paths\Nightstalker\Ability_WorldTeleportNight.cs" />
+    <Compile Include="Paths\Nightstalker\CompDarkener.cs" />
+    <Compile Include="Paths\Nightstalker\Decoy.cs" />
+    <Compile Include="Paths\Nightstalker\GameCondition_IntenseShadows.cs" />
+    <Compile Include="Paths\Nightstalker\HediffComp_DissapearsInLight.cs" />
+    <Compile Include="Paths\Nightstalker\Hediff_Darkvision.cs" />
+    <Compile Include="Paths\Nightstalker\Hediff_ShadowFocus.cs" />
+    <Compile Include="Misc\MaterialAllocator.cs" />
+    <Compile Include="Paths\Skipmaster\Ability_Teleport.cs" />
+    <Compile Include="Paths\Skipmaster\Ability_WorldTeleport.cs" />
+    <Compile Include="Paths\Technomancer\Ability_Construct_Rock.cs" />
+    <Compile Include="Paths\Technomancer\Ability_Construct_Steel.cs" />
+    <Compile Include="Paths\Technomancer\Ability_Haywire.cs" />
+    <Compile Include="Paths\Technomancer\Ability_ConjureHeatPearls.cs" />
+    <Compile Include="Paths\Technomancer\Ability_IncreaseQuality.cs" />
+    <Compile Include="Paths\Technomancer\Ability_Mend.cs" />
+    <Compile Include="Paths\Technomancer\Ability_Psyring.cs" />
+    <Compile Include="Paths\Technomancer\Ability_ReverseEngineer.cs" />
+    <Compile Include="Paths\Technomancer\DamageWorker_NeuralHeatBlast.cs" />
+    <Compile Include="Paths\Technomancer\HaywireManager.cs" />
+    <Compile Include="Paths\Technomancer\Pawn_Construct.cs" />
+    <Compile Include="Paths\Wildspeaker\Ability_Animal.cs" />
+    <Compile Include="Paths\Wildspeaker\Ability_ShrineShield.cs" />
+    <Compile Include="Paths\Wildspeaker\Ability_SummonPack.cs" />
+    <Compile Include="Paths\Wildspeaker\CompPlaySound.cs" />
+    <Compile Include="Paths\Wildspeaker\Hediff_AnimalShield.cs" />
+    <Compile Include="Paths\Wildspeaker\Hediff_Essence.cs" />
+    <Compile Include="Paths\Wildspeaker\MentalState_ManhunterTerritorial.cs" />
+    <Compile Include="Paths\Wildspeaker\Spawners.cs" />
+    <Compile Include="PawnKindAbilityExtension_Psycasts.cs" />
+    <Compile Include="PsycastChecker.cs" />
+    <Compile Include="ThinkNodes\ThinkNode_Construct.cs" />
+    <Compile Include="Paths\Technomancer\HediffComp_InfinitePower.cs" />
+    <Compile Include="UI\Command_Ability_Psycast.cs" />
+    <Compile Include="UI\Command_ActionWithFloat.cs" />
+    <Compile Include="Comps\CompBreakLink.cs" />
+    <Compile Include="Comps\CompProperties\CompProperties_SetStoneColour.cs" />
+    <Compile Include="Comps\CompProperties\CompProperties_BreakLink.cs" />
+    <Compile Include="Comps\CompSetStoneColour.cs" />
+    <Compile Include="Common\DeathActionWorkers.cs" />
+    <Compile Include="Common\AbilityExtension_Flee.cs" />
+    <Compile Include="Common\AbilityExtension_PsychicComa.cs" />
+    <Compile Include="Graphics\DistortedMaterialsPool.cs" />
+    <Compile Include="Graphics\Graphic_AnimatedMote.cs" />
+    <Compile Include="Graphics\HediffComp_MoteOverhead.cs" />
+    <Compile Include="HarmonyPatches\CompAbilities_GetGizmos_Patch.cs" />
+    <Compile Include="HarmonyPatches\HediffSet_BleedRateTotal_Patch.cs" />
+    <Compile Include="HarmonyPatches\Pawn_HealthTracker_AddHediff_Patch.cs" />
+    <Compile Include="HarmonyPatches\Pawn_Kill_Patch.cs" />
+    <Compile Include="HarmonyPatches\ThingDefGenerator_Neurotrainer_ImpliedThingDefs_Patch.cs" />
+    <Compile Include="HarmonyPatches\ThoughtWorker_Cold_CurrentStateInternal.cs" />
+    <Compile Include="HarmonyPatches\VerbProperties_AdjustedMeleeDamageAmount_Patch.cs" />
+    <Compile Include="Meditation\FocusStrengthOffset_NearbyOfTechlevel.cs" />
+    <Compile Include="Meditation\FocusStrengthOffset_ResearchSpeed.cs" />
+    <Compile Include="Meditation\MeditationFocusAutopatcher.cs" />
+    <Compile Include="Meditation\MeditationUtilities.cs" />
+    <Compile Include="Meditation\StatPart_Group.cs" />
+    <Compile Include="Meditation\StatPart_NearbyFoci.cs" />
+    <Compile Include="Meditation\StatPart_NearbyWealth.cs" />
+    <Compile Include="Paths\Archotechist\AbilityExtension_Neuroquake.cs" />
+    <Compile Include="Common\AbilityExtension_GiveMentalState.cs" />
+    <Compile Include="Paths\Archotechist\Ability_NeuralHeatDetonation.cs" />
+    <Compile Include="Paths\Archotechist\Ability_AggressiveHeatDump.cs" />
+    <Compile Include="Paths\Archotechist\Ability_PsychicShock.cs" />
+    <Compile Include="Paths\Archotechist\AbilityExtension_TransferEntropy.cs" />
+    <Compile Include="Paths\Archotechist\Hediff_PsychicDrone.cs" />
+    <Compile Include="Graphics\MoteAttachedScaled.cs" />
+    <Compile Include="Paths\Chronopath\AbilityExtension_Age.cs" />
+    <Compile Include="Paths\Chronopath\AbilityExtension_ImproveRelations.cs" />
+    <Compile Include="Paths\Chronopath\AbilityExtension_ReduceResistance.cs" />
+    <Compile Include="Paths\Chronopath\Ability_AdvanceSeason.cs" />
+    <Compile Include="Paths\Chronopath\Ability_Finish.cs" />
+    <Compile Include="Paths\Chronopath\Ability_MaturePlants.cs" />
+    <Compile Include="Paths\Chronopath\Ability_Meditate.cs" />
+    <Compile Include="Paths\Chronopath\GameCondition_RaidPause.cs" />
+    <Compile Include="Paths\Chronopath\GameCondition_TimeQuake.cs" />
+    <Compile Include="Paths\Chronopath\TimeSphere.cs" />
+    <Compile Include="Paths\Conflagrator\Ability_FireTornado.cs" />
+    <Compile Include="Paths\Conflagrator\FireBeam.cs" />
+    <Compile Include="Paths\Conflagrator\FireTornado.cs" />
+    <Compile Include="Paths\Conflagrator\HediffComp_FireShield.cs" />
+    <Compile Include="Graphics\Projectile_Pointing.cs" />
+    <Compile Include="Graphics\Graphic_Animated.cs" />
+    <Compile Include="Graphics\Graphic_FleckCollection.cs" />
+    <Compile Include="Graphics\Graphic_Fleck_Animated.cs" />
+    <Compile Include="HarmonyPatches\HarmonyInit.cs" />
+    <Compile Include="HarmonyPatches\Hediff_Psylink_Patches.cs" />
+    <Compile Include="HarmonyPatches\MeditationFocusTypeAvailabilityCache_PawnCanUse_Patch.cs" />
+    <Compile Include="AbilityExtension_Psycast.cs" />
+    <Compile Include="HarmonyPatches\Pawn_EntropyTracker_Patches.cs" />
+    <Compile Include="Hediff_PsycastAbilities.cs" />
+    <Compile Include="Paths\Empath\AbilityExtension_CastPsychicSoothe.cs" />
+    <Compile Include="Paths\Empath\AbilityExtension_EnergyDump.cs" />
+    <Compile Include="Paths\Empath\AbilityExtension_MindWipe.cs" />
+    <Compile Include="Paths\Empath\AbilityExtension_PsycastWordOfSerenity.cs" />
+    <Compile Include="Common\AbilityExtension_GiveInspiration.cs" />
+    <Compile Include="Paths\Empath\AbilityExtension_WordOfLove.cs" />
+    <Compile Include="Paths\Empath\Ability_ReunionFarskip.cs" />
+    <Compile Include="Paths\FrostShaper\Ability_FrostRay.cs" />
+    <Compile Include="Paths\FrostShaper\Hediff_IceShield.cs" />
+    <Compile Include="Paths\FrostShaper\IceBreatheProjectile.cs" />
+    <Compile Include="Paths\FrostShaper\Projectile_FrostRay.cs" />
+    <Compile Include="Misc\Stance_Stand.cs" />
+    <Compile Include="Paths\Harmonist\Ability_HeatFocus.cs" />
+    <Compile Include="Paths\Harmonist\Ability_RandomEvent.cs" />
+    <Compile Include="Paths\Harmonist\Ability_Skillroll.cs" />
+    <Compile Include="Paths\Harmonist\Ability_TransmuteItem.cs" />
+    <Compile Include="Paths\Harmonist\Ability_TransmuteStone.cs" />
+    <Compile Include="Paths\Protector\Ability_GuardianSkipBarrier.cs" />
+    <Compile Include="Paths\Protector\HediffComp_ShouldBeDestroyed.cs" />
+    <Compile Include="Paths\Protector\Hediff_GuardianSkipBarrier.cs" />
+    <Compile Include="Paths\Protector\Hediff_Overshield.cs" />
+    <Compile Include="Paths\Harmonist\HediffComp_MindControl.cs" />
+    <Compile Include="Paths\Protector\Hediff_RegrowLimbs.cs" />
+    <Compile Include="Paths\Skipmaster\Ability_Wallraise.cs" />
+    <Compile Include="Paths\Skipmaster\Ability_Chunkskip.cs" />
+    <Compile Include="Paths\Skipmaster\Ability_Smokepop.cs" />
+    <Compile Include="Paths\Skipmaster\Ability_Waterskip.cs" />
+    <Compile Include="Paths\Skipmaster\Skipdoor.cs" />
+    <Compile Include="Paths\Skipmaster\SkipdoorPatches.cs" />
+    <Compile Include="Paths\Skipmaster\Skipdoor_Extras.cs" />
+    <Compile Include="Paths\Staticlord\Ability_Flashstorm.cs" />
+    <Compile Include="Paths\Staticlord\Hurricane.cs" />
+    <Compile Include="Paths\Staticlord\Vortex.cs" />
+    <Compile Include="Paths\Warlord\AbilityExtension_ForceJobOnTarget.cs" />
+    <Compile Include="Paths\Warlord\Ability_Killskip.cs" />
+    <Compile Include="Paths\Warlord\Ability_PowerLeap.cs" />
+    <Compile Include="Common\HediffComp_PlaySound.cs" />
+    <Compile Include="Paths\Warlord\JumpingPawn.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PsycasterPathDef.cs" />
+    <Compile Include="PsycastsMod.cs" />
+    <Compile Include="PsycastUtility.cs" />
+    <Compile Include="PsySet.cs" />
+    <Compile Include="Paths\Staticlord\Ability_Thunderbolt.cs" />
+    <Compile Include="Paths\Staticlord\BallLightning.cs" />
+    <Compile Include="Paths\Staticlord\Recharge.cs" />
+    <Compile Include="UI\Dialog_EditPsysets.cs" />
+    <Compile Include="UI\Dialog_Psyset.cs" />
+    <Compile Include="UI\ITab_Pawn_Psycasts.cs" />
+    <Compile Include="Meditation\MeditationFocusExtension.cs" />
+    <Compile Include="UI\Listing_Standard_Ext.cs" />
+    <Compile Include="UI\PsycastsUIUtility.cs" />
+    <Compile Include="UI\PsychicStatusGizmo.cs" />
+    <Compile Include="UI\TexPsycasts.cs" />
+    <Compile Include="VPE_DefOf.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref">
+      <Version>1.3.3326</Version>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony">
+      <Version>2.2.1</Version>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

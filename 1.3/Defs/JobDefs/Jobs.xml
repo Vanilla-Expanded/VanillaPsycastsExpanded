@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <JobDef>
+        <defName>VPE_UseSkipdoor</defName>
+        <driverClass>VanillaPsycastsExpanded.Skipmaster.JobDriver_UseSkipdoor</driverClass>
+        <reportString>using TargetA to teleport to TargetB</reportString>
+        <casualInterruptible>false</casualInterruptible>
+        <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
+        <defName>VPE_EssenceTransfer</defName>
+        <driverClass>VanillaPsycastsExpanded.Wildspeaker.JobDriver_EssenceTransfer</driverClass>
+        <reportString>transfering essence to TargetA</reportString>
+        <casualInterruptible>false</casualInterruptible>
+        <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    </JobDef>
+	
+  <JobDef>
+    <defName>VPE_StandFreeze</defName>
+    <driverClass>VanillaPsycastsExpanded.JobDriver_StandFreeze</driverClass>
+    <reportString>standing.</reportString>
+    <carryThingAfterJob>true</carryThingAfterJob>
+    <dropThingBeforeJob>false</dropThingBeforeJob>
+    <casualInterruptible>false</casualInterruptible>
+    <playerInterruptible>false</playerInterruptible>
+  </JobDef>
+  
+</Defs>

@@ -1,0 +1,47 @@
+<ModMetaData>
+	<name>Vanilla Psycasts Expanded</name>
+	<author>erdelf, Oskar Potocki, legodude17, Taranchuk, xrushha, Sarg Bjornson, Sir Van, Reann Shepard</author>
+	<supportedVersions>
+		<li>1.3</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+		<li>
+			<packageId>Ludeon.RimWorld.Royalty</packageId>
+			<displayName>Royalty</displayName>
+		</li>
+		<li>
+			<packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+			<displayName>Vanilla Expanded Framework</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<packageId>VanillaExpanded.VPsycastsE</packageId>
+	<loadBefore>
+		<li>steve.betterquestrewards</li>
+	</loadBefore>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>brrainz.harmony</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+		<li>vanillaexpanded.achievements</li>
+	</loadAfter>
+	<description>Vanilla Psycasts Expanded is potentially our Magnum Opus, a greatest, most exquisite, complex and visually stunning mod up to date. As always, it started with us simply not being satisfied with how Psycasts ended up being in Royalty DLC. This resulted in us wanting to expand on the concept, and expand we did.
+	
+Inspired by games such as World of Warcraft, Stellaris, Path of Exile and many more, we have designed a brand new system that makes Psycasters truly worth-while, whilst also keeping everything anchored in the grim universe of RimWorld. This mod does not add fantasy character classes, tossing fireballs left and right, conjuring holy magic to repel demons etc. It simply expands on the mysterious psychic powers granted by the link to an archotech.
+
+Complex level-up system will reward you for meditating, allowing you to distribute ability points in many different paths, unlocking hundreds of new, unique abilities, each kept in line with vanilla psycasts when it comes to balancing and visuals. Ultimately, it’s up to you if you want to become a fire-slinging conflagrator, an animal ruling wildspeaker, or a mix of both. As it always is with RPG games, you can also spend level-up points on upgrading your overall psycaster stats.
+
+On rare occasions, enemies can send their finest psycasters against you. They will be able to use all their unlocked abilities to defeat you, so you should make sure to prioritize them. Don’t worry - Psycaster raids are rare, and the game prompts you with fair warnings that an enemy raid is utilising a psycaster.
+
+If you like going balls to the wall, however, Basilicus Bestower is a new storyteller that allows any pawn to appear as a psycaster. This means you will see psycasters in almost every raid.
+
+This mod should be compatible with most of the mods, except the mods that add new psycasts or change existing ones. Please check the mod description on Steam Workshop for details into what mods are not compatible.
+</description>
+</ModMetaData>

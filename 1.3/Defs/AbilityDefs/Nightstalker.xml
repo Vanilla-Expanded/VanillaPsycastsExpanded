@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_Darkvision</defName>
+    <label>darkvision</label>
+    <description>Gives the targeted pawn a nictitating membrane that allows them to see equally well in darkness and daytime. Duration scales with the target's psychic sensitivity.</description>
+    <iconPath>Abilities/Nightstalker/Darkvision</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <castTime>180</castTime>
+    <range>4.9</range>
+    <durationTime>60000</durationTime>
+    <targetMode>Humanlike</targetMode>
+    <targetingParameters>
+      <canTargetSelf>True</canTargetSelf>
+      <canTargetMechs>False</canTargetMechs>
+      <canTargetAnimals>False</canTargetAnimals>
+      <canTargetBuildings>False</canTargetBuildings>
+    </targetingParameters>
+    <castSound>VPE_Darkvision_Cast</castSound>
+	<showUndrafted>true</showUndrafted>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Nightstalker</path>
+        <level>1</level>
+        <order>1</order>
+        <psyfocusCost>0.3</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <psychic>true</psychic>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>VPE_Darkvision</hediff>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_Darkness</defName>
+    <label>darkness</label>
+    <description>Select a target area to generate an orb of completely obfuscating darkness, the duration scaling with the caster’s psychic sensitivity. All vision is blocked and any attacks within or passing through will miss entirely.</description>
+    <iconPath>Abilities/Nightstalker/Darkness</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
+    <castTime>60</castTime>
+    <range>24</range>
+    <radius>5</radius>
+    <targetMode>Location</targetMode>
+    <castSound>VPE_Darkness_Cast</castSound>
+    <durationTime>3600</durationTime>
+    <durationTimeStatFactors>
+      <PsychicSensitivity>1</PsychicSensitivity>
+    </durationTimeStatFactors>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Nightstalker</path>
+        <level>1</level>
+        <order>2</order>
+        <psyfocusCost>0.03</psyfocusCost>
+        <entropyGain>20</entropyGain>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Spawn">
+        <thing>VPE_Darkness</thing>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_Obscure</defName>
+    <label>obscure</label>
+    <description>Creates a field of optical disharmony around the caster, causing affected allies standing in darkness to be completely invisible. Attacking breaks the illusion.</description>
+    <iconPath>Abilities/Nightstalker/Obscure</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <castTime>300</castTime>
+    <hasAoE>true</hasAoE>
+    <targetMode>Self</targetMode>
+    <radius>8.9</radius>
+    <castFleck>VFEP_PsycastAreaEffectSlow</castFleck>
+    <targetingParametersForAoE>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetHumans>true</canTargetHumans>
+      <canTargetAnimals>false</canTargetAnimals>
+      <canTargetMechs>false</canTargetMechs>
+      <canTargetSelf>true</canTargetSelf>
+      <canTargetBuildings>false</canTargetBuildings>
+      <mustBeSameFaction>true</mustBeSameFaction>
+    </targetingParametersForAoE>
+    <castSound>VPE_Obscure_Cast</castSound>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Nightstalker</path>
+        <level>2</level>
+        <order>1</order>
+        <psyfocusCost>0.4</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_Darkness</li>
+        </prerequisites>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>VPE_Obscured</hediff>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef  ParentName="VPE_PsycastBase">
+    <defName>VPE_Eclipse</defName>
+    <label>eclipse</label>
+    <description>By strategically placing an orb of obfuscating darkness high in the sky, the caster can effectively cause a spontaneous eclipse.</description>
+    <iconPath>Abilities/Nightstalker/Eclipse</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <castTime>600</castTime>
+    <targetMode>Self</targetMode>
+    <castSound>PsychicShockLanceCast</castSound>
+	<showUndrafted>true</showUndrafted>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Nightstalker</path>
+        <level>2</level>
+        <order>2</order>
+        <psyfocusCost>0.3</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_Darkvision</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_GameCondition">
+        <gameCondition>Eclipse</gameCondition>
+        <durationDays>0.75~1.25</durationDays>
+        <sendLetter>true</sendLetter>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef  ParentName="VPE_PsycastBase">
+    <defName>VPE_Shadowskip</defName>
+    <label>shadowskip</label>
+    <description>Linking the caster with their own shadow allows them to teleport themselves to an area of darkness, even if they can’t see the location.</description>
+    <iconPath>Abilities/Nightstalker/Shadowskip</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Nightstalker.Ability_TeleportDark</abilityClass>
+    <castTime>30</castTime>
+    <needsTicking>true</needsTicking>
+    <targetMode>Location</targetMode>
+    <range>99999</range>
+    <targetingParameters Class="VFECore.Abilities.TargetingParametersForAoE">
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetBlockedLocations>false</canTargetBlockedLocations>
+    </targetingParameters>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Nightstalker</path>
+        <level>3</level>
+        <order>1</order>
+        <psyfocusCost>0.01</psyfocusCost>
+        <entropyGain>40</entropyGain>
+        <prerequisites>
+          <li>VPE_Obscure</li>
+          <li>VPE_Eclipse</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef  ParentName="VPE_PsycastBase">
+    <defName>VPE_Decoy</defName>
+    <label>decoy</label>
+    <description>Creates a localized field of optical disharmony to travel and remain in a desired location, with a duration scaling with psychic sensitivity. The illusion will draw the ire of all enemies.</description>
+    <iconPath>Abilities/Nightstalker/Decoy</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
+    <castTime>60</castTime>
+    <range>16</range>
+    <targetMode>Location</targetMode>
+    <castSound>VPE_Decoy_Cast</castSound>
+    <durationTime>360</durationTime>
+    <durationTimeStatFactors>
+      <PsychicSensitivity>1</PsychicSensitivity>
+    </durationTimeStatFactors>
+    <needsTicking>true</needsTicking>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Nightstalker</path>
+        <level>3</level>
+        <order>2</order>
+        <psyfocusCost>0.06</psyfocusCost>
+        <entropyGain>40</entropyGain>
+        <prerequisites>
+          <li>VPE_Obscure</li>
+          <li>VPE_Eclipse</li>
+        </prerequisites>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Spawn">
+        <thing>VPE_Decoy</thing>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+        <effecterDef>VPE_BlackSmoke</effecterDef>
+        <maintainForDuration>true</maintainForDuration>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef  ParentName="VPE_PsycastBase">
+    <defName>VPE_ShadowFocus</defName>
+    <label>shadowfocus</label>
+    <description>Emitting particles of absorptive darkness allows the caster to augment their psychic sensitivity, which scales inversely with the local light level.</description>
+    <iconPath>Abilities/Nightstalker/ShadowFocus</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <castTime>240</castTime>
+    <durationTime>3600</durationTime>
+    <targetMode>Self</targetMode>
+    <castSound>VPE_Shadowfocus_Cast</castSound>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Nightstalker</path>
+        <level>4</level>
+        <order>1</order>
+        <psyfocusCost>0.06</psyfocusCost>
+        <entropyGain>40</entropyGain>
+        <prerequisites>
+          <li>VPE_Decoy</li>
+          <li>VPE_Shadowskip</li>
+        </prerequisites>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>VPE_Shadowfocus</hediff>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef  ParentName="VPE_PsycastBase">
+    <defName>VPE_IntensifyShadows</defName>
+    <label>intensify shadows</label>
+    <description>Links the caster’s shadow with the shade and infuses it with obfuscating darkness, plummeting all areas on the map with less than 50% light levels into pitch darkness. Duration scales with the caster’s psychic sensitivity.</description>
+    <iconPath>Abilities/Nightstalker/IntensifyShadows</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <castTime>180</castTime>
+    <targetMode>Self</targetMode>
+    <castSound>VPE_IntensifyShadows_Cast</castSound>
+    <durationTime>3600</durationTime>
+    <durationTimeStatFactors>
+      <PsychicSensitivity>1</PsychicSensitivity>
+    </durationTimeStatFactors>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Nightstalker</path>
+        <level>4</level>
+        <order>2</order>
+        <psyfocusCost>0.12</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_Decoy</li>
+          <li>VPE_Shadowskip</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_GameCondition">
+        <gameCondition>VPE_IntenseShadows</gameCondition>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef  ParentName="VPE_PsycastBase">
+    <defName>VPE_Assassinate</defName>
+    <label>assassinate</label>
+    <description>Links the caster’s shadow to a target in dark areas, allowing them to skip back and forth multiple times to attack in melee. The amount of hits depends on the caster’s psychic sensitivity.</description>
+    <iconPath>Abilities/Nightstalker/Assassinate</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Nightstalker.Ability_Assassinate</abilityClass>
+    <needsTicking>true</needsTicking>
+    <castTime>120</castTime>
+    <power>1</power>
+    <powerStatFactors>
+      <PsychicSensitivity>2</PsychicSensitivity>
+    </powerStatFactors>
+    <castSound>VPE_Assassinate_Cast</castSound>
+    <range>99999</range>
+    <requireLineOfSight>false</requireLineOfSight>
+    <targetMode>Pawn</targetMode>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Nightstalker</path>
+        <level>5</level>
+        <order>1</order>
+        <psyfocusCost>0.2</psyfocusCost>
+        <entropyGain>60</entropyGain>
+        <prerequisites>
+          <li>VPE_IntensifyShadows</li>
+        </prerequisites>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef  ParentName="VPE_PsycastBase">
+    <defName>VPE_Nightstep</defName>
+    <label>nightstep</label>
+    <description>Briefly links nearby allies to a distant colonist’s shadow to instantly teleport them, even across the planet as long as they are not overburdened. Can only be cast at night and temporarily stuns the caster.</description>
+    <iconPath>Abilities/Nightstalker/Nightstep</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Nightstalker.Ability_WorldTeleportNight</abilityClass>
+    <radius>4.9</radius>
+    <castTime>300</castTime>
+    <targetMode>Tile</targetMode>
+    <range>9999</range>
+    <worldTargeting>true</worldTargeting>
+    <needsTicking>true</needsTicking>
+    <showGizmoOnWorldView>true</showGizmoOnWorldView>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Nightstalker</path>
+        <level>5</level>
+        <order>2</order>
+        <psyfocusCost>0.7</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_ShadowFocus</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+</Defs>

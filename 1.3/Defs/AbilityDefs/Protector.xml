@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Painblock</defName>
+      <label>painblock</label>
+      <description>Severely limit pain pathways in the target's brain for a couple of minutes. This can allow a person to move and act even with grievous injuries which would normally incapacitate them.</description>
+	  <iconPath>Abilities/Protector/Painblock</iconPath>
+	  <range>25</range>
+	  <castTime>15</castTime>
+	  <durationTime>7200</durationTime>
+	  <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+	  <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+	  <targetMode>Humanlike</targetMode>
+	  <showUndrafted>true</showUndrafted>
+	  <targetingParameters>
+		<canTargetHumans>True</canTargetHumans>
+	  	<canTargetSelf>True</canTargetSelf>
+	  	<canTargetAnimals>True</canTargetAnimals>
+	  </targetingParameters>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Protector</path>
+          <level>1</level>
+          <order>1</order>
+          <psyfocusCost>0.02</psyfocusCost>
+          <entropyGain>8</entropyGain>
+          <psychic>true</psychic>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>PsychicAnesthesia</hediff>
+			<durationMultiplier>PsychicSensitivity</durationMultiplier>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+	
+    <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+      <defName>VPE_WordofHealing</defName>
+      <label>word of healing</label>
+      <description>Psychically stimulates a person’s regenerative capabilities into overdrive, effectively tripling their natural healing factor for a few days.</description>
+      <iconPath>Abilities/Protector/WordofFortitude</iconPath>
+	  <durationTime>150000</durationTime>
+	  <castTime>60</castTime>
+	  <castSound>VPE_WordOfHealing_Cast</castSound>
+	  <showUndrafted>true</showUndrafted>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Protector</path>
+          <level>1</level>
+          <order>2</order>
+          <psyfocusCost>0.36</psyfocusCost>
+          <entropyGain>0</entropyGain>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>VPE_Healing</hediff>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+	
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+      <defName>VPE_Stabilize</defName>
+      <label>stabilize</label>
+      <description>Temporarily puts the target’s cardiovascular system in stasis, which prevents them from bleeding out for two minutes.</description>
+      <iconPath>Abilities/Protector/Stabilize</iconPath>
+	  <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+	  <castTime>180</castTime>
+	  <durationTime>7200</durationTime>
+	  <castSound>VPE_Stabilize_Cast</castSound>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Protector</path>
+          <level>2</level>
+          <order>1</order>
+          <psyfocusCost>0.3</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_Painblock</li>
+          </prerequisites>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>VPE_BlockBleeding</hediff>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+	
+    <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+      <defName>VPE_WordofImmunity</defName>
+      <label>word of immunity</label>
+      <description>Psychically stimulates a person’s immune system into overdrive, effectively tripling their immunity gain speed for a few days.</description>
+      <iconPath>Abilities/Protector/WordofImmunity</iconPath>
+	  <castTime>60</castTime>
+	  <durationTime>150000</durationTime>
+	  <showUndrafted>true</showUndrafted>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Protector</path>
+          <level>2</level>
+          <order>1</order>
+          <psyfocusCost>0.36</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_WordofHealing</li>
+          </prerequisites>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>VPE_Immunity</hediff>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+	
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Overshield</defName>
+      <label>overshield</label>
+      <description>Generate a spherical skipgate on a target that sends all incoming ground-level projectiles to some distant place, the duration scaling with the target’s psychic sensitivity. People and items are not affected.</description>
+      <iconPath>Abilities/Protector/Overshield</iconPath>
+	  <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+	  <castTime>60</castTime>
+	  <durationTime>600</durationTime>
+	  <range>5</range>
+	  <castSound>VPE_Overshield_Cast</castSound>
+	  <targetingParameters>
+		<canTargetPawns>true</canTargetPawns>
+		<canTargetSelf>true</canTargetSelf>
+	  </targetingParameters>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Protector</path>
+          <level>3</level>
+          <order>1</order>
+          <psyfocusCost>0.05</psyfocusCost>
+          <entropyGain>50</entropyGain>
+          <psychic>true</psychic>
+          <prerequisites>
+            <li>VPE_Stabilize</li>
+          </prerequisites>
+          <spaceAfter>true</spaceAfter>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>VPE_Overshield</hediff>
+			<durationMultiplier>PsychicSensitivity</durationMultiplier>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+	
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Focus</defName>
+      <label>focus</label>
+      <description>Psychically focus the target's mind for a minute, boosting their sight, hearing and moving capacities.</description>
+      <iconPath>Abilities/Protector/Focus</iconPath>
+	  <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+	  <castTime>15</castTime>
+	  <range>28</range>
+	  <durationTime>3600</durationTime>
+	  <showUndrafted>true</showUndrafted>
+	  <targetMode>Humanlike</targetMode>
+	  <targetingParameters>
+		<canTargetHumans>True</canTargetHumans>
+	  	<canTargetSelf>True</canTargetSelf>
+	  	<canTargetAnimals>True</canTargetAnimals>
+	  </targetingParameters>
+	  <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Protector</path>
+          <level>3</level>
+          <order>2</order>
+          <psyfocusCost>0.03</psyfocusCost>
+          <entropyGain>15</entropyGain>
+          <psychic>true</psychic>
+          <prerequisites>
+            <li>VPE_WordofImmunity</li>
+          </prerequisites>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>PsychicFocus</hediff>
+			<durationMultiplier>PsychicSensitivity</durationMultiplier>
+			<bodyPartToApply>Brain</bodyPartToApply>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+	
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Skipshield</defName>
+      <label>skipshield</label>
+      <description>Generate a spherical skipgate that sends all incoming and outgoing ground-level projectiles to some distant place. People and items are not affected.</description>
+      <iconPath>Abilities/Protector/Skipshield</iconPath>
+	  <castTime>60</castTime>
+	  <durationTime>900</durationTime>
+	  <range>25</range>
+	  <radius>4.9</radius>
+	  <targetMode>Location</targetMode>
+	  <abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Protector</path>
+          <level>4</level>
+          <order>1</order>
+          <psyfocusCost>0.08</psyfocusCost>
+          <entropyGain>65</entropyGain>
+          <prerequisites>
+            <li>VPE_Overshield</li>
+          </prerequisites>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+			<fleckDef>BulletShieldAreaEffect</fleckDef>
+			<sound>Psycast_Skip_Exit</sound>
+		</li>
+		<li Class="VFECore.Abilities.AbilityExtension_Spawn">
+			<thing>BulletShieldPsychic</thing>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+	
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Invisibility</defName>
+      <label>invisibility</label>
+      <description>Psychically manipulate the visual centers of everyone nearby, rendering them unable to perceive a particular individual for a short time.</description>
+      <iconPath>Abilities/Protector/Invisibility</iconPath>
+	  <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+	  <targetMode>Humanlike</targetMode>
+      <targetingParameters>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetingParameters>
+	  <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+	  <castTime>60</castTime>
+	  <durationTime>900</durationTime>
+	  <range>20</range>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Protector</path>
+          <level>4</level>
+          <order>2</order>
+          <psyfocusCost>0.12</psyfocusCost>
+          <entropyGain>45</entropyGain>
+          <psychic>true</psychic>
+          <prerequisites>
+            <li>VPE_Skipshield</li>
+            <li>VPE_RegrowLimbs</li>
+          </prerequisites>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>PsychicInvisibility</hediff>
+			<durationMultiplier>PsychicSensitivity</durationMultiplier>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+	
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_RegrowLimbs</defName>
+      <label>regrow limbs</label>
+      <description>Induces a complex form of psychic rejuvenation that targets the subject’s limbs, namely those that are missing. The effect is gradual over a full day’s time and often described as “wildly uncomfortable” as it overstimulates their phantom limb syndrome.</description>
+      <iconPath>Abilities/Protector/RegrowLimbs</iconPath>
+	  <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+	  <castTime>120</castTime>
+	  <durationTime>60000</durationTime>
+	  <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+	  <requireLineOfSight>false</requireLineOfSight>
+	  <targetMode>Pawn</targetMode>
+	  <range>999999</range>
+	  <distanceToTarget>1.5</distanceToTarget>
+	  <castSound>VPE_RegrowLimbs_Cast</castSound>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Protector</path>
+          <level>4</level>
+          <order>3</order>
+          <psyfocusCost>0.5</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_Focus</li>
+          </prerequisites>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>VPE_RegrowLimbs</hediff>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+	
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_GuardianSkipbarrier</defName>
+      <label>guardian skipbarrier</label>
+      <description>Generate a spherical skipgate around the caster that sends all incoming ground-level projectiles to some distant place, lasting as long as they can manage the heat accumulation. People and items are not affected. It takes immense concentration to hold, as such the caster needs to be mindful of their steps.</description>
+      <iconPath>Abilities/Protector/GuardianSkipbarrier</iconPath>
+	  <castSound>VPE_GuardianSkipbarrier_Cast</castSound>
+	  <abilityClass>VanillaPsycastsExpanded.Ability_GuardianSkipBarrier</abilityClass>
+	  <castTime>300</castTime>
+	  <radius>9</radius>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Protector</path>
+          <level>5</level>
+          <order>1</order>
+          <psyfocusCost>0.1</psyfocusCost>
+          <entropyGain>10</entropyGain>
+          <prerequisites>
+            <li>VPE_Invisibility</li>
+          </prerequisites>
+        </li>
+		<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<hediff>VPE_GuardianSkipBarrier</hediff>
+		</li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+</Defs>

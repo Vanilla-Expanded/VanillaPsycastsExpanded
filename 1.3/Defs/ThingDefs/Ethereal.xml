@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef ParentName="OrbitalStrikeBase">
+        <defName>VPE_FireBeam</defName>
+        <label>fire beam</label>
+        <thingClass>VanillaPsycastsExpanded.Conflagrator.FireBeam</thingClass>
+        <comps>
+            <li Class="CompProperties_OrbitalBeam">
+                <width>8</width>
+                <color>(255, 87, 51, 242)</color>
+                <sound>OrbitalBeam</sound>
+            </li>
+            <li Class="CompProperties_CameraShaker">
+                <mag>0.03</mag>
+            </li>
+            <li Class="CompProperties_AffectsSky">
+                <skyColors>
+                    <sky>(255, 117, 24)</sky>
+                    <shadow>(139, 64, 0)</shadow>
+                    <overlay>(255, 255, 255)</overlay>
+                    <saturation>1.3</saturation>
+                </skyColors>
+            </li>
+        </comps>
+    </ThingDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>VPE_FireTornado</defName>
+        <label>fire tornado</label>
+        <thingClass>VanillaPsycastsExpanded.Conflagrator.FireTornado</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <seeThroughFog>true</seeThroughFog>
+        <alwaysFlee>true</alwaysFlee>
+        <comps>
+            <li Class="CompProperties_WindSource" />
+        </comps>
+    </ThingDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>VPE_Vortex</defName>
+        <label>vortex</label>
+        <category>Building</category>
+        <thingClass>VanillaPsycastsExpanded.Staticlord.Vortex</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawOffscreen>true</drawOffscreen>
+        <seeThroughFog>true</seeThroughFog>
+    </ThingDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>VPE_HurricaneMaker</defName>
+        <label>hurricane maker</label>
+        <thingClass>VanillaPsycastsExpanded.Staticlord.HurricaneMaker</thingClass>
+        <tickerType>Normal</tickerType>
+    </ThingDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>VPE_TimeSphere</defName>
+        <label>time sphere</label>
+        <thingClass>VanillaPsycastsExpanded.Chronopath.TimeSphere</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <seeThroughFog>true</seeThroughFog>
+    </ThingDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>VPE_SkyChanger</defName>
+        <label>sky changer</label>
+        <thingClass>ThingWithComps</thingClass>
+        <tickerType>Never</tickerType>
+        <comps>
+            <li Class="CompProperties_AffectsSky">
+                <skyColors>
+                    <sky>(255, 255, 255)</sky>
+                    <shadow>(255, 255, 255)</shadow>
+                    <overlay>(255,255,255,255)</overlay>
+                    <saturation>2</saturation>
+                </skyColors>
+            </li>
+        </comps>
+    </ThingDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>VPE_BrambleSpawner</defName>
+        <label>emerging</label>
+        <thingClass>VanillaPsycastsExpanded.Wildspeaker.BrambleSpawner</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <comps>
+            <li>
+                <compClass>VFECore.Abilities.CompDuration</compClass>
+            </li>
+        </comps>
+    </ThingDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>VPE_WildPlantSpawner</defName>
+        <label>emerging</label>
+        <thingClass>VanillaPsycastsExpanded.Wildspeaker.WildPlantSpawner</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <comps>
+            <li>
+                <compClass>VFECore.Abilities.CompAbilitySpawn</compClass>
+            </li>
+        </comps>
+    </ThingDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>VPE_TreeSpawner</defName>
+        <label>emerging</label>
+        <thingClass>VanillaPsycastsExpanded.Wildspeaker.TreeSpawner</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+    </ThingDef>
+    <ThingDef ParentName="EtherealThingBase" Name="ShrineShieldBase" Abstract="True">
+        <thingClass>ThingWithComps</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Ethereal/PsychicShieldRipples</texPath>
+            <shaderType>BulletShieldPsychic</shaderType>
+            <color>(0, 255, 0)</color>
+            <shaderParameters>
+                <_PulseInterval>0.5</_PulseInterval>
+                <_DistortionScale>0.5</_DistortionScale>
+                <_DistortionIntensity>0.15</_DistortionIntensity>
+                <_MinAlpha>0.1</_MinAlpha>
+                <_MaxAlpha>0.3</_MaxAlpha>
+                <_DistortionTex>/Things/Mote/SmokeTiled</_DistortionTex>
+            </shaderParameters>
+        </graphicData>
+        <comps>
+            <li>
+                <compClass>VFECore.Abilities.CompDuration</compClass>
+            </li>
+            <li Class="VanillaPsycastsExpanded.Wildspeaker.CompProperties_PlaySound">
+                <sustainer>VPE_Shrineshield_Sustainer</sustainer>
+                <endSound>VPE_Shrineshield_End</endSound>
+            </li>
+        </comps>
+    </ThingDef>
+    <ThingDef ParentName="ShrineShieldBase">
+        <defName>VPE_Shrineshield_Small</defName>
+        <label>small shrineshield</label>
+        <graphicData>
+            <drawSize>11.8</drawSize>
+        </graphicData>
+        <comps>
+            <li Class="CompProperties_ProjectileInterceptor">
+                <radius>5.9</radius>
+                <interceptGroundProjectiles>true</interceptGroundProjectiles>
+                <interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+                <interceptOutgoingProjectiles>true</interceptOutgoingProjectiles>
+                <color>(0.0, 1, 0.0)</color>
+                <minAlpha>0.2</minAlpha>
+                <interceptEffect>Interceptor_BlockedProjectilePsychic</interceptEffect>
+            </li>
+        </comps>
+    </ThingDef>
+    <ThingDef ParentName="ShrineShieldBase">
+        <defName>VPE_Shrineshield_Large</defName>
+        <label>large shrineshield</label>
+        <graphicData>
+            <drawSize>23.8</drawSize>
+        </graphicData>
+        <comps>
+            <li Class="CompProperties_ProjectileInterceptor">
+                <radius>11.9</radius>
+                <interceptGroundProjectiles>true</interceptGroundProjectiles>
+                <interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+                <interceptOutgoingProjectiles>true</interceptOutgoingProjectiles>
+                <color>(0.0, 1, 0.0)</color>
+                <minAlpha>0.2</minAlpha>
+                <interceptEffect>Interceptor_BlockedProjectilePsychic</interceptEffect>
+            </li>
+        </comps>
+    </ThingDef>
+    <ThingDef ParentName="PawnFlyerBase">
+        <defName>VPE_JumpingPawn</defName>
+        <thingClass>VanillaPsycastsExpanded.JumpingPawn</thingClass>
+        <pawnFlyer>
+            <flightDurationMin>0.1</flightDurationMin>
+            <flightSpeed>20</flightSpeed>
+        </pawnFlyer>
+    </ThingDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>VPE_Darkness</defName>
+        <label>darkness</label>
+        <thingClass>ThingWithComps</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <drawOffscreen>true</drawOffscreen>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MotePsychicSkipInner</shaderType>
+            <texPath>Things/Mote/SkipInnerDimension</texPath>
+            <shaderParameters>
+                <_innerRingSize>0.65</_innerRingSize>
+                <_inTime>0.0</_inTime>
+                <_solidTime>2</_solidTime>
+                <_outTime>0.0</_outTime>
+                <AgeSecs>1</AgeSecs>
+            </shaderParameters>
+            <drawSize>13.6</drawSize>
+            <color>(1, 1, 1, 0.8)</color>
+        </graphicData>
+        <comps>
+            <li Class="VanillaPsycastsExpanded.Nightstalker.CompProperties_Darkness">
+                <glowRadius>4.9</glowRadius>
+            </li>
+            <li>
+                <compClass>VFECore.Abilities.CompDuration</compClass>
+            </li>
+        </comps>
+    </ThingDef>
+    <ThingDef ParentName="EtherealThingBase">
+        <defName>VPE_Decoy</defName>
+        <label>decoy</label>
+        <thingClass>VanillaPsycastsExpanded.Nightstalker.Decoy</thingClass>
+        <tickerType>Normal</tickerType>
+        <drawerType>RealtimeOnly</drawerType>
+        <category>Building</category>
+        <comps>
+            <li>
+                <compClass>VFECore.Abilities.CompDuration</compClass>
+            </li>
+            <li>
+                <compClass>VFECore.Abilities.CompAbilitySpawn</compClass>
+            </li>
+        </comps>
+    </ThingDef>
+</Defs>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <HediffDef ParentName="PsycastHediffBase">
+        <defName>VPE_FireShield</defName>
+        <label>fire shield</label>
+        <description>A shield of fire, sets melee attackers on fire</description>
+        <initialSeverity>1</initialSeverity>
+        <hediffClass>HediffWithComps</hediffClass>
+        <comps>
+            <li Class="VFECore.Shields.HediffCompProperties_Shield">
+                <compClass>VanillaPsycastsExpanded.Conflagrator.HediffComp_FireShield</compClass>
+                <graphic>
+                    <texPath>Effects/Conflagrator/FireShieldBubble/FireShieldBubble</texPath>
+                    <drawSize>(2, 2)</drawSize>
+                    <graphicClass>Graphic_Single</graphicClass>
+                    <shaderType>TransparentPostLight</shaderType>
+                </graphic>
+                <absorbAttackType>Both</absorbAttackType>
+                <absorb>
+                    <li>Flame</li>
+                </absorb>
+                <sustainer>VPE_FireShield_Sustainer</sustainer>
+                <soundEnded>VPE_FireShield_End</soundEnded>
+                <doDust>false</doDust>
+                <absorbedFleck>ExplosionFlash</absorbedFleck>
+                <damageOnAttack>Melee</damageOnAttack>
+                <damageType>Flame</damageType>
+                <damageAmount>3</damageAmount>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <statFactors>
+                    <Flammability>0</Flammability>
+                </statFactors>
+                <statOffsets>
+                    <ComfyTemperatureMax>1000</ComfyTemperatureMax>
+                </statOffsets>
+            </li>
+        </stages>
+    </HediffDef>
+    <HediffDef ParentName="PsycastHediffBase">
+        <defName>VPE_StaticAura</defName>
+        <label>static aura</label>
+        <description>An aura of static electricity, causes EMP damage to everything around</description>
+        <initialSeverity>1</initialSeverity>
+        <hediffClass>HediffWithComps</hediffClass>
+        <comps>
+            <li Class="VFECore.Shields.HediffCompProperties_DamageAura">
+                <compClass>VFECore.Shields.HediffComp_DamageAura</compClass>
+                <graphic>
+                    <texPath>Effects/Staticlord/StaticAura/StaticAura</texPath>
+                    <drawSize>(14, 14)</drawSize>
+                    <graphicClass>Graphic_Single</graphicClass>
+                    <shaderType>TransparentPostLight</shaderType>
+                </graphic>
+                <damageDef>EMP</damageDef>
+                <damageAmount>5</damageAmount>
+                <ticksBetween>60</ticksBetween>
+                <radius>6</radius>
+                <sustainer>VPE_StaticAura_Sustainer</sustainer>
+                <soundEnded>VPE_StaticAura_End</soundEnded>
+                <hostileOnly>false</hostileOnly>
+            </li>
+        </comps>
+    </HediffDef>
+</Defs>

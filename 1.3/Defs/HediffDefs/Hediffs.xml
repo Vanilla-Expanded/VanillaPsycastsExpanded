@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Recharge</defName>
+		<label>recharge</label>
+		<description>Electricity is being channeled to a nearby battery.</description>
+		<initialSeverity>1</initialSeverity>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="VFECore.Shields.HediffCompProperties_Draw">
+				<compClass>VanillaPsycastsExpanded.Staticlord.HediffComp_Recharge</compClass>
+				<graphic>
+					<texPath>Effects/Staticlord/Recharge</texPath>
+					<drawSize>(1, 1)</drawSize>
+					<graphicClass>Graphic_Flicker</graphicClass>
+					<shaderType>TransparentPostLight</shaderType>
+				</graphic>
+			</li>
+		</comps>
+	</HediffDef>
+	<HediffDef>
+		<defName>VPE_Vortex</defName>
+		<label>vortex</label>
+		<description>An electirical vortex is causing difficulty moving.</description>
+		<initialSeverity>1</initialSeverity>
+		<hediffClass>VanillaPsycastsExpanded.Staticlord.Hediff_Vortexed</hediffClass>
+	</HediffDef>
+	<HediffDef>
+		<defName>VPE_Hurricane</defName>
+		<label>hurricane</label>
+		<description>A hurricane is causing difficulty moving and seeing.</description>
+		<initialSeverity>0.01</initialSeverity>
+		<maxSeverity>0.5</maxSeverity>
+		<hediffClass>HediffWithComps</hediffClass>
+		<stages>
+			<li>
+				<minSeverity>0</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<postFactor>0.3</postFactor>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<postFactor>0.3</postFactor>
+					</li>
+					<li>
+						<capacity>Sight</capacity>
+						<postFactor>0.3</postFactor>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.1</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<postFactor>0.2</postFactor>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<postFactor>0.2</postFactor>
+					</li>
+					<li>
+						<capacity>Sight</capacity>
+						<postFactor>0.2</postFactor>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.3</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<postFactor>0.1</postFactor>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<postFactor>0.1</postFactor>
+					</li>
+					<li>
+						<capacity>Sight</capacity>
+						<postFactor>0.1</postFactor>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.4</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<postFactor>0</postFactor>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<postFactor>0</postFactor>
+					</li>
+					<li>
+						<capacity>Sight</capacity>
+						<postFactor>0</postFactor>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<compClass>VanillaPsycastsExpanded.Staticlord.HediffComp_Hurricane</compClass>
+				<severityPerDay>-10</severityPerDay>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Bliss</defName>
+		<label>bliss</label>
+		<description>Waves of serenity emanate deep from within, bringing peace of mind and lowering consciousness.</description>
+		<initialSeverity>0.1</initialSeverity>
+		<hediffClass>HediffWithComps</hediffClass>
+		<stages>
+			<li>
+				<minSeverity>0.1</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.05</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.2</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.10</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.3</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.15</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.4</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.20</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.5</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.25</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.6</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.30</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.7</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.35</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.8</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.40</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>0.8</severityPerDay>
+			</li>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_Bliss</stateEffecter>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_AgeSickness</defName>
+		<label>age sickness</label>
+		<description>Age-related psychic sickness greatly reducing manipulation and consciousness.</description>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.5</offset>
+					</li>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.25</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_PsychicDrone</defName>
+		<label>psychic drone</label>
+		<description>A strong psychic force affecting every enemy humanlike in the area, making them feel more disturbed, terrified, and paranoid.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_PsychicDrone</hediffClass>
+		<comps>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_PlaySound">
+				<endSound>VPE_PsychicDrone_End</endSound>
+				<sustainer>VPE_PsychicDrone_Sustainer</sustainer>
+			</li>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDowned"/>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDespawn"/>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_IceShield</defName>
+		<label>ice shield</label>
+		<description>A psychic shield that protects from hypothermia and freezer enemies that interact with it.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_IceShield</hediffClass>
+		<comps>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_PlaySound">
+				<endSound>VPE_IceShield_End</endSound>
+				<sustainer>VPE_IceShield_Sustainer</sustainer>
+			</li>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDowned"/>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDespawn"/>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_FrostRay</defName>
+		<label>frost ray</label>
+		<description>A heavily damaging and freezing ray of frost.</description>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_IceBlock</defName>
+		<label>frozen solid</label>
+		<description>This entity is completely frozen in a block of ice, and will not be able to move until it melts.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_IceBlock</hediffClass>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_BlizzardSource</defName>
+		<label>casting blizzard</label>
+		<description>This entity is casting blizzard.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_BlizzardSource</hediffClass>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+			</li>
+		</stages>
+		<comps>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_PlaySound">
+				<sustainer>Tornado</sustainer>
+			</li>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDowned"/>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDespawn"/>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>VPE_Blizzard</defName>
+		<label>blizzard</label>
+		<description>A huge wind with extreme snow that lowers sight, manipulation and movement speed.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Sight</capacity>
+						<postFactor>0.2</postFactor>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<postFactor>0.5</postFactor>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<postFactor>0.5</postFactor>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>60</disappearsAfterTicks>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Haywire</defName>
+		<label>haywire</label>
+		<description>Psychically hacked programming that disrupts the IFF operations.</description>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_Haywire</stateEffecter>
+			</li>
+			<li>
+				<compClass>VanillaPsycastsExpanded.Technomancer.HediffComp_Haywire</compClass>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_InfinitePower</defName>
+		<label>powering</label>
+		<description>Generating infinite electricity supply to a given structure.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_NoMerge</hediffClass>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_Haywire</stateEffecter>
+			</li>
+			<li>
+				<compClass>VanillaPsycastsExpanded.Technomancer.HediffComp_InfinitePower</compClass>
+			</li>
+		</comps>
+	</HediffDef>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_AnimalOvershield</defName>
+		<label>animal shield</label>
+		<description>An overshield that protects the animal from any ranged attacks.</description>
+		<hediffClass>VanillaPsycastsExpanded.Wildspeaker.Hediff_AnimalShield</hediffClass>
+	</HediffDef>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Smartbuzz</defName>
+		<label>smartbuzz</label>
+		<description>Psychically-induced feelings of clarity and curiosity. This improves research speed as well as skill gain speed.</description>
+		<stages>
+			<li>
+				<statFactors>
+					<ResearchSpeed>1.25</ResearchSpeed>
+					<GlobalLearningFactor>2</GlobalLearningFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef>
+		<defName>VPE_Essence</defName>
+		<label>Essence of</label>
+		<description>Psychically-split fragment of someone's personality imbued in this very being.</description>
+		<hediffClass>VanillaPsycastsExpanded.Wildspeaker.Hediff_Essence</hediffClass>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_DisappearsOnDeath" />
+		</comps>
+	</HediffDef>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Darkvision</defName>
+		<label>darkvision</label>
+		<description>Psychically-induced ability to see through the darkness and shadows.</description>
+		<hediffClass>VanillaPsycastsExpanded.Nightstalker.Hediff_Darkvision</hediffClass>
+		<woundAnchorRange>0</woundAnchorRange>
+		<displayWound>true</displayWound>
+		<stages>
+			<li>
+				<statFactors>
+					<ShootingAccuracyOutdoorsDarkOffset MayRequire="Ludeon.RimWorld.Ideology">0</ShootingAccuracyOutdoorsDarkOffset>
+					<ShootingAccuracyOutdoorsLitOffset MayRequire="Ludeon.RimWorld.Ideology">0</ShootingAccuracyOutdoorsLitOffset>
+					<ShootingAccuracyIndoorsDarkOffset MayRequire="Ludeon.RimWorld.Ideology">0</ShootingAccuracyIndoorsDarkOffset>
+					<ShootingAccuracyIndoorsLitOffset MayRequire="Ludeon.RimWorld.Ideology">0</ShootingAccuracyIndoorsLitOffset>
+					<MeleeHitChanceOutdoorsDarkOffset MayRequire="Ludeon.RimWorld.Ideology">0</MeleeHitChanceOutdoorsDarkOffset>
+					<MeleeHitChanceOutdoorsLitOffset MayRequire="Ludeon.RimWorld.Ideology">0</MeleeHitChanceOutdoorsLitOffset>
+					<MeleeHitChanceIndoorsDarkOffset MayRequire="Ludeon.RimWorld.Ideology">0</MeleeHitChanceIndoorsDarkOffset>
+					<MeleeHitChanceIndoorsLitOffset MayRequire="Ludeon.RimWorld.Ideology">0</MeleeHitChanceIndoorsLitOffset>
+					<MeleeDodgeChanceOutdoorsDarkOffset MayRequire="Ludeon.RimWorld.Ideology">0</MeleeDodgeChanceOutdoorsDarkOffset>
+					<MeleeDodgeChanceOutdoorsLitOffset MayRequire="Ludeon.RimWorld.Ideology">0</MeleeDodgeChanceOutdoorsLitOffset>
+					<MeleeDodgeChanceIndoorsDarkOffset MayRequire="Ludeon.RimWorld.Ideology">0</MeleeDodgeChanceIndoorsDarkOffset>
+					<MeleeDodgeChanceIndoorsLitOffset MayRequire="Ludeon.RimWorld.Ideology">0</MeleeDodgeChanceIndoorsLitOffset>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef>
+		<defName>VPE_Darkvision_Display</defName>
+		<label>darkvision</label>
+		<description>Psychically-induced night vision.</description>
+		<woundAnchorRange>0</woundAnchorRange>
+		<displayWound>true</displayWound>
+		<isBad>false</isBad>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Productivity</defName>
+		<label>psychic productivity</label>
+		<description>Psychically-induced improvement to work speed.</description>
+		<stages>
+			<li>
+				<hungerRateFactor>1.25</hungerRateFactor>
+				<statOffsets>
+					<WorkSpeedGlobal>0.25</WorkSpeedGlobal>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_PsychicSoothe</defName>
+		<label>psychic soothe</label>
+		<description>Psychically-induced, self-satisfying perceptual distortions, giving a temporary mood boost.</description>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>VPE_GroupLink</defName>
+		<label>group link</label>
+		<description>Psychically-induced link between several entities. Any 'word of' psycast will resonate between all linked individuals.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_GroupLink</hediffClass>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDowned"/>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDespawn"/>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_PsychicPain</defName>
+		<label>psychic pain</label>
+		<description>Psychically-induced extreme physical pain.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_PsychicPain</hediffClass>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Protection</defName>
+		<label>psychic protection</label>
+		<description>Psychically-induced physical protection from incoming damage.</description>
+		<stages>
+			<li>
+				<statFactors>
+					<IncomingDamageFactor>0.5</IncomingDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Hallucination</defName>
+		<label>hallucination</label>
+		<description>Strong psychic suggestion that reshapes reality in the eyes of the affected individuals, making them perceive their every day life as that of a luxury.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_Hallucination</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_Hallucination</stateEffecter>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Liferot</defName>
+		<label>liferot</label>
+		<description>Psychically-induced mass necrosis, causing living and healthy limbs and organs to rot on the victim.</description>
+		<makesSickThought>true</makesSickThought>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_Liferot</hediffClass>
+		<stages>
+			<li>
+				<vomitMtbDays>0.01</vomitMtbDays>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_Liferot</stateEffecter>
+			</li>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_SpawnFilth">
+				<filthDef>Filth_CorpseBile</filthDef>
+				<intervalRate>30</intervalRate>
+				<filthCount>1~3</filthCount>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="InjuryBase">
+		<defName>VPE_Rot</defName>
+		<label>rot</label>
+		<labelNoun>a rot</labelNoun>
+		<description>A rot.</description>
+		<comps>
+			<li Class="HediffCompProperties_Infecter">
+				<infectionChance>1</infectionChance>
+			</li>
+			      <li Class="HediffCompProperties_TendDuration">
+			        <labelTendedWell>bandaged</labelTendedWell>
+			        <labelTendedWellInner>tended</labelTendedWellInner>
+			        <labelSolidTendedWell>tended</labelSolidTendedWell>
+			      </li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.125</painPerSeverity>
+			<canMerge>false</canMerge>
+			<destroyedLabel>Rotted away</destroyedLabel>
+			<destroyedOutLabel>Rotted away</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_GainedVitality</defName>
+		<label>psychic vitality</label>
+		<description>Psychically-induced vitality stolen from another person.</description>
+		<stages>
+			<li>
+				<restFallFactor>0.5</restFallFactor>
+				<naturalHealingFactor>1.2</naturalHealingFactor>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<postFactor>1.2</postFactor>
+					</li>
+					<li>
+						<capacity>Consciousness</capacity>
+						<postFactor>1.3</postFactor>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_LostVitality</defName>
+		<label>psychic weakness</label>
+		<description>Psychically-induced weakness caused by vitality being stolen by another person.</description>
+		<stages>
+			<li>
+				<restFallFactor>2</restFallFactor>
+				<naturalHealingFactor>0.8</naturalHealingFactor>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<postFactor>0.8</postFactor>
+					</li>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.70</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Ghostwalk</defName>
+		<label>ghostwalk</label>
+		<description>Psychically-induced matter phasing.</description>
+		<comps>
+			<li Class="HediffCompProperties">
+				<compClass>VFECore.HediffComp_Phasing</compClass>
+			</li>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_SpawnMote">
+				<moteDef>VPE_MatterPhasing</moteDef>
+				<maxScale>1</maxScale>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_CorpseTalk</defName>
+		<label>corpse talk</label>
+		<description>Psychically-induced link with a spirit of a deceased individual.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_CorpseTalk</hediffClass>
+		<comps>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_SpawnMote">
+				<moteDef>VPE_SoulOrb</moteDef>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>VPE_BodiesConsumed</defName>
+		<label>bodies consumed</label>
+		<description>The amount of bodies that were consumed using the Consume Bodies psycast. Each body consumed increases a maximum neural heat by 1.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_BodiesConsumed</hediffClass>
+		<isBad>false</isBad>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_DeathShield</defName>
+		<label>death shield</label>
+		<description>Psychically-induced immortality that lasts for one day.</description>
+		<hediffClass>VanillaPsycastsExpanded.Hediff_Deathshield</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_BlackSmoke</stateEffecter>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>VPE_Obscured</defName>
+		<label>obscured</label>
+		<description>Psychically-induced invisibility.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_DisappearsOnDeath" />
+			<li>
+				<compClass>VanillaPsycastsExpanded.Nightstalker.HediffComp_DissapearsInLight</compClass>
+			</li>
+			<li>
+				<compClass>VanillaPsycastsExpanded.Nightstalker.HediffComp_DissapearsOnAttack</compClass>
+			</li>
+			<li>
+				<compClass>HediffComp_Invisibility</compClass>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_Shadowfocus</defName>
+		<label>shadowfocus</label>
+		<description>Psychically-induced increase to psychic sensitivity based on the lack of light around the psycaster.</description>
+		<hediffClass>VanillaPsycastsExpanded.Nightstalker.Hediff_ShadowFocus</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_BlackSmoke</stateEffecter>
+			</li>
+		</comps>
+	</HediffDef>
+</Defs>

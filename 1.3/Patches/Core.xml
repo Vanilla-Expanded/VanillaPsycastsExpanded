@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+		<xpath>/Defs/HediffDef[defName="PsychicBurden"]/stages/li/capMods/li/setMax</xpath>
+		<value>
+            <postFactor>0.4</postFactor>
+		</value>
+    </Operation>
+	
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationConditional">
+				<xpath>/Defs/StatDef[defName="PsychicEntropyMax"]/parts</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>/Defs/StatDef[defName="PsychicEntropyMax"]</xpath>
+					<value>
+						<parts>
+							<li Class="VanillaPsycastsExpanded.StatPart_PsycastBodiesConsumed"/>
+						</parts>
+					</value>
+				</nomatch>
+				<match Class="PatchOperationAdd">
+					<xpath>/Defs/StatDef[defName="PsychicEntropyMax"]/parts</xpath>
+					<value>
+						<li Class="VanillaPsycastsExpanded.StatPart_PsycastBodiesConsumed"/>
+					</value>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="AnimalThingBase" Name="VPE_UndeadBase" Abstract="True">
+		<statBases>
+			<ToxicSensitivity>0</ToxicSensitivity>
+			<PsychicSensitivity>0</PsychicSensitivity>
+			<Flammability>0</Flammability>
+			<MeatAmount>0</MeatAmount>
+			<LeatherAmount>0</LeatherAmount>
+			<ArmorRating_Heat>2.00</ArmorRating_Heat>
+		</statBases>
+		<uiIconScale>1.5</uiIconScale>
+		<tradeTags>
+			<li>NonContractable</li>
+		</tradeTags>
+		<race>
+			<canBePredatorPrey>false</canBePredatorPrey>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<canReleaseToWild>false</canReleaseToWild>
+			<trainability>None</trainability>
+			<showTrainables>false</showTrainables>
+			<playerCanChangeMaster>false</playerCanChangeMaster>
+			<hideTrainingTab>true</hideTrainingTab>
+			<disableAreaControl>true</disableAreaControl>
+			<wildness>0</wildness>
+			<useMeatFrom>Pig</useMeatFrom>
+			<petness>0</petness>
+			<hediffGiverSets Inherit="False"/>
+			<needsRest>false</needsRest>
+			<hasGenders>false</hasGenders>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+	</ThingDef>
+	<!-- Steel -->
+	<ThingDef ParentName="VPE_UndeadBase">
+		<defName>VPE_SummonedSkeleton</defName>
+		<label>skeleton</label>
+		<description>A psychically re-animated husk of a deceased individual. Extremely aggressive, but will soon wither away into nothing.</description>
+		<statBases>
+			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
+			<ComfyTemperatureMax>250</ComfyTemperatureMax>
+			<MarketValue>150</MarketValue>
+			<ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+			<MoveSpeed>4.6</MoveSpeed>
+		</statBases>
+		<tools>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8.2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>14</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8.2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>14</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+		</tools>
+		<comps>
+			<li Class="AnimalBehaviours.CompProperties_InitialHediff">
+				<hediffname>VPE_NoPain</hediffname>
+				<hediffseverity>1</hediffseverity>
+			</li>
+			
+			<li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+				<mentalstate>VPE_Manhunter</mentalstate>
+			
+			</li>
+			<li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+				<timeToDieInTicks>60000</timeToDieInTicks>
+				<effect>true</effect>
+				<effectFilth>Filth_CorpseBile</effectFilth>
+			
+			</li>
+			<li Class="AnimalBehaviours.CompProperties_DiseaseImmunity">
+				<hediffsToRemove><li>Animal_Plague</li><li>Animal_Flu</li><li>AB_AnimalSporesAllergy</li></hediffsToRemove>
+				<tickInterval>2000</tickInterval>
+			</li>
+			<li Class="AnimalBehaviours.CompProperties_DiseaseEventImmunity">
+				
+			</li>
+			
+			
+		</comps>
+		<race>
+			<deathActionWorkerClass>VanillaPsycastsExpanded.DeathActionWorker_Skeleton</deathActionWorkerClass>
+			<body>VPE_SkeletalBody</body>
+			<fleshType>VPE_SkeletalFlesh</fleshType>
+			<lifeStageAges>
+				<li>
+					<minAge>0</minAge>
+					<def>AnimalAdult</def>
+				
+					<soundWounded>VPE_Pawn_Skeleton_Wounded</soundWounded>
+					<soundDeath>VPE_Pawn_Skeleton_Death</soundDeath>
+					<soundCall>VPE_Pawn_Skeleton_Call</soundCall>
+				
+				</li>
+			</lifeStageAges>
+			<soundCallIntervalRange>
+				<min>12000</min>
+				<max>20000</max>
+			</soundCallIntervalRange>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>VPE_SummonedSkeleton</defName>
+		<label>skeleton</label>
+		<race>VPE_SummonedSkeleton</race>
+		<combatPower>100</combatPower>
+		<canArriveManhunter>false</canArriveManhunter>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Effects/Necropath/Enthrall/Soulshade</texPath>
+					<drawSize>1.5</drawSize>
+					<shaderType>MetaOverlay</shaderType>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+</Defs>

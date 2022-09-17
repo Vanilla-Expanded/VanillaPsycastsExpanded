@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_PlantTimeskip</defName>
+      <label>plant timeskip</label>
+      <description>Grows all the plants in a radius around the caster to maturity.</description>
+      <iconPath>Abilities/Chronopath/PlantTimeskip</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Chronopath.Ability_MaturePlants</abilityClass>
+      <targetMode>Self</targetMode>
+      <radius>2.9</radius>
+      <castTime>120</castTime>
+	    <cooldownTime>60000</cooldownTime>
+      <castSound>VPE_PlantTimeskip_Cast</castSound>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Chronopath</path>
+          <level>1</level>
+          <order>1</order>
+          <psyfocusCost>0.50</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_TimeskipMeditation</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+          <fleckDef>VPE_Timeskip</fleckDef>
+          <scale>1</scale>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_TimeskipMeditation</defName>
+      <label>timeskip meditation</label>
+      <description>Puts the caster's body under significant stress, biologically aging them five years as they earn a considerable amount of experience toward their next Psycast level and regain full Psyfocus.</description>
+      <iconPath>Abilities/Chronopath/TimeskipMeditation</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Chronopath.Ability_Meditate</abilityClass>
+      <targetMode>Self</targetMode>
+      <castTime>600</castTime>
+      <castSound>VPE_TimeskipMeditation_Cast</castSound>
+	  <cooldownTime>180000</cooldownTime>
+	  <showUndrafted>true</showUndrafted>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Chronopath</path>
+          <level>1</level>
+          <order>2</order>
+          <psyfocusCost>0</psyfocusCost>
+          <entropyGain>0</entropyGain>
+        </li>
+        <li Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_Age">
+          <casterYears>5</casterYears>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+      <defName>VPE_WordofForetelling</defName>
+      <label>word of foretelling</label>
+      <description>Psychic whispers of things to come. Colony pawns are inspired, neutrals or friendlies improve relations, prisoners lose their resistance and enemies retreat from their doom.</description>
+      <iconPath>Abilities/Chronopath/WordofForetelling</iconPath>
+      <distanceToTarget>3</distanceToTarget>
+	    <showUndrafted>true</showUndrafted>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Chronopath</path>
+          <level>1</level>
+          <order>3</order>
+          <psyfocusCost>0.6</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_TimeskipMeditation</li>
+          </prerequisites>
+        </li>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_GiveInspiration">
+          <onlyPlayer>true</onlyPlayer>
+        </li>
+        <li Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_ImproveRelations" />
+        <li Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_ReduceResistance" />
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Flee">
+          <onlyHostile>true</onlyHostile>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_CraftTimeskip</defName>
+      <label>craft timeskip</label>
+      <description>Using very precise timeskipping, moves the desired item to its finished state as if the creator had continued working on it. Ages the caster by 3 years.</description>
+      <iconPath>Abilities/Chronopath/CraftTimeskip</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Chronopath.Ability_Finish</abilityClass>
+      <castTime>180</castTime>
+      <castSound>VPE_CraftTimeskip_Cast</castSound>
+      <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>999999</range>
+      <distanceToTarget>1.5</distanceToTarget>
+      <targetingParameters>
+        <canTargetItems>true</canTargetItems>
+        <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+        <thingCategory>Item</thingCategory>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetingParameters>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Chronopath</path>
+          <level>2</level>
+          <order>1</order>
+          <psyfocusCost>0.5</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_PlantTimeskip</li>
+          </prerequisites>
+        </li>
+        <li Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_Age">
+          <casterYears>3</casterYears>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+          <fleckDef>VPE_Timeskip</fleckDef>
+          <scale>0.1</scale>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Age</defName>
+      <label>age</label>
+      <description>Very inefficiently siphons life force from a living target, de-aging the caster by 2 years and aging the other by 10. Very debilitating aftereffects for the victim and considered a hostile action by allies.</description>
+      <iconPath>Abilities/Chronopath/Age</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+      <targetMode>Humanlike</targetMode>
+      <range>3</range>
+      <castTime>180</castTime>
+      <castSound>VPE_Age_Cast</castSound>
+      <goodwillImpact>-25</goodwillImpact>
+	  <showUndrafted>true</showUndrafted>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Chronopath</path>
+          <level>2</level>
+          <order>2</order>
+          <psyfocusCost>0.3</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_WordofForetelling</li>
+          </prerequisites>
+        </li>
+        <li Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_Age">
+          <casterYears>-2</casterYears>
+          <targetYears>10</targetYears>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_ExtraHediffs">
+          <onTarget>
+            <li>VPE_AgeSickness</li>
+          </onTarget>
+          <durationTimeOverride>300000</durationTimeOverride>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+          <fleckDef>VPE_Timeskip</fleckDef>
+          <scale>0.1</scale>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_RaidPause</defName>
+      <label>raid pause</label>
+      <description>Depending on the caster’s psychic sensitivity, slows all raiders on the map to a complete stop for up to five minutes. Attacking any single affected raider jolts all of them back into action.</description>
+      <iconPath>Abilities/Chronopath/RaidPause</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+      <castTime>600</castTime>
+      <durationTime>180</durationTime>
+      <durationTimeStatFactors>
+        <PsychicSensitivity>5</PsychicSensitivity>
+      </durationTimeStatFactors>
+      <targetMode>Self</targetMode>
+	  <showUndrafted>true</showUndrafted>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Chronopath</path>
+          <level>4</level>
+          <order>1</order>
+          <psyfocusCost>0.6</psyfocusCost>
+          <entropyGain>40</entropyGain>
+          <prerequisites>
+            <li>VPE_Age</li>
+          </prerequisites>
+        </li>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_GameCondition">
+          <gameCondition>VPE_RaidPause</gameCondition>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_SeasonTimeskip</defName>
+      <label>season timeskip</label>
+      <description>Locks the entire planet into a season-long psychically induced slowdown, effectively skipping forward a season. Nigh instantaneous effect, very strenuous and puts the caster in a coma.</description>
+      <iconPath>Abilities/Chronopath/SeasonTimeskip</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Chronopath.Ability_AdvanceSeason</abilityClass>
+      <needsTicking>true</needsTicking>
+      <castSound>VPE_SeasonTimeskip_Cast</castSound>
+      <castTime>600</castTime>
+      <targetMode>Self</targetMode>
+	  <showUndrafted>true</showUndrafted>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Chronopath</path>
+          <level>4</level>
+          <order>2</order>
+          <psyfocusCost>0.8</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_CraftTimeskip</li>
+          </prerequisites>
+        </li>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+          <hours>6</hours>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_TimeSphere</defName>
+      <label>time sphere</label>
+      <description>Psychically compresses the flow of time in an area. Rapidly ages living creatures, plants flourish and wither, and structures start to disintegrate from the bizarre stress.</description>
+      <iconPath>Abilities/Chronopath/TimeSphere</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Chronopath.Ability_TimeSphere</abilityClass>
+      <castTime>120</castTime>
+      <castSound>VPE_TimeSphere_Cast</castSound>
+      <targetMode>Location</targetMode>
+      <range>25.9</range>
+      <radius>9.9</radius>
+      <durationTime>1800</durationTime>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Chronopath</path>
+          <level>5</level>
+          <order>1</order>
+          <psyfocusCost>0.1</psyfocusCost>
+          <entropyGain>90</entropyGain>
+          <prerequisites>
+            <li>VPE_RaidPause</li>
+          </prerequisites>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_TimeReversal</defName>
+      <label>time reversal</label>
+      <description>Inefficiently siphons life force to a living target, aging the caster by 5 years and de-aging the other by 10. Has a minimum age, removes age related penalties and puts the caster in a coma.</description>
+      <iconPath>Abilities/Chronopath/TimeReversal</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+      <castTime>300</castTime>
+      <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>999999</range>
+      <distanceToTarget>1.9</distanceToTarget>
+      <targetMode>Pawn</targetMode>
+      <castSound>VPE_TimeReversal_Cast</castSound>
+	  <showUndrafted>true</showUndrafted>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Chronopath</path>
+          <level>5</level>
+          <order>3</order>
+          <psyfocusCost>0.5</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_SeasonTimeskip</li>
+          </prerequisites>
+        </li>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+          <hours>12</hours>
+        </li>
+        <li Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_Age">
+          <casterYears>5</casterYears>
+          <targetYears>-10</targetYears>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+          <fleckDef>VPE_Timeskip</fleckDef>
+          <scale>0.7</scale>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Timequake</defName>
+      <label>timequake</label>
+      <description>Find a discontinuity in the psychic field and compress it, releasing a massive temporal disturbance. Every creature in range but outside of the safe inner circle will experience rapid aging and structures will warp. Casting this takes 20 seconds of meditation, and afterwards, the caster will go into a five-day psychic coma. The disturbing timequake echoes will inflict pain on everyone for many kilometers around, causing diplomatic consequences with all factions.</description>
+      <iconPath>Abilities/Chronopath/Timequake</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Chronopath.Ability_TimeQuake</abilityClass>
+      <castTime>1200</castTime>
+      <durationTime>1800</durationTime>
+      <durationTimeStatFactors>
+        <PsychicSensitivity>1</PsychicSensitivity>
+      </durationTimeStatFactors>
+      <targetMode>Self</targetMode>
+      <radius>9</radius>
+      <jobDef>VFEA_UseAbilityUninterruptible</jobDef>
+      <warmupMote>Mote_WarmupNeuroquake</warmupMote>
+      <warmupStartSound>Psycast_Neuroquake_CastStart</warmupStartSound>
+      <warmupSound>Psycast_Neuroquake_CastLoop</warmupSound>
+      <warmupPreEndSound>Psycast_Neuroquake_CastEnd</warmupPreEndSound>
+      <warmupPreEndSoundTicks>300</warmupPreEndSoundTicks>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Chronopath</path>
+          <level>5</level>
+          <order>2</order>
+          <psyfocusCost>0.6</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_TimeSphere</li>
+            <li>VPE_TimeReversal</li>
+          </prerequisites>
+        </li>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+          <hours>120</hours>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_ConfirmationMessage">
+          <message>If you use timequake, everyone in this region will feel the timequake echo, you will lose goodwill with every non-hostile faction.\n\nTimequake takes 20 seconds to cast, and cannot be interrupted. When complete, the caster will fall into a psychic coma for 5 days.\n\nEveryone except those in a small circle around the caster will be affected.\n\nDo you really want to cast timequake?</message>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+          <fleckDef>PsychicApplyNeuroquake</fleckDef>
+          <sound>Psycast_Neuroquake_Effect</sound>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+</Defs>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/FleshTypeDef[defName="Normal"]/hediffWounds</xpath>
+        <value>
+            <li>
+                <hediff>VPE_Darkvision_Display</hediff>
+                <wounds>
+                    <li Class="VanillaPsycastsExpanded.WoundWithShader">
+                        <textureSouth>Effects/Nightstalker/DarkvisionEye_south</textureSouth>
+                        <textureNorth>Effects/Nightstalker/DarkvisionEye_south</textureNorth>
+                        <textureEast>Effects/Nightstalker/DarkvisionEye_east</textureEast>
+                        <textureWest>Effects/Nightstalker/DarkvisionEye_east</textureWest>
+                        <shader>MoteGlow</shader>
+                        <scale>0.75</scale>
+                    </li>
+                </wounds>
+            </li>
+        </value>
+    </Operation>
+</Patch>

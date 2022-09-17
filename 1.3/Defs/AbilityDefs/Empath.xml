@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+    <defName>VPE_WordofJoy</defName>
+    <label>word of joy</label>
+    <description>Speak happy, calming words to someone while using psychic suggestion to implant a joyfuzz loop in his mind. The joyfuzz will suppress uncomfortable thoughts and sensations in the target to improve mood. This has the side-effect of dulling sensation and decision-making, which reduces consciousness.</description>
+    <iconPath>UI/Abilities/WordOfJoy</iconPath>
+    <durationTime>300000</durationTime>
+    <goodwillImpact>-25</goodwillImpact>
+	<showUndrafted>true</showUndrafted>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Empath</path>
+        <level>1</level>
+        <order>1</order>
+        <psyfocusCost>0.4</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <showCastBubble>false</showCastBubble>
+        <psychic>true</psychic>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>Joyfuzz</hediff>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <bodyPartToApply>Brain</bodyPartToApply>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_SocialInteraction">
+        <interactionDef>WordOfJoy</interactionDef>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+  <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+    <defName>VPE_WordofLove</defName>
+    <label>word of love</label>
+    <description>Speak about someone's romantic virtues while using psychic suggestion to implant romantic desire in the listener. For days afterward, the listener will feel psychically-induced romantic attraction towards the other person. This greatly increases opinion and makes them much more likely to attempt romantic advances and marriage proposals if they get the chance. This power can be used to connect two other people, induce love for the caster, or force oneself to love another.</description>
+    <iconPath>Abilities/Empath/WordofLove</iconPath>
+    <durationTime>480000</durationTime>
+	<showUndrafted>true</showUndrafted>
+    <targetMode IsNull="True" />
+    <targetCount>2</targetCount>
+    <targetModes>
+      <li>Pawn</li>
+      <li>Pawn</li>
+    </targetModes>
+    <targetingParametersList>
+      <li>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetHumans>True</canTargetHumans>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetMechs>False</canTargetMechs>
+        <canTargetBuildings>False</canTargetBuildings>
+      </li>
+      <li>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetHumans>True</canTargetHumans>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetMechs>False</canTargetMechs>
+        <canTargetBuildings>False</canTargetBuildings>
+      </li>
+    </targetingParametersList>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Empath</path>
+        <level>2</level>
+        <order>2</order>
+        <psyfocusCost>0.4</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_WordofJoy</li>
+        </prerequisites>
+        <showCastBubble>false</showCastBubble>
+        <psychic>true</psychic>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_WordOfLove"></li>
+      <li Class="VFECore.Abilities.AbilityExtension_SocialInteraction">
+        <interactionDef>WordOfLove</interactionDef>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+  <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+    <defName>VPE_WordofSerenity</defName>
+    <label>word of serenity</label>
+    <description>Use calming words and psychic suggestion to end a mental break on a person or animal. The target will fall into a short psychic sleep. The psyfocus cost depends on the intensity of the target's mental break.</description>
+    <iconPath>Abilities/Empath/WordofSerenity</iconPath>
+    <durationTime>15000</durationTime>
+	<showUndrafted>true</showUndrafted>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_PsycastWordOfSerenity">
+        <path>VPE_Empath</path>
+        <level>2</level>
+        <order>1</order>
+        <exceptions>
+          <li>Jailbreaker</li>
+        </exceptions>
+        <psyfocusCostForMinor>0.3</psyfocusCostForMinor>
+        <psyfocusCostForMajor>0.5</psyfocusCostForMajor>
+        <psyfocusCostForExtreme>0.7</psyfocusCostForExtreme>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_WordofLove</li>
+        </prerequisites>
+        <showCastBubble>false</showCastBubble>
+        <psychic>true</psychic>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_SocialInteraction">
+        <interactionDef>WordOfSerenity</interactionDef>
+        <canApplyToMentallyBroken>True</canApplyToMentallyBroken>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>PsychicComa</hediff>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+  <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+    <defName>VPE_WordofInspiration</defName>
+    <label>word of inspiration</label>
+    <description>Speak words encouraging creativity while psychically hypercharging the target's mind with new ideas. The target will experience a random inspiration appropriate to them.</description>
+    <iconPath>Abilities/Empath/WordofInspiration</iconPath>
+	<showUndrafted>true</showUndrafted>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Empath</path>
+        <level>2</level>
+        <order>3</order>
+        <psyfocusCost>0.8</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_WordofLove</li>
+        </prerequisites>
+        <showCastBubble>false</showCastBubble>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_GiveInspiration" />
+      <li Class="VFECore.Abilities.AbilityExtension_SocialInteraction">
+        <interactionDef>WordOfInspiration</interactionDef>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_SootheMale</defName>
+    <label>psychic sooth (male)</label>
+    <description>Sends out a signal to a distant engine of happiness to begin projecting a positive psychic drone, while also manipulating an orbital amplifier that only affects males.</description>
+    <iconPath>Abilities/Empath/SootheMale</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <castSound>PsychicSoothePulserCast</castSound>
+    <castTime>600</castTime>
+    <durationTime>180000</durationTime>
+	<showUndrafted>true</showUndrafted>
+    <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+    <castFleck>VFEP_PsycastAreaEffectSlow</castFleck>
+    <castFleckScale>9</castFleckScale>
+    <targetMode>Self</targetMode>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Empath</path>
+        <level>3</level>
+        <order>1</order>
+        <spaceAfter>true</spaceAfter>
+        <psyfocusCost>0.8</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_WordofSerenity</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_CastPsychicSoothe">
+        <gender>Male</gender>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>VPE_PsychicSoothe</hediff>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_SootheFemale</defName>
+    <label>psychic sooth (female)</label>
+    <description>Sends out a signal to a distant engine of happiness to begin projecting a positive psychic drone, while also manipulating an orbital amplifier that only affects females.</description>
+    <iconPath>Abilities/Empath/SootheFemale</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <castSound>PsychicSoothePulserCast</castSound>
+    <castTime>600</castTime>
+    <durationTime>180000</durationTime>
+	<showUndrafted>true</showUndrafted>
+    <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+    <castFleck>VFEP_PsycastAreaEffectSlow</castFleck>
+    <castFleckScale>9</castFleckScale>
+    <targetMode>Self</targetMode>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Empath</path>
+        <level>3</level>
+        <order>2</order>
+        <psyfocusCost>0.8</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_WordofInspiration</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_CastPsychicSoothe">
+        <gender>Female</gender>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>VPE_PsychicSoothe</hediff>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+    <defName>VPE_Bliss</defName>
+    <label>bliss</label>
+    <description>After a brief meditation period, induce a sense of serenity in the target that reaches maximum magnitude near the effect’s end. As the calming feeling becomes more pronounced, they will find it harder to concentrate but it is not considered a malicious action.</description>
+    <iconPath>Abilities/Empath/Bliss</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <durationTime>60000</durationTime>
+	<showUndrafted>true</showUndrafted>
+    <castTime>1200</castTime>
+    <castSound>VPE_Bliss_Cast</castSound>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Empath</path>
+        <level>4</level>
+        <order>1</order>
+        <psyfocusCost>0.6</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_SootheMale</li>
+        </prerequisites>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>VPE_Bliss</hediff>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+    <defName>VPE_EnergyDump</defName>
+    <label>energy dump</label>
+    <description>Purges the build-up of fatigue in a nearby target and leaves them completely refreshed, in exchange the caster is left completely exhausted and needing a good nap.</description>
+    <iconPath>Abilities/Empath/EnergyDump</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <distanceToTarget>3.5</distanceToTarget>
+    <castFleck>PsycastPsychicEffect</castFleck>
+    <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+	<showUndrafted>true</showUndrafted>
+    <castSound>VPE_EnergyDump_Cast</castSound>
+    <castTime>120</castTime>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Empath</path>
+        <level>4</level>
+        <order>3</order>
+        <psyfocusCost>0.4</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_SootheFemale</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Empath.AbilityExtension_EnergyDump"></li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+    <defName>VPE_MindWipe</defName>
+    <label>mind wipe</label>
+    <description>Induce a harmless, instantaneous retrograde amnesia in the target, purging all memories, social bonds and skills acquired outside of their backstory. They also feel a strong kinship with the caster’s colony and joy at rediscovering the joys of life without commitment.</description>
+    <iconPath>Abilities/Empath/MindWipe</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <castTime>300</castTime>
+    <goodwillImpact>-25</goodwillImpact>
+    <castSound>VPE_MindWipe_Cast</castSound>
+	<showUndrafted>true</showUndrafted>
+    <needsTicking>true</needsTicking>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Empath</path>
+        <level>4</level>
+        <order>2</order>
+        <psyfocusCost>0.8</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_Bliss</li>
+          <li>VPE_EnergyDump</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_MindWipe"></li>
+      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_ThoughtOnTarget">
+        <thoughtDef>VPE_MindWiped</thoughtDef>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+    <defName>VPE_ReunionFarskip</defName>
+    <label>reunion farskip</label>
+    <description>After a short meditation period and followed by a 5-day coma, taps into a target’s bloodline to skip all living family members to their proximity, knocked out through psychic shock. However, it does nothing to change their relationships and is considered rude by all other factions.</description>
+    <iconPath>Abilities/Empath/ReunionFarskip</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Ability_ReunionFarskip</abilityClass>
+    <castTime>720</castTime>
+    <targetMode IsNull="True" />
+    <targetingParameters>
+      <canTargetSelf>True</canTargetSelf>
+      <canTargetHumans>True</canTargetHumans>
+    </targetingParameters>
+    <distanceToTarget>5.5</distanceToTarget>
+    <castFleck>PsycastAreaEffect</castFleck>
+    <castSound>VPE_ReunionFarskim_Cast</castSound>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Empath</path>
+        <level>5</level>
+        <order>1</order>
+        <psyfocusCost>0.9</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_MindWipe</li>
+        </prerequisites>
+      </li>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+          <hours>120</hours>
+        </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+</Defs>

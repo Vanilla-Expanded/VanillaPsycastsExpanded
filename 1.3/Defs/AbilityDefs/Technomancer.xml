@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_EnchantQuality</defName>
+      <label>enchant quality</label>
+      <description>The caster concentrates on an item and attempts to improve its quality by reshaping the material slightly, but cannot imitate a master’s handiwork.</description>
+      <iconPath>Abilities/Technomancer/EnchantQuality</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_IncreaseQuality</abilityClass>
+      <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>999999</range>
+      <distanceToTarget>1.9</distanceToTarget>
+	  <showUndrafted>true</showUndrafted>
+      <targetMode>Pawn</targetMode>
+      <castTime>240</castTime>
+      <targetingParameters>
+        <canTargetItems>true</canTargetItems>
+        <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+        <thingCategory>Item</thingCategory>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetingParameters>
+      <targetFlecks>
+        <li>PsycastPsychicEffect</li>
+      </targetFlecks>
+      <castSound>VPE_EnchantQuality_Cast</castSound>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Technomancer</path>
+          <level>1</level>
+          <order>1</order>
+          <psyfocusCost>0.24</psyfocusCost>
+          <entropyGain>0</entropyGain>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Mend</defName>
+      <label>mend</label>
+      <description>The caster concentrates on an item and attempts to repair present damage by rebinding the material, with the effect scaling with their psychic sensitivity.</description>
+      <iconPath>Abilities/Technomancer/Mend</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_Mend</abilityClass>
+      <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>999999</range>
+      <distanceToTarget>1.9</distanceToTarget>
+	  <showUndrafted>true</showUndrafted>
+      <targetMode>Pawn</targetMode>
+      <castTime>240</castTime>
+      <targetingParameters>
+        <canTargetItems>true</canTargetItems>
+        <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+        <thingCategory>Item</thingCategory>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetingParameters>
+      <targetFlecks>
+        <li>PsycastPsychicEffect</li>
+      </targetFlecks>
+      <castSound>VPE_Mend_Cast</castSound>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Technomancer</path>
+          <level>1</level>
+          <order>2</order>
+          <psyfocusCost>0.12</psyfocusCost>
+          <entropyGain>0</entropyGain>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_ConjureHeatPearls</defName>
+      <label>conjure heat pearls</label>
+      <description>Converts a minimum amount of the caster’s heat into metaphysical pearls. These can be thrown at other psycasters to induce massive amounts of heat on them, but are otherwise harmless.</description>
+      <iconPath>Abilities/Technomancer/ConjureHeatPearls</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_ConjureHeatPearls</abilityClass>
+      <castTime>240</castTime>
+      <castSound>VPE_ConjureHeatPearls_Cast</castSound>
+      <targetMode>Self</targetMode>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Technomancer</path>
+          <level>2</level>
+          <order>1</order>
+          <psyfocusCost>0.2</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_EnchantQuality</li>
+          </prerequisites>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Haywire</defName>
+      <label>haywire</label>
+      <description>Designates an area to experience psychic interference, effectively scrambling electronic systems’ IFFs while identifying the caster’s people as allies. Duration scales with psychic sensitivity.</description>
+      <iconPath>Abilities/Technomancer/Haywire</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_AffectMechs</abilityClass>
+      <castTime>30</castTime>
+      <castSound>VPE_Haywire_Cast</castSound>
+      <durationTime>3600</durationTime>
+      <radius>2.9</radius>
+      <range>19.9</range>
+      <targetMode>Location</targetMode>
+      <durationTimeStatFactors>
+        <PsychicSensitivity>1</PsychicSensitivity>
+      </durationTimeStatFactors>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Technomancer</path>
+          <level>2</level>
+          <order>2</order>
+          <psyfocusCost>0.04</psyfocusCost>
+          <entropyGain>18</entropyGain>
+          <prerequisites>
+            <li>VPE_EnchantQuality</li>
+            <li>VPE_Mend</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+          <hediff>VPE_Haywire</hediff>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Power</defName>
+      <label>power</label>
+      <description>Metaphysically alters the designated equipment’s power input to extract energy directly from fluctuations in the quantum foam for a few days. Duration scales with psychic sensitivity.</description>
+      <iconPath>Abilities/Technomancer/Power</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_Power</abilityClass>
+      <castTime>120</castTime>
+      <durationTime>150000</durationTime>
+      <targetFlecks>
+        <li>PsycastPsychicEffect</li>
+      </targetFlecks>
+	  <showUndrafted>true</showUndrafted>
+      <targetMode>Thing</targetMode>
+      <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>999999</range>
+      <distanceToTarget>1.9</distanceToTarget>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Technomancer</path>
+          <level>2</level>
+          <order>3</order>
+          <psyfocusCost>0.1</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_Mend</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+          <hediff>VPE_InfinitePower</hediff>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_RockConstruct</defName>
+      <label>rock construct</label>
+      <description>Converts a minimum amount of the caster’s heat capacity into metaphysical crystals to be implanted into a stone chunk. This new rock construct is capable of performing simple chores, and breaking the crystal allows the heat capacity to be restored.</description>
+      <iconPath>Abilities/Technomancer/RockConstruct</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_Construct_Rock</abilityClass>
+      <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>999999</range>
+      <distanceToTarget>2.9</distanceToTarget>
+      <targetMode>Pawn</targetMode>
+      <castTime>360</castTime>
+      <needsTicking>true</needsTicking>
+	  <showUndrafted>true</showUndrafted>
+      <targetingParameters>
+        <canTargetItems>true</canTargetItems>
+        <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+        <thingCategory>Item</thingCategory>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetingParameters>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Technomancer</path>
+          <level>3</level>
+          <order>1</order>
+          <psyfocusCost>0.24</psyfocusCost>
+          <entropyGain>20</entropyGain>
+          <prerequisites>
+            <li>VPE_Haywire</li>
+            <li>VPE_ConjureHeatPearls</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+          <fleckDefs>
+            <li>PsycastSkipInnerExit</li>
+            <li>PsycastSkipOuterRingExit</li>
+          </fleckDefs>
+          <scale>0.42</scale>
+          <sound>Psycast_Skip_Exit</sound>
+          <preCastTicks>10</preCastTicks>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+          <effecterDef>Skip_Exit</effecterDef>
+          <maintainForTicks>60</maintainForTicks>
+          <scale>0.42</scale>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_SteelConstruct</defName>
+      <label>steel construct</label>
+      <description>Converts a minimum amount of the caster’s heat capacity into metaphysical crystals to be implanted into a steel slag. This new steel construct will follow the caster and defend them from harm, and breaking the crystal allows the heat capacity to be restored.</description>
+      <iconPath>Abilities/Technomancer/SteelConstruct</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_Construct_Steel</abilityClass>
+      <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>999999</range>
+      <distanceToTarget>2.9</distanceToTarget>
+      <targetMode>Pawn</targetMode>
+      <castTime>360</castTime>
+      <needsTicking>true</needsTicking>
+	  <showUndrafted>true</showUndrafted>
+      <targetingParameters>
+        <canTargetItems>true</canTargetItems>
+        <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+        <thingCategory>Item</thingCategory>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetingParameters>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Technomancer</path>
+          <level>3</level>
+          <order>2</order>
+          <psyfocusCost>0.24</psyfocusCost>
+          <entropyGain>29</entropyGain>
+          <prerequisites>
+            <li>VPE_Haywire</li>
+            <li>VPE_Power</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+          <fleckDefs>
+            <li>PsycastSkipInnerExit</li>
+            <li>PsycastSkipOuterRingExit</li>
+          </fleckDefs>
+          <scale>0.42</scale>
+          <sound>Psycast_Skip_Exit</sound>
+          <preCastTicks>10</preCastTicks>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+          <effecterDef>Skip_Exit</effecterDef>
+          <maintainForTicks>60</maintainForTicks>
+          <scale>0.42</scale>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_CraftPsyRing</defName>
+      <label>craft psyring</label>
+      <description>Psychically alters the form of a piece of eltex into the shape of a ring, which is imbued with psycasting knowledge of the caster. When worn by another psycaster, this temporarily allows them to use this knowledge to perform the stored psycast without practice.</description>
+      <iconPath>Abilities/Technomancer/CraftPsyRing</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_Psyring</abilityClass>
+      <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>999999</range>
+      <distanceToTarget>1.9</distanceToTarget>
+      <targetMode>Pawn</targetMode>
+      <castTime>1800</castTime>
+	  <showUndrafted>true</showUndrafted>
+      <targetingParameters>
+        <canTargetItems>true</canTargetItems>
+        <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+        <thingCategory>Item</thingCategory>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetingParameters>
+      <warmupSound>VPE_Psyring_Warmup</warmupSound>
+      <castSound>VPE_Psyring_Cast</castSound>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Technomancer</path>
+          <level>4</level>
+          <order>1</order>
+          <psyfocusCost>0.8</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_RockConstruct</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_WarmupEffecter">
+          <effecterDef>VPE_Knowledge</effecterDef>
+          <scale>0.42</scale>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+      <defName>VPE_WordofProgress</defName>
+      <label>word of progress</label>
+      <description>Speak words encouraging problem solving capabilities while psychically hypercharging the target’s mind with keen insight. The target will experience double research speed and intellectual skill gain for 5 days, scaling with their psychic sensitivity.</description>
+      <iconPath>Abilities/Technomancer/WordofProgress</iconPath>
+      <durationTime>150000</durationTime>
+	  <showUndrafted>true</showUndrafted>
+      <durationTimeStatFactors>
+        <PsychicSensitivity>1</PsychicSensitivity>
+      </durationTimeStatFactors>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Technomancer</path>
+          <level>4</level>
+          <order>2</order>
+          <psyfocusCost>0.45</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_SteelConstruct</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+          <hediff>VPE_Smartbuzz</hediff>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_ReverseEngineer</defName>
+      <label>reverse engineer</label>
+      <description>The caster concentrates on an object and attempts to unravel the knowledge needed to manufacture more of them. The long, intense concentration ends with the caster falling into a 12-hour coma.</description>
+      <iconPath>Abilities/Technomancer/ReverseEngineer</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_ReverseEngineer</abilityClass>
+      <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>999999</range>
+      <distanceToTarget>1.9</distanceToTarget>
+      <targetMode>Pawn</targetMode>
+	  <showUndrafted>true</showUndrafted>
+      <castTime>1440</castTime>
+      <targetingParameters>
+        <canTargetItems>true</canTargetItems>
+        <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetBuildings>true</canTargetBuildings>
+      </targetingParameters>
+      <warmupSound>VPE_Psyring_Warmup</warmupSound>
+      <castSound>VPE_ReverseEngineer_Cast</castSound>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Technomancer</path>
+          <level>5</level>
+          <order>1</order>
+          <psyfocusCost>0.8</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_CraftPsyRing</li>
+            <li>VPE_WordofProgress</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_WarmupEffecter">
+          <effecterDef>VPE_Knowledge</effecterDef>
+          <scale>0.42</scale>
+        </li>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+          <hours>12</hours>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+</Defs>

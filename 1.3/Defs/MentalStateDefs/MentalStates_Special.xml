@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<MentalStateDef ParentName="BaseMentalState">
+		<defName>VPE_ManhunterTerritorial</defName>
+		<stateClass>VanillaPsycastsExpanded.Wildspeaker.MentalState_ManhunterTerritorial</stateClass>
+		<label>territorial manhunter</label>
+		<category>Aggro</category>
+		<nameColor>(0.9,0.2,0.5)</nameColor>
+		<beginLetter>{0} has become a territorial manhunter!</beginLetter>
+		<recoveryMessage>{0}'s territorial defense instincts have come to an end.</recoveryMessage>
+		<baseInspectLine>Maddened: Territorial Manhunter</baseInspectLine>
+		<unspawnedCanDo>false</unspawnedCanDo>
+	</MentalStateDef>
+
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>VPE_Manhunter</defName>
+    <stateClass>VanillaPsycastsExpanded.MentalState_FriendlyManhunter</stateClass>
+    <label>rage</label>
+	<minTicksBeforeRecovery>99999999</minTicksBeforeRecovery>
+    <category>Aggro</category>
+    <nameColor>(0.9,0.2,0.5)</nameColor>
+    <beginLetter>{0} is raging!</beginLetter>
+    <recoveryMessage>{0}'s rage has come to an end.</recoveryMessage>
+    <baseInspectLine>Raging</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <recoverFromDowned>false</recoverFromDowned>
+    <recoverFromCollapsingExhausted>false</recoverFromCollapsingExhausted>
+  </MentalStateDef>
+
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>VPE_Flee</defName>
+    <label>fleeing</label>
+    <stateClass>MentalState_PanicFlee</stateClass>
+    <category>Misc</category>
+    <nameColor>(0.65, 0.9, 0.93)</nameColor>
+    <beginLetterLabel>flee</beginLetterLabel>
+    <beginLetter>{0} is fleeing.</beginLetter>
+    <recoveryMessage>{0} is no longer fleeing.</recoveryMessage>
+    <baseInspectLine>Mental state: Fleeing</baseInspectLine>
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <minTicksBeforeRecovery>8000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>12000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.033</recoveryMtbDays>
+    <recoverFromSleep>true</recoverFromSleep>
+  </MentalStateDef>
+ 
+
+</Defs>

@@ -1,0 +1,86 @@
+Changelog 8/2/2022
+- Fix overriding vanilla bases in XML
+- Add path to psytrainer description
+- Add system to convert vanilla psytrainers into ours, both in save files and in other mods
+- Fix compat with Better Quest Rewards
+- Add setting to allow / disallow shrinking of psycasts
+- Add setting for small mode
+- Improve small mode detection
+- Ensure psyfocus cost reduction appears in small mode stats
+- Fix translation error (duplicate "VPE.Edit" key)
+- Fix bestowing ceremony not giving levels
+- Fix compat with MedPod
+- Reduce word of pain pain by 80%, so with 100% psychic sensitivity it gives 20% pain
+- Remove permanent heat from skipdoors when the map they are on is removed
+- Archon's Blinding Pulse heat cost 20 > 30
+- Archon's Word of Pain heat cost 12 > 30
+- Archon's Word of Pain now deals pain using following formula: Pain percentage = Psychic Sensitivity of the Caster - 80
+- Archon's Word of Protection psyfocus cost 30% > 40%
+- Archotechist's Stun heat cost 12 > 24
+- Archotechist's Psychic shock psyfocus cost 8% > 12%
+- Archotechist's Psychoc shock heat cost 15 > 30
+- Archotechist's Neural Heat Dump psyfocus cost 0% > 8%
+- Archotechist's Aggressive Heat Dump psyfocus cost 20% > 40%
+- Archotechist's Psychic Drone heat cost 65 > 85
+- Archotechist's Neural Heat detonation psyfocus cost 24% > 36%
+- Chronopath's Plant Timeskip psyfocus cost 25% > 50%
+- Chronopath's Plant Timeskip now has a 1 day cooldown
+- Chronopath's Word of Foretelling psyfocus cost 40% > 60%
+- Chronopath's Craft Timeskip now ages the caster by 3 years
+- Chronopath's Age can only be cast on humans. No more offloading your years on a rat
+- Chronopath's Raid Pause psyfocus cost 20% > 60%
+- Chronopath's Season Timeskip psyfocus cost 50% > 80%
+- Chronopath's Time sphere heat cost 40 > 90
+- Conflagrator's Flameball heat cost 6 > 12
+- Conflagrator's Self Explosion heat cost 20 > 35
+- Conflagrator's Explosion psyfocus cost 2% > 6%
+- Conflagrator's Breathe Flame psyfocus cost 2% > 8%
+- Conflagrator's Breathe Flame heat cost 20 > 36
+- Conflagrator's Eye Blast psyfocus cost 5% > 8%
+- Conflagrator's Meteor Shower heat cost 50 > 90
+- Conflagrator's Fire Beam now triggers a 6 hour psychic coma upon casting
+- Conflagrator's Fire Beam heat cost 50 > 90
+- Conflagrator's Fire Beam psyfocus cost 30% > 50%
+- Conflagrator's Fire Tornado heat cost 50 > 120
+- Frostshaper's Ice Breath heat cost 8 > 26
+- Frostshaper's Ice Breath psyfocus cost 2% > 8%
+- Frostshaper's Ice Spike heat cost 8 > 10
+- Frostshaper's Ice Spike psyfocus cost 1% > 2%
+- Frostshaper's Frost Ray psyfocus cost 4% > 12%
+- Frostshaper's Snap Freeze psyfocus cost 3% > 24%
+- Harmonist's Heatfocus psyfocus cost 2% > 6%
+- Harmonist's Health Swap now has a half-day cooldown
+- Necropath's Word of Fear psyfocus cost 1% > 10%
+- Necropath's Liferot heat cost 10 > 24
+- Necropath's Paralysis Pulse psyfocus cost 20% > 30%
+- Necropath's Enthrall heat cost 10 > 22
+- Necropath's Resurrect now puts caster in a 6 hour psychic coma upon casting
+- Protector's Word of Healing psyfocus cost 30% > 36%
+- Protector's Stabilize psyfocus cost 20% > 30%
+- Protector's Word of Immunity psyfocus cost 30% > 36%
+- Protector's Overshield heat cost 20 > 50
+- Protector's Skipshield psyfocus cost 4% > 8%
+- Protector's Invisibility psyfocus cost 3% > 12%
+- Staticlord's Flashstorm heat cost 65 > 85
+- Staticlord's Flashstorm psyfocus cost 4% > 24%
+- Warlord's Speedboost psyfocus cost 2% > 12%
+- Warlord's Speedboost heat cost 8 > 12
+- Warlord's Bladefocus psyfocus cost 4% > 12%
+- Warlord's Bladefocus heat cost 10 > 20
+- Warlord's Firing Focus psyfocus cost 4% > 12%
+- Warlord's Firing Focus heat cost 10 > 20
+- Warlord's Adrenaline Rush psyfocus cost 4% > 18%
+- Warlord's Adrenaline Rush heat cost 10 > 26
+- Wildspeaker's Crop Burst now has a 1 day cooldown
+- Wildspeaker's Crop Burst psyfocus cost 12% > 60%
+- Wildspeaker's Manhunting Pulse heat cost 50 > 90
+- Wildspeaker's Manhunting Pulse psyfocus cost 4% > 26%
+- Wildspeaker's Animal Allies psyfocus cost 5% > 26%
+- Wildspeaker's Animal Allies heat cost 35 > 120
+- Wildspeaker's Summon Pack now puts the caster in a 6 hour psychic coma
+- Word of Love will induce love in first target, keeping the same logic as vanilla. Fixed duration of effect, now it should last only 8 days. Added on target label attachments "Induce love in" and "Psychic love for". The ability is marked as psychic thus will show psychic sensitivity info. 
+- Regrow limbs will regrow only parts that don't have missing parent parts. Once the effect expires remaining regenerating parts should still regenerate, but at a slower speed. 
+
+Changelog 8/2/2022
+- Rot damages from liferot ability are now tendable and will go away once tended.
+- Regrow limbs won't restore parts under artifical limbs, like drill arms or peg leg. Regeneration will be painless and won't make pawns downed because of it.

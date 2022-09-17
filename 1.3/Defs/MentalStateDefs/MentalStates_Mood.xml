@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>VPE_Wander_Sad</defName>
+    <stateClass>MentalState_WanderSad</stateClass>
+    <label>sad wandering</label>
+    <category>Misc</category>
+    <minTicksBeforeRecovery>40000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>60000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoverFromSleep>true</recoverFromSleep>
+    <moodRecoveryThought>Catharsis</moodRecoveryThought>
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <nameColor>(0.65, 0.9, 0.93)</nameColor>
+    <recoveryMessage>{0} is no longer wandering in sadness.</recoveryMessage>
+    <beginLetterLabel>sad wander</beginLetterLabel>
+    <beginLetter>{0} has broken down and is wandering around in sadness.</beginLetter>
+    <beginLetterDef>NegativeEvent</beginLetterDef>
+    <baseInspectLine>Mental state: Sad wandering</baseInspectLine>
+    <allowBeatfire>true</allowBeatfire>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <escapingPrisonersIgnore>true</escapingPrisonersIgnore>
+  </MentalStateDef>
+
+
+</Defs>

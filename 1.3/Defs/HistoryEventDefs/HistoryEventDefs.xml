@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HistoryEventDef>
+		<defName>VPE_Foretelling</defName>
+		<label>foretelling</label>
+	</HistoryEventDef>
+	
+	<HistoryEventDef>
+		<defName>VPE_GiftedEltex</defName>
+		<label>gifted eltex</label>
+	</HistoryEventDef>
+	
+	<HistoryEventDef>
+		<defName>VPE_SoldEltex</defName>
+		<label>sold eltex</label>
+	</HistoryEventDef>
+
+</Defs>
