@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Bolt</defName>
+      <label>bolt</label>
+      <description>Hurls a weak bolt of electricity to strike a small target, inflicting minor burns on direct hits and area EMP damage.</description>
+      <iconPath>Abilities/Staticlord/Bolt</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+      <castTime>3</castTime>
+      <range>16.9</range>
+      <radius>1.9</radius>
+      <power>1</power>
+      <castSound>VPE_Bolt_Cast</castSound>
+      <targetMode>Pawn</targetMode>
+      <targetingParameters>
+        <canTargetItems>true</canTargetItems>
+        <canTargetLocations>true</canTargetLocations>
+      </targetingParameters>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Staticlord</path>
+          <level>1</level>
+          <order>1</order>
+          <psyfocusCost>0.01</psyfocusCost>
+          <entropyGain>6</entropyGain>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+          <projectile>VPE_Bolt</projectile>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_ChainBolt</defName>
+      <label>chain bolt</label>
+      <description>Projects a living bolt of electricity to a target which can then follow up with 5 more nearby targets, inflicting small burns and EMP damage.</description>
+      <iconPath>Abilities/Staticlord/ChainBolt</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+      <castTime>9</castTime>
+      <range>22.9</range>
+      <targetMode>Pawn</targetMode>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Staticlord</path>
+          <level>2</level>
+          <order>2</order>
+          <psyfocusCost>0.04</psyfocusCost>
+          <entropyGain>20</entropyGain>
+          <prerequisites>
+            <li>VPE_Bolt</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+          <projectile>VPE_ChainBolt</projectile>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Thunderbolt</defName>
+      <label>thunderbolt</label>
+      <description>Summons a bolt of lightning to strike a target, inflicting burns on direct hits and a larger area EMP damage.</description>
+      <iconPath>Abilities/Staticlord/Thunderbolt</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Staticlord.Ability_Thunderbolt</abilityClass>
+      <castTime>3</castTime>
+      <range>22.9</range>
+      <radius>6</radius>
+      <radiusStatFactors>
+        <PsychicSensitivity>1</PsychicSensitivity>
+      </radiusStatFactors>
+      <castSound>VPE_Thunderbolt_Cast</castSound>
+      <targetMode>Location</targetMode>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Staticlord</path>
+          <level>2</level>
+          <order>1</order>
+          <psyfocusCost>0.02</psyfocusCost>
+          <entropyGain>12</entropyGain>
+          <prerequisites>
+            <li>VPE_ChainBolt</li>
+          </prerequisites>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_StaticAura</defName>
+      <label>static aura</label>
+      <description>The caster designates a nearby target to receive an aura of surging electricity, which will inflict EMP effects on anything foreign that they approach, including structures, pawns and electrical objects.</description>
+      <iconPath>Abilities/Staticlord/StaticAura</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+      <castTime>30</castTime>
+      <range>6.9</range>
+      <radius>6</radius>
+      <durationTime>1800</durationTime>
+      <targetMode>Pawn</targetMode>
+      <targetingParameters>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetingParameters>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Staticlord</path>
+          <level>2</level>
+          <order>3</order>
+          <psyfocusCost>0.18</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_ChainBolt</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+          <hediff>VPE_StaticAura</hediff>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Recharge</defName>
+      <label>recharge</label>
+      <description>Carefully and delicately tunes a stream of electricity to a touched battery to charge it with 100kW or the equivalent of 100 Wd/s. The duration of charge depends on the caster’s psychic sensitivity.</description>
+      <iconPath>Abilities/Staticlord/Recharge</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Staticlord.Ability_Recharge</abilityClass>
+      <castTime>60</castTime>
+	  <showUndrafted>true</showUndrafted>
+      <durationTime>180</durationTime>
+      <durationTimeStatFactors>
+        <PsychicSensitivity>2</PsychicSensitivity>
+      </durationTimeStatFactors>
+      <distanceToTarget>1.9</distanceToTarget>
+      <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>999999</range>
+      <targetMode>Thing</targetMode>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Staticlord</path>
+          <level>3</level>
+          <order>2</order>
+          <psyfocusCost>0.25</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_ChainBolt</li>
+          </prerequisites>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_BallLightning</defName>
+      <label>ball lightning</label>
+      <description>The caster compresses a ball of condensed electricity which will slowly move to a designated location. A few seconds after release, it will start discharging into nearby surrounding targets with living bolts of electricity.</description>
+      <iconPath>Abilities/Staticlord/BallLightning</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+      <targetMode>Location</targetMode>
+      <castTime>30</castTime>
+      <range>30.9</range>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Staticlord</path>
+          <level>3</level>
+          <order>1</order>
+          <psyfocusCost>0.06</psyfocusCost>
+          <entropyGain>30</entropyGain>
+          <prerequisites>
+            <li>VPE_Recharge</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+          <projectile>VPE_BallLightning</projectile>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_StaticPulse</defName>
+      <label>static pulse</label>
+      <description>The caster dumps a massive amount of voltage into the surrounding air, causing an EMP blast in a huge radius which is otherwise harmless.</description>
+      <iconPath>Abilities/Staticlord/StaticPulse</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_Explode</abilityClass>
+      <castTime>6</castTime>
+      <radius>50.9</radius>
+      <targetMode>Self</targetMode>
+      <castSound>VPE_StaticPulse_Cast</castSound>
+      <targetFlecks>
+        <li>PsycastSkipInnerExit</li>
+        <li>PsycastSkipOuterRingExit</li>
+      </targetFlecks>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Staticlord</path>
+          <level>3</level>
+          <order>3</order>
+          <psyfocusCost>0.1</psyfocusCost>
+          <entropyGain>40</entropyGain>
+          <prerequisites>
+            <li>VPE_Recharge</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_Explosion">
+          <explosionRadius>50.9</explosionRadius>
+          <onCaster>true</onCaster>
+          <explosionDamageDef>EMP</explosionDamageDef>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Vortex</defName>
+      <label>vortex</label>
+      <description>Manifests a gaping vortex of high-voltage electricity - redirected via skipgate from a nebula storm - at a target area with a large effect. Severely hampers movement and manipulating proportionately, with the strongest effect at the center.</description>
+      <iconPath>Abilities/Staticlord/Vortex</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+      <castTime>30</castTime>
+      <range>18.9</range>
+      <radius>22.9</radius>
+      <durationTime>2500</durationTime>
+      <targetMode>Location</targetMode>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Staticlord</path>
+          <level>4</level>
+          <order>1</order>
+          <psyfocusCost>0.12</psyfocusCost>
+          <entropyGain>45</entropyGain>
+          <prerequisites>
+            <li>VPE_Recharge</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_Building">
+          <building>VPE_Vortex</building>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Hurricane</defName>
+      <label>hurricane</label>
+      <description>The caster forcibly changes the weather - using widespread differential-pressure skipgates - to a downpour with hurricane-force winds, which lasts as long as the caster can manage the heat accumulation and can instantly stop at-will. Those outdoors will experience progressively severe limitations to sight, moving and manipulation to the point they come to a complete stop.</description>
+      <iconPath>Abilities/Staticlord/Hurricane</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Staticlord.Ability_Hurricane</abilityClass>
+      <castTime>360</castTime>
+      <targetMode>Self</targetMode>
+      <castSound>VPE_Hurricane_Cast</castSound>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Staticlord</path>
+          <level>5</level>
+          <order>1</order>
+          <psyfocusCost>0.5</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_Vortex</li>
+          </prerequisites>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Flashstorm</defName>
+      <label>flashstorm</label>
+      <description>Use concentrated differential-pressure skipgates in the atmosphere to generate a localized flashstorm. The storm will strike the area with lightning for some time before dissipating.</description>
+      <iconPath>Abilities/Staticlord/Flashstorm</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Staticlord.Ability_Flashstorm</abilityClass>
+      <castTime>60</castTime>
+      <range>20</range>
+      <radius>14</radius>
+      <durationTime>6000</durationTime>
+      <targetMode>Location</targetMode>
+      <power>40</power>
+      <powerStatFactors>
+        <PsychicSensitivity>1</PsychicSensitivity>
+      </powerStatFactors>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Staticlord</path>
+          <level>5</level>
+          <order>2</order>
+          <psyfocusCost>0.24</psyfocusCost>
+          <entropyGain>85</entropyGain>
+          <prerequisites>
+            <li>VPE_Vortex</li>
+          </prerequisites>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+</Defs>

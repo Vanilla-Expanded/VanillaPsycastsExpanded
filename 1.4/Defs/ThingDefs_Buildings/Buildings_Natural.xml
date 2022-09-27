@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="RockBase">
+    <defName>VPE_EltexOre</defName>
+    <label>eltex ore</label>
+    <description>Rock containing bits of eltex.</description>
+    <graphicData>
+      <texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <color>(176,212,208)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>1500</MaxHitPoints>
+    </statBases>
+    <building>
+      <isResourceRock>true</isResourceRock>
+	  <isNaturalRock>false</isNaturalRock>
+      <mineableThing>VPE_Eltex</mineableThing>
+      <mineableYield>3</mineableYield>
+	  <claimable>false</claimable>
+    </building>
+  </ThingDef>
+
+
+</Defs>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_SpeedBoost</defName>
+		<label>psychic agility</label>
+		<description>Psychically induced agility boost, greatly increasing movement speed.</description>
+		<stages>
+			<li>
+				<statFactors>
+					<MoveSpeed>3</MoveSpeed>
+				</statFactors>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_SparksYellow</stateEffecter>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_BladeFocus</defName>
+		<label>blade focus</label>
+		<description>Psychically induced combat focus, greatly enhancing melee combat capabilities.</description>
+		<stages>
+			<li>
+				<statFactors>
+					<VEF_MeleeAttackSpeedFactor>2</VEF_MeleeAttackSpeedFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_SparksRed</stateEffecter>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_FiringFocus</defName>
+		<label>firing focus</label>
+		<description>Psychically induced combat focus, greatly enhancing ranged combat capabilities.</description>
+		<stages>
+			<li>
+				<statFactors>
+					<VEF_RangeAttackSpeedFactor>5</VEF_RangeAttackSpeedFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_SparksWhite</stateEffecter>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_AdrenalineRush</defName>
+		<label>psychic rush</label>
+		<description>Psychically induced adrenaline rush, increasing sight, hearing and movement capabilities.</description>
+		<stages>
+			<li>
+				<painFactor>0</painFactor>
+				<capMods>
+					<li>
+						<capacity>Sight</capacity>
+						<postFactor>1.5</postFactor>
+					</li>
+					<li>
+						<capacity>Hearing</capacity>
+						<postFactor>1.5</postFactor>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<postFactor>1.5</postFactor>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_ControlledFrenzy</defName>
+		<label>psychic frenzy</label>
+		<description>Temporary, psychically induced frenzy. The energy restores itself with each consecutive kill.</description>
+		<hediffClass>VFECore.Abilities.Hediff_Ability</hediffClass>
+		<stages>
+			<li>
+				<statFactors>
+					<VEF_MeleeAttackDamageFactor>2</VEF_MeleeAttackDamageFactor>
+					<VEF_RangeAttackDamageFactor>2</VEF_RangeAttackDamageFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_Effecter">
+				<stateEffecter>VPE_RedSmoke</stateEffecter>
+			</li>
+			<li Class="VanillaPsycastsExpanded.HediffCompProperties_PlaySound">
+				<sustainer>VPE_ControlledFrenzy_Sustainer</sustainer>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>VPE_GuidedShot</defName>
+		<label>guided shot</label>
+		<description>Psychically induced insane accuracy.</description>
+		<hediffClass>VFECore.Abilities.Hediff_Ability</hediffClass>
+		<stages>
+			<li>
+				<statFactors>
+					<VEF_VerbRangeFactor>2</VEF_VerbRangeFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<comps>
+			<li Class="VFECore.HediffCompProperties_Targeting">
+				<neverMiss>true</neverMiss>
+				<targetingMote>VPE_WarlordTargettingReticle</targetingMote>
+				<initialTargetingMoteScale>3</initialTargetingMoteScale>
+				<targetingLineTexPath>UI/Overlays/ThickLine</targetingLineTexPath>
+				<targetingLineColor>(255, 0, 0)</targetingLineColor>
+				<targetingLineWidth>0.05</targetingLineWidth>
+			</li>
+		</comps>
+	</HediffDef>
+</Defs>

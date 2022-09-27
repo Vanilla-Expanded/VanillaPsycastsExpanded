@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName = "Apparel_ArmorReconPrestige" or defName = "Apparel_ArmorHelmetReconPrestige" or defName = "Apparel_ArmorMarinePrestige" or defName = "Apparel_ArmorMarineHelmetPrestige" or defName = "Apparel_ArmorCataphractPrestige" or defName = "Apparel_ArmorHelmetCataphractPrestige"]/costList</xpath>
+				<value>
+				    <VPE_Eltex>1</VPE_Eltex>
+			    </value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/TraderKindDef[defName = "Empire_Caravan_TributeCollector"]/stockGenerators</xpath>
+				<value>
+                    <li Class="StockGenerator_BuySingleDef">
+                        <thingDef>VPE_Eltex</thingDef>
+                    </li>
+			    </value>
+			</li>
+		</operations>	
+	</Operation>
+</Patch>

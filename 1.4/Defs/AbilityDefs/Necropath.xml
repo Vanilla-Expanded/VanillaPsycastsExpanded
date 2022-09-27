@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+		<defName>VPE_WordofFear</defName>
+		<label>word of fear</label>
+		<description>Induces panic by overloading their flight response system for a short duration. Considered a hostile action.</description>
+		<iconPath>Abilities/Necropath/WordofFear</iconPath>
+		<distanceToTarget>6</distanceToTarget>
+		<durationTime>600</durationTime>
+		<goodwillImpact>-15</goodwillImpact>
+		<castTime>15</castTime>
+		<castSound>VPE_WordOfFear_Cast</castSound>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>VPE_Necropath</path>
+				<level>1</level>
+				<order>1</order>
+				<psyfocusCost>0.1</psyfocusCost>
+				<entropyGain>8</entropyGain>
+			</li>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_GiveMentalState">
+				<stateDef>VPE_Flee</stateDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<clearOthers>true</clearOthers>
+				<durationScalesWithCaster>true</durationScalesWithCaster>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>VPE_Liferot</defName>
+		<label>liferot</label>
+		<description>Psychically induces randomized mass necrosis in a target, exposing the afflicted body parts to infection and intense gagging due to the smell. Duration scales with the target’s psychic sensitivity and is an obviously overtly hostile action.</description>
+		<iconPath>Abilities/Necropath/Liferot</iconPath>
+		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+		<castSound>VPE_Liferot_Cast</castSound>
+		<castTime>30</castTime>
+		<goodwillImpact>-100</goodwillImpact>
+		<range>12.9</range>
+		<durationTime>180</durationTime>
+		<targetingParameters>
+			<canTargetSelf>False</canTargetSelf>
+			<canTargetAnimals>True</canTargetAnimals>
+			<canTargetMechs>False</canTargetMechs>
+			<canTargetHumans>True</canTargetHumans>
+		</targetingParameters>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>VPE_Necropath</path>
+				<level>2</level>
+				<order>1</order>
+				<psyfocusCost>0.02</psyfocusCost>
+				<entropyGain>24</entropyGain>
+				<psychic>true</psychic>
+				<prerequisites>
+					<li>VPE_WordofFear</li>
+				</prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+				<hediff>VPE_Liferot</hediff>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>VPE_StealVitality</defName>
+		<label>steal vitality</label>
+		<description>Siphons vitality from a close, living target, transferring the target’s natural healing factor, movement speed and consciousness to the caster. Considered an overtly hostile action.</description>
+		<iconPath>Abilities/Necropath/StealVitality</iconPath>
+		<abilityClass>VanillaPsycastsExpanded.Ability_StealVitality</abilityClass>
+		<range>3.9</range>
+		<castTime>15</castTime>
+		<targetMode>Pawn</targetMode>
+		<durationTime>60000</durationTime>
+		<castSound>VPE_StealVitality_Cast</castSound>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>VPE_Necropath</path>
+				<level>2</level>
+				<order>2</order>
+				<psyfocusCost>0.06</psyfocusCost>
+				<entropyGain>20</entropyGain>
+				<prerequisites>
+					<li>VPE_WordofFear</li>
+				</prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+				<hediff>VPE_LostVitality</hediff>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>VPE_ParalysisPulse</defName>
+		<label>paralysis pulse</label>
+		<description>Emits a cloud of black particles around the caster, which afflicts all those within the area - except the caster - with 2 hours of paralytic abasia. The radius scales with the caster’s psychic sensitivity.</description>
+		<iconPath>Abilities/Necropath/ParalysisPulse</iconPath>
+		<abilityClass>VanillaPsycastsExpanded.Ability_ParalysisPulse</abilityClass>
+		<targetMode>Self</targetMode>
+		<durationTime>5000</durationTime>
+		<radius>4.9</radius>
+		<radiusStatFactors>
+			<PsychicSensitivity>1</PsychicSensitivity>
+		</radiusStatFactors>
+		<castFleck>PsycastAreaEffect</castFleck>
+		<castFleckScaleWithRadius>true</castFleckScaleWithRadius>
+		<goodwillImpact>-100</goodwillImpact>
+		<castTime>30</castTime>
+		<hasAoE>true</hasAoE>
+		<targetingParametersForAoE>
+			<canTargetLocations>False</canTargetLocations>
+			<canTargetSelf>False</canTargetSelf>
+			<canTargetAnimals>True</canTargetAnimals>
+			<canTargetPawns>True</canTargetPawns>
+			<canTargetHumans>True</canTargetHumans>
+		</targetingParametersForAoE>
+		<castSound>VPE_ParalysisPulse_Cast</castSound>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>VPE_Necropath</path>
+				<level>3</level>
+				<order>1</order>
+				<psyfocusCost>0.3</psyfocusCost>
+				<entropyGain>35</entropyGain>
+				<prerequisites>
+					<li>VPE_Liferot</li>
+				</prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+				<hediff>Abasia</hediff>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+		<defName>VPE_Corpsetalk</defName>
+		<label>corpsetalk</label>
+		<description>Target a corpse and temporarily appropriate the victim’s skills to make up for the caster’s deficiencies. Effect lasts for a season before returning to normal.</description>
+		<iconPath>Abilities/Necropath/Corpsetalk</iconPath>
+		<abilityClass>VanillaPsycastsExpanded.Ability_Corpsetalk</abilityClass>
+		<castTime>60</castTime>
+		<durationTime>900000</durationTime>
+		<targetingParameters>
+			<canTargetLocations>False</canTargetLocations>
+			<canTargetSelf>False</canTargetSelf>
+			<canTargetAnimals>False</canTargetAnimals>
+			<canTargetPawns>False</canTargetPawns>
+			<canTargetHumans>False</canTargetHumans>
+			<canTargetItems>true</canTargetItems>
+			<thingCategory>Item</thingCategory>
+			<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+		</targetingParameters>
+		<reserveTargets>true</reserveTargets>
+		<castSound>VPE_CorpseTalk_Cast</castSound>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>VPE_Necropath</path>
+				<level>3</level>
+				<order>2</order>
+				<psyfocusCost>0.5</psyfocusCost>
+				<entropyGain>0</entropyGain>
+				<prerequisites>
+					<li>VPE_WordofFear</li>
+				</prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+				<hediff>VPE_CorpseTalk</hediff>
+				<applyAuto>false</applyAuto>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>VPE_Ghostwalk</defName>
+		<label>ghostwalk</label>
+		<description>Psychically convinces the atoms of the caster that they are able to pass between the atoms of structures. The duration of the deceit scales with the caster’s psychic sensitivity.</description>
+		<iconPath>Abilities/Necropath/Ghostwalk</iconPath>
+		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+		<castTime>60</castTime>
+		<durationTime>720</durationTime>
+		<targetMode>Self</targetMode>
+		<castSound>VPE_CorpseTalk_Cast</castSound>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>VPE_Necropath</path>
+				<level>3</level>
+				<order>3</order>
+				<psyfocusCost>0.55</psyfocusCost>
+				<entropyGain>0</entropyGain>
+				<prerequisites>
+					<li>VPE_StealVitality</li>
+				</prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+				<hediff>VPE_Ghostwalk</hediff>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>VPE_ConsumeBodies</defName>
+		<label>consume bodies</label>
+		<description>Psychically strips all remaining life force from nearby humanoid corpses and stores the essence as a permanent stacking buffer to neural heat.</description>
+		<iconPath>Abilities/Necropath/ConsumeBodies</iconPath>
+		<abilityClass>VanillaPsycastsExpanded.Ability_ConsumeBodies</abilityClass>
+		<castTime>600</castTime>
+		<targetMode>Self</targetMode>
+		<hasAoE>true</hasAoE>
+		<radius>3.9</radius>
+		<needsTicking>true</needsTicking>
+		<targetingParametersForAoE>
+			<canTargetLocations>False</canTargetLocations>
+			<canTargetSelf>False</canTargetSelf>
+			<canTargetAnimals>False</canTargetAnimals>
+			<canTargetPawns>False</canTargetPawns>
+			<canTargetHumans>False</canTargetHumans>
+			<canTargetItems>true</canTargetItems>
+			<thingCategory>Item</thingCategory>
+			<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+		</targetingParametersForAoE>
+		<reserveTargets>true</reserveTargets>
+		<castSound>VPE_ConsumeBodies_Cast</castSound>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>VPE_Necropath</path>
+				<level>4</level>
+				<order>1</order>
+				<psyfocusCost>0.8</psyfocusCost>
+				<entropyGain>0</entropyGain>
+				<prerequisites>
+					<li>VPE_Corpsetalk</li>
+				</prerequisites>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+		<defName>VPE_Deathshield</defName>
+		<label>deathshield</label>
+		<description>Locks the touched target’s life force in place for a day, preventing them from dying. After this period, they can die from accumulated wounds, blood loss, or missing limbs or organs.</description>
+		<iconPath>Abilities/Necropath/Deathshield</iconPath>
+		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+		<targetMode>Pawn</targetMode>
+		<castTime>180</castTime>
+		<durationTime>60000</durationTime>
+		<castSound>VPE_Deathshield_Cast</castSound>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>VPE_Necropath</path>
+				<level>5</level>
+				<order>2</order>
+				<psyfocusCost>0.8</psyfocusCost>
+				<entropyGain>0</entropyGain>
+				<prerequisites>
+					<li>VPE_ConsumeBodies</li>
+				</prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+				<hediff>VPE_DeathShield</hediff>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>VPE_Enthrall</defName>
+		<label>enthrall</label>
+		<description>Psychically strips the deceased target’s life force and infuses it directly into their bones, animating them for a full day. The only remaining instinct is to inflict pain on the caster’s enemies.</description>
+		<iconPath>Abilities/Necropath/Enthrall</iconPath>
+		<abilityClass>VanillaPsycastsExpanded.Ability_SpawnSkeleton</abilityClass>
+		<castTime>15</castTime>
+		<range>19.9</range>
+		<reserveTargets>true</reserveTargets>
+		<targetingParameters>
+			<canTargetLocations>False</canTargetLocations>
+			<canTargetSelf>False</canTargetSelf>
+			<canTargetAnimals>False</canTargetAnimals>
+			<canTargetPawns>False</canTargetPawns>
+			<canTargetHumans>False</canTargetHumans>
+			<canTargetItems>true</canTargetItems>
+			<thingCategory>Item</thingCategory>
+			<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+		</targetingParameters>
+		<castSound>VPE_Enthrall_Cast</castSound>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>VPE_Necropath</path>
+				<level>5</level>
+				<order>1</order>
+				<psyfocusCost>0.04</psyfocusCost>
+				<entropyGain>22</entropyGain>
+				<prerequisites>
+					<li>VPE_Deathshield</li>
+				</prerequisites>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+		<defName>VPE_Resurrect</defName>
+		<label>resurrect</label>
+		<description>By sacrificing a natural finger, the caster is able to imitate the effects of resurrector mech serum on any non-dessicated corpse, the psychic energy repairing broken-down tissues and kickstarting the body back to life. The target will be incapacitated and their allegiances will remain the same. The less preserved the body is, the more likely the target is to suffer from negative side effects. The long, intense concentration ends with the caster falling into a 6-hour coma.</description>
+		<iconPath>Abilities/Necropath/Resurrect</iconPath>
+		<abilityClass>VanillaPsycastsExpanded.Ability_Resurrect</abilityClass>
+		<castTime>600</castTime>
+		<reserveTargets>true</reserveTargets>
+		<targetingParameters>
+			<canTargetLocations>False</canTargetLocations>
+			<canTargetSelf>False</canTargetSelf>
+			<canTargetAnimals>False</canTargetAnimals>
+			<canTargetPawns>False</canTargetPawns>
+			<canTargetHumans>False</canTargetHumans>
+			<canTargetItems>true</canTargetItems>
+			<thingCategory>Item</thingCategory>
+			<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+		</targetingParameters>
+		<castSound>VPE_Resurrect_Cast</castSound>
+		<showUndrafted>true</showUndrafted>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>VPE_Necropath</path>
+				<level>5</level>
+				<order>3</order>
+				<psyfocusCost>0.8</psyfocusCost>
+				<entropyGain>0</entropyGain>
+				<prerequisites>
+					<li>VPE_Deathshield</li>
+				</prerequisites>
+			</li>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+			  <hours>6</hours>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+</Defs>

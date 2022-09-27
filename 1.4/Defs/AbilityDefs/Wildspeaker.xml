@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_BrambleMaze</defName>
+    <label>bramble maze</label>
+    <description>Infuses a fertile area with chaotic life energy, causing it to sprout shoots of brambles that wither after 12 hours.</description>
+    <iconPath>Abilities/Wildspeaker/BrambleMaze</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
+    <castTime>30</castTime>
+    <range>25</range>
+    <targetMode>Location</targetMode>
+    <radius>6</radius>
+    <hasAoE>true</hasAoE>
+    <durationTime>30000</durationTime>
+    <targetingParametersForAoE>
+      <canTargetLocations>true</canTargetLocations>
+    </targetingParametersForAoE>
+    <castSound>VPE_BrambleMaze_Cast</castSound>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Wildspeaker</path>
+        <level>1</level>
+        <order>1</order>
+        <psyfocusCost>0.01</psyfocusCost>
+        <entropyGain>10</entropyGain>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Spawn">
+        <thing>VPE_BrambleSpawner</thing>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+        <scale>6</scale>
+        <allTargets>false</allTargets>
+        <tryCenter>true</tryCenter>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_CropBurst</defName>
+    <label>crop burst</label>
+    <description>Infuses a fertile area with life energy, causing it to sprout plantable crops that finish growth in relation to the caster’s psychic sensitivity.</description>
+    <iconPath>Abilities/Wildspeaker/CropBurst</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
+    <castTime>120</castTime>
+    <cooldownTime>60000</cooldownTime>
+    <range>25</range>
+    <targetMode>Location</targetMode>
+    <radius>6</radius>
+    <hasAoE>true</hasAoE>
+    <targetingParametersForAoE>
+      <canTargetLocations>true</canTargetLocations>
+    </targetingParametersForAoE>
+    <castSound>VPE_BrambleMaze_Cast</castSound>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Wildspeaker</path>
+        <level>2</level>
+        <order>1</order>
+        <psyfocusCost>0.60</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_BrambleMaze</li>
+        </prerequisites>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Spawn">
+        <thing>VPE_WildPlantSpawner</thing>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+        <scale>6</scale>
+        <allTargets>false</allTargets>
+        <tryCenter>true</tryCenter>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+    <defName>VPE_WordofAnimals</defName>
+    <label>word of animals</label>
+    <description>Soothe an animal using psychic suggestion, either calming a manhunting animal or taming them.</description>
+    <iconPath>Abilities/Wildspeaker/WordofAnimals</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Wildspeaker.Ability_Animal</abilityClass>
+    <castSound>PsychicSoothePulserCast</castSound>
+    <distanceToTarget>6.9</distanceToTarget>
+    <showUndrafted>true</showUndrafted>
+    <goodwillImpact>-15</goodwillImpact>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Wildspeaker</path>
+        <level>3</level>
+        <order>2</order>
+        <psyfocusCost>0.4</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_CropBurst</li>
+        </prerequisites>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_ManhunterPulse</defName>
+    <label>manhunter pulse</label>
+    <description>Drive animals in a large area into a manhunting rage using a psychic pulse, lasting a minute. Considered a declaration of war if it affects the animals in a caravan.</description>
+    <iconPath>Abilities/Wildspeaker/ManhunterPulse</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <castTime>60</castTime>
+    <durationTime>3600</durationTime>
+    <range>35</range>
+    <radius>57</radius>
+    <targetMode>Location</targetMode>
+    <hasAoE>true</hasAoE>
+    <targetingParametersForAoE>
+      <canTargetSelf>False</canTargetSelf>
+      <canTargetHumans>False</canTargetHumans>
+      <canTargetMechs>False</canTargetMechs>
+      <canTargetAnimals>True</canTargetAnimals>
+      <neverTargetIncapacitated>True</neverTargetIncapacitated>
+    </targetingParametersForAoE>
+    <fleckOnTarget>VFEP_PsycastAreaEffectSlow</fleckOnTarget>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Wildspeaker</path>
+        <level>3</level>
+        <order>1</order>
+        <psyfocusCost>0.26</psyfocusCost>
+        <entropyGain>90</entropyGain>
+        <prerequisites>
+          <li>VPE_WordofAnimals</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_GiveMentalState">
+        <stateDef>Manhunter</stateDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_TreeSprout</defName>
+    <label>tree sprout</label>
+    <description>Infuses a large, fertile area with potent life energy, causing it to sprout fully grown oak trees.</description>
+    <iconPath>Abilities/Wildspeaker/TreeSprout</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
+    <castTime>180</castTime>
+    <range>36.9</range>
+    <targetMode>Location</targetMode>
+    <radius>6</radius>
+    <radiusStatFactors>
+      <PsychicSensitivity>1</PsychicSensitivity>
+    </radiusStatFactors>
+    <hasAoE>true</hasAoE>
+    <targetingParametersForAoE>
+      <canTargetLocations>true</canTargetLocations>
+    </targetingParametersForAoE>
+    <castSound>VPE_TreeSprout_Cast</castSound>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Wildspeaker</path>
+        <level>3</level>
+        <order>3</order>
+        <psyfocusCost>0.22</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_WordofAnimals</li>
+        </prerequisites>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Spawn">
+        <thing>VPE_TreeSpawner</thing>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+        <scale>6</scale>
+        <allTargets>false</allTargets>
+        <tryCenter>true</tryCenter>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_ShieldAnimals</defName>
+    <label>shield animals</label>
+    <description>Generates spherical skipgates on all colony animals in range that sends all incoming and outgoing ground-level projectiles to some distant place. People and items are not affected and the duration scales with the caster’s psychic sensitivity.</description>
+    <iconPath>Abilities/Wildspeaker/ShieldAnimals</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <targetMode>Self</targetMode>
+    <radius>12</radius>
+    <hasAoE>true</hasAoE>
+    <castTime>30</castTime>
+    <durationTime>600</durationTime>
+    <durationTimeStatFactors>
+      <PsychicSensitivity>1</PsychicSensitivity>
+    </durationTimeStatFactors>
+    <targetingParametersForAoE>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetAnimals>true</canTargetAnimals>
+      <canTargetHumans>false</canTargetHumans>
+      <canTargetMechs>false</canTargetMechs>
+      <canTargetBuildings>false</canTargetBuildings>
+      <mustBeSameFaction>true</mustBeSameFaction>
+      <ignoreRangeAndSight>true</ignoreRangeAndSight>
+    </targetingParametersForAoE>
+    <castSound>VPE_ShieldAnimals_Cast</castSound>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Wildspeaker</path>
+        <level>4</level>
+        <order>1</order>
+        <psyfocusCost>0.05</psyfocusCost>
+        <entropyGain>20</entropyGain>
+        <prerequisites>
+          <li>VPE_ManhunterPulse</li>
+        </prerequisites>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+        <hediff>VPE_AnimalOvershield</hediff>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_AnimalAllies</defName>
+    <label>animal allies</label>
+    <description>Infuses a large area with harmonic life force that influences animal behavior, causing them to attack those hostile to the caster for a duration scaling with their psychic sensitivity.</description>
+    <iconPath>Abilities/Wildspeaker/AnimalAllies</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <castTime>60</castTime>
+    <durationTime>1800</durationTime>
+    <durationTimeStatFactors>
+      <PsychicSensitivity>1</PsychicSensitivity>
+    </durationTimeStatFactors>
+    <range>35</range>
+    <radius>18</radius>
+    <targetMode>Location</targetMode>
+    <hasAoE>true</hasAoE>
+    <targetingParametersForAoE>
+      <canTargetSelf>False</canTargetSelf>
+      <canTargetHumans>False</canTargetHumans>
+      <canTargetMechs>False</canTargetMechs>
+      <canTargetAnimals>True</canTargetAnimals>
+      <neverTargetIncapacitated>True</neverTargetIncapacitated>
+    </targetingParametersForAoE>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Wildspeaker</path>
+        <level>4</level>
+        <order>2</order>
+        <psyfocusCost>0.26</psyfocusCost>
+        <entropyGain>120</entropyGain>
+        <psychic>true</psychic>
+        <prerequisites>
+          <li>VPE_ShieldAnimals</li>
+          <li>VPE_Shrineshield</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_GiveMentalState">
+        <stateDef>VPE_ManhunterTerritorial</stateDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <clearOthers>true</clearOthers>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+        <fleckDef>PsycastPsychicEffect</fleckDef>
+        <scale>18</scale>
+        <allTargets>false</allTargets>
+        <tryCenter>true</tryCenter>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_Shrineshield</defName>
+    <label>shrineshield</label>
+    <description>Generate a spherical skipgate on a nature shrine that sends all incoming and outgoing ground-level projectiles to some distant place. People and items are not affected and the size of the sphere depends on the size of the shrine.</description>
+    <iconPath>Abilities/Wildspeaker/Shrineshield</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Wildspeaker.Ability_ShrineShield</abilityClass>
+    <castTime>60</castTime>
+    <targetMode>Self</targetMode>
+    <castSound>VPE_Shrineshield_Cast</castSound>
+    <durationTime>1200</durationTime>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Wildspeaker</path>
+        <level>4</level>
+        <order>3</order>
+        <psyfocusCost>0.12</psyfocusCost>
+        <entropyGain>65</entropyGain>
+        <prerequisites>
+          <li>VPE_TreeSprout</li>
+        </prerequisites>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_EssenceTransfer</defName>
+    <label>essence transfer</label>
+    <description>Infuses the life force of another nearby person into a colony animal, linking them and putting the caster in a 6 hour coma. Should the linked person die, the linked animal will go to their side and transfer their own harmonized life essence to them, dying when finished. Should the linked animal die first, the effect is lost and there can only be one link at a time.</description>
+    <iconPath>Abilities/Wildspeaker/EssenceTransfer</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Wildspeaker.Ability_EssenceTransfer</abilityClass>
+    <targetCount>2</targetCount>
+    <targetModes>
+      <li>Humanlike</li>
+      <li>Pawn</li>
+    </targetModes>
+    <targetingParametersList>
+      <li>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetPawns>True</canTargetPawns>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetMechs>False</canTargetMechs>
+        <canTargetBuildings>False</canTargetBuildings>
+      </li>
+      <li>
+        <canTargetSelf>False</canTargetSelf>
+        <canTargetPawns>True</canTargetPawns>
+        <canTargetAnimals>True</canTargetAnimals>
+        <canTargetMechs>False</canTargetMechs>
+        <canTargetHumans>False</canTargetHumans>
+        <canTargetBuildings>False</canTargetBuildings>
+      </li>
+    </targetingParametersList>
+    <castTime>720</castTime>
+    <range>3</range>
+    <radius>99999999</radius>
+    <showUndrafted>true</showUndrafted>
+    <castSound>VPE_EssenceTransfer_Cast</castSound>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Wildspeaker</path>
+        <level>5</level>
+        <order>1</order>
+        <psyfocusCost>0.7</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_AnimalAllies</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+        <hours>6</hours>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_SummonPack</defName>
+    <label>summon pack</label>
+    <description>Sends out a pulse of lifeforce into the region, inducing territorial manhunting aggression into numerous animals that will appear to defend the colony. Once all invaders are defeated, the animals will return to their homes. The distance the pulse travels, and with that the relative strength of the creatures are influenced by the caster’s psychic sensitivity.</description>
+    <iconPath>Abilities/Wildspeaker/SummonPack</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Wildspeaker.Ability_SummonPack</abilityClass>
+    <castTime>720</castTime>
+    <targetMode>Self</targetMode>
+    <power>8</power>
+    <powerStatFactors>
+      <PsychicSensitivity>100</PsychicSensitivity>
+    </powerStatFactors>
+    <castSound>VPE_SummonPack_Cast</castSound>
+    <showUndrafted>true</showUndrafted>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Wildspeaker</path>
+        <level>5</level>
+        <order>2</order>
+        <psyfocusCost>0.7</psyfocusCost>
+        <entropyGain>60</entropyGain>
+        <prerequisites>
+          <li>VPE_AnimalAllies</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+        <hours>6</hours>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+</Defs>

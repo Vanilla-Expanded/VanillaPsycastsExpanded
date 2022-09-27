@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <VFECore.Abilities.AbilityDef Name="VPE_PsycastBase" Abstract="true">
+        <warmupSound>VPE_PsycastCastingEffect</warmupSound>
+        <warmupMote>VPE_Mote_CastPsycast</warmupMote>
+		<gizmoClass>VanillaPsycastsExpanded.Command_Ability_Psycast</gizmoClass>
+		<cooldownTime>120</cooldownTime>
+		<rangeRingColor>(1, 1, 1)</rangeRingColor>
+		<radiusRingColor>(0.3, 0.8, 1)</radiusRingColor>
+    </VFECore.Abilities.AbilityDef>
+
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase" Name="VPE_PsycastGoToTargetBase" Abstract="True">
+		<requireLineOfSight>false</requireLineOfSight>
+		<jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+		<targetMode>Pawn</targetMode>
+		<range>999999</range>
+		<distanceToTarget>1.5</distanceToTarget>
+	</VFECore.Abilities.AbilityDef>
+
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase" Name="VPE_WordOfAbilityBase" Abstract="True">
+		<drawAimPie>false</drawAimPie>
+		<warmupMote>Mote_WarmupWordOf</warmupMote>
+		<warmupSound>Psycast_WordOf_Warmup</warmupSound>
+		<cooldownTime>600</cooldownTime>
+		<castTime>120</castTime>
+		<abilityClass>VanillaPsycastsExpanded.Ability_WordOf</abilityClass>
+        <modExtensions>
+			<li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+				<fleckDef>WordOfApply</fleckDef>
+				<sound>Psycast_WordOf_Effect</sound>
+			</li>
+        </modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+</Defs>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="ApparelBase" Name="VPE_MedievalPsychicApparelBase" Abstract="True">
+    <techLevel>Medieval</techLevel>
+    <tradeTags>
+      <li>PsychicApparel</li>
+    </tradeTags>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <apparel>
+      <tags>
+        <li>Psychic</li>
+      </tags>
+    </apparel>
+  </ThingDef>
+  
+  <ThingDef ParentName="VPE_MedievalPsychicApparelBase">
+    <defName>VPE_Apparel_EltexMask</defName>
+    <label>eltex mask</label>
+    <description>An artistically impressive mask emanating psychic energy. Hides the face of the wearer but provides little physical protection. Its special materials enhance the wearer's psychic sensitivity and dissipate neural heat.</description>
+    <thingCategories>
+      <li>Headgear</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Apparel/EltexMask/EltexMask</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Mass>0.8</Mass>
+      <ArmorRating_Sharp>0.14</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.14</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.12</ArmorRating_Heat>
+      <Insulation_Cold>4</Insulation_Cold>
+      <Insulation_Heat>1</Insulation_Heat>
+      <EquipDelay>1.5</EquipDelay>
+    </statBases>
+    <equippedStatOffsets>
+      <PsychicSensitivityOffset>0.1</PsychicSensitivityOffset>
+      <PsychicEntropyRecoveryRate>0.046</PsychicEntropyRecoveryRate>
+	  <PsychicEntropyMax>0.6667</PsychicEntropyMax>
+    </equippedStatOffsets>
+    <costList>
+      <WoodLog>50</WoodLog>
+      <VPE_Eltex>6</VPE_Eltex>
+    </costList>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Apparel/EltexMask/EltexMask</wornGraphicPath>
+      <hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
+      <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+      <layers> 
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>Royal</li>
+        <li>RoyalTier6</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <only>(57,87,93)</only>
+        </li>
+        <li>
+          <only>(51,27,49)</only>
+        </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
+  <ThingDef ParentName="VPE_MedievalPsychicApparelBase">
+    <defName>VPE_Apparel_EltexCape</defName>
+    <label>eltex cape</label>
+    <description>A long cape of mystical design. It hangs over one side of the torso. Its special materials enhance the wearer's psychic sensitivity and dissipate neural heat.</description>
+    <graphicData>
+      <texPath>Things/Apparel/EltexCape/EltexCape</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>0.5</Mass>
+      <ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.3</ArmorRating_Heat>
+      <Insulation_Cold>6</Insulation_Cold>
+      <Insulation_Heat>1</Insulation_Heat>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <equippedStatOffsets>
+      <PsychicSensitivityOffset>0.10</PsychicSensitivityOffset>
+      <PsychicEntropyRecoveryRate>0.043</PsychicEntropyRecoveryRate>
+	  <PsychicEntropyMax>0.6667</PsychicEntropyMax>
+      <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.2</SlaveSuppressionOffset>
+    </equippedStatOffsets>
+    <costList>
+      <VPE_Eltex>4</VPE_Eltex>
+      <Cloth>80</Cloth>
+    </costList>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Apparel/EltexCape/EltexCape</wornGraphicPath>
+      <shellRenderedBehindHead>true</shellRenderedBehindHead>
+      <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+      <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>Cape</li>
+        <li>Royal</li>
+        <li>RoyalTier2</li>
+        <li>RoyalTier5</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <only>(57,87,93)</only>
+        </li>
+        <li>
+          <only>(51,27,49)</only>
+        </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
+  
+</Defs>

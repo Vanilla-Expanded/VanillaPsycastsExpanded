@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<WeatherDef>
+		<defName>VPE_Hurricane</defName>
+		<label>hurricane</label>
+		<isBad>true</isBad>
+		<description>Extreme wind will cause a slowdown to everyone not under the roof.</description>
+		<temperatureRange>0~999</temperatureRange>
+		<windSpeedFactor>3</windSpeedFactor>
+		<windSpeedOffset>5</windSpeedOffset>
+		<favorability>Bad</favorability>
+		<perceivePriority>2</perceivePriority>
+		<exposedThought>SoakingWet</exposedThought>
+		<accuracyMultiplier>0.8</accuracyMultiplier>
+		<rainRate>5</rainRate>
+		<moveSpeedMultiplier>0.8</moveSpeedMultiplier>
+		<ambientSounds>
+			<li>VPE_Hurricane_Sustainer</li>
+			<li>Ambient_Rain</li>
+		</ambientSounds>
+		<eventMakers>
+			<li>
+				<averageInterval>1200</averageInterval>
+				<eventClass>WeatherEvent_LightningFlash</eventClass>
+			</li>
+			<li>
+				<averageInterval>1200</averageInterval>
+				<eventClass>WeatherEvent_LightningStrike</eventClass>
+			</li>
+		</eventMakers>
+		<overlayClasses>
+			<li>VanillaPsycastsExpanded.Staticlord.WeatherOverlay_RainSideways</li>
+			<li>VFECore.WeatherOverlay_Effects</li>
+		</overlayClasses>
+		<commonalityRainfallFactor>
+			<points>
+				<li>(0, 0)</li>
+				<li>(10000, 0)</li>
+			</points>
+		</commonalityRainfallFactor>
+		<!-- Colors are Overcast -->
+		<skyColorsDay>
+			<sky>(0.7,0.7,0.7)</sky>
+			<shadow>(0.86,0.86,0.86)</shadow>
+			<overlay>(0.6,0.6,0.6)</overlay>
+			<saturation>0.84</saturation>
+		</skyColorsDay>
+		<skyColorsDusk>
+			<sky>(1,1,1)</sky>
+			<shadow>(0.92,0.92,0.92)</shadow>
+			<overlay>(0.5,0.5,0.5)</overlay>
+			<saturation>0.83</saturation>
+		</skyColorsDusk>
+		<skyColorsNightEdge>
+			<sky>(0.35,0.40,0.45)</sky>
+			<shadow>(0.92,0.92,0.92)</shadow>
+			<overlay>(0.5,0.5,0.5)</overlay>
+			<saturation>0.83</saturation>
+		</skyColorsNightEdge>
+		<skyColorsNightMid>
+			<sky>(0.35,0.40,0.45)</sky>
+			<shadow>(0.92,0.92,0.92)</shadow>
+			<overlay>(0.5,0.5,0.5)</overlay>
+			<saturation>0.83</saturation>
+		</skyColorsNightMid>
+		<modExtensions>
+			<li Class="VFECore.WeatherEffectsExtension">
+				<ticksInterval>100</ticksInterval>
+				<hediffsToApply>
+					<li>
+						<hediff>VPE_Hurricane</hediff>
+						<severityOffset>0.004</severityOffset>
+					</li>
+				</hediffsToApply>
+			</li>
+			<li Class="VFECore.WeatherExtension">
+				<canRandomlyGenerate>false</canRandomlyGenerate>
+			</li>
+		</modExtensions>
+	</WeatherDef>
+</Defs>

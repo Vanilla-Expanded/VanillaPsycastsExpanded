@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_SolarPinhole</defName>
+    <label>solar pinhole</label>
+    <description>Generate a microscopic skipgate linked to the core of a nearby star for a few days. Solar material leaks through the pinprick in spacetime, illuminating and warming the surrounding area until it closes. The light is enough to work by, but not enough to grow plants.</description>
+    <iconPath>Abilities/Skipmaster/SolarPinhole</iconPath>
+    <abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
+    <needsTicking>true</needsTicking>
+    <castTime>15</castTime>
+    <durationTime>30000</durationTime>
+    <radius>14.9</radius>
+    <range>24.9</range>
+    <targetMode>Location</targetMode>
+	<showUndrafted>true</showUndrafted>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Skipmaster</path>
+        <level>1</level>
+        <order>1</order>
+        <psyfocusCost>0.08</psyfocusCost>
+        <entropyGain>0</entropyGain>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Spawn">
+        <thing>SolarPinhole</thing>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+        <scale>0.42</scale>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <scale>0.42</scale>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_Chunkskip</defName>
+    <label>chunk skip</label>
+    <description>Skip the 5 chunks of rock or slag to scatter them near the target point. This is useful for producing cover during offensive operations.</description>
+    <iconPath>Abilities/Skipmaster/Chunkskip</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Chunkskip</abilityClass>
+    <needsTicking>true</needsTicking>
+    <range>25</range>
+    <power>5</power>
+    <radius>2.9</radius>
+    <targetMode>Location</targetMode>
+    <castTime>60</castTime>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Skipmaster</path>
+        <level>2</level>
+        <order>1</order>
+        <psyfocusCost>0.04</psyfocusCost>
+        <entropyGain>14</entropyGain>
+        <prerequisites>
+          <li>VPE_SolarPinhole</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_Waterskip</defName>
+    <label>waterskip</label>
+    <description>Douse a target in water, extinguishing fires. The water is archotechnologically skipped from distant bodies of water or underground aquifers.</description>
+    <iconPath>Abilities/Skipmaster/Waterskip</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Waterskip</abilityClass>
+    <needsTicking>true</needsTicking>
+    <range>24.9</range>
+    <radius>1.9</radius>
+    <radiusStatFactors>
+      <PsychicSensitivity>1</PsychicSensitivity>
+    </radiusStatFactors>
+    <castTime>60</castTime>
+    <targetMode>Location</targetMode>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Skipmaster</path>
+        <level>2</level>
+        <order>3</order>
+        <psyfocusCost>0.015</psyfocusCost>
+        <entropyGain>25</entropyGain>
+        <prerequisites>
+          <li>VPE_SolarPinhole</li>
+        </prerequisites>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_ChaosSkip</defName>
+    <label>chaos skip</label>
+    <description>Teleport the target to a random position near where he started. Stuns the target for a second and is considered a hostile action.</description>
+    <iconPath>Abilities/Skipmaster/ChaosSkip</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Teleport</abilityClass>
+    <targetCount>2</targetCount>
+    <range>24.9</range>
+    <minRadius>6.9</minRadius>
+    <radius>24.9</radius>
+    <goodwillImpact>-15</goodwillImpact>
+    <castTime>30</castTime>
+    <needsTicking>true</needsTicking>
+    <targetModes>
+      <li>Pawn</li>
+      <li>Random</li>
+    </targetModes>
+    <targetingParametersList>
+      <li>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetPawns>True</canTargetPawns>
+        <canTargetBuildings>False</canTargetBuildings>
+      </li>
+      <li Class="VFECore.Abilities.TargetingParametersForAoE">
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetBlockedLocations>false</canTargetBlockedLocations>
+      </li>
+    </targetingParametersList>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Skipmaster</path>
+        <level>3</level>
+        <order>1</order>
+        <psyfocusCost>0.02</psyfocusCost>
+        <entropyGain>18</entropyGain>
+        <prerequisites>
+          <li>VPE_Chunkskip</li>
+          <li>VPE_Waterskip</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Stun">
+        <stunTicks>70~120</stunTicks>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_Skip</defName>
+    <label>skip</label>
+    <description>Teleport the target to a desired position not too far from his starting point. This is considered a hostile action.</description>
+    <iconPath>Abilities/Skipmaster/Skip</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Teleport</abilityClass>
+    <targetCount>2</targetCount>
+    <range>28</range>
+    <castTime>30</castTime>
+    <needsTicking>true</needsTicking>
+    <targetModes>
+      <li>Pawn</li>
+      <li>Location</li>
+    </targetModes>
+    <targetingParametersList>
+      <li>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetPawns>True</canTargetPawns>
+        <canTargetBuildings>False</canTargetBuildings>
+        <canTargetItems>true</canTargetItems>
+      </li>
+      <li Class="VFECore.Abilities.TargetingParametersForAoE">
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetBlockedLocations>false</canTargetBlockedLocations>
+      </li>
+    </targetingParametersList>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Skipmaster</path>
+        <level>2</level>
+        <order>2</order>
+        <psyfocusCost>0.02</psyfocusCost>
+        <entropyGain>25</entropyGain>
+        <prerequisites>
+          <li>VPE_ChaosSkip</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Stun">
+        <stunTicks>70~120</stunTicks>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_Wallraise</defName>
+    <label>wall raise</label>
+    <description>Form a temporary wall by skipping rubble and soil up from deep under the ground. Decent range and useful in blocking line of sight and movement for a few hours.</description>
+    <iconPath>Abilities/Skipmaster/Wallraise</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Wallraise</abilityClass>
+    <needsTicking>true</needsTicking>
+    <range>25</range>
+    <castTime>60</castTime>
+    <targetMode>Location</targetMode>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Skipmaster</path>
+        <level>4</level>
+        <order>1</order>
+        <psyfocusCost>0.02</psyfocusCost>
+        <entropyGain>35</entropyGain>
+        <prerequisites>
+          <li>VPE_ChaosSkip</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Wallraise">
+        <pattern>
+          <li>(0, 0)</li>
+          <li>(1, 0)</li>
+          <li>(-1, 0)</li>
+          <li>(0, 1)</li>
+          <li>(0, -1)</li>
+        </pattern>
+        <screenShakeIntensity>1.0</screenShakeIntensity>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+        <clamorType>Ability</clamorType>
+        <clamorRadius>25</clamorRadius>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+        <scale>1.55</scale>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <scale>1.55</scale>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_Smokepop</defName>
+    <label>smokepop</label>
+    <description>Skip dust particles up from under the ground surface to form a thick cloud. This reduces the accuracy of any shot fired through it, and prevents turrets from locking on entirely.</description>
+    <iconPath>Abilities/Skipmaster/Smokepop</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Smokepop</abilityClass>
+    <needsTicking>true</needsTicking>
+    <range>24.9</range>
+    <radius>3.5</radius>
+    <castTime>60</castTime>
+    <targetMode>Location</targetMode>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Skipmaster</path>
+        <level>4</level>
+        <order>2</order>
+        <psyfocusCost>0.02</psyfocusCost>
+        <entropyGain>30</entropyGain>
+        <prerequisites>
+          <li>VPE_ChaosSkip</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+        <clamorType>Ability</clamorType>
+        <clamorRadius>15</clamorRadius>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+        <scale>3</scale>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+        <fleckDefs>
+          <li>PsycastSkipInnerExit</li>
+          <li>PsycastSkipOuterRingExit</li>
+        </fleckDefs>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>6</preCastTicks>
+        <scale>3</scale>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_MassChaosSkip</defName>
+    <label>mass chaos skip</label>
+    <description>Skip everyone near a target point to a random location nearby. Considered a nuisance as it can put allies in danger.</description>
+    <iconPath>Abilities/Skipmaster/MassChaosSkip</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Teleport</abilityClass>
+    <targetCount>2</targetCount>
+    <radius>6.9</radius>
+    <range>20</range>
+    <castTime>60</castTime>
+    <needsTicking>true</needsTicking>
+    <targetModes>
+      <li>Location</li>
+      <li>Random</li>
+    </targetModes>
+    <targetingParametersList>
+      <li IsNull="True" />
+      <li Class="VFECore.Abilities.TargetingParametersForAoE">
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetBlockedLocations>false</canTargetBlockedLocations>
+      </li>
+    </targetingParametersList>
+    <hasAoE>true</hasAoE>
+    <targetingParametersForAoE>
+      <canTargetSelf>True</canTargetSelf>
+      <canTargetPawns>True</canTargetPawns>
+      <canTargetBuildings>False</canTargetBuildings>
+    </targetingParametersForAoE>
+    <goodwillImpact>-5</goodwillImpact>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Skipmaster</path>
+        <level>4</level>
+        <order>3</order>
+        <psyfocusCost>0.03</psyfocusCost>
+        <entropyGain>40</entropyGain>
+        <prerequisites>
+          <li>VPE_ChaosSkip</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_Stun">
+        <stunTicks>70~120</stunTicks>
+      </li>
+      <li Class="VFECore.Abilities.AbilityExtension_RandomRadius">
+        <minRadius>6.9</minRadius>
+        <maxRadius>24.9</maxRadius>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_Skipdoor</defName>
+    <label>skipdoor</label>
+    <description>Creates an opening to a network of skipgates which can be placed in any location with a permanent presence. The network is tied to a group’s collective consciousness, allowing others to use it and different psycasters can add to it. However, the entry points are sensitive to physical disturbances which can cause them to collapse.</description>
+    <iconPath>Abilities/Skipmaster/Skipdoor</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Skipdoor</abilityClass>
+    <range>5.9</range>
+    <castTime>120</castTime>
+    <targetMode>Location</targetMode>
+    <castSound>VPE_SkipGate_Cast</castSound>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Skipmaster</path>
+        <level>5</level>
+        <order>2</order>
+        <psyfocusCost>0.8</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_MassChaosSkip</li>
+        </prerequisites>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+    <defName>VPE_Farskip</defName>
+    <label>farskip</label>
+    <description>Skip the caster, along with anyone standing near them, to a willing ally at a distant location. This can send people far across the planet, and the skipped people will always appear near a random ally on the target map and be stunned for a few seconds from the journey.</description>
+    <iconPath>Abilities/Skipmaster/Farskip</iconPath>
+    <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_WorldTeleport</abilityClass>
+    <radius>4.9</radius>
+    <castTime>300</castTime>
+    <targetMode>Tile</targetMode>
+    <range>9999</range>
+    <worldTargeting>true</worldTargeting>
+    <needsTicking>true</needsTicking>
+    <showGizmoOnWorldView>true</showGizmoOnWorldView>
+    <modExtensions>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+        <path>VPE_Skipmaster</path>
+        <level>5</level>
+        <order>1</order>
+        <psyfocusCost>0.7</psyfocusCost>
+        <entropyGain>0</entropyGain>
+        <prerequisites>
+          <li>VPE_Skipdoor</li>
+        </prerequisites>
+      </li>
+      <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+        <clamorType>Ability</clamorType>
+        <clamorRadius>10</clamorRadius>
+      </li>
+    </modExtensions>
+  </VFECore.Abilities.AbilityDef>
+</Defs>

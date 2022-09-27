@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<ThingDef ParentName="BaseBullet">
+		<defName>VPE_Flameball</defName>
+		<label>flameball</label>
+		<description>A ball of flame launched by a conflagrator</description>
+		<thingClass>VanillaPsycastsExpanded.Graphics.Projectile_Pointing</thingClass>
+		<graphicData Class="VanillaPsycastsExpanded.Graphics.GraphicData_Animated">
+			<texPath>Effects/Conflagrator/Fireball</texPath>
+			<ticksPerFrame>5</ticksPerFrame>
+			<graphicClass>VanillaPsycastsExpanded.Graphics.Graphic_Animated</graphicClass>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<drawOffscreen>true</drawOffscreen>
+		<drawerType>RealtimeOnly</drawerType>
+		<projectile>
+			<explosionRadius>3</explosionRadius>
+			<damageDef>Flame</damageDef>
+			<speed>20</speed>
+			<arcHeightFactor>50</arcHeightFactor>
+			<ai_IsIncendiary>true</ai_IsIncendiary>
+			<shadowSize>0.6</shadowSize>
+		</projectile>
+	</ThingDef>
+	<VFECore.ExpandableProjectileDef ParentName="BaseBullet">
+		<defName>VPE_FireBreath</defName>
+		<label>fire breath</label>
+		<thingClass>VFECore.FlamethrowProjectile</thingClass>
+		<graphicData>
+			<texPath>Effects/Conflagrator/BreatheFlame/FireBreath</texPath>
+			<texPathFadeOut>Effects/Conflagrator/BreatheFlame/FireBreathFadeOut</texPathFadeOut>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<speed>45</speed>
+			<damageAmountBase>5</damageAmountBase>
+			<ai_IsIncendiary>true</ai_IsIncendiary>
+		</projectile>
+
+		<drawOffscreen>true</drawOffscreen>
+		<lifeTimeDuration>100</lifeTimeDuration>
+		<widthScaleFactor>0.75</widthScaleFactor>
+		<heightScaleFactor>1</heightScaleFactor>
+		<startingPositionOffset>(0, 0, -1)</startingPositionOffset>
+		<totalSizeScale>1.15</totalSizeScale>
+		<tickFrameRate>2</tickFrameRate>
+		<finalTickFrameRate>5</finalTickFrameRate>
+		<tickDamageRate>20</tickDamageRate>
+		<dealsDamageOnce>true</dealsDamageOnce>
+		<minDistanceToAffect>2</minDistanceToAffect>
+	</VFECore.ExpandableProjectileDef>
+	<ThingDef ParentName="BaseBullet">
+		<defName>VPE_EyeBlast</defName>
+		<label>eye blast</label>
+		<thingClass>VFECore.BeamProjectile</thingClass>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData>
+			<texPath>Effects/Conflagrator/EyeBlastFirebeam/EyeBlastFirebeam</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(5, 1)</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<speed>100000</speed>
+			<ai_IsIncendiary>true</ai_IsIncendiary>
+			<damageAmountBase>25</damageAmountBase>
+			<explosionRadius>3</explosionRadius>
+		</projectile>
+		<modExtensions>
+			<li Class="VFECore.ProjectileExtension">
+				<flashIntensity>100</flashIntensity>
+				<hitFleck>VPE_EyeBlast</hitFleck>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="BaseBullet">
+		<defName>VPE_Bolt</defName>
+		<label>bolt</label>
+		<description>A bolt launched by a staticlord</description>
+		<thingClass>VFECore.Abilities.AbilityProjectile</thingClass>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData Class="VanillaPsycastsExpanded.Graphics.GraphicData_Animated">
+			<texPath>Effects/Staticlord/Bolt</texPath>
+			<ticksPerFrame>3</ticksPerFrame>
+			<graphicClass>VanillaPsycastsExpanded.Graphics.Graphic_Animated</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(2, 2)</drawSize>
+		</graphicData>
+		<drawerType>RealtimeOnly</drawerType>
+		<projectile>
+			<explosionRadius>1.9</explosionRadius>
+			<damageDef>EMP</damageDef>
+			<speed>50</speed>
+			<shadowSize>0</shadowSize>
+			<extraDamages>
+				<li>
+					<def>Flame</def>
+					<amount>15</amount>
+				</li>
+			</extraDamages>
+		</projectile>
+	</ThingDef>
+	<ThingDef ParentName="BaseBullet">
+		<defName>VPE_ChainBolt</defName>
+		<label>chain bolt</label>
+		<thingClass>VFEMech.TeslaProjectile</thingClass>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData>
+			<texPath>Effects/Staticlord/ChainBolt</texPath>
+			<graphicClass>Graphic_Flicker</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>Stun</damageDef>
+			<damageAmountBase>1</damageAmountBase>
+			<speed>140</speed>
+		</projectile>
+		<modExtensions>
+			<li Class="VFEMech.TeslaChainingProps">
+				<maxBounceCount>6</maxBounceCount>
+				<damageDef>Flame</damageDef>
+				<explosionDamageDef>EMP</explosionDamageDef>
+				<impactRadius>1.9</impactRadius>
+				<targetFriendly>false</targetFriendly>
+				<addFire>true</addFire>
+				<bounceRange>8</bounceRange>
+				<maxLifetime>50</maxLifetime>
+				<impactSound>VPE_ChainBolt_Impact</impactSound>
+			</li>
+		</modExtensions>
+	</ThingDef>
+    <ThingDef ParentName="BaseBullet">
+        <defName>VPE_BallLightning</defName>
+        <label>ball lightning</label>
+        <thingClass>VanillaPsycastsExpanded.Staticlord.BallLightning</thingClass>
+		<drawOffscreen>true</drawOffscreen>
+        <graphicData Class="VanillaPsycastsExpanded.Graphics.GraphicData_Animated">
+            <texPath>Effects/Staticlord/BallOfLightning</texPath>
+			<graphicClass>VanillaPsycastsExpanded.Graphics.Graphic_Animated</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+			<ticksPerFrame>3</ticksPerFrame>
+			<drawSize>(3, 3)</drawSize>
+        </graphicData>
+		<projectile>
+			<speed>5</speed>
+			<soundAmbient>VPE_BallLightning_Sustainer</soundAmbient>
+			<shadowSize>0</shadowSize>
+			<explosionRadius>5</explosionRadius>
+			<damageDef>EMP</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+		</projectile>
+    </ThingDef>
+	
+	<VFECore.ExpandableProjectileDef ParentName="BaseBullet">
+		<defName>VPE_IceBreathe</defName>
+		<label>ice breathe</label>
+		<thingClass>VanillaPsycastsExpanded.IceBreatheProjectile</thingClass>
+		<graphicData>
+			<texPath>Effects/Frostshaper/IceBreath/Proj_IceBreath</texPath>
+			<texPathFadeOut>Effects/Frostshaper/IceBreath/Proj_IceBreathFadeOut</texPathFadeOut>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>Frostbite</damageDef>
+			<speed>45</speed>
+			<damageAmountBase>6</damageAmountBase>
+			<armorPenetrationBase>0.15</armorPenetrationBase>
+			<stoppingPower>1.5</stoppingPower>
+		</projectile>
+		<drawOffscreen>true</drawOffscreen>
+		<lifeTimeDuration>50</lifeTimeDuration>
+		<widthScaleFactor>0.65</widthScaleFactor>
+		<heightScaleFactor>1</heightScaleFactor>
+		<startingPositionOffset>(0, 0, -1)</startingPositionOffset>
+		<totalSizeScale>1.15</totalSizeScale>
+		<tickFrameRate>2</tickFrameRate>
+		<finalTickFrameRate>5</finalTickFrameRate>
+		<tickDamageRate>20</tickDamageRate>
+		<dealsDamageOnce>true</dealsDamageOnce>
+		<minDistanceToAffect>0.5</minDistanceToAffect>
+	</VFECore.ExpandableProjectileDef>
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>VPE_IceSpike</defName>
+		<label>ice spike</label>
+		<description>A spike of ice launched by the frostshaper.</description>
+		<thingClass>VFECore.Abilities.AbilityProjectile</thingClass>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>VisEffects</altitudeLayer>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData>
+			<texPath>Effects/Frostshaper/IceSpike/IceSpike</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>Cut</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<speed>70</speed>
+		</projectile>
+		<comps>
+			<li Class="VanillaPsycastsExpanded.CompProperties_FleckEmitter">
+				<fleck>VPE_ColdGlowBehindProjectile</fleck>
+				<emissionInterval>1</emissionInterval>
+				<scale>2.3</scale>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>VPE_FrostRay</defName>
+		<label>frost ray</label>
+		<thingClass>VanillaPsycastsExpanded.Projectile_FrostRay</thingClass>
+		<altitudeLayer>VisEffects</altitudeLayer>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData Class="VanillaPsycastsExpanded.Graphics.GraphicData_Animated">
+			<texPath>Effects/Frostshaper/Frostbeam</texPath>
+			<graphicClass>VanillaPsycastsExpanded.Graphics.Graphic_Animated</graphicClass>
+			<ticksPerFrame>3</ticksPerFrame>
+		</graphicData>
+		<projectile>
+			<speed>75</speed>
+			<damageDef>Cut</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+		</projectile>
+		<comps>
+			<li Class="VanillaPsycastsExpanded.CompProperties_FleckEmitter">
+				<fleck>VPE_ColdGlowBehindProjectile</fleck>
+				<emissionInterval>1</emissionInterval>
+				<scale>2.3</scale>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

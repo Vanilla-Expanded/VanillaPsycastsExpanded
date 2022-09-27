@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Mindcontrol</defName>
+      <label>mind control</label>
+      <description>Psychically dominate a target for a brief period, scaling with their psychic sensitivity, giving the caster a second body. However, it’s difficult being two people at once.</description>
+      <iconPath>Abilities/Harmonist/Mindcontrol</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+      <castTime>60</castTime>
+      <castSound>VPE_MindControl_Cast</castSound>
+      <durationTime>720</durationTime>
+      <targetMode>Humanlike</targetMode>
+      <range>16.9</range>
+      <cooldownTime>600</cooldownTime>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Harmonist</path>
+          <level>1</level>
+          <order>1</order>
+          <psyfocusCost>0.08</psyfocusCost>
+          <entropyGain>18</entropyGain>
+          <psychic>true</psychic>
+          <prerequisites>
+            <li>VPE_PsychicGuidance</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+          <hediff>VPE_MindControlled</hediff>
+          <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_ExtraHediffs">
+          <onCaster>
+            <li>VPE_MindScramble</li>
+          </onCaster>
+          <onTarget>
+            <li>VPE_MindScramble</li>
+          </onTarget>
+          <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_PsychicGuidance</defName>
+      <label>psychic guidance</label>
+      <description>Dampens the caster’s sight, hearing, movement and manipulation in exchange for overcharging the target’s own physical abilities.</description>
+      <iconPath>Abilities/Harmonist/PsychicGuidance</iconPath>
+      <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+      <range>4.9</range>
+      <durationTime>30000</durationTime>
+      <targetMode>Humanlike</targetMode>
+      <castTime>120</castTime>
+      <castSound>VPE_PsychicGuidance_Cast</castSound>
+	  <showUndrafted>true</showUndrafted>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Harmonist</path>
+          <level>1</level>
+          <order>2</order>
+          <psyfocusCost>0.14</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <psychic>true</psychic>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_ExtraHediffs">
+          <onCaster>
+            <li>VPE_PsychicGuide</li>
+          </onCaster>
+          <onTarget>
+            <li>VPE_PsychicGuidance</li>
+          </onTarget>
+          <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_TransmuteStone</defName>
+      <label>transmute stone</label>
+      <description>Designates an area of stone which will have its minerals swapped out for a single, randomized type from an underground strata.</description>
+      <iconPath>Abilities/Harmonist/TransmuteStone</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_TransmuteStone</abilityClass>
+      <castTime>240</castTime>
+      <range>23.9</range>
+      <radius>11.9</radius>
+      <castSound>VPE_TransmuteStone_Cast</castSound>
+      <targetMode>Location</targetMode>
+      <targetFlecks>
+        <li>VPE_PsychicWave12</li>
+      </targetFlecks>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Harmonist</path>
+          <level>1</level>
+          <order>3</order>
+          <psyfocusCost>0.2</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_PsychicGuidance</li>
+          </prerequisites>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_HeatFocus</defName>
+      <label>heat focus</label>
+      <description>Initiates harmonic meditation which converts all accumulated heat in psyfocus after 10 seconds.</description>
+      <iconPath>Abilities/Harmonist/HeatFocus</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_HeatFocus</abilityClass>
+      <targetMode>Self</targetMode>
+      <castTime>600</castTime>
+      <castFleck>PsycastPsychicEffect</castFleck>
+      <castSound>VPE_HeatFocus_Cast</castSound>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Harmonist</path>
+          <level>2</level>
+          <order>1</order>
+          <psyfocusCost>0.06</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_Mindcontrol</li>
+          </prerequisites>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_LuckTransfer</defName>
+      <label>luck transfer</label>
+      <description>Creates a rift in karmic balance by shifting the negative karma from the first target onto the second target, as well as receiving their positive karma. Only affects combat and the duration scales with the first target’s psychic sensitivity.</description>
+      <iconPath>Abilities/Harmonist/LuckTransfer</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_LuckTransfer</abilityClass>
+      <castTime>120</castTime>
+      <castSound>VPE_LuckTransfer_Cast</castSound>
+      <targetCount>2</targetCount>
+      <targetModes>
+        <li>Pawn</li>
+        <li>Pawn</li>
+      </targetModes>
+      <durationTime>3600</durationTime>
+      <targetingParametersList>
+        <li>
+          <canTargetSelf>True</canTargetSelf>
+          <canTargetPawns>True</canTargetPawns>
+          <canTargetBuildings>False</canTargetBuildings>
+        </li>
+        <li>
+          <canTargetSelf>True</canTargetSelf>
+          <canTargetPawns>True</canTargetPawns>
+          <canTargetBuildings>False</canTargetBuildings>
+        </li>
+      </targetingParametersList>
+      <range>5.9</range>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Harmonist</path>
+          <level>2</level>
+          <order>2</order>
+          <psyfocusCost>0.36</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <psychic>true</psychic>
+          <prerequisites>
+            <li>VPE_TransmuteStone</li>
+          </prerequisites>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_BendProbability</defName>
+      <label>bend probability</label>
+      <description>Creates a ripple of cosmic scale that will force something to happen.</description>
+      <iconPath>Abilities/Harmonist/BendProbability</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_RandomEvent</abilityClass>
+      <castTime>360</castTime>
+      <targetMode>Self</targetMode>
+      <castSound>VPE_BendProbability_Cast</castSound>
+      <castFleck>VFEP_PsycastAreaEffectSlow</castFleck>
+      <castFleckScale>9</castFleckScale>
+	  <showUndrafted>true</showUndrafted>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Harmonist</path>
+          <level>3</level>
+          <order>1</order>
+          <psyfocusCost>0.5</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_HeatFocus</li>
+          </prerequisites>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_LocationSwap</defName>
+      <label>location swap</label>
+      <description>Spawns two precise, single-use skipgates between the caster and the visible target, allowing them to trade places.</description>
+      <iconPath>Abilities/Harmonist/LocationSwap</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_LocationSwap</abilityClass>
+      <castTime>15</castTime>
+      <range>30</range>
+      <targetMode>Pawn</targetMode>
+      <castSound>VPE_LocationSwap_Cast</castSound>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Harmonist</path>
+          <level>3</level>
+          <order>2</order>
+          <psyfocusCost>0.06</psyfocusCost>
+          <entropyGain>35</entropyGain>
+          <prerequisites>
+            <li>VPE_LuckTransfer</li>
+          </prerequisites>
+        </li>
+        <li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+          <clamorType>Ability</clamorType>
+          <clamorRadius>10</clamorRadius>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_HealthSwap</defName>
+      <label>health swap</label>
+      <description>Creates an imbalance between the life forces of two people, causing all negative health conditions to flow from one to the other. Conditions that can’t be transferred are healed.</description>
+      <iconPath>Abilities/Harmonist/HealthSwap</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_HealthSwap</abilityClass>
+      <castTime>240</castTime>
+      <castSound>VPE_HealthSwap_Cast</castSound>
+	  <cooldownTime>30000</cooldownTime>
+      <castFleckScale>9</castFleckScale>
+      <targetCount>2</targetCount>
+      <targetModes>
+        <li>Pawn</li>
+        <li>Pawn</li>
+      </targetModes>
+      <targetingParametersList>
+        <li>
+          <canTargetSelf>True</canTargetSelf>
+          <canTargetPawns>True</canTargetPawns>
+          <canTargetAnimals>False</canTargetAnimals>
+          <canTargetMechs>False</canTargetMechs>
+          <canTargetBuildings>False</canTargetBuildings>
+        </li>
+        <li>
+          <canTargetSelf>True</canTargetSelf>
+          <canTargetPawns>True</canTargetPawns>
+          <canTargetAnimals>False</canTargetAnimals>
+          <canTargetMechs>False</canTargetMechs>
+          <canTargetBuildings>False</canTargetBuildings>
+        </li>
+      </targetingParametersList>
+      <range>12.9</range>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Harmonist</path>
+          <level>4</level>
+          <order>1</order>
+          <psyfocusCost>0.35</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_BendProbability</li>
+          </prerequisites>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_Transmutation</defName>
+      <label>transmutation</label>
+      <description>Utilizing the alchemical foundation of equivalent exchange, converts a targeted item or stack of items into an object of equal or lesser value. Otherwise extremely unpredictable and uncontrollable.</description>
+      <iconPath>Abilities/Harmonist/Transmutation</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_TransmuteItem</abilityClass>
+      <needsTicking>true</needsTicking>
+      <targetingParameters>
+        <canTargetItems>true</canTargetItems>
+        <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+        <thingCategory>Item</thingCategory>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetingParameters>
+      <castTime>360</castTime>
+      <castSound>VPE_Transmutation_Cast</castSound>
+	  <showUndrafted>true</showUndrafted>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Harmonist</path>
+          <level>4</level>
+          <order>2</order>
+          <psyfocusCost>0.3</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_LocationSwap</li>
+          </prerequisites>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+          <fleckDefs>
+            <li>PsycastSkipInnerExit</li>
+            <li>PsycastSkipOuterRingExit</li>
+          </fleckDefs>
+          <scale>0.42</scale>
+          <sound>Psycast_Skip_Exit</sound>
+          <preCastTicks>10</preCastTicks>
+        </li>
+        <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+          <effecterDef>Skip_Exit</effecterDef>
+          <maintainForTicks>60</maintainForTicks>
+          <scale>0.42</scale>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+    <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+      <defName>VPE_SkillRoll</defName>
+      <label>skillroll</label>
+      <description>Initiates a shift in the target’s knowledge and accumulated skills, attempting to rebalance them somewhat chaotically with some beneficial guidance. The strain puts the caster in a coma for a day, but can be reduced with psychic sensitivity.</description>
+      <iconPath>Abilities/Harmonist/SkillRoll</iconPath>
+      <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_Skillroll</abilityClass>
+      <castTime>720</castTime>
+      <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
+      <requireLineOfSight>false</requireLineOfSight>
+      <range>999999</range>
+      <distanceToTarget>2.9</distanceToTarget>
+      <castSound>VPE_Skillroll_Cast</castSound>
+      <targetMode>Pawn</targetMode>
+      <targetFlecks>
+        <li>VPE_PsychicWave12</li>
+      </targetFlecks>
+      <modExtensions>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+          <path>VPE_Harmonist</path>
+          <level>5</level>
+          <order>1</order>
+          <psyfocusCost>0.8</psyfocusCost>
+          <entropyGain>0</entropyGain>
+          <prerequisites>
+            <li>VPE_HealthSwap</li>
+            <li>VPE_Transmutation</li>
+          </prerequisites>
+        </li>
+        <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+          <hours>24</hours>
+        </li>
+      </modExtensions>
+    </VFECore.Abilities.AbilityDef>
+</Defs>

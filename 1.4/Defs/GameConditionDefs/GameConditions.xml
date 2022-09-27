@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <GameConditionDef>
+        <defName>VPE_RaidPause</defName>
+        <conditionClass>VanillaPsycastsExpanded.Chronopath.GameCondition_RaidPause</conditionClass>
+        <label>paused raid</label>
+        <description>A Chronopath is pausing a raid.</description>
+        <canBePermanent>false</canBePermanent>
+    </GameConditionDef>
+    <GameConditionDef>
+        <defName>VPE_TimeQuake</defName>
+        <conditionClass>VanillaPsycastsExpanded.Chronopath.GameCondition_TimeQuake</conditionClass>
+        <label>time quake</label>
+        <description>A massive temporal disturbance.</description>
+        <canBePermanent>false</canBePermanent>
+    </GameConditionDef>
+    <GameConditionDef>
+        <defName>VPE_Hurricane</defName>
+        <conditionClass>GameCondition_ForceWeather</conditionClass>
+        <label>forced hurricane</label>
+        <description>A Staticlord is creating a hurricane.</description>
+        <letterDef>NegativeEvent</letterDef>
+        <canBePermanent>false</canBePermanent>
+        <weatherDef>VPE_Hurricane</weatherDef>
+    </GameConditionDef>
+    <GameConditionDef>
+        <defName>VPE_PsychicFlashstorm</defName>
+        <conditionClass>VanillaPsycastsExpanded.Staticlord.GameCondition_PsychicFlashstorm</conditionClass>
+        <label>flashstorm</label>
+        <description>A freak localized storm is blasting a small area with repeated lightning strikes.</description>
+        <endMessage>The flashstorm is over.</endMessage>
+        <letterText>A freak localized flashstorm is striking a small area with lightning. This can cause massive fires.</letterText>
+        <letterDef>NegativeEvent</letterDef>
+        <preventRain>true</preventRain>
+        <canBePermanent>true</canBePermanent>
+        <jumpToSourceKey>ClickToJumpToFlashstorm</jumpToSourceKey>
+    </GameConditionDef>
+    <GameConditionDef>
+        <defName>VPE_IntenseShadows</defName>
+        <conditionClass>VanillaPsycastsExpanded.Nightstalker.GameCondition_IntenseShadows</conditionClass>
+        <label>intensified shadows</label>
+        <description>text.todo</description>
+        <endMessage>The shadows return to normal.</endMessage>
+        <preventRain>false</preventRain>
+        <canBePermanent>false</canBePermanent>
+    </GameConditionDef>
+</Defs>

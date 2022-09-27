@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+	<ThoughtDef>
+		<defName>VPE_Bliss</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>VPE_Bliss</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>bliss</label>
+				<description>Maybe it isn't all bad.</description>
+				<baseMoodEffect>10</baseMoodEffect>
+			</li>
+			<li>
+				<label>bliss</label>
+				<description>I think things are getting better.</description>
+				<baseMoodEffect>20</baseMoodEffect>
+			</li>
+			<li>
+				<label>bliss</label>
+				<description>Everything is improving, slowly but surely.</description>
+				<baseMoodEffect>30</baseMoodEffect>
+			</li>
+			<li>
+				<label>bliss</label>
+				<description>I'm feeling good right now, things are looking up.</description>
+				<baseMoodEffect>40</baseMoodEffect>
+			</li>
+			<li>
+				<label>bliss</label>
+				<description>I feel warm and fuzzy, just being alive feels great.</description>
+				<baseMoodEffect>50</baseMoodEffect>
+			</li>
+			<li>
+				<label>bliss</label>
+				<description>I'm just about to burst with excitement. I love this colony, I love this world and all the lives on it.</description>
+				<baseMoodEffect>60</baseMoodEffect>
+			</li>
+			<li>
+				<label>bliss</label>
+				<description>All the colors of this world are so vivid, the sounds are so tranquil, the air is so crisp. This life leaves me breathless.</description>
+				<baseMoodEffect>70</baseMoodEffect>
+			</li>
+			<li>
+				<label>bliss</label>
+				<description>This is it, isn't it? I've truly reached nirvana itself. Life itself is the very embodiment of happiness.</description>
+				<baseMoodEffect>80</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	
+  <ThoughtDef>
+    <defName>VPE_MindWiped</defName>
+    <durationDays>300</durationDays>
+    <stages>
+      <li>
+        <label>mind wiped</label>
+        <description>I don’t remember anything, I’m exploring everything anew!</description>
+        <baseMoodEffect>20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>VPE_TimeQuake</defName>
+	<workerClass>VanillaPsycastsExpanded.Chronopath.ThoughtWorker_TimeQuake</workerClass>
+    <stages>
+      <li>
+        <label>time quake</label>
+        <description>Everyone I knew has changed so much. This timequake really did a number on me.</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>VPE_Future</defName>
+	<durationDays>3</durationDays>
+    <stages>
+      <li>
+        <label>I know my future!</label>
+        <description>I know my future, and things are looking good!</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>VPE_Thrall</defName>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>VPE_Thrall</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>Thrall</label>
+        <description>Ughhh ugghhh aaaahhhh</description>
+        <baseMoodEffect>100</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>
