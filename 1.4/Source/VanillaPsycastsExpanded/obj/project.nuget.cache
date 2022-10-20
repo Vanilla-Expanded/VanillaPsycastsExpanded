@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WSlXzXwBn+XCNr5aJZ0elSrfSNuLkdBd3FuUP4kSskxbU0txDbt7uBkLgUQ4v6T1weN4tIbGPoUopBo+Jtu/PQ==",
+  "dgSpecHash": "exJ4wwcubU2wmp0ljOWCEwr0YesuBiZ7vFkLkLCb4aHvnj0plVdKg/FLuNB7333+7NTrdBSjuTyVZjN2hwis4A==",
   "success": true,
   "projectFilePath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaPsycastsExpanded\\1.4\\Source\\VanillaPsycastsExpanded\\VanillaPsycastsExpanded.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\legod\\.nuget\\packages\\lib.harmony\\2.2.2\\lib.harmony.2.2.2.nupkg.sha512"
+    "C:\\Users\\Sarg\\.nuget\\packages\\lib.harmony\\2.2.2\\lib.harmony.2.2.2.nupkg.sha512"
   ],
   "logs": []
 }

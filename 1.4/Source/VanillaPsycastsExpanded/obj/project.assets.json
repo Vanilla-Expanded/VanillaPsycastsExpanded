@@ -5,14 +5,10 @@
       "Lib.Harmony/2.2.2": {
         "type": "package",
         "compile": {
-          "lib/net48/0Harmony.dll": {
-            "related": ".xml"
-          }
+          "lib/net48/0Harmony.dll": {}
         },
         "runtime": {
-          "lib/net48/_._": {
-            "related": ".xml"
-          }
+          "lib/net48/_._": {}
         }
       }
     },
@@ -20,14 +16,10 @@
       "Lib.Harmony/2.2.2": {
         "type": "package",
         "compile": {
-          "lib/net48/0Harmony.dll": {
-            "related": ".xml"
-          }
+          "lib/net48/0Harmony.dll": {}
         },
         "runtime": {
-          "lib/net48/_._": {
-            "related": ".xml"
-          }
+          "lib/net48/_._": {}
         }
       }
     },
@@ -35,14 +27,10 @@
       "Lib.Harmony/2.2.2": {
         "type": "package",
         "compile": {
-          "lib/net48/0Harmony.dll": {
-            "related": ".xml"
-          }
+          "lib/net48/0Harmony.dll": {}
         },
         "runtime": {
-          "lib/net48/_._": {
-            "related": ".xml"
-          }
+          "lib/net48/_._": {}
         }
       }
     },
@@ -50,14 +38,10 @@
       "Lib.Harmony/2.2.2": {
         "type": "package",
         "compile": {
-          "lib/net48/0Harmony.dll": {
-            "related": ".xml"
-          }
+          "lib/net48/0Harmony.dll": {}
         },
         "runtime": {
-          "lib/net48/_._": {
-            "related": ".xml"
-          }
+          "lib/net48/_._": {}
         }
       }
     }
@@ -99,7 +83,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\legod\\.nuget\\packages\\": {}
+    "C:\\Users\\Sarg\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -107,12 +91,12 @@
       "projectUniqueName": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaPsycastsExpanded\\1.4\\Source\\VanillaPsycastsExpanded\\VanillaPsycastsExpanded.csproj",
       "projectName": "VanillaPsycastsExpanded",
       "projectPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaPsycastsExpanded\\1.4\\Source\\VanillaPsycastsExpanded\\VanillaPsycastsExpanded.csproj",
-      "packagesPath": "C:\\Users\\legod\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Sarg\\.nuget\\packages\\",
       "outputPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaPsycastsExpanded\\1.4\\Source\\VanillaPsycastsExpanded\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\legod\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sarg\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
