@@ -10,12 +10,12 @@
         "projectUniqueName": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaPsycastsExpanded\\1.4\\Source\\VanillaPsycastsExpanded\\VanillaPsycastsExpanded.csproj",
         "projectName": "VanillaPsycastsExpanded",
         "projectPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaPsycastsExpanded\\1.4\\Source\\VanillaPsycastsExpanded\\VanillaPsycastsExpanded.csproj",
-        "packagesPath": "C:\\Users\\Sarg\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Vova\\.nuget\\packages\\",
         "outputPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\VanillaPsycastsExpanded\\1.4\\Source\\VanillaPsycastsExpanded\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\Sarg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Vova\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,10 @@
       "frameworks": {
         "net48": {
           "dependencies": {
+            "Krafs.Rimworld.Ref": {
+              "target": "Package",
+              "version": "[1.4.3523-beta, )"
+            },
             "Lib.Harmony": {
               "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "target": "Package",
