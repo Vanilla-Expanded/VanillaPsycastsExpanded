@@ -9,5 +9,14 @@
     <minSeverity>0</minSeverity>
     <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
     <countsAsAddedPartOrImplant>False</countsAsAddedPartOrImplant>
+    <stages>
+      <li>
+        <statOffsets>
+          <VPE_PsyfocusCostFactor>0</VPE_PsyfocusCostFactor>
+          <VPE_PsychicEntropyMinimum>0</VPE_PsychicEntropyMinimum>
+        </statOffsets>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
   </HediffDef>
 </Defs>
