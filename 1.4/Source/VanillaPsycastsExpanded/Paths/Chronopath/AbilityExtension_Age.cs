@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using RimWorld;
+﻿using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
@@ -10,12 +9,6 @@ namespace VanillaPsycastsExpanded.Chronopath;
 
 public class AbilityExtension_Age : AbilityExtension_AbilityMod
 {
-    private static readonly AccessTools.FieldRef<Pawn_AgeTracker, float> progressToNextBiologicalTick =
-        AccessTools.FieldRefAccess<Pawn_AgeTracker, float>("progressToNextBiologicalTick");
-
-    private static readonly AccessTools.FieldRef<Pawn_AgeTracker, long> ageBiologicalTicksInt =
-        AccessTools.FieldRefAccess<Pawn_AgeTracker, long>("ageBiologicalTicksInt");
-
     public float? casterYears = null;
     public float? targetYears = null;
 
@@ -45,14 +38,7 @@ public class AbilityExtension_Age : AbilityExtension_AbilityMod
         {
             var progress = -years * GenDate.TicksPerYear * pawn.ageTracker.BiologicalTicksPerTick;
             long ticks = Mathf.FloorToInt(progress);
-            progress -= ticks;
-            progressToNextBiologicalTick(pawn.ageTracker) -= progress;
-            ageBiologicalTicksInt(pawn.ageTracker) -= ticks;
-        }
-
-        pawn.ageTracker.AgeTickMothballed((int)(years * GenDate.TicksPerYear));
-        if (years < 0)
-        {
+            pawn.ageTracker.AgeBiologicalTicks -= ticks;
             var giverSets = pawn.def.race.hediffGiverSets;
             if (giverSets == null) return;
             var lifeFraction = pawn.ageTracker.AgeBiologicalYears / pawn.def.race.lifeExpectancy;
@@ -65,6 +51,8 @@ public class AbilityExtension_Age : AbilityExtension_AbilityMod
                         while ((hediff = pawn.health.hediffSet.GetFirstHediffOfDef(giverBirthday.hediff)) != null) pawn.health.RemoveHediff(hediff);
                     }
         }
+
+        pawn.ageTracker.AgeTickMothballed((int)(years * GenDate.TicksPerYear));
 
         if (pawn.ageTracker.AgeBiologicalYears > pawn.def.race.lifeExpectancy * 1.1f)
         {
