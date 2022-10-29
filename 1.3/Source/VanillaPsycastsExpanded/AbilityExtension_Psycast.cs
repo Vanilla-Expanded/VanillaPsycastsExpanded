@@ -15,6 +15,7 @@ using AbilityDef = VFECore.Abilities.AbilityDef;
 public class AbilityExtension_Psycast : AbilityExtension_AbilityMod
 {
     public float            entropyGain = 0f;
+    public List<StatModifier> entropyGainStatFactors = new List<StatModifier>();
     public int              level;
     public int              order;
     public PsycasterPathDef path;
@@ -47,7 +48,8 @@ public class AbilityExtension_Psycast : AbilityExtension_AbilityMod
 
     public float GetPsyfocusUsedByPawn(Pawn pawn) => this.psyfocusCost * pawn.GetStatValue(VPE_DefOf.VPE_PsyfocusCostFactor);
 
-    public float GetEntropyUsedByPawn(Pawn pawn) => this.entropyGain;
+    public float GetEntropyUsedByPawn(Pawn pawn) => 
+        this.entropyGainStatFactors.Aggregate(this.entropyGain, (current, statFactor) => current * (pawn.GetStatValue(statFactor.stat) * statFactor.value));
 
     public override bool IsEnabledForPawn(Ability ability, out string reason)
     {
