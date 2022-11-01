@@ -275,6 +275,10 @@
     <targetMode>Self</targetMode>
     <abilityClass>VanillaPsycastsExpanded.Ability_NeuralHeatDetonation</abilityClass>
     <castTime>300</castTime>
+    <radius>1</radius>
+    <radiusStatFactors>
+      <PsychicSensitivity>1.0</PsychicSensitivity>
+    </radiusStatFactors>
     <castSound>VPE_NeuralHeatDetonation_Cast</castSound>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
