@@ -164,7 +164,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_AggressiveHeatDump</defName>
     <label>aggressive heat dump</label>
-    <description>Instantly dump all of your neural heat into a target, causing them to explode with an area of effect relative to the heat lost and the target’s psychic sensitivity. A good declaration of war.</description>
+    <description>Instantly dump all of your neural heat into a target, causing them to explode with an area of effect relative to the heat lost and the caster’s psychic sensitivity. A good declaration of war.</description>
     <iconPath>Abilities/Archotechist/AggressiveHeatDump</iconPath>
     <targetingParameters>
       <canTargetLocations>False</canTargetLocations>
@@ -176,6 +176,11 @@
     <castTime>60</castTime>
     <goodwillImpact>-200</goodwillImpact>
     <range>25</range>
+    <radius>1</radius>
+    <power>0.01</power>
+    <radiusStatFactors>
+      <PsychicSensitivity>1.0</PsychicSensitivity>
+    </radiusStatFactors>
     <castSound>VPE_AggressiveHeatDump_Cast</castSound>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
