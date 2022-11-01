@@ -12,21 +12,22 @@
 
     public class Ability_AggressiveHeatDump : Ability
     {
-        public override float GetRadiusForPawn() =>
-            Mathf.Ceil(Mathf.Min(this.pawn.psychicEntropy.EntropyValue / 20f, 9f * base.GetRadiusForPawn()));
+        public override float GetRadiusForPawn() => 
+                Mathf.Min(this.pawn.psychicEntropy.EntropyValue / 20f, 9f * base.GetRadiusForPawn(),
+                    GenRadial.MaxRadialPatternRadius);
 
-        public override float GetPowerForPawn() => DamageDefOf.Flame.defaultDamage *
-                                                   this.pawn.psychicEntropy.EntropyValue * base.GetPowerForPawn();
+        public override float GetPowerForPawn() => this.pawn.psychicEntropy.EntropyValue * base.GetPowerForPawn();
 
         public override void Cast(params GlobalTargetInfo[] targets)
         {
             base.Cast(targets);
             var explosionRadius = this.GetRadiusForPawn();
+            var explosionPower = this.GetPowerForPawn();
             this.pawn.psychicEntropy.RemoveAllEntropy();
             MakeStaticFleck(targets[0].Cell, targets[0].Thing.Map, FleckDefOf.PsycastAreaEffect, explosionRadius, 0);
             MakeStaticFleck(targets[0].Cell, targets[0].Thing.Map, VPE_DefOf.VPE_AggresiveHeatDump, explosionRadius, 0);
             GenExplosion.DoExplosion(targets[0].Cell, pawn.Map, explosionRadius, DamageDefOf.Flame, pawn,
-                (int)this.GetPowerForPawn(), ignoredThings: new List<Thing> { pawn });
+                (int)explosionPower, ignoredThings: new List<Thing> { pawn });
         }
     }
 }

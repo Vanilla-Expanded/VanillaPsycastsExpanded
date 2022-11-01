@@ -177,7 +177,8 @@
     <goodwillImpact>-200</goodwillImpact>
     <range>25</range>
     <radius>1</radius>
-    <power>0.01</power>
+    <!-- default flame damage (10) * 1%, later multiplied by heat -->
+    <power>0.1</power>
     <radiusStatFactors>
       <PsychicSensitivity>1.0</PsychicSensitivity>
     </radiusStatFactors>
