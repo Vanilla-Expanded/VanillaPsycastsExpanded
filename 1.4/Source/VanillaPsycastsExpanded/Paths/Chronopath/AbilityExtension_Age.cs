@@ -51,7 +51,8 @@ public class AbilityExtension_Age : AbilityExtension_AbilityMod
                     }
         }
 
-        if (pawn.ageTracker.AgeBiologicalYears > pawn.def.race.lifeExpectancy * 1.1f)
+        if (pawn.ageTracker.AgeBiologicalYears > pawn.def.race.lifeExpectancy * 1.1f &&
+            (pawn.genes == null || pawn.genes.HediffGiversCanGive(VPE_DefOf.HeartAttack)))
         {
             var part = pawn.RaceProps.body.AllParts.FirstOrDefault(p => p.def == BodyPartDefOf.Heart);
             var hediff = HediffMaker.MakeHediff(VPE_DefOf.HeartAttack, pawn, part);
