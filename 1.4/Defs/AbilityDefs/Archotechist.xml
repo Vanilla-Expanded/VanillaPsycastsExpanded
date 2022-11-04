@@ -164,7 +164,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_AggressiveHeatDump</defName>
     <label>aggressive heat dump</label>
-    <description>Instantly dump all of your neural heat into a target, causing them to explode with an area of effect relative to the heat lost and the caster’s psychic sensitivity. A good declaration of war.</description>
+    <description>Instantly dump all of your neural heat into a target, causing them to explode with an area of effect relative to the heat lost. A good declaration of war.</description>
     <iconPath>Abilities/Archotechist/AggressiveHeatDump</iconPath>
     <targetingParameters>
       <canTargetLocations>False</canTargetLocations>
@@ -179,9 +179,6 @@
     <radius>1</radius>
     <!-- default flame damage (10) * 1%, later multiplied by heat -->
     <power>0.1</power>
-    <radiusStatFactors>
-      <PsychicSensitivity>1.0</PsychicSensitivity>
-    </radiusStatFactors>
     <castSound>VPE_AggressiveHeatDump_Cast</castSound>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
@@ -271,15 +268,12 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_NeuralHeatDetonation</defName>
     <label>neural heat detonation</label>
-    <description>Efficiently but indiscriminately dumps all of the caster’s neural heat into an explosion away from themselves, the size being both relative to the heat lost and their psychic sensitivity.</description>
+    <description>Efficiently but indiscriminately dumps all of the caster’s neural heat into an explosion away from themselves, the size being relative to the heat lost.</description>
     <iconPath>Abilities/Archotechist/NeuralHeatDetonation</iconPath>
     <targetMode>Self</targetMode>
     <abilityClass>VanillaPsycastsExpanded.Ability_NeuralHeatDetonation</abilityClass>
     <castTime>300</castTime>
     <radius>1</radius>
-    <radiusStatFactors>
-      <PsychicSensitivity>1.0</PsychicSensitivity>
-    </radiusStatFactors>
     <castSound>VPE_NeuralHeatDetonation_Cast</castSound>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
