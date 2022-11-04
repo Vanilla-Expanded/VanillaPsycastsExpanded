@@ -7,6 +7,6 @@
     <VPE.AllowShrink>Allow shrinking?</VPE.AllowShrink>
     <VPE.AllowShrink.Desc>Allow psycast gizmos to be shrunken to half size when there are a lot of them.</VPE.AllowShrink.Desc>
     <VPE.SmallMode>UI small mode</VPE.SmallMode>
-    <VPE.SmallMode.Desc>In samll mode, the stats are moved to a tooltip and the psysets are moved to a separate dialog. If checked, this will force small mode. If X'ed, this will ban small mode. If partial (yellow line), this will allow default behavior (small mode will be active if your vertical resolution is less than 1080).</VPE.SmallMode.Desc>
+    <VPE.SmallMode.Desc>In small mode, the stats are moved to a tooltip and the psysets are moved to a separate dialog. If checked, this will force small mode. If X'ed, this will ban small mode. If partial (yellow line), this will allow default behavior (small mode will be active if your vertical resolution is less than 1080).</VPE.SmallMode.Desc>
     <VPE.MuteSkipdoor>Mute Skipdoor Sound</VPE.MuteSkipdoor>
 </LanguageData>
