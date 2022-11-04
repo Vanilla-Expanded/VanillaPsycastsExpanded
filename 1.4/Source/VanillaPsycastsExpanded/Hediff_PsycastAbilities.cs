@@ -102,7 +102,7 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
             },
             becomeVisible = false
         };
-        pawn.health.Notify_HediffChanged(this);
+        if (pawn.Spawned) pawn.health.Notify_HediffChanged(this);
     }
 
     public void UseAbility(float focus, float entropy)

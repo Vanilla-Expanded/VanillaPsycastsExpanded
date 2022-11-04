@@ -34,11 +34,10 @@ public class AbilityExtension_Age : AbilityExtension_AbilityMod
 
     public static void Age(Pawn pawn, float years)
     {
+        pawn.ageTracker.AgeBiologicalTicks += Mathf.FloorToInt(years * GenDate.TicksPerYear);
+
         if (years < 0)
         {
-            var progress = -years * GenDate.TicksPerYear * pawn.ageTracker.BiologicalTicksPerTick;
-            long ticks = Mathf.FloorToInt(progress);
-            pawn.ageTracker.AgeBiologicalTicks -= ticks;
             var giverSets = pawn.def.race.hediffGiverSets;
             if (giverSets == null) return;
             var lifeFraction = pawn.ageTracker.AgeBiologicalYears / pawn.def.race.lifeExpectancy;
@@ -51,8 +50,6 @@ public class AbilityExtension_Age : AbilityExtension_AbilityMod
                         while ((hediff = pawn.health.hediffSet.GetFirstHediffOfDef(giverBirthday.hediff)) != null) pawn.health.RemoveHediff(hediff);
                     }
         }
-
-        pawn.ageTracker.AgeTickMothballed((int)(years * GenDate.TicksPerYear));
 
         if (pawn.ageTracker.AgeBiologicalYears > pawn.def.race.lifeExpectancy * 1.1f)
         {

@@ -42,4 +42,8 @@
     <VPE.MustBeInDark>Target must in the dark</VPE.MustBeInDark>
     <VPE.MustBePsycaster>Must be a psycaster</VPE.MustBePsycaster>
     <VPE.AlreadyHasPsycast>Already knows {0}</VPE.AlreadyHasPsycast>
+    <VPE.MustBeAlly>Target must be in the same faction.</VPE.MustBeAlly>
+    <VPE.MustHaveDamagedEquipment>Target's equipment must be damaged.</VPE.MustHaveDamagedEquipment>
+    <VPE.NoAnimals>Cannot target animals</VPE.NoAnimals>
+    <VPE.MustBeDamaged>Target must be damaged</VPE.MustBeDamaged>
 </LanguagData>

@@ -1,6 +1,4 @@
-﻿namespace VanillaPsycastsExpanded.Technomancer;
-
-using RimWorld;
+﻿using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
@@ -8,47 +6,65 @@ using VFECore.Abilities;
 using VFECore.Shields;
 using Ability = VFECore.Abilities.Ability;
 
+namespace VanillaPsycastsExpanded.Technomancer;
+
 [StaticConstructorOnStartup]
 public class HediffComp_InfinitePower : HediffComp_Draw
 {
     private static readonly Material OVERLAY = MaterialPool.MatFrom("Effects/Technomancer/Power/InfinitePowerOverlay", ShaderDatabase.MetaOverlay);
-
-    private Thing           target;
     private CompPowerTrader compPower;
+    private Building_MechCharger fakeCharger;
+    private Need_MechEnergy needPower;
 
-    public override bool CompShouldRemove => this.target is null or { Spawned: false };
+    private Thing target;
+
+    public override bool CompShouldRemove => base.CompShouldRemove || target is null or { Spawned: false };
 
     public void Begin(Thing t)
     {
-        this.target    = t;
-        this.compPower = t.TryGetComp<CompPowerTrader>();
+        target = t;
+        compPower = t.TryGetComp<CompPowerTrader>();
+        needPower = (t as Pawn)?.needs?.energy;
+        if (needPower is { currentCharger: null }) needPower.currentCharger = fakeCharger ??= new Building_MechCharger();
     }
 
     public override void CompPostTick(ref float severityAdjustment)
     {
         base.CompPostTick(ref severityAdjustment);
-        this.compPower.PowerOn     = true;
-        this.compPower.PowerOutput = 0f;
+        if (compPower != null)
+        {
+            compPower.PowerOn = true;
+            compPower.PowerOutput = 0f;
+        }
+
+        if (needPower is { currentCharger: null }) needPower.currentCharger = fakeCharger ??= new Building_MechCharger();
     }
 
     public override void DrawAt(Vector3 drawPos)
     {
-        Graphics.DrawMesh(MeshPool.plane10,
-                          Matrix4x4.TRS(this.target.DrawPos.Yto0() + Vector3.up * AltitudeLayer.MetaOverlays.AltitudeFor(),
-                                        Quaternion.AngleAxis(0f, Vector3.up), Vector3.one), OVERLAY, 0);
+        UnityEngine.Graphics.DrawMesh(MeshPool.plane10,
+            Matrix4x4.TRS(target.DrawPos.Yto0() + Vector3.up * AltitudeLayer.MetaOverlays.AltitudeFor(),
+                Quaternion.AngleAxis(0f, Vector3.up), Vector3.one), OVERLAY, 0);
     }
 
     public override void CompPostPostRemoved()
     {
         base.CompPostPostRemoved();
-        this.compPower.SetUpPowerVars();
+        compPower?.SetUpPowerVars();
+        if (needPower is { currentCharger: var charger } && charger == fakeCharger) needPower.currentCharger = null;
+        fakeCharger = null;
     }
 
     public override void CompExposeData()
     {
         base.CompExposeData();
-        Scribe_References.Look(ref this.target, nameof(this.target));
-        if (Scribe.mode == LoadSaveMode.PostLoadInit) this.compPower = this.target.TryGetComp<CompPowerTrader>();
+        Scribe_References.Look(ref target, nameof(target));
+        Scribe_References.Look(ref fakeCharger, nameof(fakeCharger));
+        if (Scribe.mode == LoadSaveMode.PostLoadInit)
+        {
+            compPower = target.TryGetComp<CompPowerTrader>();
+            needPower = (target as Pawn)?.needs?.energy;
+        }
     }
 }
 
@@ -57,18 +73,18 @@ public class Ability_Power : Ability
     public override void Cast(params GlobalTargetInfo[] targets)
     {
         base.Cast(targets);
-        foreach (GlobalTargetInfo target in targets) this.ApplyHediff(this.pawn)?.TryGetComp<HediffComp_InfinitePower>().Begin(target.Thing);
+        foreach (var target in targets) ApplyHediff(pawn)?.TryGetComp<HediffComp_InfinitePower>().Begin(target.Thing);
     }
 
     public override Hediff ApplyHediff(Pawn targetPawn, HediffDef hediffDef, BodyPartRecord bodyPart, int duration, float severity)
     {
-        Hediff localHediff = HediffMaker.MakeHediff(hediffDef, targetPawn, bodyPart);
+        var localHediff = HediffMaker.MakeHediff(hediffDef, targetPawn, bodyPart);
         if (localHediff is Hediff_Ability hediffAbility)
             hediffAbility.ability = this;
         if (severity > float.Epsilon)
             localHediff.Severity = severity;
         if (localHediff is HediffWithComps hwc)
-            foreach (HediffComp hediffComp in hwc.comps)
+            foreach (var hediffComp in hwc.comps)
             {
                 if (hediffComp is HediffComp_Ability hca)
                     hca.ability = this;
@@ -83,13 +99,11 @@ public class Ability_Power : Ability
     public override bool ValidateTarget(LocalTargetInfo target, bool showMessages = true)
     {
         if (!base.ValidateTarget(target, showMessages)) return false;
-        if (target.Thing?.TryGetComp<CompPowerTrader>() is not { PowerOutput: < 0f })
-        {
-            if (showMessages) Messages.Message("VPE.MustConsumePower".Translate(), MessageTypeDefOf.RejectInput, false);
+        if (target.Thing?.TryGetComp<CompPowerTrader>() is { PowerOutput: >= 0f }) return true;
 
-            return false;
-        }
+        if (ModsConfig.BiotechActive && target.Thing is Pawn { RaceProps.IsMechanoid: true, needs.energy: { } energy } p && p.IsMechAlly(pawn)) return true;
 
-        return true;
+        if (showMessages) Messages.Message("VPE.MustConsumePower".Translate(), MessageTypeDefOf.RejectInput, false);
+        return false;
     }
 }

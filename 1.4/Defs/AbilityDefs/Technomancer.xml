@@ -45,16 +45,19 @@
       <requireLineOfSight>false</requireLineOfSight>
       <range>999999</range>
       <distanceToTarget>1.9</distanceToTarget>
-	  <showUndrafted>true</showUndrafted>
+	    <showUndrafted>true</showUndrafted>
       <targetMode>Pawn</targetMode>
       <castTime>240</castTime>
       <targetingParameters>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetBuildings>true</canTargetBuildings>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetMechs>true</canTargetMechs>
+        <canTargetAnimals>false</canTargetAnimals>
+        <onlyRepairableMechs>true</onlyRepairableMechs>
         <canTargetItems>true</canTargetItems>
         <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
         <thingCategory>Item</thingCategory>
-        <canTargetLocations>false</canTargetLocations>
-        <canTargetPawns>false</canTargetPawns>
-        <canTargetBuildings>false</canTargetBuildings>
       </targetingParameters>
       <targetFlecks>
         <li>PsycastPsychicEffect</li>
@@ -135,8 +138,15 @@
       <targetFlecks>
         <li>PsycastPsychicEffect</li>
       </targetFlecks>
-	  <showUndrafted>true</showUndrafted>
-      <targetMode>Thing</targetMode>
+	    <showUndrafted>true</showUndrafted>
+      <targetingParameters>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetBuildings>true</canTargetBuildings>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetMechs>true</canTargetMechs>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+      </targetingParameters>
       <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
       <requireLineOfSight>false</requireLineOfSight>
       <range>999999</range>

@@ -166,6 +166,7 @@
     <Compile Include="Paths\Technomancer\Ability_ReverseEngineer.cs" />
     <Compile Include="Paths\Technomancer\DamageWorker_NeuralHeatBlast.cs" />
     <Compile Include="Paths\Technomancer\HaywireManager.cs" />
+    <Compile Include="Paths\Technomancer\MechUtility.cs" />
     <Compile Include="Paths\Technomancer\Pawn_Construct.cs" />
     <Compile Include="Paths\Wildspeaker\Ability_Animal.cs" />
     <Compile Include="Paths\Wildspeaker\Ability_ShrineShield.cs" />

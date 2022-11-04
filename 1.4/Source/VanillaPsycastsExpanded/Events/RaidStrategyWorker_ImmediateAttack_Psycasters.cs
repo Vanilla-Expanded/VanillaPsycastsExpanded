@@ -43,7 +43,7 @@ public class RaidStrategyWorker_ImmediateAttack_Psycasters : RaidStrategyWorker_
 
     public override bool CanUsePawnGenOption(float pointsTotal, PawnGenOption g, List<PawnGenOptionWithXenotype> chosenGroups, Faction faction = null)
     {
-        if (chosenGroups.Count < MinRequiredPawnsForPoints(pointsTotal, faction) && !MatchesRequiredPawnKind(g.kind)) return false;
+        if (chosenGroups != null && chosenGroups.Count < MinRequiredPawnsForPoints(pointsTotal, faction) && !MatchesRequiredPawnKind(g.kind)) return false;
 
         return true;
     }
