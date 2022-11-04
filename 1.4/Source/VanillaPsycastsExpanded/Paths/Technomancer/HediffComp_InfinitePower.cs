@@ -99,9 +99,9 @@ public class Ability_Power : Ability
     public override bool ValidateTarget(LocalTargetInfo target, bool showMessages = true)
     {
         if (!base.ValidateTarget(target, showMessages)) return false;
-        if (target.Thing?.TryGetComp<CompPowerTrader>() is { PowerOutput: >= 0f }) return true;
+        if (target.Thing?.TryGetComp<CompPowerTrader>() is { PowerOutput: < 0f }) return true;
 
-        if (ModsConfig.BiotechActive && target.Thing is Pawn { RaceProps.IsMechanoid: true, needs.energy: { } energy } p && p.IsMechAlly(pawn)) return true;
+        if (ModsConfig.BiotechActive && target.Thing is Pawn { RaceProps.IsMechanoid: true, needs.energy: { } } p && p.IsMechAlly(pawn)) return true;
 
         if (showMessages) Messages.Message("VPE.MustConsumePower".Translate(), MessageTypeDefOf.RejectInput, false);
         return false;
