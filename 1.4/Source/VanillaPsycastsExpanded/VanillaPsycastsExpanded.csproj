@@ -179,7 +179,7 @@
     <Compile Include="PawnKindAbilityExtension_Psycasts.cs" />
     <Compile Include="PsycastChecker.cs" />
     <Compile Include="ThinkNodes\ThinkNode_Construct.cs" />
-    <Compile Include="Paths\Technomancer\HediffComp_InfinitePower.cs" />
+    <Compile Include="Paths\Technomancer\Power.cs" />
     <Compile Include="UI\Command_Ability_Psycast.cs" />
     <Compile Include="UI\Command_ActionWithFloat.cs" />
     <Compile Include="Comps\CompBreakLink.cs" />

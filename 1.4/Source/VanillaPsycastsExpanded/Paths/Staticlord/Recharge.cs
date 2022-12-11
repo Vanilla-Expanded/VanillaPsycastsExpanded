@@ -1,46 +1,69 @@
-﻿namespace VanillaPsycastsExpanded.Staticlord;
-
-using RimWorld;
+﻿using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
+using VanillaPsycastsExpanded.Technomancer;
 using Verse;
 using Verse.Sound;
 using VFECore.Shields;
 using Ability = VFECore.Abilities.Ability;
 
+namespace VanillaPsycastsExpanded.Staticlord;
+
 [StaticConstructorOnStartup]
 public class HediffComp_Recharge : HediffComp_Draw
 {
-    private Thing     battery;
-    private int       startTick;
+    private const float ChargePerTickMech = Building_MechCharger.ChargePerDay / GenDate.TicksPerDay;
+    private const float ChargePerTickBattery = 100f / 60f;
+    private CompPowerBattery compPower;
+    private Building_MechCharger fakeCharger;
+    private Need_MechEnergy needPower;
     private Sustainer sustainer;
+    private Thing target;
 
-    public void Init(Thing bat)
+    public void Init(Thing t)
     {
-        this.battery   = bat;
-        this.startTick = Find.TickManager.TicksGame;
+        target = t;
+        compPower = t.TryGetComp<CompPowerBattery>();
+        needPower = (t as Pawn)?.needs?.energy;
+        if (needPower is { currentCharger: null }) needPower.currentCharger = fakeCharger ??= new Building_MechCharger();
     }
 
     public override void CompPostTick(ref float severityAdjustment)
     {
         base.CompPostTick(ref severityAdjustment);
-        if (this.sustainer == null) this.sustainer = VPE_DefOf.VPE_Recharge_Sustainer.TrySpawnSustainer(this.Pawn);
-        this.sustainer.Maintain();
-        if ((Find.TickManager.TicksGame - this.startTick) % 60 == 0) this.battery.TryGetComp<CompPowerBattery>().AddEnergy(100f);
+        sustainer ??= VPE_DefOf.VPE_Recharge_Sustainer.TrySpawnSustainer(Pawn);
+        sustainer?.Maintain();
+        compPower?.AddEnergy(ChargePerTickBattery);
+        if (needPower != null) needPower.CurLevel += ChargePerTickMech;
+        if (needPower is { currentCharger: null }) needPower.currentCharger = fakeCharger ??= new Building_MechCharger();
     }
 
     public override void CompPostPostRemoved()
     {
-        this.sustainer.End();
+        sustainer.End();
+        if (needPower is { currentCharger: var c } && c == fakeCharger) needPower.currentCharger = null;
+        fakeCharger = null;
         base.CompPostPostRemoved();
     }
 
     public override void DrawAt(Vector3 drawPos)
     {
-        Vector3   b      = this.battery.TrueCenter();
-        Vector3   s      = new(this.Graphic.drawSize.x, 1f, (b - drawPos).magnitude);
-        Matrix4x4 matrix = Matrix4x4.TRS(drawPos + (b - drawPos) / 2, Quaternion.LookRotation(b - drawPos), s);
-        Graphics.DrawMesh(MeshPool.plane10, matrix, this.Graphic.MatSingle, 0);
+        var b = target.TrueCenter();
+        Vector3 s = new(Graphic.drawSize.x, 1f, (b - drawPos).magnitude);
+        var matrix = Matrix4x4.TRS(drawPos + (b - drawPos) / 2, Quaternion.LookRotation(b - drawPos), s);
+        UnityEngine.Graphics.DrawMesh(MeshPool.plane10, matrix, Graphic.MatSingle, 0);
+    }
+
+    public override void CompExposeData()
+    {
+        base.CompExposeData();
+        Scribe_References.Look(ref target, nameof(target));
+        if (Scribe.mode == LoadSaveMode.PostLoadInit)
+        {
+            compPower = target.TryGetComp<CompPowerBattery>();
+            needPower = (target as Pawn)?.needs?.energy;
+            if (needPower is { currentCharger: null }) needPower.currentCharger = fakeCharger ??= new Building_MechCharger();
+        }
     }
 }
 
@@ -49,23 +72,23 @@ public class Ability_Recharge : Ability
     public override void Cast(params GlobalTargetInfo[] targets)
     {
         base.Cast(targets);
-        foreach (GlobalTargetInfo target in targets)
+        foreach (var target in targets)
         {
-            Hediff hediff = HediffMaker.MakeHediff(VPE_DefOf.VPE_Recharge, this.pawn);
+            var hediff = HediffMaker.MakeHediff(VPE_DefOf.VPE_Recharge, pawn);
             hediff.TryGetComp<HediffComp_Recharge>().Init(target.Thing);
-            hediff.TryGetComp<HediffComp_Disappears>().ticksToDisappear = this.GetDurationForPawn();
-            this.pawn.health.AddHediff(hediff);
+            hediff.TryGetComp<HediffComp_Disappears>().ticksToDisappear = GetDurationForPawn();
+            pawn.health.AddHediff(hediff);
         }
     }
 
     public override bool ValidateTarget(LocalTargetInfo target, bool showMessages = true)
     {
-        Thing thing = target.Thing;
-        if (thing is null) return false;
+        if (!base.ValidateTarget(target, showMessages)) return false;
+        if (target.Thing?.TryGetComp<CompPowerTrader>() is { PowerOutput: < 0f }) return true;
 
-        CompPowerBattery comp = thing.TryGetComp<CompPowerBattery>();
-        if (comp is not null) return true;
-        if (showMessages) Messages.Message("VPE.MustTargetBattery".Translate(), MessageTypeDefOf.RejectInput, false);
+        if (ModsConfig.BiotechActive && target.Thing is Pawn { RaceProps.IsMechanoid: true, needs.energy: { } } p && p.IsMechAlly(pawn)) return true;
+
+        if (showMessages) Messages.Message("VPE.MustConsumePower".Translate(), MessageTypeDefOf.RejectInput, false);
         return false;
     }
 }

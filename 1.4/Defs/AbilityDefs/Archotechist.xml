@@ -196,7 +196,7 @@
 
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_BerserkPulse</defName>
-    <label>berskerk pulse</label>
+    <label>berserk pulse</label>
     <description>Generate an overwhelming rush of undirected rage in everyone near the target point. Considered an overt act of aggression and lasts several seconds.</description>
     <iconPath>Abilities/Archotechist/BerserkPulse</iconPath>
     <abilityClass>VanillaPsycastsExpanded.Ability_BerserkPulse</abilityClass>

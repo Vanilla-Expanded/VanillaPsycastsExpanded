@@ -64,6 +64,7 @@ public class HediffComp_InfinitePower : HediffComp_Draw
         {
             compPower = target.TryGetComp<CompPowerTrader>();
             needPower = (target as Pawn)?.needs?.energy;
+            if (needPower is { currentCharger: null }) needPower.currentCharger = fakeCharger ??= new Building_MechCharger();
         }
     }
 }

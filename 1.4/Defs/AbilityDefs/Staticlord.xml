@@ -119,7 +119,7 @@
       <iconPath>Abilities/Staticlord/Recharge</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Staticlord.Ability_Recharge</abilityClass>
       <castTime>60</castTime>
-	  <showUndrafted>true</showUndrafted>
+	    <showUndrafted>true</showUndrafted>
       <durationTime>180</durationTime>
       <durationTimeStatFactors>
         <PsychicSensitivity>2</PsychicSensitivity>
@@ -128,7 +128,15 @@
       <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
       <requireLineOfSight>false</requireLineOfSight>
       <range>999999</range>
-      <targetMode>Thing</targetMode>
+      <targetingParameters>
+        <canTargetLocations>false</canTargetLocations>
+        <canTargetBuildings>true</canTargetBuildings>
+        <canTargetItems>true</canTargetItems>
+        <canTargetPawns>true</canTargetPawns>
+        <canTargetMechs>true</canTargetMechs>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+      </targetingParameters>
       <modExtensions>
         <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
           <path>VPE_Staticlord</path>
