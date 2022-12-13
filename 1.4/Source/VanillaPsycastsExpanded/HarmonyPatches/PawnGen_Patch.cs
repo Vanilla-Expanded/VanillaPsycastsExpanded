@@ -15,6 +15,8 @@ public class PawnGen_Patch
     [HarmonyPostfix]
     public static void Postfix(Pawn __result)
     {
+        if (__result == null) return;
+
         PawnKindAbilityExtension_Psycasts psycastExtension = __result.kindDef.GetModExtension<PawnKindAbilityExtension_Psycasts>();
 
         CompAbilities comp = null;
@@ -78,7 +80,7 @@ public class PawnGen_Patch
             }
         }
 
-        if (Find.Storyteller.def == VPE_DefOf.VPE_Basilicus && __result.RaceProps.intelligence >= Intelligence.Humanlike)
+        if (Find.Storyteller?.def == VPE_DefOf.VPE_Basilicus && __result.RaceProps.intelligence >= Intelligence.Humanlike)
             if (Rand.Value < PsycastsMod.Settings.baseSpawnChance)
             {
                 Hediff_Psylink psylink = __result.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicAmplifier) as Hediff_Psylink;
