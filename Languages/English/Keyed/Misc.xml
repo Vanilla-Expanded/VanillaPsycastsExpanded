@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguagData>
-    <VPE.MustTargetBattery>Must target a battery</VPE.MustTargetBattery>
+    <VPE.MustTargetBattery>Must target a battery or fiendly mechanoid</VPE.MustTargetBattery>
     <VPE.StopHurricane>Stop Hurricane</VPE.StopHurricane>
     <VPE.NoChunks>No nearby chunks</VPE.NoChunks>
 	<VPE.MustHaveLivingFamilyMembers>{PAWN_nameDef} must have living family members.</VPE.MustHaveLivingFamilyMembers>

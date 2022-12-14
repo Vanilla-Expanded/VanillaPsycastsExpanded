@@ -13,7 +13,7 @@ namespace VanillaPsycastsExpanded.Staticlord;
 public class HediffComp_Recharge : HediffComp_Draw
 {
     private const float ChargePerTickMech = Building_MechCharger.ChargePerDay / GenDate.TicksPerDay;
-    private const float ChargePerTickBattery = 100f / 60f;
+    private const float ChargePerTickBattery = 10f / 3f;
     private CompPowerBattery compPower;
     private Building_MechCharger fakeCharger;
     private Need_MechEnergy needPower;
@@ -84,11 +84,11 @@ public class Ability_Recharge : Ability
     public override bool ValidateTarget(LocalTargetInfo target, bool showMessages = true)
     {
         if (!base.ValidateTarget(target, showMessages)) return false;
-        if (target.Thing?.TryGetComp<CompPowerTrader>() is { PowerOutput: < 0f }) return true;
+        if (target.Thing?.TryGetComp<CompPowerBattery>() is { }) return true;
 
         if (ModsConfig.BiotechActive && target.Thing is Pawn { RaceProps.IsMechanoid: true, needs.energy: { } } p && p.IsMechAlly(pawn)) return true;
 
-        if (showMessages) Messages.Message("VPE.MustConsumePower".Translate(), MessageTypeDefOf.RejectInput, false);
+        if (showMessages) Messages.Message("VPE.MustTargetBattery".Translate(), MessageTypeDefOf.RejectInput, false);
         return false;
     }
 }
