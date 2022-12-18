@@ -59,9 +59,9 @@
                         blizzardHediff = HediffMaker.MakeHediff(VPE_DefOf.VPE_Blizzard, victim);
                         victim.health.AddHediff(blizzardHediff);
                     }
-                    if (victim.IsHashIntervalTick(60))
+                    if (victim.IsHashIntervalTick(60) && victim.CanReceiveHypothermia(out var hediffDef))
                     {
-                        HealthUtility.AdjustSeverity(victim, HediffDefOf.Hypothermia, 0.02f);
+                        HealthUtility.AdjustSeverity(victim, hediffDef, 0.02f);
                         DamageInfo dinfo = new DamageInfo(DamageDefOf.Cut, Rand.RangeInclusive(1, 3));
                         victim.TakeDamage(dinfo);
                     }

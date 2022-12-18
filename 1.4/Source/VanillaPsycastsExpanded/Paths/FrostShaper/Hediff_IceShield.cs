@@ -12,7 +12,7 @@
         {
             base.PostAdd(dinfo);
             var coldHediffs = this.pawn.health.hediffSet.hediffs.Where(x => x.def == HediffDefOf.Hypothermia 
-                || x.def == VPE_DefOf.VFEP_HypothermicSlowdown).ToList();
+                || x.def == VPE_DefOf.VFEP_HypothermicSlowdown || x.def == VPE_DefOf.HypothermicSlowdown).ToList();
             foreach (var coldHediff in coldHediffs)
             {
                 this.pawn.health.RemoveHediff(coldHediff);
@@ -22,9 +22,10 @@
         public override void Notify_PawnPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
             base.Notify_PawnPostApplyDamage(dinfo, totalDamageDealt);
-            if (dinfo.Instigator is Pawn attacker && Vector3.Distance(attacker.DrawPos, pawn.DrawPos) <= OverlaySize)
+            if (dinfo.Instigator is Pawn attacker && Vector3.Distance(attacker.DrawPos, pawn.DrawPos) <= OverlaySize
+                && attacker.CanReceiveHypothermia(out var hediff))
             {
-                HealthUtility.AdjustSeverity(attacker, HediffDefOf.Hypothermia, 0.05f);
+                HealthUtility.AdjustSeverity(attacker, hediff, 0.05f);
             }
         }
 

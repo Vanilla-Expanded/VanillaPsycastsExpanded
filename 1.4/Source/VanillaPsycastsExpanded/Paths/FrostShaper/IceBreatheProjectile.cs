@@ -30,8 +30,11 @@
 							if (list[num] is Pawn pawn)
 							{
 								var severityImpact = (0.5f / pawn.Position.DistanceTo(launcher.Position));
-								HealthUtility.AdjustSeverity(pawn, HediffDefOf.Hypothermia, severityImpact);
-								HealthUtility.AdjustSeverity(pawn, VPE_DefOf.VFEP_HypothermicSlowdown, severityImpact);
+								if (pawn.CanReceiveHypothermia(out var hediff))
+								{
+                                    HealthUtility.AdjustSeverity(pawn, hediff, severityImpact);
+                                }
+                                HealthUtility.AdjustSeverity(pawn, VPE_DefOf.VFEP_HypothermicSlowdown, severityImpact);
 								if (ability.def.goodwillImpact != 0)
 								{
 									ability.ApplyGoodwillImpact(pawn);

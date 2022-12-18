@@ -34,6 +34,7 @@ public static class VPE_DefOf
     public static HediffDef VPE_BodiesConsumed;
     public static HediffDef VPE_DeathShield;
     public static HediffDef TraumaSavant;
+    public static HediffDef HypothermicSlowdown;
 
     public static ThingDef VPE_ChainBolt;
     public static ThingDef VPE_Bolt;

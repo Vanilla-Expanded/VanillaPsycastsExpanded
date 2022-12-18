@@ -64,7 +64,10 @@ public class Projectile_FrostRay : Projectile
                 var dinfo = new DamageInfo(def.projectile.damageDef, DamageAmount, ArmorPenetration, ExactRotation.eulerAngles.y, launcher, null, equipmentDef,
                     DamageInfo.SourceCategory.ThingOrUnknown, intendedTarget.Thing);
                 victim.TakeDamage(dinfo).AssociateWithLog(battleLogEntry_RangedImpact);
-                HealthUtility.AdjustSeverity(victim, HediffDefOf.Hypothermia, 0.016f);
+                if (victim.CanReceiveHypothermia(out var hediff))
+                {
+                    HealthUtility.AdjustSeverity(victim, hediff, 0.016f);
+                }
                 HealthUtility.AdjustSeverity(victim, VPE_DefOf.VFEP_HypothermicSlowdown, 0.016f);
             }
         }

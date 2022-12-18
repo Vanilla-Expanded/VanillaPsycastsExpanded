@@ -32,9 +32,9 @@
         public override void Tick()
         {
             base.Tick();
-            if (pawn.IsHashIntervalTick(60))
+            if (pawn.IsHashIntervalTick(60) && pawn.CanReceiveHypothermia(out var hediffDef))
             {
-                HealthUtility.AdjustSeverity(pawn, HediffDefOf.Hypothermia, 0.05f);
+                HealthUtility.AdjustSeverity(pawn, hediffDef, 0.05f);
             }
         }
     }
