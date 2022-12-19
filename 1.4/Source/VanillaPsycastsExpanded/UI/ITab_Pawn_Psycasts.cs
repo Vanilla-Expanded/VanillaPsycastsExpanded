@@ -46,8 +46,9 @@ public class ITab_Pawn_Psycasts : ITab
         labelKey = "VPE.Psycasts";
         size = new Vector2(Verse.UI.screenWidth, Verse.UI.screenHeight * 0.75f);
         pathsByTab = DefDatabase<PsycasterPathDef>.AllDefs.GroupBy(def => def.tab).ToDictionary(group => group.Key, group => group.ToList());
-        foci = DefDatabase<MeditationFocusDef>.AllDefs.OrderByDescending(def => def.modContentPack.IsOfficialMod).ThenByDescending(def => def.label)
-            .ToList();
+        foci = DefDatabase<MeditationFocusDef>.AllDefs.OrderByDescending(def => def.modContentPack.IsOfficialMod)
+           .ThenByDescending(def => def.label)
+           .ToList();
         tabs = pathsByTab.Select(kv => new TabRecord(kv.Key, () => curTab = kv.Key, () => curTab == kv.Key)).ToList();
         curTab = pathsByTab.Keys.FirstOrDefault();
     }
@@ -301,8 +302,10 @@ public class ITab_Pawn_Psycasts : ITab
         var widthPerPath = (inRect.width - (pathsPerRow + 1) * 10f) / pathsPerRow;
         var maxHeight = 0f;
         var paths = pathsPerRow;
-        foreach (var def in pathsByTab[curTab].OrderByDescending(path => hediff.unlockedPaths.Contains(path))
-                     .ThenBy(path => path.order).ThenBy(path => path.label))
+        foreach (var def in pathsByTab[curTab]
+                    .OrderByDescending(hediff.unlockedPaths.Contains)
+                    .ThenBy(path => path.order)
+                    .ThenBy(path => path.label))
         {
             var texture = useAltBackgrounds ? def.backgroundImage : def.altBackgroundImage;
             var height = widthPerPath / texture.width * texture.height + 30f;

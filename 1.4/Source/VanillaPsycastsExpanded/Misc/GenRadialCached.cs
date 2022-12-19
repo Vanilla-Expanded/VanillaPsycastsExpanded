@@ -1,9 +1,9 @@
-﻿namespace VanillaPsycastsExpanded;
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using Verse;
+
+namespace VanillaPsycastsExpanded;
 
 [HarmonyPatch]
 public static class GenRadialCached
@@ -14,16 +14,16 @@ public static class GenRadialCached
     {
         Key key = new()
         {
-            loc    = center,
+            loc = center,
             radius = radius,
-            mapId  = map.Index
+            mapId = map.Index
         };
-        if (cache.TryGetValue(key, out HashSet<Thing> things)) return things;
+        if (cache.TryGetValue(key, out var things)) return things;
         things = new HashSet<Thing>();
-        int numCells = GenRadial.NumCellsInRadius(radius);
-        for (int i = useCenter ? 0 : 1; i < numCells; i++)
+        var numCells = GenRadial.NumCellsInRadius(radius);
+        for (var i = useCenter ? 0 : 1; i < numCells; i++)
         {
-            IntVec3 c = GenRadial.RadialPattern[i] + center;
+            var c = GenRadial.RadialPattern[i] + center;
             if (c.InBounds(map)) things.UnionWith(c.GetThingList(map));
         }
 
@@ -45,17 +45,17 @@ public static class GenRadialCached
         ClearCacheFor(__instance);
     }
 
-    [HarmonyPatch(typeof(MapDeiniter), nameof(MapDeiniter.Deinit))]
+    [HarmonyPatch(typeof(MapDeiniter), nameof(MapDeiniter.Deinit_NewTemp))]
     [HarmonyPostfix]
     public static void Deinit_Postfix(Map map)
     {
-        int idx = map.Index;
-        foreach ((Key key, HashSet<Thing> value) in cache.ToList())
+        var idx = map.Index;
+        foreach ((var key, var value) in cache.ToList())
         {
             if (key.mapId >= idx) cache.Remove(key);
             if (key.mapId > idx)
             {
-                Key newKey = key;
+                var newKey = key;
                 newKey.mapId--;
                 cache.Add(key, value);
             }
@@ -72,7 +72,7 @@ public static class GenRadialCached
     private struct Key
     {
         public IntVec3 loc;
-        public float   radius;
-        public int     mapId;
+        public float radius;
+        public int mapId;
     }
 }

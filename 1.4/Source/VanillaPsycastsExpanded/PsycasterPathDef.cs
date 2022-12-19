@@ -5,6 +5,8 @@ using UnityEngine;
 using Verse;
 using AbilityDef = VFECore.Abilities.AbilityDef;
 
+// ReSharper disable InconsistentNaming
+
 namespace VanillaPsycastsExpanded;
 
 public class PsycasterPathDef : Def
@@ -15,13 +17,11 @@ public class PsycasterPathDef : Def
     [Unsaved] public AbilityDef[][] abilityLevelsInOrder;
     public string altBackground;
     [Unsaved] public Texture2D altBackgroundImage;
-    [Unsaved] public Texture2D altBackgroundImageLocked;
 
     public string background;
     public Color backgroundColor;
 
     [Unsaved] public Texture2D backgroundImage;
-    [Unsaved] public Texture2D backgroundImageLocked;
     [Unsaved] public bool HasAbilities;
     public int height;
 
@@ -30,8 +30,8 @@ public class PsycasterPathDef : Def
     public int order;
 
     public List<BackstoryCategoryAndSlot> requiredBackstoriesAny;
-    public MemeDef requiredMeme;
     public GeneDef requiredGene;
+    public MemeDef requiredMeme;
     public string tab;
     public string tooltip;
     public int width;
@@ -98,9 +98,10 @@ public class PsycasterPathDef : Def
         abilityLevelsInOrder = new AbilityDef[MaxLevel][];
         foreach (var abilityDefs in abilities.GroupBy(ab => ab.Psycast().level))
             abilityLevelsInOrder[abilityDefs.Key - 1] = abilityDefs.OrderBy(ab => ab.Psycast().order)
-                .SelectMany(ab => ab.Psycast().spaceAfter
+               .SelectMany(ab => ab.Psycast().spaceAfter
                     ? new List<AbilityDef> { ab, Blank }
-                    : Gen.YieldSingle(ab)).ToArray();
+                    : Gen.YieldSingle(ab))
+               .ToArray();
 
         HasAbilities = abilityLevelsInOrder.Any(arr => !arr.NullOrEmpty());
         if (!HasAbilities) return;
