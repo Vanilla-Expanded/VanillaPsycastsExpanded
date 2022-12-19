@@ -39,7 +39,7 @@ public class PsycasterPathDef : Def
     public virtual bool CanPawnUnlock(Pawn pawn) => PawnHasCorrectBackstory(pawn) && PawnHasMeme(pawn) && PawnHasGene(pawn);
 
     private bool PawnHasMeme(Pawn pawn) => requiredMeme == null || (pawn.Ideo?.memes.Contains(requiredMeme) ?? false);
-    private bool PawnHasGene(Pawn pawn) => requiredGene == null || (pawn.genes?.HasGene(requiredGene) ?? false);
+    private bool PawnHasGene(Pawn pawn) => requiredGene == null || (pawn.genes?.GetGene(requiredGene)?.Active ?? false);
 
 
     private bool PawnHasCorrectBackstory(Pawn pawn)
