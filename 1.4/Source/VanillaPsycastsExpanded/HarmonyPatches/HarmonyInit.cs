@@ -1,13 +1,12 @@
-﻿namespace VanillaPsycastsExpanded.HarmonyPatches
-{
-    using Verse;
+﻿using Verse;
 
-    [StaticConstructorOnStartup]
-    public static class HarmonyInit
+namespace VanillaPsycastsExpanded.HarmonyPatches;
+
+[StaticConstructorOnStartup]
+public static class HarmonyInit
+{
+    static HarmonyInit()
     {
-        static HarmonyInit()
-        {
-            PsycastsMod.Harm.PatchAll();
-        }
+        PsycastsMod.Harm.PatchAll();
     }
 }

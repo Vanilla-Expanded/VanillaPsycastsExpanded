@@ -66,6 +66,7 @@
     <Compile Include="Graphics\IAnimationOneTime.cs" />
     <Compile Include="Graphics\MoteAttachedMovingAround.cs" />
     <Compile Include="Graphics\MoteAttachedOneTime.cs" />
+    <Compile Include="HarmonyPatches\DebugPatches.cs" />
     <Compile Include="HarmonyPatches\HediffUtility_CanHealNaturally_Patch.cs" />
     <Compile Include="HarmonyPatches\IncidentWorker_RaidEnemy_GetLetterText_Patch.cs" />
     <Compile Include="HarmonyPatches\Mote_Patches.cs" />
