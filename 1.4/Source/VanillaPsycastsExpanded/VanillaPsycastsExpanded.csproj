@@ -99,7 +99,6 @@
     <Compile Include="Graphics\MoteCastBubble.cs" />
     <Compile Include="HarmonyPatches\Room_Patches.cs" />
     <Compile Include="HarmonyPatches\MeditationFocusDef_EnablingThingsExplanation_Patch.cs" />
-    <Compile Include="HarmonyPatches\PawnUtility_GetMaxPsylinkLevel_Patch.cs" />
     <Compile Include="HarmonyPatches\Pawn_NeedsTracker_ShouldHaveNeed_Patch.cs" />
     <Compile Include="HarmonyPatches\Pawn_SkillTracker_Learn_Patch.cs" />
     <Compile Include="HarmonyPatches\Pawn_Spawn_Patches.cs" />
