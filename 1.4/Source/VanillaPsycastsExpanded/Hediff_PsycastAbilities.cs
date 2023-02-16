@@ -8,30 +8,32 @@ using VFECore.Abilities;
 using Ability = VFECore.Abilities.Ability;
 using AbilityDef = VFECore.Abilities.AbilityDef;
 
+// ReSharper disable InconsistentNaming
+
 namespace VanillaPsycastsExpanded;
 
 [StaticConstructorOnStartup]
 public class Hediff_PsycastAbilities : Hediff_Abilities
 {
     private static readonly Texture2D PsySetNext = ContentFinder<Texture2D>.Get("UI/Gizmos/Psyset_Next");
-    private IChannelledPsycast currentlyChanneling;
-
-
-    private HediffStage curStage;
 
     public float experience;
 
     public int maxLevelFromTitles;
-    private List<IMinHeatGiver> minHeatGivers = new();
     public int points;
 
     public Hediff_Psylink psylink;
-    private int psysetIndex;
     public List<PsySet> psysets = new();
-
-    private int statPoints;
     public List<MeditationFocusDef> unlockedMeditationFoci = new();
     public List<PsycasterPathDef> unlockedPaths = new();
+    private IChannelledPsycast currentlyChanneling;
+
+
+    private HediffStage curStage;
+    private List<IMinHeatGiver> minHeatGivers = new();
+    private int psysetIndex;
+
+    private int statPoints;
 
     public Ability CurrentlyChanneling => currentlyChanneling as Ability;
 
@@ -159,8 +161,7 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
         }
     }
 
-    public bool SufficientPsyfocusPresent(float focusRequired) =>
-        pawn.psychicEntropy.CurrentPsyfocus > focusRequired;
+    public bool SufficientPsyfocusPresent(float focusRequired) => pawn.psychicEntropy.CurrentPsyfocus > focusRequired;
 
     public override bool SatisfiesConditionForAbility(AbilityDef abilityDef) =>
         base.SatisfiesConditionForAbility(abilityDef) ||
@@ -238,9 +239,7 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
             _ => Mathf.RoundToInt(ExperienceRequiredForLevel(level - 1) * 1.05f)
         };
 
-    public override void GiveRandomAbilityAtLevel(int? forLevel = null)
-    {
-    }
+    public override void GiveRandomAbilityAtLevel(int? forLevel = null) { }
 
     public override void Tick()
     {

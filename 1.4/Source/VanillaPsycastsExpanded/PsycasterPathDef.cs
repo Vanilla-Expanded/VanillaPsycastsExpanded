@@ -30,17 +30,18 @@ public class PsycasterPathDef : Def
     public int order;
 
     public List<BackstoryCategoryAndSlot> requiredBackstoriesAny;
+    public MeditationFocusDef requiredFocus;
     public GeneDef requiredGene;
     public MemeDef requiredMeme;
     public string tab;
     public string tooltip;
     public int width;
 
-    public virtual bool CanPawnUnlock(Pawn pawn) => PawnHasCorrectBackstory(pawn) && PawnHasMeme(pawn) && PawnHasGene(pawn);
+    public virtual bool CanPawnUnlock(Pawn pawn) => PawnHasCorrectBackstory(pawn) && PawnHasMeme(pawn) && PawnHasGene(pawn) && PawnHasCorrectFocus(pawn);
 
     private bool PawnHasMeme(Pawn pawn) => requiredMeme == null || (pawn.Ideo?.memes.Contains(requiredMeme) ?? false);
     private bool PawnHasGene(Pawn pawn) => requiredGene == null || (pawn.genes?.GetGene(requiredGene)?.Active ?? false);
-
+    private bool PawnHasCorrectFocus(Pawn pawn) => requiredFocus == null || requiredFocus.CanPawnUse(pawn);
 
     private bool PawnHasCorrectBackstory(Pawn pawn)
     {
@@ -51,6 +52,7 @@ public class PsycasterPathDef : Def
 
         return false;
     }
+
 
     public override void PostLoad()
     {
