@@ -10,6 +10,7 @@
 		</statBases>
 		<drawerType>RealtimeOnly</drawerType>
 		<tickerType>Normal</tickerType>
+		<uiIconPath>Effects/Skipmaster/Skipgate/Skipgate</uiIconPath>
 		<modExtensions>
 			<li Class="VFECore.DoorTeleporterExtension">
 				<doorTeleporterBackgroundPath>Effects/Skipmaster/Skipgate/SkipgateBackground</doorTeleporterBackgroundPath>
