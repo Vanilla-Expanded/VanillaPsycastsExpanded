@@ -10,6 +10,23 @@
 		</statBases>
 		<drawerType>RealtimeOnly</drawerType>
 		<tickerType>Normal</tickerType>
+		<modExtensions>
+			<li Class="VFECore.DoorTeleporterExtension">
+				<doorTeleporterBackgroundPath>Effects/Skipmaster/Skipgate/SkipgateBackground</doorTeleporterBackgroundPath>
+				<doorTeleporterMaskPath>Effects/Skipmaster/Skipgate/SkipgateMask</doorTeleporterMaskPath>
+				<maskThreshold>0.13</maskThreshold>
+				<mainMatPath>Effects/Skipmaster/Skipgate/Skipgate</mainMatPath>
+				<distortionMatPath>Things/Mote/Black</distortionMatPath>
+				<distortionMaskPath>Things/Mote/PsycastDistortionMask</distortionMaskPath>
+				<sustainer>VPE_Skipdoor_Sustainer</sustainer>
+				<destroyIconPath>Effects/Skipmaster/Skipgate/SkipdoorDestroy</destroyIconPath>
+				<renameIconPath>Effects/Skipmaster/Skipgate/SkipdoorRename</renameIconPath>
+				<destroyLabelKey>VPE.DestroySkipdoor</destroyLabelKey>
+				<destroyDescKey>VPE.DestroySkipdoor.Desc</destroyDescKey>
+				<renameLabelKey>VPE.RenameSkipdoor</renameLabelKey>
+				<renameDescKey>VPE.RenameSkipdoor.Desc</renameDescKey>
+			</li>
+		</modExtensions>
 	</ThingDef>
 
 	<ThingDef ParentName="BuildingBase">

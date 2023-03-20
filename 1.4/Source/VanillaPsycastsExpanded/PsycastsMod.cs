@@ -13,10 +13,8 @@ public class PsycastsMod : Mod
     public static  Harmony                                Harm;
     public static  PsycastSettings                        Settings;
     private static BackCompatibilityConverter_Psytrainers psytrainerConverter;
-
     public PsycastsMod(ModContentPack content) : base(content)
     {
-        LongEventHandler.ExecuteWhenFinished(() => { Skipdoor.Init(content); });
         Harm     = new Harmony("OskarPotocki.VanillaPsycastsExpanded");
         Settings = this.GetSettings<PsycastSettings>();
         Harm.Patch(AccessTools.Method(typeof(ThingDefGenerator_Neurotrainer), nameof(ThingDefGenerator_Neurotrainer.ImpliedThingDefs)),

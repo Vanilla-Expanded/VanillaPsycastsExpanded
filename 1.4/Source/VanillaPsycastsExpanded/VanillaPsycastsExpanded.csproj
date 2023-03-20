@@ -189,7 +189,6 @@
     <Compile Include="Common\DeathActionWorkers.cs" />
     <Compile Include="Common\AbilityExtension_Flee.cs" />
     <Compile Include="Common\AbilityExtension_PsychicComa.cs" />
-    <Compile Include="Graphics\DistortedMaterialsPool.cs" />
     <Compile Include="Graphics\Graphic_AnimatedMote.cs" />
     <Compile Include="Graphics\HediffComp_MoteOverhead.cs" />
     <Compile Include="HarmonyPatches\CompAbilities_GetGizmos_Patch.cs" />
@@ -296,7 +295,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.4.3580</Version>
+      <Version>1.4.3641</Version>
     </PackageReference>
     <PackageReference Include="Lib.Harmony">
       <Version>2.2.2</Version>

@@ -63,7 +63,6 @@ public static class VPE_DefOf
     public static SoundDef VPE_Recharge_Sustainer;
     public static SoundDef VPE_BallLightning_Zap;
     public static SoundDef VPE_Vortex_Sustainer;
-    public static SoundDef VPE_Skipdoor_Sustainer;
     public static SoundDef VPE_RaidPause_Sustainer;
     public static SoundDef VPE_GuardianSkipbarrier_Sustainer;
     public static SoundDef VPE_PowerLeap_Land;
@@ -84,7 +83,6 @@ public static class VPE_DefOf
     public static FleckDef VPE_Slash;
     public static StatDef  VPE_PsyfocusCostFactor;
     public static StatDef  VPE_PsychicEntropyMinimum;
-    public static JobDef   VPE_UseSkipdoor;
     public static JobDef   VPE_StandFreeze;
     public static JobDef   VPE_EssenceTransfer;
 

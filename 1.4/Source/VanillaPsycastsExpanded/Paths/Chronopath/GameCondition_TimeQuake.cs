@@ -8,6 +8,7 @@ using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using VFECore;
 using Ability = VFECore.Abilities.Ability;
 
 [StaticConstructorOnStartup]
