@@ -4,6 +4,7 @@ using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
+using Verse.AI;
 using Verse.Sound;
 using VFECore;
 [StaticConstructorOnStartup]
@@ -30,24 +31,27 @@ public class Skipdoor : DoorTeleporter, IMinHeatGiver
         if (this.IsHashIntervalTick(30) && this.HitPoints < this.MaxHitPoints) this.HitPoints += 1;
     }
 
-    public override void DoTeleportEffects(JobDriver_UseDoorTeleporter jobDriver)
+    public override void DoTeleportEffects(Pawn pawn, int ticksLeftThisToil, Map targetMap, ref IntVec3 targetCell, DoorTeleporter dest)
     {
-        Map targetMap = jobDriver.job.globalTarget.Map;
-        if (jobDriver.ticksLeftThisToil == 5)
+        if (ticksLeftThisToil == 5)
         {
-            FleckMaker.Static(jobDriver.pawn.Position, jobDriver.pawn.Map, FleckDefOf.PsycastSkipFlashEntry);
-            FleckMaker.Static(jobDriver.targetCell, targetMap, FleckDefOf.PsycastSkipInnerExit);
-            FleckMaker.Static(jobDriver.targetCell, targetMap, FleckDefOf.PsycastSkipOuterRingExit);
-            SoundDefOf.Psycast_Skip_Entry.PlayOneShot(jobDriver.Origin);
-            SoundDefOf.Psycast_Skip_Exit.PlayOneShot(jobDriver.Dest);
+            FleckMaker.Static(pawn.Position, pawn.Map, FleckDefOf.PsycastSkipFlashEntry);
+            FleckMaker.Static(targetCell, targetMap, FleckDefOf.PsycastSkipInnerExit);
+            FleckMaker.Static(targetCell, targetMap, FleckDefOf.PsycastSkipOuterRingExit);
+            SoundDefOf.Psycast_Skip_Entry.PlayOneShot(this);
+            SoundDefOf.Psycast_Skip_Exit.PlayOneShot(dest);
         }
-        else if (jobDriver.ticksLeftThisToil == 15)
+        else if (ticksLeftThisToil == 15)
         {
-            jobDriver.targetCell = GenAdj.CellsAdjacentCardinal(jobDriver.Dest).Where(c => c.Standable(targetMap)).RandomElement();
-            jobDriver.destEffecter = EffecterDefOf.Skip_Exit.Spawn(jobDriver.targetCell, targetMap);
-            jobDriver.destEffecter.ticksLeft = 15;
+            targetCell = GenAdj.CellsAdjacentCardinal(dest).Where(c => c.Standable(targetMap)).RandomElement();
+            teleportEffecters[pawn] = EffecterDefOf.Skip_Exit.Spawn(targetCell, targetMap);
+            teleportEffecters[pawn].ticksLeft = 15;
         }
-        jobDriver.destEffecter?.EffectTick(new TargetInfo(jobDriver.targetCell, targetMap), new TargetInfo(jobDriver.targetCell, targetMap));
+
+        if (teleportEffecters.ContainsKey(pawn))
+        {
+            teleportEffecters[pawn].EffectTick(new TargetInfo(targetCell, targetMap), new TargetInfo(targetCell, targetMap));
+        }
     }
     public override IEnumerable<Gizmo> GetDoorTeleporterGismoz()
     {
