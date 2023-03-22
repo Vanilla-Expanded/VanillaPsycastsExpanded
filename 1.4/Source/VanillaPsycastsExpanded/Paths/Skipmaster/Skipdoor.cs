@@ -31,11 +31,11 @@ public class Skipdoor : DoorTeleporter, IMinHeatGiver
         if (this.IsHashIntervalTick(30) && this.HitPoints < this.MaxHitPoints) this.HitPoints += 1;
     }
 
-    public override void DoTeleportEffects(Pawn pawn, int ticksLeftThisToil, Map targetMap, ref IntVec3 targetCell, DoorTeleporter dest)
+    public override void DoTeleportEffects(Thing thing, int ticksLeftThisToil, Map targetMap, ref IntVec3 targetCell, DoorTeleporter dest)
     {
         if (ticksLeftThisToil == 5)
         {
-            FleckMaker.Static(pawn.Position, pawn.Map, FleckDefOf.PsycastSkipFlashEntry);
+            FleckMaker.Static(thing.Position, thing.Map, FleckDefOf.PsycastSkipFlashEntry);
             FleckMaker.Static(targetCell, targetMap, FleckDefOf.PsycastSkipInnerExit);
             FleckMaker.Static(targetCell, targetMap, FleckDefOf.PsycastSkipOuterRingExit);
             SoundDefOf.Psycast_Skip_Entry.PlayOneShot(this);
@@ -44,13 +44,13 @@ public class Skipdoor : DoorTeleporter, IMinHeatGiver
         else if (ticksLeftThisToil == 15)
         {
             targetCell = GenAdj.CellsAdjacentCardinal(dest).Where(c => c.Standable(targetMap)).RandomElement();
-            teleportEffecters[pawn] = EffecterDefOf.Skip_Exit.Spawn(targetCell, targetMap);
-            teleportEffecters[pawn].ticksLeft = 15;
+            teleportEffecters[thing] = EffecterDefOf.Skip_Exit.Spawn(targetCell, targetMap);
+            teleportEffecters[thing].ticksLeft = 15;
         }
 
-        if (teleportEffecters.ContainsKey(pawn))
+        if (teleportEffecters.ContainsKey(thing))
         {
-            teleportEffecters[pawn].EffectTick(new TargetInfo(targetCell, targetMap), new TargetInfo(targetCell, targetMap));
+            teleportEffecters[thing].EffectTick(new TargetInfo(targetCell, targetMap), new TargetInfo(targetCell, targetMap));
         }
     }
     public override IEnumerable<Gizmo> GetDoorTeleporterGismoz()
