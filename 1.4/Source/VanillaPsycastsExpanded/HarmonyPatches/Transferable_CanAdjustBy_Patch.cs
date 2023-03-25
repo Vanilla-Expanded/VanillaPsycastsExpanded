@@ -12,8 +12,8 @@
         public static Transferable curTransferable;
 		public static void Postfix(Transferable __instance)
 		{
-            if (curTransferable != __instance && Find.WindowStack.IsOpen<Dialog_Trade>() && TradeSession.trader != null 
-                && __instance.ThingDef.IsEltexOrHasEltexMaterial() &&  TradeSession.trader.Faction != Faction.OfEmpire && __instance.CountToTransferToDestination > 0)
+            if (curTransferable != __instance && Find.WindowStack.IsOpen<Dialog_Trade>() && __instance.CountToTransferToDestination > 0 && TradeSession.trader != null
+                && TradeSession.trader.Faction != Faction.OfEmpire && __instance.ThingDef.IsEltexOrHasEltexMaterial())
             {
                 curTransferable = __instance;
                 if (TradeSession.giftMode)
