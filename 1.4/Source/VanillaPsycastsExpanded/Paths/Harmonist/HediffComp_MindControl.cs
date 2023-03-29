@@ -1,50 +1,50 @@
-﻿namespace VanillaPsycastsExpanded.Harmonist
+﻿using System.Linq;
+using RimWorld;
+using Verse;
+using Verse.AI.Group;
+using VFECore.Abilities;
+
+namespace VanillaPsycastsExpanded.Harmonist;
+
+public class HediffComp_MindControl : HediffComp_Ability
 {
-    using System.Linq;
-    using RimWorld;
-    using Verse;
-    using Verse.AI.Group;
+    private Faction oldFaction;
+    private Lord oldLord;
 
-    public class HediffComp_MindControl : HediffComp
+    public override void CompPostPostAdd(DamageInfo? dinfo)
     {
-        private Faction oldFaction;
-        private Lord    oldLord;
+        base.CompPostPostAdd(dinfo);
+        oldFaction = Pawn.Faction;
+        oldLord = Pawn.GetLord();
+        oldLord?.RemovePawn(Pawn);
+        Pawn.SetFaction(ability.pawn.Faction, ability.pawn);
+    }
 
-        public override void CompPostPostAdd(DamageInfo? dinfo)
+    public override void CompPostPostRemoved()
+    {
+        base.CompPostPostRemoved();
+        Pawn.SetFaction(oldFaction);
+        if (!oldFaction.IsPlayer && oldLord is not { AnyActivePawn: true })
         {
-            base.CompPostPostAdd(dinfo);
-            this.oldFaction = this.Pawn.Faction;
-            this.oldLord    = this.Pawn.GetLord();
-            this.oldLord?.RemovePawn(this.Pawn);
-            this.Pawn.SetFaction(Faction.OfPlayer);
-        }
+            if (Pawn.Map.mapPawns.SpawnedPawnsInFaction(oldFaction).Except(Pawn).Any())
+                oldLord = ((Pawn)GenClosest.ClosestThing_Global(Pawn.Position, Pawn.Map.mapPawns.SpawnedPawnsInFaction(oldFaction),
+                    99999f,
+                    p => p != Pawn && ((Pawn)p).GetLord() != null)).GetLord();
 
-        public override void CompPostPostRemoved()
-        {
-            base.CompPostPostRemoved();
-            this.Pawn.SetFaction(this.oldFaction);
-            if (this.oldLord is not {AnyActivePawn: true})
+            if (oldLord == null)
             {
-                if (this.Pawn.Map.mapPawns.SpawnedPawnsInFaction(this.oldFaction).Except(this.Pawn).Any())
-                    this.oldLord = ((Pawn) GenClosest.ClosestThing_Global(this.Pawn.Position, this.Pawn.Map.mapPawns.SpawnedPawnsInFaction(this.oldFaction),
-                                                                          99999f,
-                                                                          p => p != this.Pawn && ((Pawn) p).GetLord() != null)).GetLord();
-
-                if (this.oldLord == null)
-                {
-                    LordJob_DefendPoint lordJob = new(this.Pawn.Position);
-                    this.oldLord = LordMaker.MakeNewLord(this.oldFaction, lordJob, Find.CurrentMap);
-                }
+                LordJob_DefendPoint lordJob = new(Pawn.Position);
+                oldLord = LordMaker.MakeNewLord(oldFaction, lordJob, Find.CurrentMap);
             }
-
-            this.oldLord?.AddPawn(this.Pawn);
         }
 
-        public override void CompExposeData()
-        {
-            base.CompExposeData();
-            Scribe_References.Look(ref this.oldFaction, nameof(this.oldFaction));
-            Scribe_References.Look(ref this.oldLord,    nameof(this.oldLord));
-        }
+        oldLord?.AddPawn(Pawn);
+    }
+
+    public override void CompExposeData()
+    {
+        base.CompExposeData();
+        Scribe_References.Look(ref oldFaction, nameof(oldFaction));
+        Scribe_References.Look(ref oldLord, nameof(oldLord));
     }
 }
