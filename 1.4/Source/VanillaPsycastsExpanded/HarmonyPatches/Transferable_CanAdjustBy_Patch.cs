@@ -2,7 +2,9 @@
 {
     using HarmonyLib;
     using RimWorld;
+    using System.Collections.Generic;
     using System.Diagnostics;
+    using System.Linq;
     using UnityEngine;
     using Verse;
 
@@ -10,6 +12,16 @@
 	public static class Transferable_CanAdjustBy_Patch
     {
         public static Transferable curTransferable;
+        private static readonly HashSet<ThingDef> eltexThings;
+
+        static Transferable_CanAdjustBy_Patch()
+        {
+            eltexThings = DefDatabase<RecipeDef>.AllDefs
+                .Where(recipe => recipe.ingredients.Any(x => x.IsFixedIngredient && x.FixedIngredient == VPE_DefOf.VPE_Eltex))
+                .Select(recipe => recipe.ProducedThingDef)
+                .ToHashSet();
+        }
+
 		public static void Postfix(Transferable __instance)
 		{
             if (curTransferable != __instance && Find.WindowStack.IsOpen<Dialog_Trade>() && __instance.CountToTransferToDestination > 0 && TradeSession.trader != null
@@ -39,15 +51,9 @@
                 {
                     return true;
                 }
-                else
+                else if (eltexThings.Contains(def))
                 {
-                    foreach (var recipe in DefDatabase<RecipeDef>.AllDefs)
-                    {
-                        if (recipe.ProducedThingDef == def && recipe.ingredients.Any(x => x.IsFixedIngredient && x.FixedIngredient == VPE_DefOf.VPE_Eltex))
-                        {
-                            return true;
-                        }
-                    }
+                    return true;
                 }
             }
             return false;
