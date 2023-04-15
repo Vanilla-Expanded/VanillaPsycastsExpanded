@@ -2,9 +2,7 @@
 {
     using HarmonyLib;
     using RimWorld;
-    using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Linq;
     using UnityEngine;
     using Verse;
 
@@ -12,15 +10,6 @@
 	public static class Transferable_CanAdjustBy_Patch
     {
         public static Transferable curTransferable;
-        private static readonly HashSet<ThingDef> eltexThings;
-
-        static Transferable_CanAdjustBy_Patch()
-        {
-            eltexThings = DefDatabase<RecipeDef>.AllDefs
-                .Where(recipe => recipe.ingredients.Any(x => x.IsFixedIngredient && x.FixedIngredient == VPE_DefOf.VPE_Eltex))
-                .Select(recipe => recipe.ProducedThingDef)
-                .ToHashSet();
-        }
 
 		public static void Postfix(Transferable __instance)
 		{
@@ -38,25 +27,5 @@
                 }
             }
 		}
-
-        public static bool IsEltexOrHasEltexMaterial(this ThingDef def)
-        {
-            if (def != null)
-            {
-                if (def == VPE_DefOf.VPE_Eltex)
-                {
-                    return true;
-                }
-                else if (def.costList != null && def.costList.Any(x => x.thingDef == VPE_DefOf.VPE_Eltex))
-                {
-                    return true;
-                }
-                else if (eltexThings.Contains(def))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 }

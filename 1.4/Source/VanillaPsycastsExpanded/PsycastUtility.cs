@@ -1,10 +1,42 @@
 ﻿namespace VanillaPsycastsExpanded;
 
 using RimWorld;
+using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 public static class PsycastUtility
 {
+    public static readonly HashSet<ThingDef> eltexThings;
+
+    static PsycastUtility()
+    {
+        eltexThings = DefDatabase<RecipeDef>.AllDefs
+            .Where(recipe => recipe.ingredients.Any(x => x.IsFixedIngredient && x.FixedIngredient == VPE_DefOf.VPE_Eltex))
+            .Select(recipe => recipe.ProducedThingDef)
+            .ToHashSet();
+    }
+
+    public static bool IsEltexOrHasEltexMaterial(this ThingDef def)
+    {
+        if (def != null)
+        {
+            if (def == VPE_DefOf.VPE_Eltex)
+            {
+                return true;
+            }
+            else if (def.costList != null && def.costList.Any(x => x.thingDef == VPE_DefOf.VPE_Eltex))
+            {
+                return true;
+            }
+            else if (eltexThings.Contains(def))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static Hediff_PsycastAbilities Psycasts(this Pawn pawn) =>
         (Hediff_PsycastAbilities)pawn.health.hediffSet.GetFirstHediffOfDef(VPE_DefOf.VPE_PsycastAbilityImplant);
 
