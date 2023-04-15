@@ -19,22 +19,10 @@ public static class PsycastUtility
 
     public static bool IsEltexOrHasEltexMaterial(this ThingDef def)
     {
-        if (def != null)
-        {
-            if (def == VPE_DefOf.VPE_Eltex)
-            {
-                return true;
-            }
-            else if (def.costList != null && def.costList.Any(x => x.thingDef == VPE_DefOf.VPE_Eltex))
-            {
-                return true;
-            }
-            else if (eltexThings.Contains(def))
-            {
-                return true;
-            }
-        }
-        return false;
+        return def != null &&
+            (def == VPE_DefOf.VPE_Eltex ||
+            (def.costList != null && def.costList.Any(x => x.thingDef == VPE_DefOf.VPE_Eltex)) ||
+            eltexThings.Contains(def));
     }
 
     public static Hediff_PsycastAbilities Psycasts(this Pawn pawn) =>
