@@ -85,7 +85,7 @@ public class AbilityExtension_Psycast : AbilityExtension_AbilityMod
 
             if (ability.pawn.Downed)
             {
-                reason = "IsIncapped".Translate(ability.pawn);
+                reason = "IsIncapped".Translate(ability.pawn.LabelShort, ability.pawn);
                 return false;
             }
 
