@@ -12,8 +12,8 @@
 
     public class Ability_Skillroll : Ability
     {
-        private static readonly Func<Pawn, SkillDef, int> finalLevelOfSkill =
-            AccessTools.Method(typeof(PawnGenerator), "FinalLevelOfSkill").CreateDelegate<Func<Pawn, SkillDef, int>>();
+        private static readonly Func<Pawn, SkillDef, PawnGenerationRequest, int> finalLevelOfSkill =
+            AccessTools.Method(typeof(PawnGenerator), "FinalLevelOfSkill").CreateDelegate<Func<Pawn, SkillDef, PawnGenerationRequest, int>>();
 
         public override void Cast(params GlobalTargetInfo[] targets)
         {
@@ -21,10 +21,11 @@
             Pawn pawn   = targets[0].Thing as Pawn;
             int  points = 0;
 
+            var request = new PawnGenerationRequest(pawn.kindDef, developmentalStages: pawn.DevelopmentalStage);
             foreach (SkillRecord skill in pawn.skills.skills)
             {
                 int oldLevel = skill.levelInt;
-                skill.levelInt =  finalLevelOfSkill(pawn, skill.def);
+                skill.levelInt =  finalLevelOfSkill(pawn, skill.def, request);
                 points         += oldLevel - skill.levelInt;
             }
 
