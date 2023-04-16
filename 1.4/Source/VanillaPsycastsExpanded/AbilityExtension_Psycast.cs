@@ -163,6 +163,19 @@ public class AbilityExtension_Psycast : AbilityExtension_AbilityMod
             }
     }
 
+    public override bool Valid(GlobalTargetInfo[] targets, Ability ability, bool throwMessages = false)
+    {
+        var valid = base.Valid(targets, ability, throwMessages);
+        if (valid)
+        {
+            string reason;
+            valid = IsEnabledForPawn(ability, out reason);
+            if (!valid && throwMessages) Messages.Message(reason, MessageTypeDefOf.RejectInput, false);
+        }
+
+        return valid;
+    }
+
     public override bool ValidateTarget(LocalTargetInfo target, Ability ability, bool throwMessages = false)
     {
         if (psychic && target.Pawn is { } p && p.GetStatValue(StatDefOf.PsychicSensitivity) < 1.401298E-45f)
