@@ -8,7 +8,7 @@ using Verse;
 [StaticConstructorOnStartup]
 public static class PsycastUtility
 {
-    public static readonly HashSet<ThingDef> eltexThings;
+    private static readonly HashSet<ThingDef> eltexThings;
 
     static PsycastUtility()
     {
