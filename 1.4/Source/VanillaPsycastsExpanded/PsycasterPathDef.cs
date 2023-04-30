@@ -33,14 +33,16 @@ public class PsycasterPathDef : Def
     public MeditationFocusDef requiredFocus;
     public GeneDef requiredGene;
     public MemeDef requiredMeme;
+    public bool requiredMechanitor = false;
     public string tab;
     public string tooltip;
     public int width;
 
-    public virtual bool CanPawnUnlock(Pawn pawn) => PawnHasCorrectBackstory(pawn) && PawnHasMeme(pawn) && PawnHasGene(pawn) && PawnHasCorrectFocus(pawn);
+    public virtual bool CanPawnUnlock(Pawn pawn) => PawnHasCorrectBackstory(pawn) && PawnHasMeme(pawn) && PawnHasGene(pawn) && PawnIsMechanitor(pawn) && PawnHasCorrectFocus(pawn);
 
     private bool PawnHasMeme(Pawn pawn) => requiredMeme == null || (pawn.Ideo?.memes.Contains(requiredMeme) ?? false);
     private bool PawnHasGene(Pawn pawn) => requiredGene == null || (pawn.genes?.GetGene(requiredGene)?.Active ?? false);
+    private bool PawnIsMechanitor(Pawn pawn) => !requiredMechanitor || (MechanitorUtility.IsMechanitor(pawn));
     private bool PawnHasCorrectFocus(Pawn pawn) => requiredFocus == null || requiredFocus.CanPawnUse(pawn);
 
     private bool PawnHasCorrectBackstory(Pawn pawn)

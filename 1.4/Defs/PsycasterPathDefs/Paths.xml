@@ -126,8 +126,8 @@
     <altBackground>UI/AlternativeBackgrounds/PathBG_Wildspeaker</altBackground>
     <tab>Psycasts</tab>
     <tooltip>A secret path of the tribal communities, wildspeaking is the art of living in harmony with the forest and nature, and being able to summon the aid of the forest when needed. Tribal wildspeakers are known to control packs of territorial animals, be protected from all damage by an impenetrable shield, and they can also seem to make brambles and trees sprout out of the ground on a whim.</tooltip>
-    <lockedReason>Tribals only</lockedReason>
-    <requiredFocus>Natural</requiredFocus>
+    <lockedReason>Mechanitor only</lockedReason>
+    <requiredMechanitor>true</requiredMechanitor>
   </VanillaPsycastsExpanded.PsycasterPathDef>
   <VanillaPsycastsExpanded.PsycasterPathDef>
     <defName>VPE_Harmonist</defName>
