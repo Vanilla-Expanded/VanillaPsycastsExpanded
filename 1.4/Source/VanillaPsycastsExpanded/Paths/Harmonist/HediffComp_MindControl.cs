@@ -34,7 +34,7 @@ public class HediffComp_MindControl : HediffComp_Ability
             if (oldLord == null)
             {
                 LordJob_DefendPoint lordJob = new(Pawn.Position);
-                oldLord = LordMaker.MakeNewLord(oldFaction, lordJob, Find.CurrentMap);
+                oldLord = LordMaker.MakeNewLord(oldFaction, lordJob, Pawn.Map);
             }
         }
 
