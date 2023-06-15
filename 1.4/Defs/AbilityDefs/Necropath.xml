@@ -100,7 +100,7 @@
 		<abilityClass>VanillaPsycastsExpanded.Ability_ParalysisPulse</abilityClass>
 		<targetMode>Self</targetMode>
 		<durationTime>5000</durationTime>
-		<radius>4.9</radius>
+		<radius>2.9</radius>
 		<radiusStatFactors>
 			<PsychicSensitivity>1</PsychicSensitivity>
 		</radiusStatFactors>
