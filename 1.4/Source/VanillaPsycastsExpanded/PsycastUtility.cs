@@ -18,6 +18,35 @@ public static class PsycastUtility
             .ToHashSet();
     }
 
+    public static void RecheckPaths(this Pawn pawn)
+    {
+        var psycasts = pawn.Psycasts();
+        if (psycasts != null)
+        {
+            if (psycasts.unlockedPaths != null)
+            {
+                foreach (var path in psycasts.unlockedPaths.ToList())
+                {
+                    if (path.CanPawnUnlock(pawn) is false)
+                    {
+                        psycasts.previousUnlockedPaths.Add(path);
+                        psycasts.unlockedPaths.Remove(path);
+                    }
+                }
+            }
+            if (psycasts.previousUnlockedPaths != null)
+            {
+                foreach (var path in psycasts.previousUnlockedPaths.ToList())
+                {
+                    if (path.CanPawnUnlock(pawn))
+                    {
+                        psycasts.previousUnlockedPaths.Remove(path);
+                        psycasts.unlockedPaths.Add(path);
+                    }
+                }
+            }
+        }
+    }
     public static bool IsEltexOrHasEltexMaterial(this ThingDef def)
     {
         return def != null &&

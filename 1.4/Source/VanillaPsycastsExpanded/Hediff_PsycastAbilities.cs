@@ -25,6 +25,7 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
     public Hediff_Psylink psylink;
     public List<PsySet> psysets = new();
     public List<MeditationFocusDef> unlockedMeditationFoci = new();
+    public List<PsycasterPathDef> previousUnlockedPaths = new();
     public List<PsycasterPathDef> unlockedPaths = new();
     private IChannelledPsycast currentlyChanneling;
 
@@ -189,6 +190,7 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
         Scribe_Values.Look(ref statPoints, nameof(statPoints));
         Scribe_Values.Look(ref psysetIndex, nameof(psysetIndex));
         Scribe_Values.Look(ref maxLevelFromTitles, nameof(maxLevelFromTitles));
+        Scribe_Collections.Look(ref previousUnlockedPaths, nameof(previousUnlockedPaths), LookMode.Def);
         Scribe_Collections.Look(ref unlockedPaths, nameof(unlockedPaths), LookMode.Def);
         Scribe_Collections.Look(ref unlockedMeditationFoci, nameof(unlockedMeditationFoci), LookMode.Def);
         Scribe_Collections.Look(ref psysets, nameof(psysets), LookMode.Deep);
@@ -197,7 +199,12 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
         Scribe_References.Look(ref currentlyChanneling, nameof(currentlyChanneling));
 
         minHeatGivers ??= new List<IMinHeatGiver>();
-        if (Scribe.mode == LoadSaveMode.PostLoadInit) RecacheCurStage();
+        if (Scribe.mode == LoadSaveMode.PostLoadInit)
+        {
+            this.unlockedPaths ??= new List<PsycasterPathDef>();
+            this.previousUnlockedPaths ??= new List<PsycasterPathDef>();
+            RecacheCurStage();
+        }
     }
 
     public void SpentPoints(int count = 1)

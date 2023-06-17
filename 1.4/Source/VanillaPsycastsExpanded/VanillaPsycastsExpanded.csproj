@@ -67,6 +67,7 @@
     <Compile Include="Graphics\MoteAttachedMovingAround.cs" />
     <Compile Include="Graphics\MoteAttachedOneTime.cs" />
     <Compile Include="HarmonyPatches\DebugPatches.cs" />
+    <Compile Include="HarmonyPatches\HediffSet_DirtyCache_Patch.cs" />
     <Compile Include="HarmonyPatches\HediffUtility_CanHealNaturally_Patch.cs" />
     <Compile Include="HarmonyPatches\IncidentWorker_RaidEnemy_GetLetterText_Patch.cs" />
     <Compile Include="HarmonyPatches\Mote_Patches.cs" />
@@ -76,6 +77,8 @@
     <Compile Include="HarmonyPatches\PawnUtility_ShouldSendNotificationAbout_Patch.cs" />
     <Compile Include="Comps\CompFleckEmitter.cs" />
     <Compile Include="Events\GenStep_EltexMeteor.cs" />
+    <Compile Include="HarmonyPatches\Pawn_AbilityTracker_Notify_TemporaryAbilitiesChanged_Patch.cs" />
+    <Compile Include="HarmonyPatches\Pawn_GeneTracker_Notify_GenesChanged_Patch.cs" />
     <Compile Include="HarmonyPatches\Pawn_HealthTracker_ShouldBeDeadFromLethalDamageThreshold_Patch.cs" />
     <Compile Include="Misc\BackCompatabilityConverter_Psytrainers.cs" />
     <Compile Include="Misc\BackCompatibilityConverter_Constructs.cs" />

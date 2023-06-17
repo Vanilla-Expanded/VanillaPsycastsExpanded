@@ -24,7 +24,10 @@ public class AbilityExtension_Psycast : AbilityExtension_AbilityMod
     public float psyfocusCost = 0f;
     public bool showCastBubble = true;
     public bool spaceAfter;
-
+    public override bool ShowGizmoOnPawn(Pawn pawn)
+    {
+        return pawn.Psycasts().unlockedPaths.Contains(path);
+    }
     public bool PrereqsCompleted(Pawn pawn) => PrereqsCompleted(pawn.GetComp<CompAbilities>());
 
     public bool PrereqsCompleted(CompAbilities compAbilities)
