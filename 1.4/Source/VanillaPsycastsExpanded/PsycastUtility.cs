@@ -27,18 +27,22 @@ public static class PsycastUtility
             {
                 foreach (var path in psycasts.unlockedPaths.ToList())
                 {
-                    if (path.CanPawnUnlock(pawn) is false)
+                    if (path.ensureUnlockRequirements)
                     {
-                        psycasts.previousUnlockedPaths.Add(path);
-                        psycasts.unlockedPaths.Remove(path);
+                        if (path.CanPawnUnlock(pawn) is false)
+                        {
+                            psycasts.previousUnlockedPaths.Add(path);
+                            psycasts.unlockedPaths.Remove(path);
+                        }
                     }
+
                 }
             }
             if (psycasts.previousUnlockedPaths != null)
             {
                 foreach (var path in psycasts.previousUnlockedPaths.ToList())
                 {
-                    if (path.CanPawnUnlock(pawn))
+                    if (path.ensureUnlockRequirements && path.CanPawnUnlock(pawn) || !path.ensureUnlockRequirements)
                     {
                         psycasts.previousUnlockedPaths.Remove(path);
                         psycasts.unlockedPaths.Add(path);
