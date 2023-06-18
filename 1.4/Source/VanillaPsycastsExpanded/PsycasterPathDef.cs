@@ -34,7 +34,6 @@ public class PsycasterPathDef : Def
     public GeneDef requiredGene;
     public MemeDef requiredMeme;
     public bool requiredMechanitor = false;
-    public bool ensureUnlockRequirements;
     public string tab;
     public string tooltip;
     public int width;
