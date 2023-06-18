@@ -87,13 +87,16 @@ public class CompPsytrainer : CompUseEffect_GiveAbility
             failReason = "VPE.MustBePsycaster".Translate();
             return false;
         }
-
+        if (this.Props.ability?.Psycast()?.path.CanPawnUnlock(p) is false)
+        {
+            failReason = this.Props.ability.Psycast().path.lockedReason;
+            return false;
+        }
         if (p.GetComp<CompAbilities>().HasAbility(this.Props.ability))
         {
             failReason = "VPE.AlreadyHasPsycast".Translate(this.Props.ability.LabelCap);
             return false;
         }
-
         failReason = null;
         return true;
     }
