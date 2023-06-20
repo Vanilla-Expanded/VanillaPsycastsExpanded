@@ -75,7 +75,8 @@ public class CompPsytrainer : CompUseEffect_GiveAbility
 {
     public override void DoEffect(Pawn usedBy)
     {
-        if (this.Props.ability?.Psycast()?.path is { } path && usedBy.Psycasts() is { } psycasts && !psycasts.unlockedPaths.Contains(path))
+        if (this.Props.ability?.Psycast()?.path is { } path && usedBy.Psycasts() is { } psycasts 
+            && !psycasts.unlockedPaths.Contains(path))
             psycasts.UnlockPath(path);
         base.DoEffect(usedBy);
     }
@@ -87,10 +88,17 @@ public class CompPsytrainer : CompUseEffect_GiveAbility
             failReason = "VPE.MustBePsycaster".Translate();
             return false;
         }
-        if (this.Props.ability?.Psycast()?.path.CanPawnUnlock(p) is false)
+        var path = this.Props.ability?.Psycast()?.path;
+        if (path != null)
         {
-            failReason = this.Props.ability.Psycast().path.lockedReason;
-            return false;
+            if (path.CanPawnUnlock(p) is false)
+            {
+                if (path.ignoreLockRestrictionsForNeurotrainers is false)
+                {
+                    failReason = this.Props.ability.Psycast().path.lockedReason;
+                    return false;
+                }
+            }
         }
         if (p.GetComp<CompAbilities>().HasAbility(this.Props.ability))
         {
