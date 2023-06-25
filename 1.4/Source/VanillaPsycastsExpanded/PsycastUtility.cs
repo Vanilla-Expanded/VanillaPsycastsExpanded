@@ -1,9 +1,9 @@
-﻿namespace VanillaPsycastsExpanded;
-
-using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
+
+namespace VanillaPsycastsExpanded;
 
 [StaticConstructorOnStartup]
 public static class PsycastUtility
@@ -13,9 +13,9 @@ public static class PsycastUtility
     static PsycastUtility()
     {
         eltexThings = DefDatabase<RecipeDef>.AllDefs
-            .Where(recipe => recipe.ingredients.Any(x => x.IsFixedIngredient && x.FixedIngredient == VPE_DefOf.VPE_Eltex))
-            .Select(recipe => recipe.ProducedThingDef)
-            .ToHashSet();
+           .Where(recipe => recipe.ingredients.Any(x => x.IsFixedIngredient && x.FixedIngredient == VPE_DefOf.VPE_Eltex))
+           .Select(recipe => recipe.ProducedThingDef)
+           .ToHashSet();
     }
 
     public static void RecheckPaths(this Pawn pawn)
@@ -24,24 +24,16 @@ public static class PsycastUtility
         if (psycasts != null)
         {
             if (psycasts.unlockedPaths != null)
-            {
                 foreach (var path in psycasts.unlockedPaths.ToList())
-                {
                     if (path.ensureLockRequirement)
-                    {
                         if (path.CanPawnUnlock(pawn) is false)
                         {
                             psycasts.previousUnlockedPaths.Add(path);
                             psycasts.unlockedPaths.Remove(path);
                         }
-                    }
-                }
-            }
 
             if (psycasts.previousUnlockedPaths != null)
-            {
                 foreach (var path in psycasts.previousUnlockedPaths.ToList())
-                {
                     if (path.ensureLockRequirement)
                     {
                         if (path.CanPawnUnlock(pawn))
@@ -55,20 +47,19 @@ public static class PsycastUtility
                         psycasts.previousUnlockedPaths.Remove(path);
                         psycasts.unlockedPaths.Add(path);
                     }
-                }
-            }
         }
     }
+
     public static bool IsEltexOrHasEltexMaterial(this ThingDef def)
     {
         return def != null &&
-            (def == VPE_DefOf.VPE_Eltex ||
-            (def.costList != null && def.costList.Any(x => x.thingDef == VPE_DefOf.VPE_Eltex)) ||
-            eltexThings.Contains(def));
+               (def == VPE_DefOf.VPE_Eltex ||
+                (def.costList != null && def.costList.Any(x => x.thingDef == VPE_DefOf.VPE_Eltex)) ||
+                eltexThings.Contains(def));
     }
 
     public static Hediff_PsycastAbilities Psycasts(this Pawn pawn) =>
-        (Hediff_PsycastAbilities)pawn.health.hediffSet.GetFirstHediffOfDef(VPE_DefOf.VPE_PsycastAbilityImplant);
+        (Hediff_PsycastAbilities)pawn?.health?.hediffSet?.GetFirstHediffOfDef(VPE_DefOf.VPE_PsycastAbilityImplant);
 
     [DebugAction("Pawns", "Reset Psycasts", true, actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]
     public static void ResetPsycasts(Pawn p)
@@ -83,11 +74,13 @@ public static class PsycastUtility
             hypothermiaHediff = VPE_DefOf.HypothermicSlowdown;
             return true;
         }
-        else if (pawn.RaceProps.IsFlesh)
+
+        if (pawn.RaceProps.IsFlesh)
         {
             hypothermiaHediff = HediffDefOf.Hypothermia;
             return true;
         }
+
         hypothermiaHediff = null;
         return false;
     }
