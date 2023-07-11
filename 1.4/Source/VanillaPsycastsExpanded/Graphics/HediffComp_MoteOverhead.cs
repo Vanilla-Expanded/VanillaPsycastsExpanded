@@ -2,6 +2,7 @@
 {
     using RimWorld;
     using UnityEngine;
+    using VanillaPsycastsExpanded.HarmonyPatches;
     using Verse;
 
     public class HediffComp_MoteOverHead : HediffComp
@@ -13,23 +14,29 @@
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-
-            Vector3 pos = this.Pawn.DrawPos + new Vector3(0f, 0f, 0.5f);
-            if (this.mote == null || this.mote.Destroyed)
+            if (this.Pawn.Spawned)
             {
-                this.mote                         = MoteMaker.MakeStaticMote(pos, this.Pawn.Map, this.Props.mote);
-                this.mote.Graphic.MatSingle.color = this.Props.color;
-            }
-            else
-            {
-                this.mote.exactPosition = pos;
-                this.mote.Maintain();
+                Vector3 pos = this.Pawn.DrawPos + new Vector3(0f, 0f, 0.5f);
+                if (this.mote == null || this.mote.Destroyed)
+                {
+                    this.mote = MoteMaker.MakeStaticMote(pos, this.Pawn.Map, this.Props.mote);
+                    this.mote.Graphic.MatSingle.color = this.Props.color;
+                }
+                else
+                {
+                    this.mote.exactPosition = pos;
+                    this.mote.Maintain();
+                }
             }
         }
 
         public override void CompExposeData()
         {
             base.CompExposeData();
+            if (this.mote != null && this.mote.def.CanBeSaved() is false) 
+            {
+                return;
+            }
             Scribe_References.Look(ref this.mote, nameof(this.mote));
         }
     }

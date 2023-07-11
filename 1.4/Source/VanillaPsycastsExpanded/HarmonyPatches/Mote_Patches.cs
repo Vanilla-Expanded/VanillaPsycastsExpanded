@@ -7,13 +7,13 @@
     {
         public static void Postfix(ThingDef def, ref bool __result)
         {
-            if (def.ShouldBeSaved())
+            if (def.CanBeSaved())
             {
                 __result = true;
             }
         }
 
-        public static bool ShouldBeSaved(this ThingDef def)
+        public static bool CanBeSaved(this ThingDef def)
         {
             if (def != null && (typeof(MoteAttachedScaled).IsAssignableFrom(def.thingClass) 
                 || typeof(MoteAttachedMovingAround).IsAssignableFrom(def.thingClass) 
@@ -30,7 +30,7 @@
     {
         public static void Postfix(ThingDef __instance, ref bool __result)
         {
-            if (__instance.ShouldBeSaved())
+            if (__instance.CanBeSaved())
             {
                 __result = true;
             }
