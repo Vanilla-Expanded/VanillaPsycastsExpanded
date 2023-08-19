@@ -164,7 +164,7 @@
 				<path>VPE_Archon</path>
 				<level>3</level>
 				<order>3</order>
-				<psyfocusCost>0.02</psyfocusCost>
+				<psyfocusCost>0.2</psyfocusCost>
 				<entropyGain>30</entropyGain>
 				<prerequisites>
 					<li>VPE_GroupLink</li>
