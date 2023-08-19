@@ -63,7 +63,7 @@
     <castTime>30</castTime>
     <durationTime>7500</durationTime>
     <targetMode>Pawn</targetMode>
-    <range>20</range>
+    <range>14</range>
     <goodwillImpact>-100</goodwillImpact>
     <abilityClass>VanillaPsycastsExpanded.Ability_PsychicShock</abilityClass>
     <castSound>PsychicShockLanceCast</castSound>
@@ -73,7 +73,7 @@
         <path>VPE_Archotechist</path>
         <level>2</level>
         <order>1</order>
-        <psyfocusCost>0.12</psyfocusCost>
+        <psyfocusCost>0.14</psyfocusCost>
         <entropyGain>30</entropyGain>
         <psychic>true</psychic>
         <prerequisites>
@@ -82,7 +82,7 @@
         </prerequisites>
       </li>
       <li Class="VFECore.Abilities.AbilityExtension_Hediff">
-        <hediff>PsychicShock</hediff>
+        <hediff>VPE_PsychicShock</hediff>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
     </modExtensions>
