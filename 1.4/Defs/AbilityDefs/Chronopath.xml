@@ -197,7 +197,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_SeasonTimeskip</defName>
       <label>season timeskip</label>
-      <description>Locks the entire planet into a season-long psychically induced slowdown, effectively skipping forward a season. Nigh instantaneous effect, very strenuous and puts the caster in a coma.</description>
+      <description>Locks the entire planet into a season-long psychically induced slowdown, effectively skipping forward a season. Nigh instantaneous effect, very strenuous and puts the caster in a coma, as well as biologically aging them by a full year.</description>
       <iconPath>Abilities/Chronopath/SeasonTimeskip</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Chronopath.Ability_AdvanceSeason</abilityClass>
       <needsTicking>true</needsTicking>
