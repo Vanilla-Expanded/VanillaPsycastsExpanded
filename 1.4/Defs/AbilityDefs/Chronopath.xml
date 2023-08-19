@@ -183,8 +183,8 @@
           <path>VPE_Chronopath</path>
           <level>4</level>
           <order>1</order>
-          <psyfocusCost>0.6</psyfocusCost>
-          <entropyGain>40</entropyGain>
+          <psyfocusCost>0.4</psyfocusCost>
+          <entropyGain>60</entropyGain>
           <prerequisites>
             <li>VPE_Age</li>
           </prerequisites>
@@ -217,7 +217,10 @@
           </prerequisites>
         </li>
         <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
-          <hours>6</hours>
+          <hours>24</hours>
+        </li>
+        <li Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_Age">
+          <casterYears>1</casterYears>
         </li>
       </modExtensions>
     </VFECore.Abilities.AbilityDef>
