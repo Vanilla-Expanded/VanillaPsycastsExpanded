@@ -3,7 +3,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_Flameball</defName>
       <label>flameball</label>
-      <description>Generate a small fragile pod of magma as the caster lobs the projectile away. Upon impact, the liquid bursts forth in a small radius.</description>
+      <description>Throw an orb of condensed flames, similar to a grenade, which explodes upon impact. The range scales with the caster’s psychic sensitivity.</description>
       <iconPath>Abilities/Conflagrator/Flameball</iconPath>
       <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
       <castTime>60</castTime>
