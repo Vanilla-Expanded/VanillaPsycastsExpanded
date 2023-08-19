@@ -158,7 +158,7 @@
 		<durationTime>720</durationTime>
         <castSound>PsychicShockLanceCast</castSound>
 		<castTime>30</castTime>
-		<distanceToTarget>19.9</distanceToTarget>
+		<distanceToTarget>14.9</distanceToTarget>
 		<modExtensions>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
 				<path>VPE_Archon</path>
