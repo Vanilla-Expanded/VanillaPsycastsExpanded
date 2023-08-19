@@ -3,7 +3,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_PlantTimeskip</defName>
       <label>plant timeskip</label>
-      <description>Grows all the plants in a radius around the caster to maturity.</description>
+      <description>Grows all the plants in a radius around the caster, advancing their maturity by the equivalent of 7 days. Biologically ages the caster by a full year.</description>
       <iconPath>Abilities/Chronopath/PlantTimeskip</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Chronopath.Ability_MaturePlants</abilityClass>
       <targetMode>Self</targetMode>
@@ -25,6 +25,9 @@
         <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
           <fleckDef>VPE_Timeskip</fleckDef>
           <scale>1</scale>
+        </li>
+        <li Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_Age">
+          <casterYears>1</casterYears>
         </li>
       </modExtensions>
     </VFECore.Abilities.AbilityDef>
