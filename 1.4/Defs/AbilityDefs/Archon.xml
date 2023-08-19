@@ -101,7 +101,7 @@
 	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
 		<defName>VPE_WordofAlliance</defName>
 		<label>word of alliance</label>
-		<description>Speak words of friendship and benefits to a close target using psychic suggestion, helping them realize that you’re not all that bad. Only works on those willing to listen and effect scales with the caster's psychic sensitivity.</description>
+		<description>Speak words of friendship and benefits to a close target using psychic suggestion, coaxing them into improving their relations. Ineffective against hostility and scales with high psychic sensitivity.</description>
 		<iconPath>Abilities/Archon/WordofAlliance</iconPath>
 		<castTime>60</castTime>
 		<abilityClass>VanillaPsycastsExpanded.Ability_GoodwillImpact</abilityClass>
