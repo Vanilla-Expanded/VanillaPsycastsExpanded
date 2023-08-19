@@ -58,7 +58,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
       <defName>VPE_WordofForetelling</defName>
       <label>word of foretelling</label>
-      <description>Psychic whispers of things to come. Colony pawns are inspired, neutrals or friendlies improve relations, prisoners lose their resistance and enemies retreat from their doom.</description>
+      <description>Psychic whispers of things to come. Colony pawns are inspired, neutrals or friendlies improve relations, prisoners lose their resistance and enemies retreat from their doom. Biologically ages the caster by a full year.</description>
       <iconPath>Abilities/Chronopath/WordofForetelling</iconPath>
       <distanceToTarget>3</distanceToTarget>
 	    <showUndrafted>true</showUndrafted>
@@ -89,7 +89,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_CraftTimeskip</defName>
       <label>craft timeskip</label>
-      <description>Using very precise timeskipping, moves the desired item to its finished state as if the creator had continued working on it. Ages the caster by 3 years.</description>
+      <description>Using very precise timeskipping, moves the desired item to its finished state as if the creator had continued working on it. Biologically ages the caster by a full year.</description>
       <iconPath>Abilities/Chronopath/CraftTimeskip</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Chronopath.Ability_Finish</abilityClass>
       <castTime>180</castTime>
@@ -111,14 +111,14 @@
           <path>VPE_Chronopath</path>
           <level>2</level>
           <order>1</order>
-          <psyfocusCost>0.5</psyfocusCost>
+          <psyfocusCost>0.6</psyfocusCost>
           <entropyGain>0</entropyGain>
           <prerequisites>
             <li>VPE_PlantTimeskip</li>
           </prerequisites>
         </li>
         <li Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_Age">
-          <casterYears>3</casterYears>
+          <casterYears>1</casterYears>
         </li>
         <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
           <fleckDef>VPE_Timeskip</fleckDef>
