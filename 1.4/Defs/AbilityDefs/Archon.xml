@@ -137,7 +137,7 @@
 				<path>VPE_Archon</path>
 				<level>3</level>
 				<order>2</order>
-				<psyfocusCost>0.1</psyfocusCost>
+				<psyfocusCost>0.25</psyfocusCost>
 				<entropyGain>0</entropyGain>
 				<prerequisites>
 					<li>VPE_WordofProductivity</li>
