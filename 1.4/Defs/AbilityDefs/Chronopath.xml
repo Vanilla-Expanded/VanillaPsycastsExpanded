@@ -34,7 +34,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_TimeskipMeditation</defName>
       <label>timeskip meditation</label>
-      <description>Puts the caster's body under significant stress, biologically aging them five years as they earn a considerable amount of experience toward their next Psycast level and regain full Psyfocus.</description>
+      <description>Puts the caster into a self-inflicted coma for a full day as they earn a considerable amount of experience toward their next Psycast level and regain full Psyfocus. Biologically ages the caster by a full year.</description>
       <iconPath>Abilities/Chronopath/TimeskipMeditation</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Chronopath.Ability_Meditate</abilityClass>
       <targetMode>Self</targetMode>
@@ -80,6 +80,9 @@
         <li Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_ReduceResistance" />
         <li Class="VanillaPsycastsExpanded.AbilityExtension_Flee">
           <onlyHostile>true</onlyHostile>
+        </li>
+        <li Class="VanillaPsycastsExpanded.Chronopath.AbilityExtension_Age">
+          <casterYears>1</casterYears>
         </li>
       </modExtensions>
     </VFECore.Abilities.AbilityDef>
