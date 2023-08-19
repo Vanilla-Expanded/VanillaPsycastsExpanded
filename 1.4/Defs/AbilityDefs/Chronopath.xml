@@ -230,7 +230,7 @@
       <description>Psychically compresses the flow of time in an area. Rapidly ages living creatures, plants flourish and wither, and structures start to disintegrate from the bizarre stress.</description>
       <iconPath>Abilities/Chronopath/TimeSphere</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Chronopath.Ability_TimeSphere</abilityClass>
-      <castTime>120</castTime>
+      <castTime>240</castTime>
       <castSound>VPE_TimeSphere_Cast</castSound>
       <targetMode>Location</targetMode>
       <range>25.9</range>
@@ -241,7 +241,7 @@
           <path>VPE_Chronopath</path>
           <level>5</level>
           <order>1</order>
-          <psyfocusCost>0.1</psyfocusCost>
+          <psyfocusCost>0.25</psyfocusCost>
           <entropyGain>90</entropyGain>
           <prerequisites>
             <li>VPE_RaidPause</li>
