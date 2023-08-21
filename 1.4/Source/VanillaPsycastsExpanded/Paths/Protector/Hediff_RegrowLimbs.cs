@@ -14,7 +14,8 @@
             if (Find.TickManager.TicksGame % GenDate.TicksPerHour == 0)
             {
                 bool healedOnce = false;
-                var injuredHediffs = pawn.health.hediffSet.hediffs.OfType<Hediff_Injury>().ToList();
+                var injuredHediffs = pawn.health.hediffSet.hediffs.OfType<Hediff_Injury>()
+                    .Where(x => x.IsPermanent() is false).ToList();
                 if (injuredHediffs.Any())
                 {
                     injuredHediffs.RandomElement().Heal(1f);
