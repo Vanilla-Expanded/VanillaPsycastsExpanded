@@ -101,7 +101,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_HeatFocus</defName>
       <label>heat focus</label>
-      <description>Initiates harmonic meditation which converts all accumulated heat in psyfocus after 10 seconds.</description>
+      <description> Initiates harmonic meditation which converts all accumulated heat in psyfocus after 10 seconds. Can neither overcharge psyfocus nor heat dump.</description>
       <iconPath>Abilities/Harmonist/HeatFocus</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_HeatFocus</abilityClass>
       <targetMode>Self</targetMode>
@@ -190,7 +190,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_LocationSwap</defName>
       <label>location swap</label>
-      <description>Spawns two precise, single-use skipgates between the caster and the visible target, allowing them to trade places.</description>
+      <description>Using precision skipgates, swaps the positions of the caster and a visible target.</description>
       <iconPath>Abilities/Harmonist/LocationSwap</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_LocationSwap</abilityClass>
       <castTime>15</castTime>
@@ -217,7 +217,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_HealthSwap</defName>
       <label>health swap</label>
-      <description>Creates an imbalance between the life forces of two people, causing all negative health conditions to flow from one to the other. Conditions that can’t be transferred are healed.</description>
+      <description>Through the law of equivalent exchange, returns the primary target’s vitality to its origin, transferring all foreign objects and injuries to the secondary target.</description>
       <iconPath>Abilities/Harmonist/HealthSwap</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_HealthSwap</abilityClass>
       <castTime>240</castTime>
@@ -262,7 +262,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_Transmutation</defName>
       <label>transmutation</label>
-      <description>Utilizing the alchemical foundation of equivalent exchange, converts a targeted item or stack of items into an object of equal or lesser value. Otherwise extremely unpredictable and uncontrollable.</description>
+      <description>Through the law of equivalent exchange, converts a targeted (stack of) item(s) into an item of equal or lesser value. Completely unpredictable.</description>
       <iconPath>Abilities/Harmonist/Transmutation</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_TransmuteItem</abilityClass>
       <needsTicking>true</needsTicking>
