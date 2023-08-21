@@ -67,9 +67,20 @@
 
 	<HediffDef ParentName="PsycastHediffBase">
 		<defName>VPE_RegrowLimbs</defName>
-		<label>psychic regeneration</label>
+		<label>psychic regeneration coma</label>
 		<description>Psychically-induced tissue regeneration, which can close open wounds and regenerate missing body parts.</description>
 		<hediffClass>VanillaPsycastsExpanded.Hediff_RegrowLimbs</hediffClass>
+		<initialSeverity>0.001</initialSeverity>
+		<stages>
+			<li>
+				<capMods>
+				<li>
+					<capacity>Consciousness</capacity>
+					<setMax>0.1</setMax>
+				</li>
+				</capMods>
+			</li>
+		</stages>
 	</HediffDef>
 
 	<HediffDef ParentName="InjuryBase">

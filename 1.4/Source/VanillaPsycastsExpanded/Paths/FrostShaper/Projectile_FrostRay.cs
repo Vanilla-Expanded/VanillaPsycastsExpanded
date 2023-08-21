@@ -66,9 +66,9 @@ public class Projectile_FrostRay : Projectile
                 victim.TakeDamage(dinfo).AssociateWithLog(battleLogEntry_RangedImpact);
                 if (victim.CanReceiveHypothermia(out var hediff))
                 {
-                    HealthUtility.AdjustSeverity(victim, hediff, 0.016f);
+                    HealthUtility.AdjustSeverity(victim, hediff, 0.08f / 6f);
                 }
-                HealthUtility.AdjustSeverity(victim, VPE_DefOf.VFEP_HypothermicSlowdown, 0.016f);
+                HealthUtility.AdjustSeverity(victim, VPE_DefOf.VFEP_HypothermicSlowdown, 0.08f / 6f);
             }
         }
     }

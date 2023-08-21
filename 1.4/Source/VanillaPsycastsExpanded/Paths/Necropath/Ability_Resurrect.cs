@@ -13,7 +13,10 @@
         public override Gizmo GetGizmo()
         {
             var gizmo = base.GetGizmo();
-            if (!pawn.health.hediffSet.GetNotMissingParts().Where(x => x.def == VPE_DefOf.Finger).Any())
+            var fingerParts = pawn.health.hediffSet.GetNotMissingParts().Where(x => x.def == VPE_DefOf.Finger);
+
+            if (fingerParts.All(finger => pawn.health.hediffSet.hediffs
+            .Any(hediff => hediff.def == VPE_DefOf.VPE_Sacrificed && hediff.Part == finger)))
             {
                 gizmo.Disable("VPE.NoAvailableFingers".Translate());
             }
@@ -24,13 +27,16 @@
             base.Cast(targets);
             foreach (var target in targets)
             {
-                if (pawn.health.hediffSet.GetNotMissingParts().Where(x => x.def == VPE_DefOf.Finger).TryRandomElement(out var finger))
+                var fingerParts = pawn.health.hediffSet.GetNotMissingParts().Where(x => x.def == VPE_DefOf.Finger);
+                if (fingerParts.Where(finger => pawn.health.hediffSet.hediffs
+                    .Any(hediff => hediff.def == VPE_DefOf.VPE_Sacrificed && hediff.Part == finger) is false)
+                    .TryRandomElement(out var finger))
                 {
                     var corpse = target.Thing as Corpse;
                     var soul = SkyfallerMaker.MakeSkyfaller(VPE_DefOf.VPE_SoulFromSky) as SoulFromSky;
                     soul.target = corpse;
                     GenPlace.TryPlaceThing(soul, corpse.Position, corpse.Map, ThingPlaceMode.Direct);
-                    var result = pawn.TakeDamage(new DamageInfo(DamageDefOf.SurgicalCut, 99999, instigator: this.pawn, hitPart: finger));
+                    pawn.health.AddHediff(HediffMaker.MakeHediff(VPE_DefOf.VPE_Sacrificed, pawn, finger), finger);
                 }
             }
         }

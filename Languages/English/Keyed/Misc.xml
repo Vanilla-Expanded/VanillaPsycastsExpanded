@@ -37,7 +37,7 @@
 	<VPE.MustBeCorpseHumanlike>Corpse must be humanlike.</VPE.MustBeCorpseHumanlike>
     <VPE.PackSummon>Pack Summoned!</VPE.PackSummon>
     <VPE.PackSummon.Desc>A pack of wild animals have been summoned by {0} to defend the colony.</VPE.PackSummon.Desc>
-	<VPE.NoAvailableFingers>No available fingers</VPE.NoAvailableFingers>
+	<VPE.NoAvailableFingers>No available fingers.</VPE.NoAvailableFingers>
     <VPE.CurrentChanneling>Currently channeling {0}</VPE.CurrentChanneling>
     <VPE.MustBeInDark>Target must in the dark</VPE.MustBeInDark>
     <VPE.MustBePsycaster>Must be a psycaster</VPE.MustBePsycaster>

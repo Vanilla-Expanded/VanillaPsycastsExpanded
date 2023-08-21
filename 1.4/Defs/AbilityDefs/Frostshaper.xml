@@ -57,6 +57,9 @@
         </li>
         <li Class="VFECore.Abilities.AbilityExtension_Projectile">
           <projectile>VPE_IceSpike</projectile>
+		  <accuracyStatFactors>
+			<PsychicSensitivity>1</PsychicSensitivity>
+		  </accuracyStatFactors>
         </li>
       </modExtensions>
     </VFECore.Abilities.AbilityDef>
