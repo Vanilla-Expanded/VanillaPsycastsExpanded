@@ -89,7 +89,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_FireShield</defName>
       <label>fire shield</label>
-      <description>Creates a temporary incendiary vortex skipgate around a target that links to a nearby star that extends outward by a few inches. Anyone that attempts to attack the target in melee will be set ablaze, with the additional benefit of overpowering any other fire effects.</description>
+      <description>Creates an aura of blazing flames around the target for a time, preventing them from immolation and igniting any who try to attack them in melee. Duration scales with the caster’s psychic sensitivity.</description>
       <iconPath>Abilities/Conflagrator/FireShield</iconPath>
       <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
       <range>4.9</range>
