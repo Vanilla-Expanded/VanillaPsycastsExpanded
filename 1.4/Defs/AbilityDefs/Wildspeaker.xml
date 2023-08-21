@@ -41,7 +41,7 @@
     <description>Infuses a fertile area with life energy, causing it to sprout plantable crops that finish growth in relation to the caster’s psychic sensitivity.</description>
     <iconPath>Abilities/Wildspeaker/CropBurst</iconPath>
     <abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
-    <castTime>120</castTime>
+    <castTime>240</castTime>
     <cooldownTime>60000</cooldownTime>
     <range>25</range>
     <targetMode>Location</targetMode>
@@ -76,7 +76,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
     <defName>VPE_WordofAnimals</defName>
     <label>word of animals</label>
-    <description>Soothe an animal using psychic suggestion, either calming a manhunting animal or taming them.</description>
+    <description>Soothe an animal using psychic suggestion, either calming a manhunting animal or taming them. Depending on the psychic sensitivity of the caster and the body size of an animal, the psycast may backfire and turn the animal manhunter.</description>
     <iconPath>Abilities/Wildspeaker/WordofAnimals</iconPath>
     <abilityClass>VanillaPsycastsExpanded.Wildspeaker.Ability_Animal</abilityClass>
     <castSound>PsychicSoothePulserCast</castSound>
@@ -136,13 +136,13 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_TreeSprout</defName>
     <label>tree sprout</label>
-    <description>Infuses a large, fertile area with potent life energy, causing it to sprout fully grown oak trees.</description>
+    <description>Infuses a fertile area with potent life energy, causing it to sprout fully grown native trees. The effective radius scales with psychic sensitivity, up to a maximum of 8 tiles.</description>
     <iconPath>Abilities/Wildspeaker/TreeSprout</iconPath>
     <abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
-    <castTime>180</castTime>
+    <castTime>480</castTime>
     <range>36.9</range>
     <targetMode>Location</targetMode>
-    <radius>6</radius>
+    <radius>3</radius>
     <radiusStatFactors>
       <PsychicSensitivity>1</PsychicSensitivity>
     </radiusStatFactors>
@@ -156,7 +156,7 @@
         <path>VPE_Wildspeaker</path>
         <level>3</level>
         <order>3</order>
-        <psyfocusCost>0.22</psyfocusCost>
+        <psyfocusCost>0.34</psyfocusCost>
         <entropyGain>0</entropyGain>
         <prerequisites>
           <li>VPE_WordofAnimals</li>
@@ -202,8 +202,8 @@
         <path>VPE_Wildspeaker</path>
         <level>4</level>
         <order>1</order>
-        <psyfocusCost>0.05</psyfocusCost>
-        <entropyGain>20</entropyGain>
+        <psyfocusCost>0.12</psyfocusCost>
+        <entropyGain>36</entropyGain>
         <prerequisites>
           <li>VPE_ManhunterPulse</li>
         </prerequisites>
@@ -264,19 +264,19 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Shrineshield</defName>
     <label>shrineshield</label>
-    <description>Generate a spherical skipgate on a nature shrine that sends all incoming and outgoing ground-level projectiles to some distant place. People and items are not affected and the size of the sphere depends on the size of the shrine.</description>
+    <description>Generate a spherical skipgate on a nature shrine that sends any incoming and outgoing projectiles, including mortar shells, to some distant place. People and items are not affected and the size of the sphere depends on the size of the shrine, while duration scales with the caster’s psychic sensitivity.</description>
     <iconPath>Abilities/Wildspeaker/Shrineshield</iconPath>
     <abilityClass>VanillaPsycastsExpanded.Wildspeaker.Ability_ShrineShield</abilityClass>
     <castTime>60</castTime>
     <targetMode>Self</targetMode>
     <castSound>VPE_Shrineshield_Cast</castSound>
-    <durationTime>1200</durationTime>
+    <durationTime>840</durationTime>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
         <path>VPE_Wildspeaker</path>
         <level>4</level>
         <order>3</order>
-        <psyfocusCost>0.12</psyfocusCost>
+        <psyfocusCost>0.24</psyfocusCost>
         <entropyGain>65</entropyGain>
         <prerequisites>
           <li>VPE_TreeSprout</li>
@@ -287,7 +287,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_EssenceTransfer</defName>
     <label>essence transfer</label>
-    <description>Infuses the life force of another nearby person into a colony animal, linking them and putting the caster in a 6 hour coma. Should the linked person die, the linked animal will go to their side and transfer their own harmonized life essence to them, dying when finished. Should the linked animal die first, the effect is lost and there can only be one link at a time.</description>
+    <description>Infuses the life force of another nearby person into a colony animal, linking them and putting the caster in a 6 hour coma. Should the linked person die, the linked animal will go to their side and transfer their own harmonized life essence to them, dying upon completion. Should the linked animal die first, the effect is lost, and there can only be one link at a time.</description>
     <iconPath>Abilities/Wildspeaker/EssenceTransfer</iconPath>
     <abilityClass>VanillaPsycastsExpanded.Wildspeaker.Ability_EssenceTransfer</abilityClass>
     <targetCount>2</targetCount>
@@ -336,7 +336,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_SummonPack</defName>
     <label>summon pack</label>
-    <description>Sends out a pulse of lifeforce into the region, inducing territorial manhunting aggression into numerous animals that will appear to defend the colony. Once all invaders are defeated, the animals will return to their homes. The distance the pulse travels, and with that the relative strength of the creatures are influenced by the caster’s psychic sensitivity.</description>
+    <description>Sends out a pulse of lifeforce into the region, inducing territorial manhunting aggression into numerous animals that will appear to defend the colony. Once all invaders are defeated, the animals will return to their homes. The relative strength of the creatures summoned is influenced by the caster’s psychic sensitivity.</description>
     <iconPath>Abilities/Wildspeaker/SummonPack</iconPath>
     <abilityClass>VanillaPsycastsExpanded.Wildspeaker.Ability_SummonPack</abilityClass>
     <castTime>720</castTime>
