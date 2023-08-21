@@ -178,7 +178,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_QuenchFlames</defName>
       <label>extinguish flames</label>
-      <description>Generates skipgates linked to passing nearby ships that “misplaces” the firefoam contained in the ship’s fire suppression system. As there is a lot to “borrow”, the radius is quite impressive.</description>
+      <description>Converts a local deposit of deepchem into fire-retardant foam which sprays forth from the user in a large area.</description>
       <iconPath>Abilities/Conflagrator/QuenchFlames</iconPath>
       <abilityClass>VFECore.Abilities.Ability_Explode</abilityClass>
       <castTime>60</castTime>
@@ -210,7 +210,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_MeteorShower</defName>
       <label>meteor shower</label>
-      <description>Introduces gravitational distortions in orbiting meteoroids and space debris to strike a location of the caster’s choosing. These come in groups of 4 to ensure optimal control and devastation.</description>
+      <description>Skips and immolates orbiting meteoroids to strike a designated area. The number of impacts scales with psychic sensitivity.</description>
       <iconPath>Abilities/Conflagrator/MeteorShower</iconPath>
       <abilityClass>VFECore.Abilities.Ability_Skyfallers</abilityClass>
       <castTime>180</castTime>
@@ -289,7 +289,7 @@
           <path>VPE_Conflagrator</path>
           <level>5</level>
           <order>2</order>
-          <psyfocusCost>0.5</psyfocusCost>
+          <psyfocusCost>0.8</psyfocusCost>
           <entropyGain>120</entropyGain>
           <prerequisites>
             <li>VPE_MeteorShower</li>
