@@ -27,7 +27,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_SelfExplosion</defName>
       <label>self explosion</label>
-      <description>Creates a brief-lived incendiary vortex skipgate around the caster that is connected to hidden reservoirs of pressurized flammable gas. As the gas escapes, it ignites and spreads rapidly, dealing little direct damage but will set almost everything it touches on fire.</description>
+      <description>Expels pressurized, flammable gas from the caster which immediately ignites. High chance of igniting those in the blast site, but does little damage without harming the caster.</description>
       <iconPath>Abilities/Conflagrator/SelfExplosion</iconPath>
       <abilityClass>VFECore.Abilities.Ability_Explode</abilityClass>
       <castTime>60</castTime>
@@ -56,7 +56,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_Explosion</defName>
       <label>explosion</label>
-      <description>Generates a brief, micro skipgate within underground reservoirs of unrefined organic chemicals, along with a tiny spark at the designated location. Burning gas bursts forth in a large radius and elements of chemfuel spurt out uncontrollably.</description>
+      <description>Ignites a small amount of deepchem underneath the target area, which vents to the surface in an explosion. Burns the area and spills forth excess liquid.</description>
       <iconPath>Abilities/Conflagrator/Explosion</iconPath>
       <abilityClass>VFECore.Abilities.Ability_Explode</abilityClass>
       <range>14.9</range>
@@ -73,7 +73,7 @@
           <level>3</level>
           <order>1</order>
           <psyfocusCost>0.06</psyfocusCost>
-          <entropyGain>30</entropyGain>
+          <entropyGain>42</entropyGain>
           <prerequisites>
             <li>VPE_SelfExplosion</li>
           </prerequisites>
