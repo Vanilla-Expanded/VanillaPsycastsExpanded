@@ -3,7 +3,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_EnchantQuality</defName>
       <label>enchant quality</label>
-      <description>The caster concentrates on an item and attempts to improve its quality by reshaping the material slightly, but cannot imitate a master’s handiwork.</description>
+      <description>Psychically manipulate an object or structure to improve its overall quality. Cannot improve beyond good quality.</description>
       <iconPath>Abilities/Technomancer/EnchantQuality</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_IncreaseQuality</abilityClass>
       <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
@@ -12,7 +12,7 @@
       <distanceToTarget>1.9</distanceToTarget>
 	  <showUndrafted>true</showUndrafted>
       <targetMode>Pawn</targetMode>
-      <castTime>240</castTime>
+      <castTime>720</castTime>
       <targetingParameters>
         <canTargetItems>true</canTargetItems>
         <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
@@ -30,7 +30,7 @@
           <path>VPE_Technomancer</path>
           <level>1</level>
           <order>1</order>
-          <psyfocusCost>0.24</psyfocusCost>
+          <psyfocusCost>0.32</psyfocusCost>
           <entropyGain>0</entropyGain>
         </li>
       </modExtensions>
@@ -38,7 +38,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_Mend</defName>
       <label>mend</label>
-      <description>The caster concentrates on an item and attempts to repair present damage by rebinding the material, with the effect scaling with their psychic sensitivity.</description>
+      <description>Psychically manipulate an object or structure to restore its condition. Requires high psychic sensitivity for any meaningful restoration.</description>
       <iconPath>Abilities/Technomancer/Mend</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_Mend</abilityClass>
       <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
@@ -68,7 +68,7 @@
           <path>VPE_Technomancer</path>
           <level>1</level>
           <order>2</order>
-          <psyfocusCost>0.12</psyfocusCost>
+          <psyfocusCost>0.18</psyfocusCost>
           <entropyGain>0</entropyGain>
         </li>
       </modExtensions>
@@ -76,7 +76,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_ConjureHeatPearls</defName>
       <label>conjure heat pearls</label>
-      <description>Converts a minimum amount of the caster’s heat into metaphysical pearls. These can be thrown at other psycasters to induce massive amounts of heat on them, but are otherwise harmless.</description>
+      <description>Converts the caster’s neural heat into compressed metaphysical pearls. Completely harmless, but dumps a tremendous amount of neural heat into a small area when shattered.</description>
       <iconPath>Abilities/Technomancer/ConjureHeatPearls</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_ConjureHeatPearls</abilityClass>
       <castTime>240</castTime>
@@ -98,7 +98,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_Haywire</defName>
       <label>haywire</label>
-      <description>Designates an area to experience psychic interference, effectively scrambling electronic systems’ IFFs while identifying the caster’s people as allies. Duration scales with psychic sensitivity.</description>
+      <description>Subjects an area to psychic interference, temporarily reconfiguring up to 3 automated weapons systems to protect the caster and their allies. Duration scales with the caster’s psychic sensitivity.</description>
       <iconPath>Abilities/Technomancer/Haywire</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_AffectMechs</abilityClass>
       <castTime>30</castTime>
@@ -115,8 +115,8 @@
           <path>VPE_Technomancer</path>
           <level>2</level>
           <order>2</order>
-          <psyfocusCost>0.04</psyfocusCost>
-          <entropyGain>18</entropyGain>
+          <psyfocusCost>0.18</psyfocusCost>
+          <entropyGain>32</entropyGain>
           <prerequisites>
             <li>VPE_EnchantQuality</li>
             <li>VPE_Mend</li>
@@ -170,7 +170,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_RockConstruct</defName>
       <label>rock construct</label>
-      <description>Converts a minimum amount of the caster’s heat capacity into metaphysical crystals to be implanted into a stone chunk. This new rock construct is capable of performing simple chores, and breaking the crystal allows the heat capacity to be restored.</description>
+      <description>Compresses a portion of the caster’s neural heat tolerance into metaphysical crystals, then implanting them into a stone chunk. Creates a construct capable of simple chores. Breaking the crystals restores heat tolerance.</description>
       <iconPath>Abilities/Technomancer/RockConstruct</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_Construct_Rock</abilityClass>
       <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
@@ -220,7 +220,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_SteelConstruct</defName>
       <label>steel construct</label>
-      <description>Converts a minimum amount of the caster’s heat capacity into metaphysical crystals to be implanted into a steel slag. This new steel construct will follow the caster and defend them from harm, and breaking the crystal allows the heat capacity to be restored.</description>
+      <description>Compresses a portion of the caster’s neural heat tolerance into metaphysical crystals, then implanting them into steel slag. Creates a construct that guards the caster. Breaking the crystals restores heat tolerance.</description>
       <iconPath>Abilities/Technomancer/SteelConstruct</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_Construct_Steel</abilityClass>
       <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
@@ -336,7 +336,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_ReverseEngineer</defName>
       <label>reverse engineer</label>
-      <description>The caster concentrates on an object and attempts to unravel the knowledge needed to manufacture more of them. The long, intense concentration ends with the caster falling into a 12-hour coma.</description>
+      <description>Psychically manipulate an object or structure to learn its history and principles, annihilating it in the process. Extremely taxing, resulting in the caster falling into a temporary coma.</description>
       <iconPath>Abilities/Technomancer/ReverseEngineer</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_ReverseEngineer</abilityClass>
       <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
