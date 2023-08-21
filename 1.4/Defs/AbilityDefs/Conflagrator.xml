@@ -121,7 +121,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_BreatheFlame</defName>
       <label>breathe flame</label>
-      <description>Generates a brief, unidirectional skipgate within underground reservoirs of unrefined organic chemicals, along with a tiny spark in front of the caster’s mouth. Jets of blazing, unrefined chemfuel streak forth setting everything on fire.</description>
+      <description>Spews forth flammable liquid which immediately ignites, along with everything the flames touch.</description>
       <iconPath>Abilities/Conflagrator/BreatheFlame</iconPath>
       <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
       <castTime>6</castTime>
