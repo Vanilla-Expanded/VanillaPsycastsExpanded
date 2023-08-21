@@ -65,7 +65,7 @@
 			<damageDef>Flame</damageDef>
 			<speed>100000</speed>
 			<ai_IsIncendiary>true</ai_IsIncendiary>
-			<damageAmountBase>25</damageAmountBase>
+			<damageAmountBase>14</damageAmountBase>
 			<explosionRadius>3</explosionRadius>
 		</projectile>
 		<modExtensions>
