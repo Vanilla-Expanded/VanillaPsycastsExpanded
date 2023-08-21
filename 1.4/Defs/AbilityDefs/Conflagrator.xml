@@ -151,7 +151,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_EyeBlast</defName>
       <label>eye blast</label>
-      <description>Generates two micro, unidirectional skipgates in front of the caster’s eyes which link to a nearby white dwarf. Targeting a location to prevent overshooting, the blinding energy shoots forth and sets a small area ablaze.</description>
+      <description>Emulating a star, the caster compresses highly energized gas which escapes in the desired direction, with damage scaling with psychic sensitivity. Ignites a small but distant area.</description>
       <iconPath>Abilities/Conflagrator/EyeBlast</iconPath>
       <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
       <castTime>15</castTime>
@@ -165,7 +165,7 @@
           <level>4</level>
           <order>1</order>
           <psyfocusCost>0.08</psyfocusCost>
-          <entropyGain>25</entropyGain>
+          <entropyGain>35</entropyGain>
           <prerequisites>
             <li>VPE_Explosion</li>
           </prerequisites>
