@@ -29,7 +29,7 @@
 		<stages>
 			<li>
 				<statOffsets>
-					<ImmunityGainSpeed>3</ImmunityGainSpeed>
+					<ImmunityGainSpeed>1.8</ImmunityGainSpeed>
 				</statOffsets>
 			</li>
 		</stages>

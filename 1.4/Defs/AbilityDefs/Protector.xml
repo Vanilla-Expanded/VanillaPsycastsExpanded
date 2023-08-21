@@ -59,7 +59,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
       <defName>VPE_Stabilize</defName>
       <label>stabilize</label>
-      <description>Temporarily puts the target’s cardiovascular system in stasis, which prevents them from bleeding out for two minutes.</description>
+      <description>Temporarily puts the target’s cardiovascular system in stasis, which prevents them from bleeding out for a time, scaling with the psychic sensitivity of the caster.</description>
       <iconPath>Abilities/Protector/Stabilize</iconPath>
 	  <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
 	  <castTime>180</castTime>
@@ -85,7 +85,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
       <defName>VPE_WordofImmunity</defName>
       <label>word of immunity</label>
-      <description>Psychically stimulates a person’s immune system into overdrive, effectively tripling their immunity gain speed for a few days.</description>
+      <description>Psychically stimulates a person’s immune system into overdrive, effectively nearly doubling their immunity gain speed for a few days.</description>
       <iconPath>Abilities/Protector/WordofImmunity</iconPath>
 	  <castTime>60</castTime>
 	  <durationTime>150000</durationTime>
@@ -126,7 +126,7 @@
           <path>VPE_Protector</path>
           <level>3</level>
           <order>1</order>
-          <psyfocusCost>0.05</psyfocusCost>
+          <psyfocusCost>0.08</psyfocusCost>
           <entropyGain>50</entropyGain>
           <psychic>true</psychic>
           <prerequisites>
@@ -181,7 +181,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_Skipshield</defName>
       <label>skipshield</label>
-      <description>Generate a spherical skipgate that sends all incoming and outgoing ground-level projectiles to some distant place. People and items are not affected.</description>
+      <description>Generate a spherical skipgate that sends all incoming and outgoing ground-level projectiles to some distant place. People and items are not affected. Duration scales with psychic sensitivity of the caster.</description>
       <iconPath>Abilities/Protector/Skipshield</iconPath>
 	  <castTime>60</castTime>
 	  <durationTime>900</durationTime>
@@ -248,7 +248,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_RegrowLimbs</defName>
       <label>regrow limbs</label>
-      <description>Induces a complex form of psychic rejuvenation that targets the subject’s limbs, namely those that are missing. The effect is gradual over a full day’s time and often described as “wildly uncomfortable” as it overstimulates their phantom limb syndrome.</description>
+      <description>Induces a psychic, regenerative coma in the target that lasts for a full day. The psychic energy assists the target by slowly regrowing any missing limbs.</description>
       <iconPath>Abilities/Protector/RegrowLimbs</iconPath>
 	  <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
 	  <castTime>120</castTime>
@@ -264,7 +264,7 @@
           <path>VPE_Protector</path>
           <level>4</level>
           <order>3</order>
-          <psyfocusCost>0.5</psyfocusCost>
+          <psyfocusCost>0.7</psyfocusCost>
           <entropyGain>0</entropyGain>
           <prerequisites>
             <li>VPE_Focus</li>
@@ -290,7 +290,7 @@
           <path>VPE_Protector</path>
           <level>5</level>
           <order>1</order>
-          <psyfocusCost>0.1</psyfocusCost>
+          <psyfocusCost>0.5</psyfocusCost>
           <entropyGain>10</entropyGain>
           <prerequisites>
             <li>VPE_Invisibility</li>
