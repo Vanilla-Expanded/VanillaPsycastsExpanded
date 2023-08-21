@@ -4,7 +4,7 @@
 	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
 		<defName>VPE_WordofFear</defName>
 		<label>word of fear</label>
-		<description>Induces panic by overloading their flight response system for a short duration. Considered a hostile action.</description>
+		<description>Induces panic by overloading their flight response system for a duration scaling with their psychic sensitivity. Considered a hostile action.</description>
 		<iconPath>Abilities/Necropath/WordofFear</iconPath>
 		<distanceToTarget>6</distanceToTarget>
 		<durationTime>600</durationTime>
@@ -17,7 +17,7 @@
 				<level>1</level>
 				<order>1</order>
 				<psyfocusCost>0.1</psyfocusCost>
-				<entropyGain>8</entropyGain>
+				<entropyGain>12</entropyGain>
 			</li>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_GiveMentalState">
 				<stateDef>VPE_Flee</stateDef>
@@ -31,7 +31,7 @@
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_Liferot</defName>
 		<label>liferot</label>
-		<description>Psychically induces randomized mass necrosis in a target, exposing the afflicted body parts to infection and intense gagging due to the smell. Duration scales with the target’s psychic sensitivity and is an obviously overtly hostile action.</description>
+		<description>Psychically induces randomized mass necrosis in a target, exposing the afflicted body parts to infection and inducing vomiting. Duration scales with the target’s psychic sensitivity and is an overtly hostile action.</description>
 		<iconPath>Abilities/Necropath/Liferot</iconPath>
 		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
 		<castSound>VPE_Liferot_Cast</castSound>
@@ -50,7 +50,7 @@
 				<path>VPE_Necropath</path>
 				<level>2</level>
 				<order>1</order>
-				<psyfocusCost>0.02</psyfocusCost>
+				<psyfocusCost>0.06</psyfocusCost>
 				<entropyGain>24</entropyGain>
 				<psychic>true</psychic>
 				<prerequisites>
@@ -67,7 +67,7 @@
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_StealVitality</defName>
 		<label>steal vitality</label>
-		<description>Siphons vitality from a close, living target, transferring the target’s natural healing factor, movement speed and consciousness to the caster. Considered an overtly hostile action.</description>
+		<description>Siphons vitality from a nearby source, transferring the target’s natural healing factor, movement speed, and consciousness to the caster for a full day. Considered an overtly hostile action.</description>
 		<iconPath>Abilities/Necropath/StealVitality</iconPath>
 		<abilityClass>VanillaPsycastsExpanded.Ability_StealVitality</abilityClass>
 		<range>3.9</range>
@@ -95,12 +95,12 @@
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_ParalysisPulse</defName>
 		<label>paralysis pulse</label>
-		<description>Emits a cloud of black particles around the caster, which afflicts all those within the area - except the caster - with 2 hours of paralytic abasia. The radius scales with the caster’s psychic sensitivity.</description>
+		<description>Emits a cloud of black particles from the caster, which afflicts all, caster included, within the area with paralytic abasia for a full day. The radius scales with the caster’s psychic sensitivity.</description>
 		<iconPath>Abilities/Necropath/ParalysisPulse</iconPath>
 		<abilityClass>VanillaPsycastsExpanded.Ability_ParalysisPulse</abilityClass>
 		<targetMode>Self</targetMode>
 		<durationTime>5000</durationTime>
-		<radius>2.9</radius>
+		<radius>1.9</radius>
 		<radiusStatFactors>
 			<PsychicSensitivity>1</PsychicSensitivity>
 		</radiusStatFactors>
@@ -175,7 +175,7 @@
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_Ghostwalk</defName>
 		<label>ghostwalk</label>
-		<description>Psychically convinces the atoms of the caster that they are able to pass between the atoms of structures. The duration of the deceit scales with the caster’s psychic sensitivity.</description>
+		<description>Coats the caster in a layer of temporary psychic atrophy, allowing them to walk through structures unimpeded and without damaging anything. Duration scales with the caster’s psychic sensitivity.</description>
 		<iconPath>Abilities/Necropath/Ghostwalk</iconPath>
 		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
 		<castTime>60</castTime>
