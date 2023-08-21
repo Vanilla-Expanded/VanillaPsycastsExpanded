@@ -32,7 +32,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_IceSpike</defName>
       <label>ice spike</label>
-      <description>Condenses vapor with psychic entropy into an icicle launched at a target, the damage scaling with psychic sensitivity.</description>
+      <description>Condenses vapor with psychic entropy into an icicle launched at a target, the damage and accuracy scaling with psychic sensitivity.</description>
       <iconPath>Abilities/Frostshaper/IceSpike</iconPath>
       <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
 	  <castTime>12</castTime>
