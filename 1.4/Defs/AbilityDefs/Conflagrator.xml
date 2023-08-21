@@ -125,7 +125,7 @@
       <iconPath>Abilities/Conflagrator/BreatheFlame</iconPath>
       <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
       <castTime>6</castTime>
-      <range>12.9</range>
+      <range>9.9</range>
       <targetMode>Pawn</targetMode>
       <targetingParameters>
         <canTargetItems>true</canTargetItems>
