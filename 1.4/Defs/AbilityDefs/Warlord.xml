@@ -170,7 +170,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_GuidedShot</defName>
       <label>guided shot</label>
-      <description>Projects a psychic aura for 8 seconds that allows the caster to alter the path of any bullet they fire, effectively doubling their weapon range and guaranteeing hits for the duration.</description>
+      <description>Projects a psychic aura for a few moments that allows the caster to alter the path of any bullet they fire, effectively doubling their weapon range and guaranteeing hits for the duration. Duration scales with psychic sensitivity of the caster.</description>
       <iconPath>Abilities/Warlord/GuidedShot</iconPath>
 	  <targetMode>Self</targetMode>
 	  <castSound>VPE_GuidedShot_Cast</castSound>
