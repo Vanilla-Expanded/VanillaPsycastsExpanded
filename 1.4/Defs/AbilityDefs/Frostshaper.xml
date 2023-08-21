@@ -67,7 +67,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_IceShield</defName>
       <label>ice shield</label>
-      <description>Creates an aura of psychic entropy around the target for several seconds, preventing them from experiencing cold and inducing hypothermia on any who try to attack them in melee.</description>
+      <description>Creates an aura of psychic entropy around the target for a time, preventing them from experiencing cold and inducing hypothermia on any who try to attack them in melee. Duration scales with psychic sensitivity of the caster.</description>
       <iconPath>Abilities/Frostshaper/IceShield</iconPath>
 	  <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
 	  <targetingParameters>
@@ -103,7 +103,7 @@
 	  <durationTimeStatFactors>
 		<PsychicSensitivity>1</PsychicSensitivity>
 	  </durationTimeStatFactors>
-	  <castTime>15</castTime>
+	  <castTime>45</castTime>
 	  <range>12.9</range>
 	  <targetMode>Location</targetMode>
       <abilityClass>VanillaPsycastsExpanded.Ability_FrostRay</abilityClass>
