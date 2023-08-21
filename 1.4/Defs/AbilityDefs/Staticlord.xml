@@ -3,11 +3,11 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_Bolt</defName>
       <label>bolt</label>
-      <description>Hurls a weak bolt of electricity to strike a small target, inflicting minor burns on direct hits and area EMP damage.</description>
+      <description>Hurls a weak bolt of electricity to strike a small target area, at a distance scaling with psychic sensitivity. Burns on direct hits and inflicts area EMP damage.</description>
       <iconPath>Abilities/Staticlord/Bolt</iconPath>
       <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
       <castTime>3</castTime>
-      <range>16.9</range>
+      <range>12.9</range>
       <radius>1.9</radius>
       <power>1</power>
       <castSound>VPE_Bolt_Cast</castSound>
@@ -21,8 +21,8 @@
           <path>VPE_Staticlord</path>
           <level>1</level>
           <order>1</order>
-          <psyfocusCost>0.01</psyfocusCost>
-          <entropyGain>6</entropyGain>
+          <psyfocusCost>0.02</psyfocusCost>
+          <entropyGain>8</entropyGain>
         </li>
         <li Class="VFECore.Abilities.AbilityExtension_Projectile">
           <projectile>VPE_Bolt</projectile>
@@ -32,7 +32,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_ChainBolt</defName>
       <label>chain bolt</label>
-      <description>Projects a living bolt of electricity to a target which can then follow up with 5 more nearby targets, inflicting small burns and EMP damage.</description>
+      <description>Fires a living bolt of electricity at a target which can leak out onto nearby targets, the amount scaling with psychic sensitivity. Inflicts small burns and EMP damage.</description>
       <iconPath>Abilities/Staticlord/ChainBolt</iconPath>
       <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
       <castTime>9</castTime>
@@ -43,8 +43,8 @@
           <path>VPE_Staticlord</path>
           <level>2</level>
           <order>2</order>
-          <psyfocusCost>0.04</psyfocusCost>
-          <entropyGain>20</entropyGain>
+          <psyfocusCost>0.06</psyfocusCost>
+          <entropyGain>24</entropyGain>
           <prerequisites>
             <li>VPE_Bolt</li>
           </prerequisites>
@@ -57,7 +57,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_Thunderbolt</defName>
       <label>thunderbolt</label>
-      <description>Summons a bolt of lightning to strike a target, inflicting burns on direct hits and a larger area EMP damage.</description>
+      <description>Summons a bolt of lightning to strike a target, inflicting burns on direct hits and a larger area EMP damage. The impact radius scales with the caster’s psychic sensitivity, up to a maximum of 12 cells.</description>
       <iconPath>Abilities/Staticlord/Thunderbolt</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Staticlord.Ability_Thunderbolt</abilityClass>
       <castTime>3</castTime>
@@ -164,7 +164,7 @@
           <path>VPE_Staticlord</path>
           <level>3</level>
           <order>1</order>
-          <psyfocusCost>0.06</psyfocusCost>
+          <psyfocusCost>0.24</psyfocusCost>
           <entropyGain>30</entropyGain>
           <prerequisites>
             <li>VPE_Recharge</li>
@@ -223,8 +223,8 @@
           <path>VPE_Staticlord</path>
           <level>4</level>
           <order>1</order>
-          <psyfocusCost>0.12</psyfocusCost>
-          <entropyGain>45</entropyGain>
+          <psyfocusCost>0.4</psyfocusCost>
+          <entropyGain>50</entropyGain>
           <prerequisites>
             <li>VPE_Recharge</li>
           </prerequisites>
