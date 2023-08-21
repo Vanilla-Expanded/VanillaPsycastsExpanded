@@ -250,8 +250,8 @@
           <path>VPE_Frostshaper</path>
           <level>3</level>
           <order>3</order>
-          <psyfocusCost>0.03</psyfocusCost>
-          <entropyGain>30</entropyGain>
+          <psyfocusCost>0.1</psyfocusCost>
+          <entropyGain>40</entropyGain>
           <prerequisites>
             <li>VPE_IceCrystal</li>
           </prerequisites>
