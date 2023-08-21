@@ -72,7 +72,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Waterskip</defName>
     <label>waterskip</label>
-    <description>Douse a target in water, extinguishing fires. The water is archotechnologically skipped from distant bodies of water or underground aquifers.</description>
+    <description>Douse a target in water, extinguishing fires and shorting any electrical structures. The water is archotechnologically skipped from distant bodies of water or underground aquifers, with the amount skipped scaling with psychic sensitivity.</description>
     <iconPath>Abilities/Skipmaster/Waterskip</iconPath>
     <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Waterskip</abilityClass>
     <needsTicking>true</needsTicking>
@@ -115,7 +115,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_ChaosSkip</defName>
     <label>chaos skip</label>
-    <description>Teleport the target to a random position near where he started. Stuns the target for a second and is considered a hostile action.</description>
+    <description>Teleport the target to a random position from where he started, the distance scaling with the caster’s psychic sensitivity. Stuns the target for a second and is considered a hostile action.</description>
     <iconPath>Abilities/Skipmaster/ChaosSkip</iconPath>
     <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Teleport</abilityClass>
     <targetCount>2</targetCount>
@@ -169,7 +169,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Skip</defName>
     <label>skip</label>
-    <description>Teleport the target to a desired position not too far from his starting point. This is considered a hostile action.</description>
+    <description>Teleport the target to a desired position, the distance scaling with the caster’s psychic sensitivity, from his starting point. This is considered a hostile action.</description>
     <iconPath>Abilities/Skipmaster/Skip</iconPath>
     <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Teleport</abilityClass>
     <targetCount>2</targetCount>
