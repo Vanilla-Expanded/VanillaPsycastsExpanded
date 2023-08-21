@@ -147,7 +147,7 @@
         <path>VPE_Nightstalker</path>
         <level>3</level>
         <order>1</order>
-        <psyfocusCost>0.01</psyfocusCost>
+        <psyfocusCost>0.04</psyfocusCost>
         <entropyGain>40</entropyGain>
         <prerequisites>
           <li>VPE_Obscure</li>
