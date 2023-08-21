@@ -52,8 +52,8 @@
           <path>VPE_Frostshaper</path>
           <level>1</level>
           <order>2</order>
-          <psyfocusCost>0.02</psyfocusCost>
-          <entropyGain>10</entropyGain>
+          <psyfocusCost>0.04</psyfocusCost>
+          <entropyGain>12</entropyGain>
         </li>
         <li Class="VFECore.Abilities.AbilityExtension_Projectile">
           <projectile>VPE_IceSpike</projectile>
