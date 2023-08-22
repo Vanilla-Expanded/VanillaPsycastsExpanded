@@ -144,7 +144,7 @@
 			<drawSize>(3, 3)</drawSize>
         </graphicData>
 		<projectile>
-			<speed>5</speed>
+			<speed>8</speed>
 			<soundAmbient>VPE_BallLightning_Sustainer</soundAmbient>
 			<shadowSize>0</shadowSize>
 			<explosionRadius>5</explosionRadius>
