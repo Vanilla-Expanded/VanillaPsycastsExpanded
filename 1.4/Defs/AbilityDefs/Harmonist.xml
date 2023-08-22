@@ -101,7 +101,7 @@
     <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
       <defName>VPE_HeatFocus</defName>
       <label>heat focus</label>
-      <description> Initiates harmonic meditation which converts all accumulated heat in psyfocus after 10 seconds. Can neither overcharge psyfocus nor heat dump.</description>
+      <description>Initiates harmonic meditation which converts all accumulated heat in psyfocus after 10 seconds. Can neither overcharge psyfocus nor heat dump.</description>
       <iconPath>Abilities/Harmonist/HeatFocus</iconPath>
       <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_HeatFocus</abilityClass>
       <targetMode>Self</targetMode>

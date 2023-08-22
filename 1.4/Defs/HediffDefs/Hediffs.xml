@@ -655,7 +655,7 @@
 	<HediffDef>
 		<defName>VPE_Sacrificed</defName>
 		<label>sacrificed</label>
-		<description>text.todo.</description>
+		<description>Psychically-induced limb removal caused by a powerful psycast. This body part will not regrow under any circumstances, even after using powerful healing artifacts.</description>
 		<defaultLabelColor>(0.5, 0.5, 0.5)</defaultLabelColor>
 		<isBad>False</isBad>
 		<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
