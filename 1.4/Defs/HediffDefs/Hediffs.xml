@@ -658,6 +658,7 @@
 		<description>text.todo.</description>
 		<defaultLabelColor>(0.5, 0.5, 0.5)</defaultLabelColor>
 		<isBad>False</isBad>
+		<keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
 		<stages>
 			<li>
 				<partEfficiencyOffset>-1</partEfficiencyOffset>

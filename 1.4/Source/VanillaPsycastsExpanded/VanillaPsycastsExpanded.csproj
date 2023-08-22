@@ -80,6 +80,7 @@
     <Compile Include="Events\GenStep_EltexMeteor.cs" />
     <Compile Include="HarmonyPatches\Pawn_AbilityTracker_Notify_TemporaryAbilitiesChanged_Patch.cs" />
     <Compile Include="HarmonyPatches\Pawn_GeneTracker_Notify_GenesChanged_Patch.cs" />
+    <Compile Include="HarmonyPatches\Pawn_HealthTracker_RemoveHediff_Patch.cs" />
     <Compile Include="HarmonyPatches\Pawn_HealthTracker_ShouldBeDeadFromLethalDamageThreshold_Patch.cs" />
     <Compile Include="Misc\BackCompatabilityConverter_Psytrainers.cs" />
     <Compile Include="Misc\BackCompatibilityConverter_Constructs.cs" />
