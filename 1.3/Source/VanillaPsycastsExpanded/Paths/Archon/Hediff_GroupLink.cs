@@ -33,7 +33,7 @@
         public void LinkAllPawnsAround()
         {
             foreach (var pawnToLink in GenRadial.RadialDistinctThingsAround(pawn.Position, pawn.Map, this.ability.GetRadiusForPawn(), true)
-                .OfType<Pawn>().Where(x => x.RaceProps.Humanlike && x != pawn))
+                .OfType<Pawn>().Where(x => x != pawn))
             {
                 if (!linkedPawns.Contains(pawnToLink))
                 {
