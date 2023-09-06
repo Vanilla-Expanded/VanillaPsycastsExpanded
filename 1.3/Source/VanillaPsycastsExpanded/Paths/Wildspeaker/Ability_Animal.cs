@@ -5,7 +5,7 @@ using RimWorld.Planet;
 using Verse;
 using Ability = VFECore.Abilities.Ability;
 
-public class Ability_Animal : Ability
+public class Ability_Animal : Ability_WordOf
 {
     public override void Cast(params GlobalTargetInfo[] targets)
     {
