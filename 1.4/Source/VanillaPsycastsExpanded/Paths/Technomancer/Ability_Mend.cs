@@ -19,7 +19,8 @@ public class Ability_Mend : Ability
                 {
                     var amountTotal = GetPowerForPawn();
                     var toHeal = p.equipment.AllEquipmentListForReading.Concat(p.apparel.WornApparel)
-                        .Where(t => t.def.useHitPoints && t.HitPoints < t.MaxHitPoints).ToList();
+                       .Where(t => t.def.useHitPoints && t.HitPoints < t.MaxHitPoints)
+                       .ToList();
                     var maxIterations = (int)amountTotal * toHeal.Count;
                     var i = 0;
                     while (amountTotal >= 1f && toHeal.Count > 0 && i++ <= maxIterations)
@@ -55,7 +56,7 @@ public class Ability_Mend : Ability
                 Mend(target.Thing, GetPowerForPawn());
     }
 
-    public override float GetPowerForPawn() => (pawn.GetStatValue(StatDefOf.PsychicSensitivity) - 0.8f) * 100f;
+    public override float GetPowerForPawn() => (pawn.GetStatValue(StatDefOf.PsychicSensitivity) - 1) * 100f;
 
     private static int Mend(Thing t, int amount)
     {

@@ -4,13 +4,13 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using VFECore.Abilities;
 
 namespace VanillaPsycastsExpanded.Staticlord;
 
-public class BallLightning : Projectile
+public class BallLightning : AbilityProjectile
 {
     private const int WARMUP = 180;
-    private const float RADIUS = 5f;
 
     private List<Thing> currentTargets = new();
     private int ticksTillAttack = -1;
@@ -24,18 +24,20 @@ public class BallLightning : Projectile
     public override void Tick()
     {
         base.Tick();
+        if (!Spawned) return;
         ticksTillAttack--;
         if (ticksTillAttack <= 0)
         {
             currentTargets.Clear();
-            foreach (var thing in GenRadial.RadialDistinctThingsAround(ExactPosition.ToIntVec3(), Map, RADIUS, true)
-                         .Where(t => t.HostileTo(launcher)))
+            foreach (var thing in GenRadial.RadialDistinctThingsAround(ExactPosition.ToIntVec3(), Map, ability.GetRadiusForPawn(), true)
+                        .Where(t => t.HostileTo(launcher))
+                        .Take(Mathf.FloorToInt(ability.GetPowerForPawn())))
             {
                 currentTargets.Add(thing);
                 BattleLogEntry_RangedImpact logEntry =
                     new(launcher, thing, thing, def, VPE_DefOf.VPE_Bolt, targetCoverDef);
-                thing.TakeDamage(new DamageInfo(DamageDefOf.Flame, 12f, 5f, DrawPos.AngleToFlat(thing.DrawPos), this)).AssociateWithLog(logEntry);
-                thing.TakeDamage(new DamageInfo(DamageDefOf.EMP, 20f, 5f, DrawPos.AngleToFlat(thing.DrawPos), this)).AssociateWithLog(logEntry);
+                thing.TakeDamage(new(DamageDefOf.Flame, 12f, 5f, DrawPos.AngleToFlat(thing.DrawPos), this)).AssociateWithLog(logEntry);
+                thing.TakeDamage(new(DamageDefOf.EMP, 20f, 5f, DrawPos.AngleToFlat(thing.DrawPos), this)).AssociateWithLog(logEntry);
                 VPE_DefOf.VPE_BallLightning_Zap.PlayOneShot(thing);
             }
 
@@ -56,7 +58,6 @@ public class BallLightning : Projectile
             UnityEngine.Graphics.DrawMesh(MeshPool.plane10, matrix, graphic.MatSingle, 0);
         }
     }
-
 
     protected override void Impact(Thing hitThing, bool blockedByShield = false)
     {

@@ -12,7 +12,8 @@
     <radius>14.9</radius>
     <range>24.9</range>
     <targetMode>Location</targetMode>
-	  <showUndrafted>true</showUndrafted>
+    <showUndrafted>true</showUndrafted>
+    <chance>0</chance>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
         <path>VPE_Skipmaster</path>
@@ -52,6 +53,7 @@
     <radius>2.9</radius>
     <targetMode>Location</targetMode>
     <castTime>60</castTime>
+    <chance>0</chance>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
         <path>VPE_Skipmaster</path>
@@ -81,8 +83,10 @@
     <radiusStatFactors>
       <PsychicSensitivity>1</PsychicSensitivity>
     </radiusStatFactors>
+    <maxRadius>9.9</maxRadius>
     <castTime>60</castTime>
     <targetMode>Location</targetMode>
+    <chance>0</chance>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
         <path>VPE_Skipmaster</path>
@@ -120,6 +124,9 @@
     <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Teleport</abilityClass>
     <targetCount>2</targetCount>
     <range>24.9</range>
+    <rangeStatFactors>
+      <PsychicSensitivity>1</PsychicSensitivity>
+    </rangeStatFactors>
     <minRadius>6.9</minRadius>
     <radius>24.9</radius>
     <goodwillImpact>-15</goodwillImpact>
@@ -174,6 +181,9 @@
     <abilityClass>VanillaPsycastsExpanded.Skipmaster.Ability_Teleport</abilityClass>
     <targetCount>2</targetCount>
     <range>28</range>
+    <rangeStatFactors>
+      <PsychicSensitivity>1</PsychicSensitivity>
+    </rangeStatFactors>
     <castTime>30</castTime>
     <needsTicking>true</needsTicking>
     <targetModes>
@@ -226,6 +236,7 @@
     <range>25</range>
     <castTime>60</castTime>
     <targetMode>Location</targetMode>
+    <chance>0</chance>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
         <path>VPE_Skipmaster</path>
@@ -278,6 +289,7 @@
     <radius>3.5</radius>
     <castTime>60</castTime>
     <targetMode>Location</targetMode>
+    <chance>0</chance>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
         <path>VPE_Skipmaster</path>
@@ -372,6 +384,7 @@
     <castTime>120</castTime>
     <targetMode>Location</targetMode>
     <castSound>VPE_SkipGate_Cast</castSound>
+    <chance>0</chance>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
         <path>VPE_Skipmaster</path>
@@ -397,6 +410,7 @@
     <range>9999</range>
     <worldTargeting>true</worldTargeting>
     <needsTicking>true</needsTicking>
+    <chance>0</chance>
     <showGizmoOnWorldView>true</showGizmoOnWorldView>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">

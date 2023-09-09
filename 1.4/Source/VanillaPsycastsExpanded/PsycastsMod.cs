@@ -1,30 +1,30 @@
-﻿namespace VanillaPsycastsExpanded;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using HarmonyLib;
 using RimWorld;
-using Skipmaster;
 using UnityEngine;
 using Verse;
 
+namespace VanillaPsycastsExpanded;
+
 public class PsycastsMod : Mod
 {
-    public static  Harmony                                Harm;
-    public static  PsycastSettings                        Settings;
+    public static Harmony Harm;
+    public static PsycastSettings Settings;
     private static BackCompatibilityConverter_Psytrainers psytrainerConverter;
+
     public PsycastsMod(ModContentPack content) : base(content)
     {
-        Harm     = new Harmony("OskarPotocki.VanillaPsycastsExpanded");
-        Settings = this.GetSettings<PsycastSettings>();
+        Harm = new("OskarPotocki.VanillaPsycastsExpanded");
+        Settings = GetSettings<PsycastSettings>();
         Harm.Patch(AccessTools.Method(typeof(ThingDefGenerator_Neurotrainer), nameof(ThingDefGenerator_Neurotrainer.ImpliedThingDefs)),
-                   postfix: new HarmonyMethod(typeof(ThingDefGenerator_Neurotrainer_ImpliedThingDefs_Patch),
-                                              nameof(ThingDefGenerator_Neurotrainer_ImpliedThingDefs_Patch.Postfix)));
-        Harm.Patch(AccessTools.Method(typeof(GenDefDatabase), nameof(GenDefDatabase.GetDef)),           new HarmonyMethod(this.GetType(), nameof(PreGetDef)));
-        Harm.Patch(AccessTools.Method(typeof(GenDefDatabase), nameof(GenDefDatabase.GetDefSilentFail)), new HarmonyMethod(this.GetType(), nameof(PreGetDef)));
-        List<BackCompatibilityConverter> conversionChain =
+            postfix: new(typeof(ThingDefGenerator_Neurotrainer_ImpliedThingDefs_Patch),
+                nameof(ThingDefGenerator_Neurotrainer_ImpliedThingDefs_Patch.Postfix)));
+        Harm.Patch(AccessTools.Method(typeof(GenDefDatabase), nameof(GenDefDatabase.GetDef)), new(GetType(), nameof(PreGetDef)));
+        Harm.Patch(AccessTools.Method(typeof(GenDefDatabase), nameof(GenDefDatabase.GetDefSilentFail)), new(GetType(), nameof(PreGetDef)));
+        var conversionChain =
             (List<BackCompatibilityConverter>)AccessTools.Field(typeof(BackCompatibility), "conversionChain").GetValue(null);
-        conversionChain.Add(psytrainerConverter = new BackCompatibilityConverter_Psytrainers());
+        conversionChain.Add(psytrainerConverter = new());
         conversionChain.Add(new BackCompatibilityConverter_Constructs());
         if (ModsConfig.IsActive("GhostRolly.Rim73"))
             Log.Warning(
@@ -47,6 +47,8 @@ public class PsycastsMod : Mod
         listing.CheckboxLabeled("VPE.AllowShrink".Translate(), ref Settings.shrink, "VPE.AllowShrink.Desc".Translate());
         listing.CheckboxMultiLabeled("VPE.SmallMode".Translate(), ref Settings.smallMode, "VPE.SmallMode.Desc".Translate());
         listing.CheckboxLabeled("VPE.MuteSkipdoor".Translate(), ref Settings.muteSkipdoor);
+        listing.Label("VPE.MaxLevel".Translate() + ": " + Settings.maxLevel);
+        Settings.maxLevel = (int)listing.Slider(Settings.maxLevel, 1, 300);
         listing.End();
     }
 
@@ -58,21 +60,23 @@ public class PsycastsMod : Mod
 
 public class PsycastSettings : ModSettings
 {
-    public float              XPPerPercent            = 1f;
-    public float              baseSpawnChance         = 0.1f;
-    public float              additionalAbilityChance = 0.1f;
-    public MultiCheckboxState smallMode               = MultiCheckboxState.Partial;
-    public bool               shrink                  = true;
-    public bool               muteSkipdoor;
+    public float additionalAbilityChance = 0.1f;
+    public float baseSpawnChance = 0.1f;
+    public int maxLevel = 30;
+    public bool muteSkipdoor;
+    public bool shrink = true;
+    public MultiCheckboxState smallMode = MultiCheckboxState.Partial;
+    public float XPPerPercent = 1f;
 
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_Values.Look(ref this.XPPerPercent,            "xpPerPercent",                       1f);
-        Scribe_Values.Look(ref this.baseSpawnChance,         nameof(this.baseSpawnChance),         0.1f);
-        Scribe_Values.Look(ref this.additionalAbilityChance, nameof(this.additionalAbilityChance), 0.1f);
-        Scribe_Values.Look(ref this.shrink,                  nameof(this.shrink),                  true);
-        Scribe_Values.Look(ref this.muteSkipdoor,            nameof(this.muteSkipdoor));
-        Scribe_Values.Look(ref this.smallMode,               nameof(this.smallMode), MultiCheckboxState.Partial);
+        Scribe_Values.Look(ref XPPerPercent, "xpPerPercent", 1f);
+        Scribe_Values.Look(ref baseSpawnChance, nameof(baseSpawnChance), 0.1f);
+        Scribe_Values.Look(ref additionalAbilityChance, nameof(additionalAbilityChance), 0.1f);
+        Scribe_Values.Look(ref shrink, nameof(shrink), true);
+        Scribe_Values.Look(ref muteSkipdoor, nameof(muteSkipdoor));
+        Scribe_Values.Look(ref smallMode, nameof(smallMode), MultiCheckboxState.Partial);
+        Scribe_Values.Look(ref maxLevel, nameof(maxLevel), 30);
     }
 }

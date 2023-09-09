@@ -161,6 +161,7 @@
     <Compile Include="Misc\MaterialAllocator.cs" />
     <Compile Include="Paths\Skipmaster\Ability_Teleport.cs" />
     <Compile Include="Paths\Skipmaster\Ability_WorldTeleport.cs" />
+    <Compile Include="Paths\Staticlord\ChainBolt.cs" />
     <Compile Include="Paths\Technomancer\Ability_Construct_Rock.cs" />
     <Compile Include="Paths\Technomancer\Ability_Construct_Steel.cs" />
     <Compile Include="Paths\Technomancer\Ability_Haywire.cs" />

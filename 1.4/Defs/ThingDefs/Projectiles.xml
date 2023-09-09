@@ -65,9 +65,12 @@
 			<damageDef>Flame</damageDef>
 			<speed>100000</speed>
 			<ai_IsIncendiary>true</ai_IsIncendiary>
-			<damageAmountBase>14</damageAmountBase>
+			<damageAmountBase>1</damageAmountBase>
 			<explosionRadius>3</explosionRadius>
 		</projectile>
+		<comps>
+			<li><compClass>VFECore.Abilities.CompAbilityProjectile</compClass></li>
+		</comps>
 		<modExtensions>
 			<li Class="VFECore.ProjectileExtension">
 				<flashIntensity>100</flashIntensity>
@@ -105,7 +108,7 @@
 	<ThingDef ParentName="BaseBullet">
 		<defName>VPE_ChainBolt</defName>
 		<label>chain bolt</label>
-		<thingClass>VFEMech.TeslaProjectile</thingClass>
+		<thingClass>VanillaPsycastsExpanded.Staticlord.ChainBolt</thingClass>
 		<drawOffscreen>true</drawOffscreen>
 		<graphicData>
 			<texPath>Effects/Staticlord/ChainBolt</texPath>
@@ -117,15 +120,18 @@
 			<damageAmountBase>1</damageAmountBase>
 			<speed>140</speed>
 		</projectile>
+		<comps>
+			<li><compClass>VFECore.Abilities.CompAbilityProjectile</compClass></li>
+		</comps>
 		<modExtensions>
 			<li Class="VFEMech.TeslaChainingProps">
-				<maxBounceCount>6</maxBounceCount>
+				<maxBounceCount>4</maxBounceCount>
 				<damageDef>Flame</damageDef>
 				<explosionDamageDef>EMP</explosionDamageDef>
 				<impactRadius>1.9</impactRadius>
 				<targetFriendly>false</targetFriendly>
 				<addFire>true</addFire>
-				<bounceRange>8</bounceRange>
+				<bounceRange>9</bounceRange>
 				<maxLifetime>50</maxLifetime>
 				<impactSound>VPE_ChainBolt_Impact</impactSound>
 			</li>

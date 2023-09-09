@@ -13,6 +13,7 @@
 			<onlyTargetPrisonersOfColony>True</onlyTargetPrisonersOfColony>
 			<neverTargetIncapacitated>True</neverTargetIncapacitated>
 		</targetingParameters>
+		<chance>0</chance>
 		<modExtensions>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
 				<path>VPE_Archon</path>
@@ -41,6 +42,7 @@
 		<durationTime>300000</durationTime>
 		<goodwillImpact>-10</goodwillImpact>
 		<showUndrafted>true</showUndrafted>
+		<chance>0</chance>
 		<modExtensions>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
 				<path>VPE_Archon</path>
@@ -106,6 +108,7 @@
 		<castTime>60</castTime>
 		<abilityClass>VanillaPsycastsExpanded.Ability_GoodwillImpact</abilityClass>
 		<showUndrafted>true</showUndrafted>
+		<chance>0</chance>
 		<modExtensions>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
 				<path>VPE_Archon</path>
@@ -121,7 +124,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_GroupLink</defName>
 		<label>group link</label>
@@ -132,6 +135,7 @@
 		<targetMode>Self</targetMode>
 		<radius>9</radius>
 		<castSound>VPE_GroupLink_Cast</castSound>
+		<chance>0</chance>
 		<modExtensions>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
 				<path>VPE_Archon</path>
@@ -149,14 +153,14 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
 		<defName>VPE_WordofPain</defName>
 		<label>word of pain</label>
 		<description>Induces noise in the target’s pain centers of the brain and overstimulates their nerve endings, scaling with their psychic sensitivity.</description>
 		<iconPath>Abilities/Archon/WordofPain</iconPath>
 		<durationTime>720</durationTime>
-        <castSound>PsychicShockLanceCast</castSound>
+		<castSound>PsychicShockLanceCast</castSound>
 		<castTime>30</castTime>
 		<distanceToTarget>14.9</distanceToTarget>
 		<modExtensions>
@@ -176,7 +180,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_MindBreak</defName>
 		<label>mind break</label>
@@ -193,7 +197,7 @@
 		<castTime>30</castTime>
 		<goodwillImpact>-200</goodwillImpact>
 		<fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
-        <castSound>PsychicShockLanceCast</castSound>
+		<castSound>PsychicShockLanceCast</castSound>
 		<showUndrafted>true</showUndrafted>
 		<modExtensions>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
@@ -210,11 +214,11 @@
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_GiveTrait">
 				<trait>VPE_Thrall</trait>
 			</li>
-			<li Class="VanillaPsycastsExpanded.AbilityExtension_JoinFaction"/>
-			
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_JoinFaction" />
+
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
 		<defName>VPE_WordofProtection</defName>
 		<label>word of protection</label>
@@ -223,6 +227,7 @@
 		<durationTime>15000</durationTime>
 		<distanceToTarget>6.9</distanceToTarget>
 		<castTime>45</castTime>
+		<chance>0</chance>
 		<modExtensions>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
 				<path>VPE_Archon</path>
@@ -243,7 +248,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
 		<defName>VPE_DrainPsyessence</defName>
 		<label>drain psyessence</label>
@@ -265,7 +270,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_MassHallucination</defName>
 		<label>mass hallucination</label>

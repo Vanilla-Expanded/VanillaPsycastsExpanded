@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-
 	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
 		<defName>VPE_WordofFear</defName>
 		<label>word of fear</label>
 		<description>Induces panic by overloading their flight response system for a duration scaling with their psychic sensitivity. Considered a hostile action.</description>
 		<iconPath>Abilities/Necropath/WordofFear</iconPath>
 		<distanceToTarget>6</distanceToTarget>
-		<durationTime>600</durationTime>
+		<durationTime>300</durationTime>
 		<goodwillImpact>-15</goodwillImpact>
 		<castTime>15</castTime>
 		<castSound>VPE_WordOfFear_Cast</castSound>
@@ -63,7 +62,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_StealVitality</defName>
 		<label>steal vitality</label>
@@ -91,7 +90,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_ParalysisPulse</defName>
 		<label>paralysis pulse</label>
@@ -99,7 +98,7 @@
 		<iconPath>Abilities/Necropath/ParalysisPulse</iconPath>
 		<abilityClass>VanillaPsycastsExpanded.Ability_ParalysisPulse</abilityClass>
 		<targetMode>Self</targetMode>
-		<durationTime>5000</durationTime>
+		<durationTime>60000</durationTime>
 		<radius>1.9</radius>
 		<radiusStatFactors>
 			<PsychicSensitivity>1</PsychicSensitivity>
@@ -111,10 +110,11 @@
 		<hasAoE>true</hasAoE>
 		<targetingParametersForAoE>
 			<canTargetLocations>False</canTargetLocations>
-			<canTargetSelf>False</canTargetSelf>
+			<canTargetSelf>True</canTargetSelf>
 			<canTargetAnimals>True</canTargetAnimals>
 			<canTargetPawns>True</canTargetPawns>
 			<canTargetHumans>True</canTargetHumans>
+			<canTargetMechs>false</canTargetMechs>
 		</targetingParametersForAoE>
 		<castSound>VPE_ParalysisPulse_Cast</castSound>
 		<modExtensions>
@@ -133,7 +133,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
 		<defName>VPE_Corpsetalk</defName>
 		<label>corpsetalk</label>
@@ -171,7 +171,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_Ghostwalk</defName>
 		<label>ghostwalk</label>
@@ -199,7 +199,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_ConsumeBodies</defName>
 		<label>consume bodies</label>
@@ -236,7 +236,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
 		<defName>VPE_Deathshield</defName>
 		<label>deathshield</label>
@@ -247,6 +247,7 @@
 		<castTime>180</castTime>
 		<durationTime>60000</durationTime>
 		<castSound>VPE_Deathshield_Cast</castSound>
+		<chance>0</chance>
 		<modExtensions>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
 				<path>VPE_Necropath</path>
@@ -263,7 +264,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_Enthrall</defName>
 		<label>enthrall</label>
@@ -297,7 +298,7 @@
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>
-	
+
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
 		<defName>VPE_Resurrect</defName>
 		<label>resurrect</label>
@@ -330,7 +331,7 @@
 				</prerequisites>
 			</li>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
-			  <hours>6</hours>
+				<hours>6</hours>
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>

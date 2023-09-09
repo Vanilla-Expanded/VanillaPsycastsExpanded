@@ -21,11 +21,11 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
 
     public int maxLevelFromTitles;
     public int points;
+    public List<PsycasterPathDef> previousUnlockedPaths = new();
 
     public Hediff_Psylink psylink;
     public List<PsySet> psysets = new();
     public List<MeditationFocusDef> unlockedMeditationFoci = new();
-    public List<PsycasterPathDef> previousUnlockedPaths = new();
     public List<PsycasterPathDef> unlockedPaths = new();
     private IChannelledPsycast currentlyChanneling;
 
@@ -76,7 +76,7 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
         for (var i = 0; i <= psysets.Count; i++)
         {
             var index = i;
-            yield return new FloatMenuOption(PsySetLabel(index), () => psysetIndex = index);
+            yield return new(PsySetLabel(index), () => psysetIndex = index);
         }
     }
 
@@ -85,21 +85,19 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
         this.psylink = psylink;
         level = psylink.level;
         points = level;
+        if (level <= 1) points = 2;
         RecacheCurStage();
-        if (!unlockedPaths.Any())
-            unlockedPaths.Add(DefDatabase<PsycasterPathDef>.AllDefs.Where(path => path.CanPawnUnlock(psylink.pawn)).RandomElement());
     }
 
     private void RecacheCurStage()
     {
-        curStage = new HediffStage
+        curStage = new()
         {
-            statOffsets = new List<StatModifier>
+            statOffsets = new()
             {
-                new() { stat = StatDefOf.PsychicEntropyMax, value = level * 5 + statPoints * 20 },
-                new() { stat = StatDefOf.PsychicEntropyRecoveryRate, value = statPoints * 0.2f },
+                new() { stat = StatDefOf.PsychicEntropyMax, value = level * 5 + statPoints * 10 },
+                new() { stat = StatDefOf.PsychicEntropyRecoveryRate, value = level * 0.0125f + statPoints * 0.05f },
                 new() { stat = StatDefOf.PsychicSensitivity, value = statPoints * 0.05f },
-                new() { stat = StatDefOf.MeditationFocusGain, value = statPoints * 0.1f },
                 new() { stat = VPE_DefOf.VPE_PsyfocusCostFactor, value = statPoints * -0.01f },
                 new() { stat = VPE_DefOf.VPE_PsychicEntropyMinimum, value = minHeatGivers.Sum(giver => giver.MinHeat) }
             },
@@ -198,11 +196,11 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
         Scribe_References.Look(ref psylink, nameof(psylink));
         Scribe_References.Look(ref currentlyChanneling, nameof(currentlyChanneling));
 
-        minHeatGivers ??= new List<IMinHeatGiver>();
+        minHeatGivers ??= new();
         if (Scribe.mode == LoadSaveMode.PostLoadInit)
         {
-            this.unlockedPaths ??= new List<PsycasterPathDef>();
-            this.previousUnlockedPaths ??= new List<PsycasterPathDef>();
+            unlockedPaths ??= new();
+            previousUnlockedPaths ??= new();
             RecacheCurStage();
         }
     }

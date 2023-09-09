@@ -47,6 +47,7 @@
     <targetMode>Location</targetMode>
     <radius>6</radius>
     <hasAoE>true</hasAoE>
+    <chance>0</chance>
     <targetingParametersForAoE>
       <canTargetLocations>true</canTargetLocations>
     </targetingParametersForAoE>
@@ -143,6 +144,7 @@
     <range>36.9</range>
     <targetMode>Location</targetMode>
     <radius>3</radius>
+    <maxRadius>8</maxRadius>
     <radiusStatFactors>
       <PsychicSensitivity>1</PsychicSensitivity>
     </radiusStatFactors>
@@ -183,7 +185,7 @@
     <radius>12</radius>
     <hasAoE>true</hasAoE>
     <castTime>30</castTime>
-    <durationTime>600</durationTime>
+    <durationTime>480</durationTime>
     <durationTimeStatFactors>
       <PsychicSensitivity>1</PsychicSensitivity>
     </durationTimeStatFactors>
@@ -226,6 +228,7 @@
     </durationTimeStatFactors>
     <range>35</range>
     <radius>18</radius>
+    <chance>0</chance>
     <targetMode>Location</targetMode>
     <hasAoE>true</hasAoE>
     <targetingParametersForAoE>
@@ -314,6 +317,7 @@
     </targetingParametersList>
     <castTime>720</castTime>
     <range>3</range>
+    <chance>0</chance>
     <radius>99999999</radius>
     <showUndrafted>true</showUndrafted>
     <castSound>VPE_EssenceTransfer_Cast</castSound>

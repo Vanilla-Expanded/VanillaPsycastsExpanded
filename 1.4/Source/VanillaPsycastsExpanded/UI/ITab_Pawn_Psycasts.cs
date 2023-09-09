@@ -44,7 +44,7 @@ public class ITab_Pawn_Psycasts : ITab
     public ITab_Pawn_Psycasts()
     {
         labelKey = "VPE.Psycasts";
-        size = new Vector2(Verse.UI.screenWidth, Verse.UI.screenHeight * 0.75f);
+        size = new(Verse.UI.screenWidth, Verse.UI.screenHeight * 0.75f);
         pathsByTab = DefDatabase<PsycasterPathDef>.AllDefs.GroupBy(def => def.tab).ToDictionary(group => group.Key, group => group.ToList());
         foci = DefDatabase<MeditationFocusDef>.AllDefs.OrderByDescending(def => def.modContentPack.IsOfficialMod)
            .ThenByDescending(def => def.label)
@@ -118,22 +118,26 @@ public class ITab_Pawn_Psycasts : ITab
         listing.Label(pawn.Name.ToStringFull);
         listing.Label("VPE.PsyLevel".Translate(hediff.level));
         listing.Gap(10f);
-        var bar = listing.GetRect(60f).ContractedBy(10f, 0f);
-        Text.Anchor = TextAnchor.MiddleCenter;
-        var xpForNext = Hediff_PsycastAbilities.ExperienceRequiredForLevel(hediff.level + 1);
-        if (devMode)
+        if (hediff.level < PsycastsMod.Settings.maxLevel)
         {
-            Text.Font = GameFont.Small;
-            if (Widgets.ButtonText(bar.TakeRightPart(80f), "Dev: Level up"))
-                hediff.GainExperience(xpForNext, false);
-            Text.Font = GameFont.Medium;
+            var bar = listing.GetRect(60f).ContractedBy(10f, 0f);
+            Text.Anchor = TextAnchor.MiddleCenter;
+            var xpForNext = Hediff_PsycastAbilities.ExperienceRequiredForLevel(hediff.level + 1);
+            if (devMode)
+            {
+                Text.Font = GameFont.Small;
+                if (Widgets.ButtonText(bar.TakeRightPart(80f), "Dev: Level up"))
+                    hediff.GainExperience(xpForNext, false);
+                Text.Font = GameFont.Medium;
+            }
+
+            Widgets.FillableBar(bar, hediff.experience / xpForNext);
+            Widgets.Label(bar, $"{hediff.experience.ToStringByStyle(ToStringStyle.FloatOne)} / {xpForNext}");
+            Text.Font = GameFont.Tiny;
+            listing.Label("VPE.EarnXP".Translate());
+            listing.Gap(10f);
         }
 
-        Widgets.FillableBar(bar, hediff.experience / xpForNext);
-        Widgets.Label(bar, $"{hediff.experience.ToStringByStyle(ToStringStyle.FloatOne)} / {xpForNext}");
-        Text.Font = GameFont.Tiny;
-        listing.Label("VPE.EarnXP".Translate());
-        listing.Gap(10f);
         Text.Font = GameFont.Small;
         Text.Anchor = TextAnchor.UpperLeft;
         listing.Label("VPE.Points".Translate(hediff.points));
@@ -162,11 +166,11 @@ public class ITab_Pawn_Psycasts : ITab
             if (Mouse.IsOver(rect))
             {
                 Vector2 size = new(pawnAndStats.width, 150f);
-                Find.WindowStack.ImmediateWindow(145 * 62346, new Rect(GenUI.GetMouseAttachedWindowPos(size.x, size.y), size), WindowLayer.Super,
+                Find.WindowStack.ImmediateWindow(145 * 62346, new(GenUI.GetMouseAttachedWindowPos(size.x, size.y), size), WindowLayer.Super,
                     delegate
                     {
                         Listing_Standard inner = new();
-                        inner.Begin(new Rect(Vector2.one * 5f, size));
+                        inner.Begin(new(Vector2.one * 5f, size));
                         inner.StatDisplay(TexPsycasts.IconNeuralHeatLimit, StatDefOf.PsychicEntropyMax, pawn);
                         inner.StatDisplay(TexPsycasts.IconNeuralHeatRegenRate, StatDefOf.PsychicEntropyRecoveryRate, pawn);
                         inner.StatDisplay(TexPsycasts.IconPsychicSensitivity, StatDefOf.PsychicSensitivity, pawn);
@@ -218,7 +222,7 @@ public class ITab_Pawn_Psycasts : ITab
         {
             var psysets = listing.GetRect(psysetSectionHeight);
             Widgets.DrawMenuSection(psysets);
-            viewRect = new Rect(0, 0, psysets.width - 20f, RequestedPsysetsHeight);
+            viewRect = new(0, 0, psysets.width - 20f, RequestedPsysetsHeight);
             Widgets.BeginScrollView(psysets.ContractedBy(3f, 6f), ref psysetsScrollPos, viewRect);
             DoPsysets(viewRect);
             Widgets.EndScrollView();
@@ -238,10 +242,10 @@ public class ITab_Pawn_Psycasts : ITab
         }
         else
         {
-            TabDrawer.DrawTabs(new Rect(paths.x, paths.y + 40f, paths.width, paths.height), tabs);
+            TabDrawer.DrawTabs(new(paths.x, paths.y + 40f, paths.width, paths.height), tabs);
             paths.yMin += 40f;
             Widgets.DrawMenuSection(paths);
-            viewRect = new Rect(0, 0, paths.width - 20f, lastPathsHeight);
+            viewRect = new(0, 0, paths.width - 20f, lastPathsHeight);
             Widgets.BeginScrollView(paths, ref pathsScrollPos, viewRect);
             DoPaths(viewRect);
             Widgets.EndScrollView();
@@ -263,7 +267,7 @@ public class ITab_Pawn_Psycasts : ITab
                                          def.description + (canUnlock ? "" : $"\n\n{lockedReason}"));
         Widgets.DrawHighlightIfMouseover(inRect);
         if ((hediff.points >= 1 || devMode) && !unlocked && (canUnlock || devMode))
-            if (Widgets.ButtonText(new Rect(inRect.xMax - 13f, inRect.yMax - 13f, 12f, 12f), "▲"))
+            if (Widgets.ButtonText(new(inRect.xMax - 13f, inRect.yMax - 13f, 12f, 12f), "▲"))
             {
                 if (!devMode) hediff.SpentPoints();
                 hediff.UnlockMeditationFocus(def);
@@ -309,7 +313,7 @@ public class ITab_Pawn_Psycasts : ITab
         {
             var texture = useAltBackgrounds ? def.backgroundImage : def.altBackgroundImage;
             var height = widthPerPath / texture.width * texture.height + 30f;
-            Rect rect = new(curPos, new Vector2(widthPerPath, height));
+            Rect rect = new(curPos, new(widthPerPath, height));
             PsycastsUIUtility.DrawPathBackground(ref rect, def, useAltBackgrounds);
             if (hediff.unlockedPaths.Contains(def))
             {
@@ -317,10 +321,10 @@ public class ITab_Pawn_Psycasts : ITab
             }
             else
             {
-                Widgets.DrawRectFast(rect, new Color(0f, 0f, 0f, useAltBackgrounds ? 0.7f : 0.55f));
+                Widgets.DrawRectFast(rect, new(0f, 0f, 0f, useAltBackgrounds ? 0.7f : 0.55f));
                 if (hediff.points >= 1 || devMode)
                 {
-                    var centerRect = rect.CenterRect(new Vector2(140f, 30f));
+                    var centerRect = rect.CenterRect(new(140f, 30f));
                     if (devMode || def.CanPawnUnlock(pawn))
                     {
                         if (Widgets.ButtonText(centerRect, "VPE.Unlock".Translate()))
@@ -373,7 +377,7 @@ public class ITab_Pawn_Psycasts : ITab
 
         if (unlockable) Widgets.DrawStrongHighlight(inRect.ExpandedBy(12f));
         PsycastsUIUtility.DrawAbility(inRect, ability);
-        if (locked) Widgets.DrawRectFast(inRect, new Color(0f, 0f, 0f, 0.6f));
+        if (locked) Widgets.DrawRectFast(inRect, new(0f, 0f, 0f, 0.6f));
 
         TooltipHandler.TipRegion(
             inRect,

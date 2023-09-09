@@ -20,7 +20,7 @@ public class Ability_Psyring : Ability
         var thing = targets[0].Thing;
         if (thing is null) return;
 
-        Find.WindowStack.Add(new Dialog_CreatePsyring(pawn, thing));
+        Find.WindowStack.Add(new Dialog_CreatePsyring(pawn, thing, def.GetModExtension<PsyringExclusionExtension>()?.excludedAbilities));
     }
 
     public override bool ValidateTarget(LocalTargetInfo target, bool showMessages = true)
@@ -36,6 +36,11 @@ public class Ability_Psyring : Ability
 
         return true;
     }
+}
+
+public class PsyringExclusionExtension : DefModExtension
+{
+    public List<AbilityDef> excludedAbilities;
 }
 
 [HarmonyPatch]
@@ -102,7 +107,7 @@ public class Psyring : Apparel
                         if (pawn.Psycasts() == null)
                         {
                             opts.Remove(floatMenuOption);
-                            opts.Add(new FloatMenuOption(
+                            opts.Add(new(
                                 Translator.Translate("CannotWear", psyring.LabelShort, psyring) + " (" + "VPE.NotPsycaster".Translate() + ")",
                                 null));
                         }
@@ -110,7 +115,7 @@ public class Psyring : Apparel
                         if (pawn.apparel.WornApparel.OfType<Psyring>().Any())
                         {
                             opts.Remove(floatMenuOption);
-                            opts.Add(new FloatMenuOption(
+                            opts.Add(new(
                                 Translator.Translate("CannotWear", psyring.LabelShort, psyring) + " (" + "VPE.AlreadyPsyring".Translate() + ")", null));
                         }
                     }
@@ -133,7 +138,7 @@ public class Dialog_CreatePsyring : Window
 
     private Vector2 scrollPos;
 
-    public Dialog_CreatePsyring(Pawn pawn, Thing fuel)
+    public Dialog_CreatePsyring(Pawn pawn, Thing fuel, List<AbilityDef> excludedAbilities = null)
     {
         this.pawn = pawn;
         this.fuel = fuel;
@@ -148,7 +153,9 @@ public class Dialog_CreatePsyring : Window
                 let psycast = ability.def.Psycast()
                 where psycast != null
                 orderby psycast.path.label, psycast.level descending, psycast.order
-                select ability.def).Except(pawn.AllAbilitiesFromPsyrings())
+                select ability.def)
+           .Except(pawn.AllAbilitiesFromPsyrings())
+           .Except(excludedAbilities ?? Enumerable.Empty<AbilityDef>())
            .ToList();
     }
 
