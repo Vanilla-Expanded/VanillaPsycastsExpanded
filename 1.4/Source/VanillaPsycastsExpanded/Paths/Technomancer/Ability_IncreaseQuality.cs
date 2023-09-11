@@ -30,7 +30,7 @@ public class Ability_IncreaseQuality : Ability
             return false;
         }
 
-        if (comp.Quality >= QualityCategory.Excellent)
+        if (comp.Quality >= QualityCategory.Good)
         {
             if (showMessages) Messages.Message("VPE.QualityTooHigh".Translate(), MessageTypeDefOf.RejectInput, false);
             return false;

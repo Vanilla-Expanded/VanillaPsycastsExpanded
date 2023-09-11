@@ -16,7 +16,7 @@
     <VPE.All>All</VPE.All>
     <VPE.PsySetDesc>Move to the next PsySet. Right click to choose a specific one.\nCurrent: {0}, Next: {1}</VPE.PsySetDesc>
     <VPE.MustHaveQuality>Target must have quality</VPE.MustHaveQuality>
-    <VPE.QualityTooHigh>Target quality too high, must be lower than Excellent.</VPE.QualityTooHigh>
+    <VPE.QualityTooHigh>Target quality too high, must be lower than Good.</VPE.QualityTooHigh>
     <VPE.NotEnoughHeat>Not enough neural heat available.</VPE.NotEnoughHeat>
     <VPE.MustConsumePower>Must consume power.</VPE.MustConsumePower>
     <VPE.MustBeStoneChunk>Target a stone chunk</VPE.MustBeStoneChunk>
