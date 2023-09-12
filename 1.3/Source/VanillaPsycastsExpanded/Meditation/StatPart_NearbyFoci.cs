@@ -19,7 +19,11 @@ public class StatPart_NearbyFoci : StatPart
 
     private static IEnumerable<(Thing thing, float value)> AllFociNearby(Thing main, Pawn pawn)
     {
-        HashSet<MeditationFocusDef> focusTypes = main.TryGetComp<CompMeditationFocus>().Props.focusTypes.ToHashSet();
+        var meditationFocus = main.TryGetComp<CompMeditationFocus>();
+        if (meditationFocus == null)
+            return new []{ (main, main.GetStatValueForPawn(StatDefOf.MeditationFocusStrength, pawn)) };
+        
+        HashSet<MeditationFocusDef> focusTypes = meditationFocus.Props.focusTypes.ToHashSet();
         List<(Thing thing, List<MeditationFocusDef> foci, float value)> foci =
             (from thing in GenRadialCached.RadialDistinctThingsAround(main.Position, main.Map, MeditationUtility.FocusObjectSearchRadius, true)
              let comp = thing.TryGetComp<CompMeditationFocus>()
