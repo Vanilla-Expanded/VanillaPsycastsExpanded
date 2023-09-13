@@ -26,7 +26,7 @@ public class Ability_IncreaseQuality : Ability
         {
             <= 1.2f => (int)QualityCategory.Good,
             <= 2f => (int)QualityCategory.Excellent,
-            > 2f => (int)QualityCategory.Masterwork,
+            > 2.5f => (int)QualityCategory.Masterwork,
             _ => (int)QualityCategory.Normal
         };
 
