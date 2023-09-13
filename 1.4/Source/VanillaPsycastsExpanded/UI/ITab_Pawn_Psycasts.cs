@@ -26,7 +26,6 @@ public class ITab_Pawn_Psycasts : ITab
     private int pathsPerRow;
     private Vector2 pathsScrollPos;
     private Pawn pawn;
-    private float psysetSectionHeight;
     private Vector2 psysetsScrollPos;
     private bool smallMode;
     private bool useAltBackgrounds;
@@ -65,7 +64,6 @@ public class ITab_Pawn_Psycasts : ITab
         base.UpdateSize();
         size.y = PaneTopY - 30f;
         pathsPerRow = Mathf.FloorToInt(size.x * 0.67f / 200f);
-        psysetSectionHeight = 0;
         smallMode = PsycastsMod.Settings.smallMode switch
         {
             MultiCheckboxState.On => true,
@@ -217,10 +215,13 @@ public class ITab_Pawn_Psycasts : ITab
 
         Text.Font = GameFont.Tiny;
         listing.Label("VPE.PsysetDesc".Translate());
-        var prePsysetHeight = listing.CurHeight;
         Rect viewRect;
         if (!smallMode)
         {
+            var psysetSectionHeight = pawnAndStats.height - listing.CurHeight;
+            psysetSectionHeight -= 30;
+            if (Prefs.DevMode)
+                psysetSectionHeight -= 30;
             var psysets = listing.GetRect(psysetSectionHeight);
             Widgets.DrawMenuSection(psysets);
             viewRect = new(0, 0, psysets.width - 20f, RequestedPsysetsHeight);
@@ -229,10 +230,8 @@ public class ITab_Pawn_Psycasts : ITab
             Widgets.EndScrollView();
         }
 
-        var postPsysetHeight = listing.CurHeight;
         listing.CheckboxLabeled("VPE.UseAltBackground".Translate(), ref useAltBackgrounds);
         if (Prefs.DevMode) listing.CheckboxLabeled("VPE.DevMode".Translate(), ref devMode);
-        psysetSectionHeight = pawnAndStats.height - prePsysetHeight - (listing.CurHeight - postPsysetHeight);
         listing.End();
         if (pathsByTab.NullOrEmpty())
         {
@@ -247,7 +246,7 @@ public class ITab_Pawn_Psycasts : ITab
             paths.yMin += 40f;
             Widgets.DrawMenuSection(paths);
             viewRect = new(0, 0, paths.width - 20f, lastPathsHeight);
-            Widgets.BeginScrollView(paths, ref pathsScrollPos, viewRect);
+            Widgets.BeginScrollView(paths.ContractedBy(2), ref pathsScrollPos, viewRect);
             DoPaths(viewRect);
             Widgets.EndScrollView();
         }
