@@ -103,6 +103,12 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
             },
             becomeVisible = false
         };
+        if (PsycastsMod.Settings.changeFocusGain)
+            curStage.statOffsets.Add(new()
+            {
+                stat = StatDefOf.MeditationFocusGain,
+                value = statPoints * 0.1f
+            });
         if (pawn.Spawned) pawn.health.Notify_HediffChanged(this);
     }
 

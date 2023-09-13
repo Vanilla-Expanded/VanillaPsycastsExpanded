@@ -62,6 +62,7 @@ public class PsycastsMod : Mod
         listing.CheckboxLabeled("VPE.MuteSkipdoor".Translate(), ref Settings.muteSkipdoor);
         listing.Label("VPE.MaxLevel".Translate() + ": " + Settings.maxLevel);
         Settings.maxLevel = (int)listing.Slider(Settings.maxLevel, 1, 300);
+        listing.CheckboxLabeled("VPE.ChangeFocusGain".Translate(), ref Settings.changeFocusGain, "VPE.ChangeFocusGain.Desc".Translate());
         listing.End();
     }
 
@@ -75,6 +76,7 @@ public class PsycastSettings : ModSettings
 {
     public float additionalAbilityChance = 0.1f;
     public float baseSpawnChance = 0.1f;
+    public bool changeFocusGain;
     public int maxLevel = 30;
     public bool muteSkipdoor;
     public bool shrink = true;
@@ -91,5 +93,6 @@ public class PsycastSettings : ModSettings
         Scribe_Values.Look(ref muteSkipdoor, nameof(muteSkipdoor));
         Scribe_Values.Look(ref smallMode, nameof(smallMode), MultiCheckboxState.Partial);
         Scribe_Values.Look(ref maxLevel, nameof(maxLevel), 30);
+        Scribe_Values.Look(ref changeFocusGain, nameof(changeFocusGain));
     }
 }

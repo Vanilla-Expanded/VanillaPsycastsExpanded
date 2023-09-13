@@ -10,4 +10,6 @@
     <VPE.SmallMode.Desc>In small mode, the stats are moved to a tooltip and the psysets are moved to a separate dialog. If checked, this will force small mode. If X'ed, this will ban small mode. If partial (yellow line), this will allow default behavior (small mode will be active if your vertical resolution is less than 1080).</VPE.SmallMode.Desc>
     <VPE.MuteSkipdoor>Mute Skipdoor Sound</VPE.MuteSkipdoor>
     <VPE.MaxLevel>Maximum psycaster level</VPE.MaxLevel>
+    <VPE.ChangeFocusGain>Scale base psyfocus gain with stat points?</VPE.ChangeFocusGain>
+    <VPE.ChangeFocusGain.Desc>If enabled, then the base psyfocus gain before any foci can be increased by spending stat points.</VPE.ChangeFocusGain.Desc>
 </LanguageData>

@@ -7,17 +7,30 @@ namespace VanillaPsycastsExpanded.Technomancer;
 
 public class Ability_IncreaseQuality : Ability
 {
+    private QualityCategory MaxQuality => (QualityCategory)(int)GetPowerForPawn();
+
     public override void Cast(params GlobalTargetInfo[] targets)
     {
         base.Cast(targets);
         foreach (var target in targets)
         {
             var comp = target.Thing.GetInnerIfMinified().TryGetComp<CompQuality>();
-            if (comp is not { Quality: < QualityCategory.Good }) return;
+            if (comp == null || comp.Quality >= MaxQuality) return;
             comp.SetQuality(comp.Quality + 1, ArtGenerationContext.Colony);
             for (var i = 0; i < 16; i++) FleckMaker.ThrowMicroSparks(target.Thing.TrueCenter(), pawn.Map);
         }
     }
+
+    public override float GetPowerForPawn() =>
+        pawn.GetStatValue(StatDefOf.PsychicSensitivity) switch
+        {
+            <= 1.2f => (int)QualityCategory.Good,
+            <= 2f => (int)QualityCategory.Excellent,
+            > 2f => (int)QualityCategory.Masterwork,
+            _ => (int)QualityCategory.Normal
+        };
+
+    public override string GetPowerForPawnDescription() => "VPE.MaxQuality".Translate(MaxQuality.GetLabel());
 
     public override bool ValidateTarget(LocalTargetInfo target, bool showMessages = true)
     {
@@ -32,7 +45,7 @@ public class Ability_IncreaseQuality : Ability
 
         if (comp.Quality >= QualityCategory.Good)
         {
-            if (showMessages) Messages.Message("VPE.QualityTooHigh".Translate(), MessageTypeDefOf.RejectInput, false);
+            if (showMessages) Messages.Message("VPE.QualityTooHigh".Translate(MaxQuality.GetLabel()), MessageTypeDefOf.RejectInput, false);
             return false;
         }
 

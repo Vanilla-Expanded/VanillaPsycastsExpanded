@@ -175,6 +175,7 @@ public class ITab_Pawn_Psycasts : ITab
                         inner.StatDisplay(TexPsycasts.IconNeuralHeatLimit, StatDefOf.PsychicEntropyMax, pawn);
                         inner.StatDisplay(TexPsycasts.IconNeuralHeatRegenRate, StatDefOf.PsychicEntropyRecoveryRate, pawn);
                         inner.StatDisplay(TexPsycasts.IconPsychicSensitivity, StatDefOf.PsychicSensitivity, pawn);
+                        if (PsycastsMod.Settings.changeFocusGain) inner.StatDisplay(TexPsycasts.IconPsyfocusGain, StatDefOf.MeditationFocusGain, pawn);
                         inner.StatDisplay(TexPsycasts.IconPsyfocusCost, VPE_DefOf.VPE_PsyfocusCostFactor, pawn);
                         inner.End();
                     });
@@ -185,6 +186,7 @@ public class ITab_Pawn_Psycasts : ITab
             listing.StatDisplay(TexPsycasts.IconNeuralHeatLimit, StatDefOf.PsychicEntropyMax, pawn);
             listing.StatDisplay(TexPsycasts.IconNeuralHeatRegenRate, StatDefOf.PsychicEntropyRecoveryRate, pawn);
             listing.StatDisplay(TexPsycasts.IconPsychicSensitivity, StatDefOf.PsychicSensitivity, pawn);
+            if (PsycastsMod.Settings.changeFocusGain) listing.StatDisplay(TexPsycasts.IconPsyfocusGain, StatDefOf.MeditationFocusGain, pawn);
             listing.StatDisplay(TexPsycasts.IconPsyfocusCost, VPE_DefOf.VPE_PsyfocusCostFactor, pawn);
         }
 
