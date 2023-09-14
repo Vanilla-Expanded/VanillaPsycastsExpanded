@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using RimWorld.Planet;
+using UnityEngine;
 using Verse;
 using Ability = VFECore.Abilities.Ability;
 
@@ -30,7 +31,7 @@ public class Ability_IncreaseQuality : Ability
             _ => (int)QualityCategory.Normal
         };
 
-    public override string GetPowerForPawnDescription() => "VPE.MaxQuality".Translate(MaxQuality.GetLabel());
+    public override string GetPowerForPawnDescription() => "VPE.MaxQuality".Translate(MaxQuality.GetLabel()).Colorize(Color.cyan);
 
     public override bool ValidateTarget(LocalTargetInfo target, bool showMessages = true)
     {
