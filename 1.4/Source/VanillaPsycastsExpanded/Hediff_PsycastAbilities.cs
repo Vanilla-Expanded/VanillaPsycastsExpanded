@@ -156,6 +156,7 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
 
     public void GainExperience(float experienceGain, bool sendLetter = true)
     {
+        if (level >= PsycastsMod.Settings.maxLevel) return;
         experience += experienceGain;
         var newLevelWasGainedAlready = false;
         while (experience >= ExperienceRequiredForLevel(level + 1))
