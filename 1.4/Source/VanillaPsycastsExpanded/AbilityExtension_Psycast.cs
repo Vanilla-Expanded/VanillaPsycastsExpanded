@@ -56,6 +56,15 @@ public class AbilityExtension_Psycast : AbilityExtension_AbilityMod
 
     public override bool IsEnabledForPawn(Ability ability, out string reason)
     {
+        if (path.CanPawnUnlock(ability.pawn) is false)
+        {
+            if (path.ignoreLockRestrictionsForNeurotrainers is false)
+            {
+                reason = path.lockedReason;
+                return false;
+            }
+        }
+
         var hediff = ability?.pawn?.Psycasts();
         if (hediff != null)
         {
