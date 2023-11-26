@@ -6,6 +6,7 @@
         <description>A shield of fire, sets melee attackers on fire</description>
         <initialSeverity>1</initialSeverity>
         <hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
         <comps>
             <li Class="VFECore.Shields.HediffCompProperties_Shield">
                 <compClass>VanillaPsycastsExpanded.Conflagrator.HediffComp_FireShield</compClass>
