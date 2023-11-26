@@ -5,6 +5,7 @@
     <label>psylink</label>
     <description>Go away cheater</description>
     <hediffClass>VanillaPsycastsExpanded.Hediff_PsycastAbilities</hediffClass>
+	<isBad>false</isBad>
     <initialSeverity>1</initialSeverity> 
     <minSeverity>0</minSeverity>
     <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>

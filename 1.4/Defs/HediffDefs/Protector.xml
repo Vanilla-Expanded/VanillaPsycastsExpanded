@@ -4,6 +4,7 @@
 		<defName>VPE_Healing</defName>
 		<label>psychic healing</label>
 		<description>Psychically-induced healing boost.</description>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<naturalHealingFactor>3</naturalHealingFactor>
@@ -15,6 +16,7 @@
 		<defName>VPE_BlockBleeding</defName>
 		<label>psychic stabilization</label>
 		<description>Psychically-induced stasis that stops any bleeding.</description>
+		<isBad>false</isBad>
 		<comps>
 			<li Class="HediffCompProperties_Effecter">
 				<stateEffecter>VPE_SparksYellow</stateEffecter>
@@ -26,6 +28,7 @@
 		<defName>VPE_Immunity</defName>
 		<label>psychic immunity</label>
 		<description>Psychically-induced immunity boost.</description>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<statOffsets>
@@ -40,6 +43,7 @@
 		<label>psychic overshield</label>
 		<description>Psychically-induced personal skipbarrier. Impenetrable by ranged projectiles.</description>
 		<hediffClass>VanillaPsycastsExpanded.Hediff_Overshield</hediffClass>
+		<isBad>false</isBad>
 		<comps>
 			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDowned"/>
 			<li Class="VanillaPsycastsExpanded.HediffCompProperties_DisappearsOnDespawn"/>
@@ -51,6 +55,7 @@
 		<label>guardian skipbarrier</label>
 		<description>Psychically crafted defensive barrier that generates large amounts of psychic heat in order to sustain itself.</description>
 		<hediffClass>VanillaPsycastsExpanded.Hediff_GuardianSkipBarrier</hediffClass>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<statOffsets>
@@ -87,6 +92,7 @@
 		<defName>VPE_Regenerating</defName>
 		<label>regenerating</label>
 		<description>Regenerating wounds, new and old.</description>
+		<isBad>false</isBad>
 		<tendable>false</tendable>
 		<injuryProps>
 			<painPerSeverity>0</painPerSeverity>

@@ -4,12 +4,11 @@
 	<HediffDef>
 		<defName>VPE_NoPain</defName>
 		<description>This creature has a reduced pain sensitivity, and it takes longer to be downed due to pain.</description>
-
 		<label>no pain sensitivity</label>
 		<defaultLabelColor>(.8,0,0)</defaultLabelColor>
 		<scenarioCanAdd>false</scenarioCanAdd>
 		<maxSeverity>1.0</maxSeverity>
-
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<painFactor>0</painFactor>
