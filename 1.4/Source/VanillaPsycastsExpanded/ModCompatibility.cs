@@ -56,7 +56,7 @@ namespace VanillaPsycastsExpanded
 		}
 		static ModCompatibility()
         {
-			AlienRacesIsActive = ModsConfig.IsActive("erdelf.HumanoidAlienRaces");
+			AlienRacesIsActive = ModsConfig.IsActive("erdelf.HumanoidAlienRaces") || ModsConfig.IsActive("erdelf.HumanoidAlienRaces_steam");
 		}
 	}
 }
