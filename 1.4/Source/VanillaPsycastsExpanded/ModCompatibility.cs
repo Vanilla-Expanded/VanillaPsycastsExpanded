@@ -8,7 +8,10 @@ public static class ModCompatibility
 {
     public static bool AlienRacesIsActive;
 
-    static ModCompatibility() => AlienRacesIsActive = ModsConfig.IsActive("erdelf.HumanoidAlienRaces");
+		static ModCompatibility()
+    {
+			AlienRacesIsActive = ModsConfig.IsActive("erdelf.HumanoidAlienRaces") || ModsConfig.IsActive("erdelf.HumanoidAlienRaces_steam");
+		}
 
     public static Color GetSkinColorFirst(Pawn pawn)
     {
