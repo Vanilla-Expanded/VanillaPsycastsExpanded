@@ -1,57 +1,69 @@
-﻿namespace VanillaPsycastsExpanded.Harmonist;
-
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
+using VFECore;
 using Ability = VFECore.Abilities.Ability;
 
+namespace VanillaPsycastsExpanded.Harmonist;
+
+[HotSwappable]
 public class Ability_TransmuteItem : Ability
 {
     public override void Cast(params GlobalTargetInfo[] targets)
     {
         base.Cast(targets);
-        foreach (GlobalTargetInfo target in targets)
+        foreach (var target in targets)
         {
-            Thing   item  = target.Thing;
-            Map     map   = item.Map;
-            float   value = item.MarketValue * item.stackCount;
-            IntVec3 pos   = item.Position;
+            var item = target.Thing;
+            var map = item.Map;
+            var value = item.MarketValue * item.stackCount;
+            var pos = item.Position;
 
-            List<ThingDef> allItems =
+            var allItems =
                 (from thingDef in DefDatabase<ThingDef>.AllDefs
-                 where thingDef.category == ThingCategory.Item
-                 where !thingDef.IsCorpse
-                 where !thingDef.MadeFromStuff
-                 where !thingDef.IsEgg
-                 let marketValue = thingDef.BaseMarketValue
-                 let count = Mathf.FloorToInt(value / thingDef.BaseMarketValue)
-                 where marketValue <= value
-                 where count       <= thingDef.stackLimit
-                 where count       >= 1
-                 select thingDef
+                    where IsValid(thingDef)
+                    let marketValue = thingDef.BaseMarketValue
+                    let count = Mathf.FloorToInt(value / thingDef.BaseMarketValue)
+                    where marketValue <= value
+                    where count <= thingDef.stackLimit
+                    where count >= 1
+                    select thingDef
                 ).ToList();
 
-            float WeightSelector(ThingDef def)
+            float WeightSelector(ThingDef thingDef)
             {
-                float amount = value / def.BaseMarketValue;
-                float weight = Mathf.Abs(amount - Mathf.FloorToInt(amount));
+                var amount = value / thingDef.BaseMarketValue;
+                var weight = Mathf.Abs(amount - Mathf.FloorToInt(amount));
                 return weight;
             }
 
-            float    maxWeight = allItems.Max(WeightSelector);
-            ThingDef chosen    = allItems.RandomElementByWeight(def => maxWeight - WeightSelector(def));
+            var maxWeight = allItems.Max(WeightSelector);
+            var chosen = allItems.RandomElementByWeight(thingDef => maxWeight - WeightSelector(thingDef));
             item.Destroy();
-            item            = ThingMaker.MakeThing(chosen);
+            item = ThingMaker.MakeThing(chosen);
             item.stackCount = Mathf.FloorToInt(value / chosen.BaseMarketValue);
             GenSpawn.Spawn(item, pos, map);
         }
     }
 
-    public override bool CanHitTarget(LocalTargetInfo target) => this.targetParams.CanTarget(target.Thing, this) &&
-                                                                 GenSight.LineOfSight(this.pawn.Position, target.Cell, this.pawn.Map, true);
+    private bool IsValid(ThingDef thingDef)
+    {
+        if (thingDef.category != ThingCategory.Item) return false;
+        if (thingDef.IsCorpse) return false;
+        if (thingDef.MadeFromStuff) return false;
+        if (thingDef.IsEgg) return false;
+        if (thingDef.tradeTags != null)
+            if (thingDef.tradeTags.Any(tag => tag.Contains("CE") && tag.Contains("Ammo")))
+                return false;
+
+        return true;
+    }
+
+    public override bool CanHitTarget(LocalTargetInfo target) =>
+        targetParams.CanTarget(target.Thing, this) &&
+        GenSight.LineOfSight(pawn.Position, target.Cell, pawn.Map, true);
 
     public override bool ValidateTarget(LocalTargetInfo target, bool showMessages = true)
     {
