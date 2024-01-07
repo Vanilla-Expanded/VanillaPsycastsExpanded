@@ -6,6 +6,7 @@
 		<description>Electricity is being channeled to a nearby battery.</description>
 		<initialSeverity>1</initialSeverity>
 		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
 		<comps>
 			<li Class="VFECore.Shields.HediffCompProperties_Draw">
 				<compClass>VanillaPsycastsExpanded.Staticlord.HediffComp_Recharge</compClass>
@@ -18,6 +19,7 @@
 			</li>
 		</comps>
 	</HediffDef>
+	
 	<HediffDef>
 		<defName>VPE_Vortex</defName>
 		<label>vortex</label>
@@ -25,6 +27,7 @@
 		<initialSeverity>1</initialSeverity>
 		<hediffClass>VanillaPsycastsExpanded.Staticlord.Hediff_Vortexed</hediffClass>
 	</HediffDef>
+	
 	<HediffDef>
 		<defName>VPE_Hurricane</defName>
 		<label>hurricane</label>
@@ -240,6 +243,7 @@
 		<label>ice shield</label>
 		<description>A psychic shield that protects from hypothermia and freezer enemies that interact with it.</description>
 		<hediffClass>VanillaPsycastsExpanded.Hediff_IceShield</hediffClass>
+		<isBad>false</isBad>
 		<comps>
 			<li Class="VanillaPsycastsExpanded.HediffCompProperties_PlaySound">
 				<endSound>VPE_IceShield_End</endSound>
@@ -355,16 +359,19 @@
 			</li>
 		</comps>
 	</HediffDef>
+	
 	<HediffDef ParentName="PsycastHediffBase">
 		<defName>VPE_AnimalOvershield</defName>
 		<label>animal shield</label>
 		<description>An overshield that protects the animal from any ranged attacks.</description>
 		<hediffClass>VanillaPsycastsExpanded.Wildspeaker.Hediff_AnimalShield</hediffClass>
 	</HediffDef>
+	
 	<HediffDef ParentName="PsycastHediffBase">
 		<defName>VPE_Smartbuzz</defName>
 		<label>smartbuzz</label>
 		<description>Psychically-induced feelings of clarity and curiosity. This improves research speed as well as skill gain speed.</description>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<statFactors>
@@ -384,11 +391,13 @@
 			<li Class="HediffCompProperties_DisappearsOnDeath" />
 		</comps>
 	</HediffDef>
+	
 	<HediffDef ParentName="PsycastHediffBase">
 		<defName>VPE_Darkvision</defName>
 		<label>darkvision</label>
 		<description>Psychically-induced ability to see through the darkness and shadows.</description>
 		<hediffClass>VanillaPsycastsExpanded.Nightstalker.Hediff_Darkvision</hediffClass>
+		<isBad>false</isBad>
 		<woundAnchorRange>0</woundAnchorRange>
 		<displayWound>true</displayWound>
 		<stages>
@@ -410,6 +419,7 @@
 			</li>
 		</stages>
 	</HediffDef>
+	
 	<HediffDef>
 		<defName>VPE_Darkvision_Display</defName>
 		<label>darkvision</label>
@@ -423,6 +433,7 @@
 		<defName>VPE_Productivity</defName>
 		<label>psychic productivity</label>
 		<description>Psychically-induced improvement to work speed.</description>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<hungerRateFactor>1.25</hungerRateFactor>
@@ -437,6 +448,7 @@
 		<defName>VPE_PsychicSoothe</defName>
 		<label>psychic soothe</label>
 		<description>Psychically-induced, self-satisfying perceptual distortions, giving a temporary mood boost.</description>
+		<isBad>false</isBad>
 	</HediffDef>
 
 	<HediffDef>
@@ -462,6 +474,7 @@
 		<defName>VPE_Protection</defName>
 		<label>psychic protection</label>
 		<description>Psychically-induced physical protection from incoming damage.</description>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<statFactors>
@@ -533,6 +546,7 @@
 		<defName>VPE_GainedVitality</defName>
 		<label>psychic vitality</label>
 		<description>Psychically-induced vitality stolen from another person.</description>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<restFallFactor>0.5</restFallFactor>
@@ -577,6 +591,7 @@
 		<defName>VPE_Ghostwalk</defName>
 		<label>ghostwalk</label>
 		<description>Psychically-induced matter phasing.</description>
+		<isBad>false</isBad>
 		<comps>
 			<li Class="HediffCompProperties">
 				<compClass>VFECore.HediffComp_Phasing</compClass>
@@ -613,6 +628,7 @@
 		<label>death shield</label>
 		<description>Psychically-induced immortality that lasts for one day.</description>
 		<hediffClass>VanillaPsycastsExpanded.Hediff_Deathshield</hediffClass>
+		<isBad>false</isBad>
 		<comps>
 			<li Class="HediffCompProperties_Effecter">
 				<stateEffecter>VPE_BlackSmoke</stateEffecter>
@@ -645,6 +661,7 @@
 		<label>shadowfocus</label>
 		<description>Psychically-induced increase to psychic sensitivity based on the lack of light around the psycaster.</description>
 		<hediffClass>VanillaPsycastsExpanded.Nightstalker.Hediff_ShadowFocus</hediffClass>
+		<isBad>false</isBad>
 		<comps>
 			<li Class="HediffCompProperties_Effecter">
 				<stateEffecter>VPE_BlackSmoke</stateEffecter>

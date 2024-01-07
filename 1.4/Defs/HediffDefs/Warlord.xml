@@ -4,6 +4,7 @@
 		<defName>VPE_SpeedBoost</defName>
 		<label>psychic agility</label>
 		<description>Psychically induced agility boost, greatly increasing movement speed.</description>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<statFactors>
@@ -22,6 +23,7 @@
 		<defName>VPE_BladeFocus</defName>
 		<label>blade focus</label>
 		<description>Psychically induced combat focus, greatly enhancing melee combat capabilities.</description>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<statFactors>
@@ -40,6 +42,7 @@
 		<defName>VPE_FiringFocus</defName>
 		<label>firing focus</label>
 		<description>Psychically induced combat focus, greatly enhancing ranged combat capabilities.</description>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<statFactors>
@@ -58,6 +61,7 @@
 		<defName>VPE_AdrenalineRush</defName>
 		<label>psychic rush</label>
 		<description>Psychically induced adrenaline rush, increasing sight, hearing and movement capabilities.</description>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<painFactor>0</painFactor>
@@ -84,6 +88,7 @@
 		<label>psychic frenzy</label>
 		<description>Temporary, psychically induced frenzy. The energy restores itself with each consecutive kill.</description>
 		<hediffClass>VFECore.Abilities.Hediff_Ability</hediffClass>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<statFactors>
@@ -107,6 +112,7 @@
 		<label>guided shot</label>
 		<description>Psychically induced insane accuracy.</description>
 		<hediffClass>VFECore.Abilities.Hediff_Ability</hediffClass>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<statFactors>
