@@ -52,7 +52,6 @@
     <castSound>VPE_PsychicGuidance_Cast</castSound>
     <showUndrafted>true</showUndrafted>
     <chance>0</chance>
-	<isBad>false</isBad>
     <modExtensions>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
         <path>VPE_Harmonist</path>
