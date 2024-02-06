@@ -1,12 +1,11 @@
-﻿namespace VanillaPsycastsExpanded;
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
 using Verse;
+
+namespace VanillaPsycastsExpanded;
 
 [HarmonyPatch(typeof(RitualOutcomeEffectWorker_Bestowing), nameof(RitualOutcomeEffectWorker_Bestowing.Apply))]
 public class RitualOutcomeEffectWorker_Bestowing_Apply_Patch
@@ -14,12 +13,12 @@ public class RitualOutcomeEffectWorker_Bestowing_Apply_Patch
     [HarmonyTranspiler]
     public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
-        List<CodeInstruction> codes = instructions.ToList();
-        MethodInfo            info1 = AccessTools.Method(typeof(PawnUtility), nameof(PawnUtility.GetPsylinkLevel));
-        MethodInfo            info2 = AccessTools.Method(typeof(PawnUtility), nameof(PawnUtility.GetMaxPsylinkLevelByTitle));
+        var codes = instructions.ToList();
+        var info1 = AccessTools.Method(typeof(PawnUtility), nameof(PawnUtility.GetPsylinkLevel));
+        var info2 = AccessTools.Method(typeof(PawnUtility), nameof(PawnUtility.GetMaxPsylinkLevelByTitle));
 
-        int idx1 = codes.FindIndex(ins => ins.Calls(info1)) - 1;
-        int idx2 = codes.FindIndex(ins => ins.Calls(info2)) + 1;
+        var idx1 = codes.FindIndex(ins => ins.Calls(info1)) - 1;
+        var idx2 = codes.FindIndex(ins => ins.Calls(info2)) + 1;
 
         codes.RemoveRange(idx1, idx2 - idx1 + 1);
         codes.InsertRange(idx1, new[]
@@ -34,14 +33,16 @@ public class RitualOutcomeEffectWorker_Bestowing_Apply_Patch
 
     public static void ApplyTitlePsylink(Pawn pawn, RoyalTitleDef oldTitle, RoyalTitleDef newTitle)
     {
-        Hediff_PsycastAbilities psylink = pawn.Psycasts();
-        int                     newMax  = newTitle.maxPsylinkLevel;
-        int                     oldMax  = oldTitle?.maxPsylinkLevel ?? 0;
+        var psylink = pawn.Psycasts();
+        var newMax = newTitle.maxPsylinkLevel;
+        var oldMax = oldTitle?.maxPsylinkLevel ?? 0;
 
         if (psylink == null)
         {
-            pawn.ChangePsylinkLevel(newMax - oldMax, false);
-            pawn.Psycasts().maxLevelFromTitles = newMax;
+            pawn.ChangePsylinkLevel(1, false); // ChangePsylinkLevel ignores levelOffset when no psylink is present
+            psylink = pawn.Psycasts();
+            psylink.ChangeLevel(newMax - oldMax, false);
+            psylink.maxLevelFromTitles = newMax;
             return;
         }
 

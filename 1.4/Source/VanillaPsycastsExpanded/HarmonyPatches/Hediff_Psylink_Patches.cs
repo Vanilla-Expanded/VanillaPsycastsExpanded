@@ -12,7 +12,7 @@ public static class Hediff_Psylink_PostAdd
     public static void Postfix(Hediff_Psylink __instance)
     {
         ((Hediff_PsycastAbilities)__instance.pawn.health.AddHediff(VPE_DefOf.VPE_PsycastAbilityImplant, __instance.Part))
-            .InitializeFromPsylink(__instance);
+           .InitializeFromPsylink(__instance);
     }
 }
 
@@ -44,7 +44,7 @@ public static class DebugToolsPawns_GivePsylink
         foreach (var instruction in instructions)
             if (instruction.LoadsField(info1)) continue;
             else if (instruction.LoadsField(info2))
-                yield return new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(PsycasterPathDef), nameof(PsycasterPathDef.TotalPoints)));
+                yield return new(OpCodes.Ldsfld, AccessTools.Field(typeof(PsycasterPathDef), nameof(PsycasterPathDef.TotalPoints)));
             else yield return instruction;
     }
 }
