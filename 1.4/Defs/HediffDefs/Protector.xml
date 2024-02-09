@@ -31,9 +31,9 @@
 		<isBad>false</isBad>
 		<stages>
 			<li>
-				<statOffsets>
+				<statFactors>
 					<ImmunityGainSpeed>1.8</ImmunityGainSpeed>
-				</statOffsets>
+				</statFactors>
 			</li>
 		</stages>
 	</HediffDef>
