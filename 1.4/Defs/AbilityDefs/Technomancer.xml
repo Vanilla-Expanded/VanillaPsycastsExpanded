@@ -3,7 +3,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_EnchantQuality</defName>
     <label>enchant quality</label>
-    <description>Psychically manipulate an object or structure to improve its overall quality. Cannot improve beyond good quality.</description>
+    <description>Psychically manipulate an object or structure to improve its overall quality. Maximum quality depends on psychic sensitivity.</description>
     <iconPath>Abilities/Technomancer/EnchantQuality</iconPath>
     <abilityClass>VanillaPsycastsExpanded.Technomancer.Ability_IncreaseQuality</abilityClass>
     <jobDef>VFEA_GotoTargetAndUseAbility</jobDef>
