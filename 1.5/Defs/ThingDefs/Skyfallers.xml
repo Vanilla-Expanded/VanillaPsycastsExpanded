@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <ThingDef ParentName="SkyfallerBase">
+    <defName>VPE_SmallMeteorite_Incoming</defName>
+    <label>small meteorite</label>
+    <size>(1, 1)</size>
+    <graphicData>
+      <texPath>Effects/Conflagrator/MeteorShower/SmallMeteorite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <drawSize>(10, 10)</drawSize>
+    </graphicData>
+    <skyfaller>
+      <shadowSize>(1.75, 1.75)</shadowSize>
+      <explosionRadius>4</explosionRadius>
+      <explosionDamage>Flame</explosionDamage>
+      <rotateGraphicTowardsDirection>true</rotateGraphicTowardsDirection>
+    </skyfaller>
+  </ThingDef>
+
+  <ThingDef ParentName="SkyfallerBase">
+    <defName>VPE_SoulFromSky</defName>
+    <thingClass>VanillaPsycastsExpanded.SoulFromSky</thingClass>
+    <label>soul</label>
+    <tickerType>Normal</tickerType>
+    <size>(1, 1)</size>
+    <graphicData>
+      <texPath>Effects/Necropath/Resurrect/Soul</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <skyfaller>
+      <motesPerCell>0</motesPerCell>
+      <hitRoof>false</hitRoof>
+      <shadowSize>(0, 0)</shadowSize>
+      <speed>0.5</speed>
+      <angleCurve>
+        <points>
+          <li>(0,-0.1)</li>
+          <li>(0.98, 0)</li>
+        </points>
+      </angleCurve>
+    </skyfaller>
+  </ThingDef>
+</Defs>

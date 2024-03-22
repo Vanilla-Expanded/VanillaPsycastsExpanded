@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+	<BodyDef>
+		<defName>VPE_RockConstructBody</defName>
+		<label>rock construct</label>
+		<corePart>
+			<def>Torso</def>
+			<height>Middle</height>
+			<depth>Outside</depth>
+			<groups>
+				<li>Torso</li>
+			</groups>
+			<parts>
+
+				<li>
+					<def>VPE_RockHead</def>
+					<coverage>0.1</coverage>
+					<height>Top</height>
+					<groups>
+
+						<li>HeadAttackTool</li>
+					</groups>
+
+				</li>
+				<li>
+					<def>VPE_RockBody</def>
+					<customLabel>rocky body</customLabel>
+					<coverage>0.8</coverage>
+					
+				</li>
+				
+			</parts>
+		</corePart>
+	</BodyDef>
+	
+	<BodyDef>
+		<defName>VPE_MetalConstructBody</defName>
+		<label>metal construct</label>
+		<corePart>
+			<def>Torso</def>
+			<height>Middle</height>
+			<depth>Outside</depth>
+			<groups>
+				<li>Torso</li>
+			</groups>
+			<parts>
+
+				<li>
+					<def>VPE_MetalHead</def>
+					<coverage>0.1</coverage>
+					<height>Top</height>
+					<groups>
+
+						<li>HeadAttackTool</li>
+					</groups>
+
+				</li>
+				<li>
+					<def>VPE_MetalBody</def>
+					<customLabel>metal body</customLabel>
+					<coverage>0.8</coverage>
+					
+				</li>
+				
+			</parts>
+		</corePart>
+	</BodyDef>
+
+</Defs>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <ThingDef Name="VPE_BaseMeleeWeapon_Eltex_Sharp" ParentName="BaseMeleeWeapon_Sharp_Quality" Abstract="True">
+    <weaponTags>
+      <li>VPE_EltexMelee</li>
+    </weaponTags>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+	<techLevel>Medieval</techLevel>
+    <recipeMaker>
+    <skillRequirements>
+      <Crafting>6</Crafting>
+    </skillRequirements>
+	<researchPrerequisite>VPE_CasterGear</researchPrerequisite>
+      <recipeUsers>
+            <li>ElectricSmithy</li>
+            <li>FueledSmithy</li>
+      </recipeUsers>
+	  <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    </recipeMaker>
+    <equippedStatOffsets>
+      <PsychicSensitivityOffset>0.15</PsychicSensitivityOffset>
+      <PsychicEntropyRecoveryRate>0.016</PsychicEntropyRecoveryRate>
+    </equippedStatOffsets>
+	<relicChance>2</relicChance>
+    <modExtensions>
+	    <li Class="VFECore.ThingDefExtension">
+            <usableWithShields>true</usableWithShields>
+        </li>
+    </modExtensions>
+  </ThingDef>
+  
+  <ThingDef Name="VPE_BaseMeleeWeapon_Eltex_Blunt" ParentName="BaseMeleeWeapon_Blunt_Quality" Abstract="True">
+    <weaponTags>
+      <li>VPE_EltexMelee</li>
+    </weaponTags>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <burnableByRecipe>false</burnableByRecipe>
+	<techLevel>Medieval</techLevel>
+    <recipeMaker>
+    <skillRequirements>
+      <Crafting>6</Crafting>
+    </skillRequirements>
+	<researchPrerequisite>VPE_CasterGear</researchPrerequisite>
+      <recipeUsers>
+            <li>ElectricSmithy</li>
+            <li>FueledSmithy</li>
+      </recipeUsers>
+	  <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    </recipeMaker>
+    <equippedStatOffsets>
+      <PsychicSensitivityOffset>0.15</PsychicSensitivityOffset>
+      <PsychicEntropyRecoveryRate>0.016</PsychicEntropyRecoveryRate>
+    </equippedStatOffsets>
+	<relicChance>2</relicChance>
+    <modExtensions>
+	    <li Class="VFECore.ThingDefExtension">
+            <usableWithShields>true</usableWithShields>
+        </li>
+    </modExtensions>
+  </ThingDef>
+	
+  <ThingDef ParentName="VPE_BaseMeleeWeapon_Eltex_Sharp">
+    <defName>VPE_MeleeWeapon_EltexDagger</defName>
+    <label>eltex dagger</label>
+    <description>A medieval dagger threaded with psychic focusing materials. While it enhances the wielder’s psychic sensitivity and neural heat dissipation, it also serves as an excellent melee weapon, as it follows the same idea as any other knife: A handle for holding and a sharp edge for cutting.</description>
+    <graphicData>
+      <texPath>Things/WeaponsMelee/EltexDagger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.6</uiIconScale>
+    <weaponClasses>
+      <li>Neolithic</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+      <Mass>0.5</Mass>
+    </statBases>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>13</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <costList>
+	    <Steel>30</Steel>
+		<VPE_Eltex>4</VPE_Eltex>
+	</costList>
+  </ThingDef>
+  
+  <ThingDef ParentName="VPE_BaseMeleeWeapon_Eltex_Blunt">
+    <defName>VPE_MeleeWeapon_EltexMace</defName>
+    <label>eltex mace</label>
+    <description>A medieval mace threaded with psychic focusing materials. While it enhances the wielder’s psychic sensitivity and neural heat dissipation, it also serves as an excellent melee weapon, engineered for efficient swinging and deadly impacts.</description>
+    <graphicData>
+      <texPath>Things/WeaponsMelee/EltexMace</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.2</uiIconScale>
+    <statBases>
+      <WorkToMake>10000</WorkToMake>
+      <Mass>1.25</Mass>
+    </statBases>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>head</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>15.7</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <costList>
+	    <Steel>50</Steel>
+		<VPE_Eltex>4</VPE_Eltex>
+	</costList>
+  </ThingDef>
+  
+  <ThingDef ParentName="VPE_BaseMeleeWeapon_Eltex_Sharp">
+    <defName>VPE_MeleeWeapon_EltexSword</defName>
+    <label>eltex sword</label>
+    <description>A medieval sword threaded with psychic focusing materials. While it enhances the wielder’s psychic sensitivity and neural heat dissipation, it also serves as an excellent melee weapon. Good for stabbing or slashing. It's light and nimble, which sometimes lets it beat bigger, heavier weapons.</description>
+    <graphicData>
+      <texPath>Things/WeaponsMelee/EltexSword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>0.85</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <costList>
+	    <Steel>50</Steel>
+		<VPE_Eltex>4</VPE_Eltex>
+	</costList>
+  </ThingDef>
+  
+</Defs>

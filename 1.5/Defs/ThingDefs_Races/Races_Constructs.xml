@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="AnimalThingBase" Name="VPE_ConstructBase" Abstract="True">
+		<thingClass>VanillaPsycastsExpanded.Technomancer.Pawn_Construct</thingClass>
+		<statBases>
+			<ToxicResistance>1</ToxicResistance>
+			<PsychicSensitivity>0</PsychicSensitivity>
+			<Flammability>0</Flammability>
+			<MeatAmount>0</MeatAmount>
+			<LeatherAmount>0</LeatherAmount>
+			<ArmorRating_Heat>2.00</ArmorRating_Heat>
+		</statBases>
+		<uiIconScale>1.5</uiIconScale>
+		<tradeTags>
+			<li>NonContractable</li>
+		</tradeTags>
+		<race>
+			<canBePredatorPrey>false</canBePredatorPrey>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<giveNonToolUserBeatFireVerb>true</giveNonToolUserBeatFireVerb>
+			<canReleaseToWild>false</canReleaseToWild>
+			<trainability>None</trainability>
+			<showTrainables>false</showTrainables>
+			<playerCanChangeMaster>false</playerCanChangeMaster>
+			<hideTrainingTab>true</hideTrainingTab>
+			<wildness>0</wildness>
+			<useMeatFrom>Pig</useMeatFrom>
+			<petness>0</petness>
+			<hediffGiverSets Inherit="False"/>
+			<needsRest>false</needsRest>
+			<hasGenders>false</hasGenders>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+
+	</ThingDef>
+	<!-- Steel -->
+	<ThingDef ParentName="VPE_ConstructBase">
+		<defName>VPE_SteelConstruct</defName>
+		<label>steel construct</label>
+		<description>A piece of steel slag, animated by powerful psychic energy. It will engage nearby threats and defend the master from any harm that may come to them.\n\n&lt;color=#E5E54C&gt;Gameplay effect:&lt;/color&gt;Constructs generate constant heat for the caster that summoned them. Keeping too many constructs alive could prevent the psycaster from casting other abilities.</description>
+		<statBases>
+			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
+			<ComfyTemperatureMax>250</ComfyTemperatureMax>
+			<MarketValue>150</MarketValue>
+			<ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+			<MoveSpeed>4.6</MoveSpeed>
+		</statBases>
+		<tools>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+
+			</li>
+		</tools>
+		<comps>
+			<li Class="AnimalBehaviours.CompProperties_InitialHediff">
+				<hediffname>VPE_NoPain</hediffname>
+				<hediffseverity>1</hediffseverity>
+			</li>
+			<li Class="AnimalBehaviours.CompProperties_Draftable">
+				<makeNonFleeingToo>true</makeNonFleeingToo>
+			</li>
+			<li Class="VanillaPsycastsExpanded.CompProperties_BreakLink">
+				<gizmoImage>Effects/Technomancer/BreakLink/BreakLinkSteelConstruct</gizmoImage>
+				<gizmoLabel>VPE_BreakLink</gizmoLabel>
+				<gizmoDesc>VPE_BreakLinkDesc</gizmoDesc>
+			</li>
+			<li Class="AnimalBehaviours.CompProperties_DiseaseImmunity">
+				<hediffsToRemove><li>Animal_Plague</li><li>Animal_Flu</li><li>AB_AnimalSporesAllergy</li></hediffsToRemove>
+				<tickInterval>2000</tickInterval>
+			</li>
+			<li Class="AnimalBehaviours.CompProperties_DiseaseEventImmunity">
+				
+			</li>
+		</comps>
+		<race>
+			<deathActionWorkerClass>VanillaPsycastsExpanded.DeathActionWorker_SlagChunk</deathActionWorkerClass>
+			<bloodDef>VPE_Filth_Metal</bloodDef>
+			<body>VPE_MetalConstructBody</body>
+			<fleshType>VPE_SteelConstructFlesh</fleshType>
+			<lifeStageAges>
+				<li>
+					<minAge>0</minAge>
+					<def>AnimalAdult</def>
+					<soundAngry>VPE_Pawn_SteelConstruct_Angry</soundAngry>
+					<soundWounded>VPE_Pawn_SteelConstruct_Wounded</soundWounded>
+					<soundDeath>VPE_Pawn_SteelConstruct_Death</soundDeath>
+					<soundCall>VPE_Pawn_SteelConstruct_Call</soundCall>
+				</li>
+			</lifeStageAges>
+			<soundCallIntervalRange>
+				<min>12000</min>
+				<max>20000</max>
+			</soundCallIntervalRange>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>VPE_SteelConstruct</defName>
+		<label>steel construct</label>
+		<race>VPE_SteelConstruct</race>
+		<combatPower>100</combatPower>
+		<canArriveManhunter>false</canArriveManhunter>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Effects/Technomancer/SteelConstruct/SteelConstruct</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- Rock -->
+	<ThingDef ParentName="VPE_ConstructBase">
+		<defName>VPE_RockConstruct</defName>
+		<label>rock construct</label>
+		<description>A piece of rock chunk, animated by powerful psychic energy. It will do simple work around the colony tirelessly and with maximum dedication.\n\n&lt;color=#E5E54C&gt;Gameplay effect:&lt;/color&gt;Constructs generate constant heat for the caster that summoned them. Keeping too many constructs alive could prevent the psycaster from casting other abilities.</description>
+		<statBases>
+			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
+			<ComfyTemperatureMax>250</ComfyTemperatureMax>
+			<MarketValue>150</MarketValue>
+			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+			<MoveSpeed>3.6</MoveSpeed>
+		</statBases>
+		<comps>
+			<li Class="AnimalBehaviours.CompProperties_InitialHediff">
+				<hediffname>VPE_NoPain</hediffname>
+				<hediffseverity>1</hediffseverity>
+			</li>
+			<li Class="VanillaPsycastsExpanded.CompProperties_BreakLink">
+				<gizmoImage>Effects/Technomancer/BreakLink/BreakLinkRockConstruct</gizmoImage>
+				<gizmoLabel>VPE_BreakLink</gizmoLabel>
+				<gizmoDesc>VPE_BreakLinkDesc</gizmoDesc>
+			</li>
+			<li Class="AnimalBehaviours.CompProperties_DoesntFlee" />
+			<li Class="VanillaPsycastsExpanded.CompProperties_SetStoneColour"/>
+			<li Class="AnimalBehaviours.CompProperties_DiseaseImmunity">
+				<hediffsToRemove><li>Animal_Plague</li><li>Animal_Flu</li><li>AB_AnimalSporesAllergy</li></hediffsToRemove>
+				<tickInterval>2000</tickInterval>
+			</li>
+			<li Class="AnimalBehaviours.CompProperties_DiseaseEventImmunity">
+				
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+
+			</li>
+		</tools>
+		<race>
+			<deathActionWorkerClass>VanillaPsycastsExpanded.DeathActionWorker_RockChunk</deathActionWorkerClass>
+			<bloodDef>VPE_Filth_Rock</bloodDef>
+			<body>VPE_RockConstructBody</body>
+			<fleshType>VPE_RockConstructFlesh</fleshType>
+			<lifeStageAges>
+				<li>
+					<minAge>0</minAge>
+					<def>AnimalAdult</def>
+					<soundAngry>VPE_Pawn_RockConstruct_Angry</soundAngry>
+					<soundWounded>VPE_Pawn_RockConstruct_Wounded</soundWounded>
+					<soundDeath>VPE_Pawn_RockConstruct_Death</soundDeath>
+					<soundCall>VPE_Pawn_RockConstruct_Call</soundCall>
+				</li>
+			</lifeStageAges>
+			<soundCallIntervalRange>
+				<min>12000</min>
+				<max>20000</max>
+			</soundCallIntervalRange>
+		</race>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>VPE_RockConstruct</defName>
+		<label>rock construct</label>
+		<race>VPE_RockConstruct</race>
+		<combatPower>100</combatPower>
+		<canArriveManhunter>false</canArriveManhunter>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Effects/Technomancer/RockConstruct/RockConstruct</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+</Defs>

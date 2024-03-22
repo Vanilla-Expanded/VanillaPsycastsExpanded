@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IncidentDef>
+    <defName>VPE_EltexMeteorite</defName>
+    <label>eltex meteorite</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>VanillaPsycastsExpanded.IncidentWorker_EltexMeteorite</workerClass>
+    <baseChance>0.05</baseChance>
+    <letterLabel>Eltex Meteorite</letterLabel>
+    <letterText>A large meteorite has struck ground in the area. It has left behind a lump of eltex. Eltex can be used to create psyfocus-enhancing gear, or sold to the Empire to gain honor.</letterText>
+      <tale>MeteoriteImpact</tale>
+  </IncidentDef>
+
+</Defs>

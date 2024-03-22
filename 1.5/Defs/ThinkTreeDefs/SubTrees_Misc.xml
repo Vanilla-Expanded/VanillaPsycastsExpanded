@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThinkTreeDef>
+		<defName>VPE_ConstructBehaviour</defName>
+		<insertTag>Animal_PreWander</insertTag>
+		<insertPriority>100</insertPriority>
+		<thinkRoot Class="ThinkNode_Priority">
+			<subNodes>
+				<li Class="VanillaPsycastsExpanded.ThinkNode_Construct">
+					<subNodes>
+						<li Class="ThinkNode_ChancePerHour_Constant">
+							<mtbHours>1</mtbHours>
+							<subNodes>
+								<li Class="ThinkNode_Tagger">
+									<tagToGive>Misc</tagToGive>
+									<subNodes>
+										<li Class="JobGiver_Haul"/>
+									</subNodes>
+								</li>
+							</subNodes>
+						</li>
+						<li Class="ThinkNode_ChancePerHour_Constant">
+							<mtbHours>2</mtbHours>
+							<subNodes>
+								<li Class="ThinkNode_Tagger">
+									<tagToGive>Misc</tagToGive>
+									<subNodes>
+										<li Class="VanillaPsycastsExpanded.JobGiver_Clean"/>
+									</subNodes>
+								</li>
+							</subNodes>
+						</li>
+						<li Class="ThinkNode_ChancePerHour_Constant">
+							<mtbHours>2</mtbHours>
+							<subNodes>
+								<li Class="ThinkNode_Tagger">
+									<tagToGive>Misc</tagToGive>
+									<subNodes>
+										<li Class="VanillaPsycastsExpanded.JobGiver_Flick"/>
+									</subNodes>
+								</li>
+							</subNodes>
+						</li>
+						
+					</subNodes>
+				</li>
+			</subNodes>
+		</thinkRoot>
+	</ThinkTreeDef>
+
+
+
+
+</Defs>

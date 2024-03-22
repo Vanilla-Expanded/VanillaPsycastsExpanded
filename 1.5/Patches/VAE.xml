@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Armour Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName = "VAE_Headgear_RoyalTrooperHelmet" or defName = "VAE_Apparel_RoyalTrooperArmor" or defName = "VAE_Headgear_RoyalSiegeHelmet" or defName = "VAE_Apparel_RoyalSiegeArmor"]/costList</xpath>
+				<value>
+				    <VPE_Eltex>1</VPE_Eltex>
+			    </value>
+			</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>
