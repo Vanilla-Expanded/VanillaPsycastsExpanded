@@ -4,6 +4,7 @@
 	<supportedVersions>
 		<li>1.3</li>
 		<li>1.4</li>
+		<li>1.5</li>
 	</supportedVersions>
 	<modDependencies>
 		<li>
@@ -22,6 +23,7 @@
 			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl>
 		</li>
 	</modDependencies>
+	  <modIconPath IgnoreIfNoMatchingField="True">UI/VELogo</modIconPath>
 	<packageId>VanillaExpanded.VPsycastsE</packageId>
 	<loadBefore>
 		<li>steve.betterquestrewards</li>
