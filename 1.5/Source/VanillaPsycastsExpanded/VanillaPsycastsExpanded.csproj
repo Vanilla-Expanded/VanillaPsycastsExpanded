@@ -182,6 +182,7 @@
     <Compile Include="Paths\Wildspeaker\MentalState_ManhunterTerritorial.cs" />
     <Compile Include="Paths\Wildspeaker\Spawners.cs" />
     <Compile Include="PawnKindAbilityExtension_Psycasts.cs" />
+    <Compile Include="PawnRenderNodes\PawnRenderNode_RockConstruct.cs" />
     <Compile Include="PsycastChecker.cs" />
     <Compile Include="ThinkNodes\ThinkNode_Construct.cs" />
     <Compile Include="Paths\Technomancer\Power.cs" />
