@@ -41,7 +41,7 @@ public class Decoy : ThingWithComps, IAttackTarget
     protected override void DrawAt(Vector3 drawLoc, bool flip = false)
     {
         DecoyOverlayUtility.DrawOverlay = true;
-        pawn.Drawer.renderer.RenderPawnAt(drawLoc, Rotation);
+        pawn.Drawer.renderer.RenderPawnAt(drawLoc, Rot4.South);
         DecoyOverlayUtility.DrawOverlay = false;
     }
 

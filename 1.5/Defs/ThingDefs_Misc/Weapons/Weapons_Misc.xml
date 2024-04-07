@@ -37,7 +37,7 @@
         <thingSetMakerTags Inherit="False" />
         <tradeability>None</tradeability>
         <comps>
-            <li Class="CompProperties_Reloadable">
+            <li Class="CompProperties_ApparelReloadable">
                 <maxCharges>1</maxCharges>
                 <destroyOnEmpty>true</destroyOnEmpty>
                 <hotKey>Misc4</hotKey>

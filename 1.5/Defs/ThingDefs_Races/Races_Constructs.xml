@@ -82,7 +82,9 @@
 			</li>
 		</comps>
 		<race>
-			<deathActionWorkerClass>VanillaPsycastsExpanded.DeathActionWorker_SlagChunk</deathActionWorkerClass>
+			<deathAction>
+				<workerClass>VanillaPsycastsExpanded.DeathActionWorker_SlagChunk</workerClass>
+			</deathAction>
 			<bloodDef>VPE_Filth_Metal</bloodDef>
 			<body>VPE_MetalConstructBody</body>
 			<fleshType>VPE_SteelConstructFlesh</fleshType>

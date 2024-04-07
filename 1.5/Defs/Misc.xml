@@ -10,7 +10,7 @@
 		<windSpeedOffset>5</windSpeedOffset>
 		<favorability>Bad</favorability>
 		<perceivePriority>2</perceivePriority>
-		<exposedThought>SoakingWet</exposedThought>
+		<weatherThought>SoakingWet</weatherThought>
 		<accuracyMultiplier>0.8</accuracyMultiplier>
 		<rainRate>5</rainRate>
 		<moveSpeedMultiplier>0.8</moveSpeedMultiplier>

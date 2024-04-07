@@ -49,7 +49,14 @@
         <li>FullHead</li>
       </bodyPartGroups>
       <wornGraphicPath>Things/Apparel/EltexMask/EltexMask</wornGraphicPath>
-      <hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
+      <renderSkipFlags>
+        <li>None</li>
+      </renderSkipFlags>
+      <drawData>
+        <dataNorth>
+          <layer>-3</layer>
+        </dataNorth>
+      </drawData>
       <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
       <layers> 
         <li>Overhead</li>
@@ -115,9 +122,9 @@
         <li>Legs</li>
       </bodyPartGroups>
       <wornGraphicPath>Things/Apparel/EltexCape/EltexCape</wornGraphicPath>
-      <shellRenderedBehindHead>true</shellRenderedBehindHead>
       <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
       <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+      <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
       <layers>
         <li>Shell</li>
       </layers>

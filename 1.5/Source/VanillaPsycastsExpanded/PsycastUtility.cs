@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using LudeonTK;
 using RimWorld;
 using Verse;
@@ -85,4 +87,6 @@ public static class PsycastUtility
         hypothermiaHediff = null;
         return false;
     }
+
+    public static T CreateDelegate<T>(this MethodInfo method) where T : Delegate => (T)method.CreateDelegate(typeof(T));
 }

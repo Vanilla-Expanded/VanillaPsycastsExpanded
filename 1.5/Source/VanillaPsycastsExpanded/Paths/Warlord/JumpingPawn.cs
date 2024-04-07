@@ -8,9 +8,9 @@ namespace VanillaPsycastsExpanded;
 
 public class JumpingPawn : AbilityPawnFlyer
 {
-    public override void DrawAt(Vector3 drawLoc, bool flip = false)
+    public override void DynamicDrawPhaseAt(DrawPhase phase, Vector3 drawLoc, bool flip = false)
     {
-        FlyingPawn.Drawer.renderer.RenderPawnAt(drawLoc, Rotation);
+        FlyingPawn.Drawer.renderer.DynamicDrawPhaseAt(phase, drawLoc, Rotation, true);
     }
 
     public override void Tick()
@@ -28,7 +28,7 @@ public class JumpingPawn : AbilityPawnFlyer
     private Vector3 GetDrawPos()
     {
         var x = ticksFlying / (float)ticksFlightTime;
-        var drawPos = position;
+        var drawPos = DrawPos;
         drawPos.y = AltitudeLayer.Skyfaller.AltitudeFor();
         return drawPos + Vector3.forward * (x - Mathf.Pow(x, 2)) * 15f;
     }

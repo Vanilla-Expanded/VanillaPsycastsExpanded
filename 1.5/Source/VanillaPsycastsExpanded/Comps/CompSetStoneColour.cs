@@ -1,30 +1,28 @@
-﻿namespace VanillaPsycastsExpanded
+﻿using UnityEngine;
+using Verse;
+
+namespace VanillaPsycastsExpanded;
+
+[StaticConstructorOnStartup]
+public class CompSetStoneColour : ThingComp
 {
-    using UnityEngine;
-    using Verse;
+    public Color color;
+    private ThingDef rockDef;
 
-    [StaticConstructorOnStartup]
-    public class CompSetStoneColour : ThingComp
+    public ThingDef KilledLeave => rockDef;
+
+    public void SetStoneColour(ThingDef thingDef)
     {
-        private ThingDef                      rockDef;
-        public  CompProperties_SetStoneColour Props => (CompProperties_SetStoneColour) this.props;
-        public Color color;
+        rockDef = thingDef;
+        color = rockDef.graphic.data.color;
+        var pawn = parent as Pawn;
+        pawn.Drawer.renderer.SetAllGraphicsDirty();
+    }
 
-        public ThingDef KilledLeave => this.rockDef;
-
-        public void SetStoneColour(ThingDef thingDef)
-        {
-            this.rockDef = thingDef;
-            color = this.rockDef.graphic.data.color;
-            Pawn pawn = this.parent as Pawn;
-            pawn.Drawer.renderer.SetAllGraphicsDirty();
-        }
-
-        public override void PostExposeData()
-        {
-            base.PostExposeData();
-            Scribe_Defs.Look(ref this.rockDef, nameof(this.rockDef));
-            Scribe_Values.Look(ref color, nameof(this.color));
-        }
+    public override void PostExposeData()
+    {
+        base.PostExposeData();
+        Scribe_Defs.Look(ref rockDef, nameof(rockDef));
+        Scribe_Values.Look(ref color, nameof(color));
     }
 }

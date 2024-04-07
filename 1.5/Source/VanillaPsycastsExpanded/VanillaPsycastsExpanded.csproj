@@ -46,7 +46,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="VFECore">
-      <HintPath>..\..\..\..\VanillaExpandedFramework\1.4\Assemblies\VFECore.dll</HintPath>
+      <HintPath>..\..\..\..\VanillaExpandedFramework\1.5\Assemblies\VFECore.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -301,15 +301,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.5.4039-beta</Version>
+      <Version>1.5.4052-beta</Version>
     </PackageReference>
     <PackageReference Include="Lib.Harmony">
-      <Version>2.3.1.1</Version>
+      <Version>2.3.3</Version>
       <ExcludeAssets>runtime</ExcludeAssets>
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="MonoMod.Utils">
-      <Version>25.0.4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

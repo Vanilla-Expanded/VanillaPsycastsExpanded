@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using HarmonyLib;
-using MonoMod.Utils;
+﻿using System.Linq;
 using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
@@ -13,8 +10,6 @@ namespace VanillaPsycastsExpanded.Nightstalker;
 
 public class Ability_Assassinate : Ability
 {
-    private static readonly Func<Verb, bool> tryCastShot = AccessTools.Method(typeof(Verb_MeleeAttack), "TryCastShot").CreateDelegate<Func<Verb, bool>>();
-    private static readonly AccessTools.FieldRef<Verb, LocalTargetInfo> currentTarget = AccessTools.FieldRefAccess<Verb, LocalTargetInfo>("currentTarget");
     private int attacksLeft;
     private IntVec3 originalPosition;
     private Pawn target;
@@ -79,5 +74,13 @@ public class Ability_Assassinate : Ability
         }
 
         return false;
+    }
+
+    public override void ExposeData()
+    {
+        base.ExposeData();
+        Scribe_Values.Look(ref attacksLeft, nameof(attacksLeft));
+        Scribe_Values.Look(ref originalPosition, nameof(originalPosition));
+        Scribe_References.Look(ref target, nameof(target));
     }
 }

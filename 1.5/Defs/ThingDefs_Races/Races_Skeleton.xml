@@ -108,7 +108,9 @@
 			
 		</comps>
 		<race>
-			<deathActionWorkerClass>VanillaPsycastsExpanded.DeathActionWorker_Skeleton</deathActionWorkerClass>
+			<deathAction>
+				<workerClass>VanillaPsycastsExpanded.DeathActionWorker_Skeleton</workerClass>
+			</deathAction>
 			<body>VPE_SkeletalBody</body>
 			<fleshType>VPE_SkeletalFlesh</fleshType>
 			<lifeStageAges>

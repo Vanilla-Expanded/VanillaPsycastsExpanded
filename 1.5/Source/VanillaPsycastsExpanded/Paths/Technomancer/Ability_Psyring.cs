@@ -48,7 +48,6 @@ public class Psyring : Apparel
 {
     private AbilityDef ability;
     private bool alreadyHad;
-    private int lastCooldown;
 
     public AbilityDef Ability => ability;
     public bool Added => !alreadyHad;
