@@ -20,6 +20,7 @@
       <mineableThing>VPE_Eltex</mineableThing>
       <mineableYield>3</mineableYield>
 	  <claimable>false</claimable>
+	  <veinMineable>true</veinMineable>
     </building>
   </ThingDef>
 
