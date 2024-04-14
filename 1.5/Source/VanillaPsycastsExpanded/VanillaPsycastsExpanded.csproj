@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlienRace">
-      <HintPath>..\..\..\..\AlienRaces\1.4\Assemblies\AlienRace.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\839005762\1.5\Assemblies\AlienRace.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -301,7 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.5.4052-beta</Version>
+      <Version>1.5.4063</Version>
     </PackageReference>
     <PackageReference Include="Lib.Harmony">
       <Version>2.3.3</Version>

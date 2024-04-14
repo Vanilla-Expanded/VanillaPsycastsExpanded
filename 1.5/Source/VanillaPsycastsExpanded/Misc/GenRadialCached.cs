@@ -8,7 +8,7 @@ namespace VanillaPsycastsExpanded;
 [HarmonyPatch]
 public static class GenRadialCached
 {
-    private static readonly Dictionary<Key, HashSet<Thing>> cache = new();
+    private static Dictionary<Key, HashSet<Thing>> cache = new();
 
     public static IEnumerable<Thing> RadialDistinctThingsAround(IntVec3 center, Map map, float radius, bool useCenter)
     {
@@ -18,6 +18,7 @@ public static class GenRadialCached
             radius = radius,
             mapId = map.Index
         };
+        if (cache is null) cache = new Dictionary<Key, HashSet<Thing>>();
         if (cache.TryGetValue(key, out var things)) return things;
         things = new();
         var numCells = GenRadial.NumCellsInRadius(radius);

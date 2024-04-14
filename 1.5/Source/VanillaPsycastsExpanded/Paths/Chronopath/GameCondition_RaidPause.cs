@@ -36,10 +36,13 @@ public class GameCondition_RaidPause : GameCondition_TimeSnow
     [HarmonyPostfix]
     public static void PostPostApplyDamage(DamageInfo dinfo, float totalDamageDealt, Pawn ___pawn)
     {
-        if (totalDamageDealt >= 0f      && dinfo.Def.ExternalViolenceFor(___pawn) && dinfo.Instigator is { } attacker &&
-            ___pawn.HostileTo(attacker) && !attacker.HostileTo(Faction.OfPlayer))
+        if (totalDamageDealt >= 0f      && dinfo.Def.ExternalViolenceFor(___pawn) 
+            && dinfo.Instigator is { } attacker && ___pawn.HostileTo(attacker) 
+            && !attacker.HostileTo(Faction.OfPlayer) && ___pawn.MapHeld?.gameConditionManager != null)
+        {
             foreach (GameCondition_RaidPause condition in ___pawn.MapHeld.gameConditionManager.ActiveConditions.OfType<GameCondition_RaidPause>().ToList())
                 condition.End();
+        }
     }
 }
 
