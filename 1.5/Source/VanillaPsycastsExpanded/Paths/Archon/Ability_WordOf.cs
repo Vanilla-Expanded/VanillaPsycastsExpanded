@@ -8,17 +8,22 @@
     {
         public override void Cast(params GlobalTargetInfo[] targets)
         {
-            base.Cast(targets);
             var groupLinkMaster = this.pawn.health.hediffSet.GetFirstHediffOfDef(VPE_DefOf.VPE_GroupLink) as Hediff_GroupLink;
             if (groupLinkMaster != null)
             {
+                var targetsLink = targets.ToList();
                 foreach (var linkedPawn in groupLinkMaster.linkedPawns)
                 {
-                    if (!targets.Any(x => x.Thing == linkedPawn))
+                    if (targetsLink.Any(x => x.Thing == linkedPawn) is false)
                     {
-                        base.Cast(new GlobalTargetInfo[] { linkedPawn });
+                        targetsLink.Add(linkedPawn);
                     }
                 }
+                base.Cast(targetsLink.ToArray());
+            }
+            else
+            {
+                base.Cast(targets);
             }
         }
     }
