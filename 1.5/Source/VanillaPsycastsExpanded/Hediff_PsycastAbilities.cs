@@ -109,7 +109,7 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
                 stat = StatDefOf.MeditationFocusGain,
                 value = statPoints * 0.1f
             });
-        if (pawn.Spawned) pawn.health.Notify_HediffChanged(this);
+        if (pawn != null && pawn.Spawned) pawn.health.Notify_HediffChanged(this);
     }
 
     public void UseAbility(float focus, float entropy)
