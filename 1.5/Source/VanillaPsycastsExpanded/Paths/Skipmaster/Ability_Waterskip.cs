@@ -32,6 +32,9 @@ public class Ability_Waterskip : Ability
                             twc.TakeDamage(new(DamageDefOf.EMP, 10, 10, -1, pawn));
                         break;
                     }
+                    case Pawn pawn:
+                        pawn.GetInvisibilityComp()?.DisruptInvisibility();
+                        break;
                 }
 
             if (!c.Filled(map)) FilthMaker.TryMakeFilth(c, map, ThingDefOf.Filth_Water);
