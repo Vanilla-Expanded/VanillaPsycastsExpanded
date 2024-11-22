@@ -194,7 +194,7 @@
 		<description>A spike of ice launched by the frostshaper.</description>
 		<thingClass>VFECore.Abilities.AbilityProjectile</thingClass>
 		<tickerType>Normal</tickerType>
-		<altitudeLayer>VisEffects</altitudeLayer>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<drawOffscreen>true</drawOffscreen>
 		<graphicData>
 			<texPath>Effects/Frostshaper/IceSpike/IceSpike</texPath>
@@ -219,7 +219,7 @@
 		<defName>VPE_FrostRay</defName>
 		<label>frost ray</label>
 		<thingClass>VanillaPsycastsExpanded.Projectile_FrostRay</thingClass>
-		<altitudeLayer>VisEffects</altitudeLayer>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<drawOffscreen>true</drawOffscreen>
 		<graphicData Class="VanillaPsycastsExpanded.Graphics.GraphicData_Animated">
 			<texPath>Effects/Frostshaper/Frostbeam</texPath>
