@@ -83,6 +83,14 @@
                                 </li>
                             </value>
                         </li>
+                        <li Class="PatchOperationAddModExtension" MayRequire="Ludeon.RimWorld.Anomaly">
+                            <xpath>/Defs/MeditationFocusDef[defName="Void"]</xpath>
+                            <value>
+                                <li Class="VanillaPsycastsExpanded.MeditationFocusExtension">
+                                    <icon>UI/PsyfocusIcons/PsyfocusVoid</icon>
+                                </li>
+                            </value>
+                        </li>
                     </operations>
                 </li>
             </operations>
