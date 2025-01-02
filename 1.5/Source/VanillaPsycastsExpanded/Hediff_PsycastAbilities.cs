@@ -99,7 +99,7 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
                 new() { stat = StatDefOf.PsychicEntropyRecoveryRate, value = level * 0.0125f + statPoints * 0.05f },
                 new() { stat = StatDefOf.PsychicSensitivity, value = statPoints * 0.05f },
                 new() { stat = VPE_DefOf.VPE_PsyfocusCostFactor, value = statPoints * -0.01f },
-                new() { stat = VPE_DefOf.VPE_PsychicEntropyMinimum, value = minHeatGivers.Sum(giver => giver.MinHeat ?? 0) }
+                new() { stat = VPE_DefOf.VPE_PsychicEntropyMinimum, value = minHeatGivers.Sum(giver => giver.MinHeat!=0 ? giver.MinHeat: 0) }
             },
             becomeVisible = false
         };
