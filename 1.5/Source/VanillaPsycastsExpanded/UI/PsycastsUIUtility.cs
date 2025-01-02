@@ -34,8 +34,16 @@
                 MeditationFocusExtension ext = def.GetModExtension<MeditationFocusExtension>();
                 if (ext is null)
                 {
+                    // Defs created in patch operations (used to?) result in null ModContentPack, so let's safely handle it.
+                    // And since we're at it, let's add some extra precautions just in case to prevent any issues.
+                    string warningContinuation = $"Please ask {def.modContentPack?.ModMetaData?.AuthorsString ?? "its authors"} to add one.";
+
+                    // A different message for official content. Someone actually reported the warning on Ludeon's Discord server as a bug...
+                    if (def.modContentPack?.IsOfficialMod == true)
+                        warningContinuation = "It's marked as an official DLC, and if that's the case then please report this to Vanilla Expanded team so it can receive an icon.";
+
                     Log.Warning(
-                        $"MeditationFocusDef {def} does not have a MeditationFocusExtension, which means it will not have an icon in the Psycasts UI.\nPlease ask {def.modContentPack.ModMetaData.AuthorsString} to add one.");
+                        $"MeditationFocusDef {def} does not have a MeditationFocusExtension, which means it will not have an icon in the Psycasts UI.\n{warningContinuation}");
                     meditationIcons.Add(def, BaseContent.WhiteTex);
                 }
                 else
