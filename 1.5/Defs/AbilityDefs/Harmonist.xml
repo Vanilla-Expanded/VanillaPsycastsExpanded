@@ -310,7 +310,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_SkillRoll</defName>
     <label>skillroll</label>
-    <description>Initiates a shift in the target’s knowledge and accumulated skills, attempting to rebalance them somewhat chaotically with some beneficial guidance. The strain puts the caster in a coma for a day, but can be reduced with psychic sensitivity.</description>
+    <description>Initiates a shift in the target’s knowledge and accumulated skills, attempting to rebalance them somewhat chaotically with some beneficial guidance. The strain puts the caster in a coma.</description>
     <iconPath>Abilities/Harmonist/SkillRoll</iconPath>
     <abilityClass>VanillaPsycastsExpanded.Harmonist.Ability_Skillroll</abilityClass>
     <castTime>720</castTime>

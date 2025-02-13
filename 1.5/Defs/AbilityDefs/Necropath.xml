@@ -302,7 +302,7 @@
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
 		<defName>VPE_Resurrect</defName>
 		<label>resurrect</label>
-		<description>By sacrificing a natural finger, the caster is able to imitate the effects of resurrector mech serum on any non-dessicated corpse, the psychic energy repairing broken-down tissues and kickstarting the body back to life. The target will be incapacitated and their allegiances will remain the same. The less preserved the body is, the more likely the target is to suffer from negative side effects. The long, intense concentration ends with the caster falling into a 6-hour coma.</description>
+		<description>By sacrificing a natural finger, the caster is able to imitate the effects of resurrector mech serum on any non-dessicated corpse, the psychic energy repairing broken-down tissues and kickstarting the body back to life. The target will be incapacitated and their allegiances will remain the same. The less preserved the body is, the more likely the target is to suffer from negative side effects. The long, intense concentration ends with the caster falling into a coma.</description>
 		<iconPath>Abilities/Necropath/Resurrect</iconPath>
 		<abilityClass>VanillaPsycastsExpanded.Ability_Resurrect</abilityClass>
 		<castTime>600</castTime>

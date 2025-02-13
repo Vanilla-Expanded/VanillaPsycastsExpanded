@@ -299,7 +299,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Blizzard</defName>
     <label>blizzard</label>
-    <description>Using differential-pressure skipgates, water-linked skipgates and nodes of psychic entropy, creates a swirling blizzard away from the caster. Those exposed to the tempest experience reduced sight, moving and manipulation, as well as hypothermia buildup and cutting cold. Duration scales with the caster’s psychic sensitivity and puts them in a 5-day coma.</description>
+    <description>Using differential-pressure skipgates, water-linked skipgates and nodes of psychic entropy, creates a swirling blizzard away from the caster. Those exposed to the tempest experience reduced sight, moving and manipulation, as well as hypothermia buildup and cutting cold. Duration scales with the caster’s psychic sensitivity and puts them in a coma.</description>
     <iconPath>Abilities/Frostshaper/Blizzard</iconPath>
     <durationTime>1200</durationTime>
     <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
@@ -327,6 +327,11 @@
       <li Class="VFECore.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_BlizzardSource</hediff>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+        <hours>120</hours>
+        <!-- Special case for blizzard - coma added by hediff once it runs out. -->
+        <autoApply>false</autoApply>
       </li>
     </modExtensions>
   </VFECore.Abilities.AbilityDef>

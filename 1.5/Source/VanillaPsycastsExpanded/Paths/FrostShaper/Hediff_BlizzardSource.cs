@@ -23,9 +23,7 @@ public class Hediff_BlizzardSource : Hediff_Overlay
     {
         base.PostRemoved();
         pawn.Map.GetComponent<MapComponent_PsycastsManager>().blizzardSources.Remove(this);
-        var coma = HediffMaker.MakeHediff(VPE_DefOf.PsychicComa, pawn);
-        coma.TryGetComp<HediffComp_Disappears>().ticksToDisappear = (int)(GenDate.TicksPerDay * 5 / pawn.GetStatValue(StatDefOf.PsychicSensitivity));
-        pawn.health.AddHediff(coma);
+        ability?.def.GetModExtension<AbilityExtension_PsychicComa>()?.ApplyComa(ability);
     }
 
     public override void Tick()
