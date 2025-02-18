@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--
+        VPE removes vanilla psytrainers, so any mod referencing those in
+        KCSG will cause missing symbols if VPE is active, as well as prevent
+        any psytrainers from spawning in those situations. Those defs will fix
+        those issues by providing a SymbolDef matching each vanilla Psytrainer.
+        This issue specifically affects Vanilla Base Generation Expanded.
+    -->
+
+    <!-- Vanilla psytrainers with a 1-to-1 VPE equivalent. -->
+
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Painblock</defName>
+        <thing>Psytrainer_VPE_Painblock</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Stun</defName>
+        <thing>Psytrainer_VPE_Stun</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Burden</defName>
+        <thing>Psytrainer_VPE_Burden</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_BlindingPulse</defName>
+        <thing>Psytrainer_VPE_BlindingPulse</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Beckon</defName>
+        <thing>Psytrainer_VPE_Beckon</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_ChaosSkip</defName>
+        <thing>Psytrainer_VPE_ChaosSkip</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Skip</defName>
+        <thing>Psytrainer_VPE_Skip</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Wallraise</defName>
+        <thing>Psytrainer_VPE_Wallraise</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Smokepop</defName>
+        <thing>Psytrainer_VPE_Smokepop</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Focus</defName>
+        <thing>Psytrainer_VPE_Focus</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Berserk</defName>
+        <thing>Psytrainer_VPE_Berserk</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Invisibility</defName>
+        <thing>Psytrainer_VPE_Invisibility</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_BerserkPulse</defName>
+        <thing>Psytrainer_VPE_BerserkPulse</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_ManhunterPulse</defName>
+        <thing>Psytrainer_VPE_ManhunterPulse</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_MassChaosSkip</defName>
+        <thing>Psytrainer_VPE_MassChaosSkip</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Waterskip</defName>
+        <thing>Psytrainer_VPE_Waterskip</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Flashstorm</defName>
+        <thing>Psytrainer_VPE_Flashstorm</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_SolarPinhole</defName>
+        <thing>Psytrainer_VPE_SolarPinhole</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Farskip</defName>
+        <thing>Psytrainer_VPE_Farskip</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Neuroquake</defName>
+        <thing>Psytrainer_VPE_Neuroquake</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_Chunkskip</defName>
+        <thing>Psytrainer_VPE_Chunkskip</thing>
+    </KCSG.SymbolDef>
+
+    <!-- Different defName between vanilla and VPE, but same psycast. -->
+
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_EntropyDump</defName>
+        <thing>Psytrainer_VPE_NeuralHeatDump</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_BulletShield</defName>
+        <thing>Psytrainer_VPE_Skipshield</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_WordOfTrust</defName>
+        <thing>Psytrainer_VPE_WordofTrust</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_WordOfJoy</defName>
+        <thing>Psytrainer_VPE_WordofJoy</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_WordOfLove</defName>
+        <thing>Psytrainer_VPE_WordofLove</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_WordOfSerenity</defName>
+        <thing>Psytrainer_VPE_WordofSerenity</thing>
+    </KCSG.SymbolDef>
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_WordOfInspiration</defName>
+        <thing>Psytrainer_VPE_WordofInspiration</thing>
+    </KCSG.SymbolDef>
+
+    <!-- Vanilla psytrainers that don't have a VPE equivalent, replace with a different one. -->
+
+    <!-- 3rd level psycast in vanilla, replace with equivalent level. -->
+    <!-- Basically upgrade to blinding pulse in vanilla, so a psycast from same tree. -->
+    <KCSG.SymbolDef>
+        <defName>Psytrainer_VertigoPulse</defName>
+        <thing>Psytrainer_VPE_WordofPain</thing>
+    </KCSG.SymbolDef>
+
+</Defs>
