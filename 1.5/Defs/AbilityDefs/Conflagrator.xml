@@ -254,7 +254,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_FireBeam</defName>
     <label>fire beam</label>
-    <description>Attempts to recreate the power of a star inside a concentrated column of almost liquidized oxygen. The resulting emission of plasma is so powerful that only the most advanced weapons systems can hope to compare. The long, intense concentration ends with the caster falling into a 6-hour coma.</description>
+    <description>Attempts to recreate the power of a star inside a concentrated column of almost liquidized oxygen. The resulting emission of plasma is so powerful that only the most advanced weapons systems can hope to compare. The long, intense concentration ends with the caster falling into a coma.</description>
     <iconPath>Abilities/Conflagrator/FireBeam</iconPath>
     <abilityClass>VFECore.Abilities.Ability_OrbitalStrike</abilityClass>
     <castTime>300</castTime>

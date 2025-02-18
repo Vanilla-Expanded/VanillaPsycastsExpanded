@@ -292,7 +292,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Neuroquake</defName>
     <label>neuroquake</label>
-    <description>Find a discontinuity in the psychic field and unfold it, releasing a massive amount of psychic energy. Every creature in range but outside of the safe inner circle will be driven violently insane. Casting this takes 12 seconds of meditation, and afterwards, the caster will go into a five-day psychic coma. The disturbing neuroquake echoes will inflict pain on everyone for many kilometers around, causing diplomatic consequences with all factions.</description>
+    <description>Find a discontinuity in the psychic field and unfold it, releasing a massive amount of psychic energy. Every creature in range but outside of the safe inner circle will be driven violently insane. Casting this takes 12 seconds of meditation, and afterwards, the caster will go into a psychic coma. The disturbing neuroquake echoes will inflict pain on everyone for many kilometers around, causing diplomatic consequences with all factions.</description>
     <iconPath>Abilities/Archotechist/Neuroquake</iconPath>
     <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
     <jobDef>VFEA_UseAbilityUninterruptible</jobDef>
@@ -307,7 +307,7 @@
     <radius>60</radius>
     <modExtensions>
       <li Class="VFECore.Abilities.AbilityExtension_ConfirmationMessage">
-        <message>If you use neuroquake, everyone in this region will feel the neuroquake echo, you will lose goodwill with every non-hostile faction.\n\nNeuroquake takes 12 seconds to cast, and cannot be interrupted. When complete, the caster will fall into a psychic coma for 5 days.\n\nEveryone in range except those in a small circle around the caster will be affected.\n\nDo you really want to cast neuroquake?</message>
+        <message>If you use neuroquake, everyone in this region will feel the neuroquake echo, you will lose goodwill with every non-hostile faction.\n\nNeuroquake takes 12 seconds to cast, and cannot be interrupted. When complete, the caster will fall into a psychic coma for up to 5 days.\n\nEveryone in range except those in a small circle around the caster will be affected.\n\nDo you really want to cast neuroquake?</message>
       </li>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
         <path>VPE_Archotechist</path>
@@ -333,6 +333,9 @@
       <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
         <fleckDef>PsychicApplyNeuroquake</fleckDef>
         <sound>Psycast_Neuroquake_Effect</sound>
+      </li>
+      <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+        <hours>120</hours>
       </li>
     </modExtensions>
   </VFECore.Abilities.AbilityDef>

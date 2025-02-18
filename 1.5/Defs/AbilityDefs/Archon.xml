@@ -274,8 +274,11 @@
 	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_MassHallucination</defName>
 		<label>mass hallucination</label>
-		<description>Creating a massive burst of psychic suggestion, convinced nearby pawns that rooms are the absolute best they could possibly be. The resulting coma for the caster and the effect lasts for five days.</description>
+		<description>Creating a massive burst of psychic suggestion, convinced nearby pawns that rooms are the absolute best they could possibly be. The caster is put into a coma and the resulting effect lasts for five days.</description>
 		<iconPath>Abilities/Archon/MassHallucination</iconPath>
+		<!-- Replace with VFECore.Abilities.Ability_Blank for 1.6 update. -->
+		<!-- We cannot do this right now as modifying abilityClass doesn't update existing abilities in-game. -->
+		<!-- Once that happens, also consider adding warnings for using Ability_PsychicComa (or remove it entirely). -->
 		<abilityClass>VanillaPsycastsExpanded.Ability_PsychicComa</abilityClass>
 		<castSound>VPE_MassHallucination_Cast</castSound>
 		<targetMode>Self</targetMode>
@@ -303,6 +306,9 @@
 			</li>
 			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
 				<hediff>VPE_Hallucination</hediff>
+			</li>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
+				<hours>120</hours>
 			</li>
 		</modExtensions>
 	</VFECore.Abilities.AbilityDef>

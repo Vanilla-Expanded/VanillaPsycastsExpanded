@@ -312,7 +312,7 @@
   <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
     <defName>VPE_ReunionFarskip</defName>
     <label>reunion farskip</label>
-    <description>After a short meditation period and followed by a 5-day coma, taps into a target’s bloodline to skip all living family members to their proximity, knocked out through psychic shock. However, it does nothing to change their relationships and is considered rude by all other factions.</description>
+    <description>After a short meditation period and followed by a coma, taps into a target’s bloodline to skip all living family members to their proximity, knocked out through psychic shock. However, it does nothing to change their relationships and is considered rude by all other factions.</description>
     <iconPath>Abilities/Empath/ReunionFarskip</iconPath>
     <abilityClass>VanillaPsycastsExpanded.Ability_ReunionFarskip</abilityClass>
     <castTime>720</castTime>
