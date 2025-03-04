@@ -160,7 +160,7 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
         if (level >= PsycastsMod.Settings.maxLevel) return;
         experience += experienceGain;
         var newLevelWasGainedAlready = false;
-        while (experience >= ExperienceRequiredForLevel(level + 1))
+        while (level < PsycastsMod.Settings.maxLevel && experience >= ExperienceRequiredForLevel(level + 1))
         {
             ChangeLevel(1, sendLetter && !newLevelWasGainedAlready);
             newLevelWasGainedAlready = true;
