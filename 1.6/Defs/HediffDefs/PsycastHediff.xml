@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <HediffDef ParentName="ImplantHediffBase"> 
+    <defName>VPE_PsycastAbilityImplant</defName>
+    <label>psylink</label>
+    <description>Go away cheater</description>
+    <hediffClass>VanillaPsycastsExpanded.Hediff_PsycastAbilities</hediffClass>
+	<isBad>false</isBad>
+    <initialSeverity>1</initialSeverity> 
+    <minSeverity>0</minSeverity>
+    <keepOnBodyPartRestoration>True</keepOnBodyPartRestoration>
+    <countsAsAddedPartOrImplant>False</countsAsAddedPartOrImplant>
+    <stages>
+      <li>
+        <statOffsets>
+          <VPE_PsyfocusCostFactor>0</VPE_PsyfocusCostFactor>
+          <VPE_PsychicEntropyMinimum>0</VPE_PsychicEntropyMinimum>
+        </statOffsets>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>
