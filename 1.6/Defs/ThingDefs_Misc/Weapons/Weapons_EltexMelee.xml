@@ -25,7 +25,7 @@
     </equippedStatOffsets>
 	<relicChance>2</relicChance>
     <modExtensions>
-	    <li Class="VFECore.ThingDefExtension">
+	    <li Class="VEF.Things.ThingDefExtension">
             <usableWithShields>true</usableWithShields>
         </li>
     </modExtensions>
@@ -55,7 +55,7 @@
     </equippedStatOffsets>
 	<relicChance>2</relicChance>
     <modExtensions>
-	    <li Class="VFECore.ThingDefExtension">
+	    <li Class="VEF.Things.ThingDefExtension">
             <usableWithShields>true</usableWithShields>
         </li>
     </modExtensions>

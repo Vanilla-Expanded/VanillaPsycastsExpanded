@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Mindcontrol</defName>
     <label>mind control</label>
     <description>Psychically dominate a target for a brief period, scaling with their psychic sensitivity, giving the caster a second body. However, it’s difficult being two people at once.</description>
     <iconPath>Abilities/Harmonist/Mindcontrol</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <castTime>60</castTime>
     <castSound>VPE_MindControl_Cast</castSound>
     <durationTime>720</durationTime>
@@ -24,11 +24,11 @@
           <li>VPE_PsychicGuidance</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_MindControlled</hediff>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_ExtraHediffs">
+      <li Class="VEF.Abilities.AbilityExtension_ExtraHediffs">
         <onCaster>
           <li>VPE_MindScramble</li>
         </onCaster>
@@ -38,13 +38,13 @@
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_PsychicGuidance</defName>
     <label>psychic guidance</label>
     <description>Dampens the caster’s sight, hearing, movement and manipulation in exchange for overcharging the target’s own physical abilities.</description>
     <iconPath>Abilities/Harmonist/PsychicGuidance</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <range>4.9</range>
     <durationTime>30000</durationTime>
     <targetMode>Humanlike</targetMode>
@@ -61,7 +61,7 @@
         <entropyGain>0</entropyGain>
         <psychic>true</psychic>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_ExtraHediffs">
+      <li Class="VEF.Abilities.AbilityExtension_ExtraHediffs">
         <onCaster>
           <li>VPE_PsychicGuide</li>
         </onCaster>
@@ -71,8 +71,8 @@
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_TransmuteStone</defName>
     <label>transmute stone</label>
     <description>Designates an area of stone which will have its minerals swapped out for a single, randomized type from an underground strata.</description>
@@ -99,8 +99,8 @@
         </prerequisites>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_HeatFocus</defName>
     <label>heat focus</label>
     <description>Initiates harmonic meditation which converts all accumulated heat in psyfocus after 10 seconds. Can neither overcharge psyfocus nor heat dump.</description>
@@ -122,8 +122,8 @@
         </prerequisites>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_LuckTransfer</defName>
     <label>luck transfer</label>
     <description>Creates a rift in karmic balance by shifting the negative karma from the first target onto the second target, as well as receiving their positive karma. Only affects combat and the duration scales with the first target’s psychic sensitivity.</description>
@@ -163,8 +163,8 @@
         </prerequisites>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_BendProbability</defName>
     <label>bend probability</label>
     <description>Creates a ripple of cosmic scale that will force something to happen.</description>
@@ -188,8 +188,8 @@
         </prerequisites>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_LocationSwap</defName>
     <label>location swap</label>
     <description>Using precision skipgates, swaps the positions of the caster and a visible target.</description>
@@ -215,8 +215,8 @@
         <clamorRadius>10</clamorRadius>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_HealthSwap</defName>
     <label>health swap</label>
     <description>Through the law of equivalent exchange, returns the primary target’s vitality to its origin, transferring all foreign objects and injuries to the secondary target.</description>
@@ -260,8 +260,8 @@
         </prerequisites>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Transmutation</defName>
     <label>transmutation</label>
     <description>Through the law of equivalent exchange, converts a targeted (stack of) item(s) into an item of equal or lesser value. Completely unpredictable.</description>
@@ -291,7 +291,7 @@
           <li>VPE_LocationSwap</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_FleckOnTarget">
         <fleckDefs>
           <li>PsycastSkipInnerExit</li>
           <li>PsycastSkipOuterRingExit</li>
@@ -300,14 +300,14 @@
         <sound>Psycast_Skip_Exit</sound>
         <preCastTicks>10</preCastTicks>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_EffecterOnTarget">
         <effecterDef>Skip_Exit</effecterDef>
         <maintainForTicks>60</maintainForTicks>
         <scale>0.42</scale>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_SkillRoll</defName>
     <label>skillroll</label>
     <description>Initiates a shift in the target’s knowledge and accumulated skills, attempting to rebalance them somewhat chaotically with some beneficial guidance. The strain puts the caster in a coma.</description>
@@ -340,5 +340,5 @@
         <hours>24</hours>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 </Defs>

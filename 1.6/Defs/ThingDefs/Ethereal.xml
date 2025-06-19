@@ -85,7 +85,7 @@
         <drawerType>RealtimeOnly</drawerType>
         <comps>
             <li>
-                <compClass>VFECore.Abilities.CompDuration</compClass>
+                <compClass>VEF.Abilities.CompDuration</compClass>
             </li>
         </comps>
     </ThingDef>
@@ -97,7 +97,7 @@
         <drawerType>RealtimeOnly</drawerType>
         <comps>
             <li>
-                <compClass>VFECore.Abilities.CompAbilitySpawn</compClass>
+                <compClass>VEF.Abilities.CompAbilitySpawn</compClass>
             </li>
         </comps>
     </ThingDef>
@@ -129,7 +129,7 @@
         </graphicData>
         <comps>
             <li>
-                <compClass>VFECore.Abilities.CompDuration</compClass>
+                <compClass>VEF.Abilities.CompDuration</compClass>
             </li>
             <li Class="VanillaPsycastsExpanded.Wildspeaker.CompProperties_PlaySound">
                 <sustainer>VPE_Shrineshield_Sustainer</sustainer>
@@ -208,7 +208,7 @@
                 <glowRadius>4.9</glowRadius>
             </li>
             <li>
-                <compClass>VFECore.Abilities.CompDuration</compClass>
+                <compClass>VEF.Abilities.CompDuration</compClass>
             </li>
         </comps>
     </ThingDef>
@@ -221,10 +221,10 @@
         <category>Building</category>
         <comps>
             <li>
-                <compClass>VFECore.Abilities.CompDuration</compClass>
+                <compClass>VEF.Abilities.CompDuration</compClass>
             </li>
             <li>
-                <compClass>VFECore.Abilities.CompAbilitySpawn</compClass>
+                <compClass>VEF.Abilities.CompAbilitySpawn</compClass>
             </li>
         </comps>
     </ThingDef>

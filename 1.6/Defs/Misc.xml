@@ -30,7 +30,7 @@
 		</eventMakers>
 		<overlayClasses>
 			<li>VanillaPsycastsExpanded.Staticlord.WeatherOverlay_RainSideways</li>
-			<li>VFECore.WeatherOverlay_Effects</li>
+			<li>VEF.Weathers.WeatherOverlay_Effects</li>
 		</overlayClasses>
 		<commonalityRainfallFactor>
 			<points>
@@ -64,7 +64,7 @@
 			<saturation>0.83</saturation>
 		</skyColorsNightMid>
 		<modExtensions>
-			<li Class="VFECore.WeatherEffectsExtension">
+			<li Class="VEF.Weathers.WeatherEffectsExtension">
 				<ticksInterval>100</ticksInterval>
 				<hediffsToApply>
 					<li>
@@ -73,7 +73,7 @@
 					</li>
 				</hediffsToApply>
 			</li>
-			<li Class="VFECore.WeatherExtension">
+			<li Class="VEF.Weathers.WeatherExtension">
 				<canRandomlyGenerate>false</canRandomlyGenerate>
 			</li>
 		</modExtensions>

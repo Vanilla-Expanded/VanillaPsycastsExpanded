@@ -87,7 +87,7 @@
 		<defName>VPE_ControlledFrenzy</defName>
 		<label>psychic frenzy</label>
 		<description>Temporary, psychically induced frenzy. The energy restores itself with each consecutive kill.</description>
-		<hediffClass>VFECore.Abilities.Hediff_Ability</hediffClass>
+		<hediffClass>VEF.Abilities.Hediff_Ability</hediffClass>
 		<isBad>false</isBad>
 		<stages>
 			<li>
@@ -111,7 +111,7 @@
 		<defName>VPE_GuidedShot</defName>
 		<label>guided shot</label>
 		<description>Psychically induced insane accuracy.</description>
-		<hediffClass>VFECore.Abilities.Hediff_Ability</hediffClass>
+		<hediffClass>VEF.Abilities.Hediff_Ability</hediffClass>
 		<isBad>false</isBad>
 		<stages>
 			<li>
@@ -121,7 +121,7 @@
 			</li>
 		</stages>
 		<comps>
-			<li Class="VFECore.HediffCompProperties_Targeting">
+			<li Class="VEF.Hediffs.HediffCompProperties_Targeting">
 				<neverMiss>true</neverMiss>
 				<targetingMote>VPE_WarlordTargettingReticle</targetingMote>
 				<initialTargetingMoteScale>3</initialTargetingMoteScale>

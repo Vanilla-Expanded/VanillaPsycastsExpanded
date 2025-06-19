@@ -16,13 +16,16 @@ public class CompDarkener : CompGlower
     static CompDarkener()
     {
         var glowGridLight = AccessTools.Inner(typeof(GlowGrid), "Light");
-        lightGlower = AccessTools.FieldRefAccess<CompGlower>(glowGridLight, "glower");
+        Log.Error($"CompDarkener - needs fixing.");
+        // lightGlower = AccessTools.FieldRefAccess<CompGlower>(glowGridLight, "glower");
     }
 
     protected override bool ShouldBeLitNow => true;
 
-    [HarmonyPatch(typeof(GlowGrid), "CombineColors")]
-    [HarmonyPrefix]
+    // TODO: Fix all those patches to work with the new glower system
+    
+    // [HarmonyPatch(typeof(GlowGrid), "CombineColors")]
+    // [HarmonyPrefix]
     public static bool CombineColorsDark(ref Color32 __result, CompGlower toAddGlower)
     {
         if (toAddGlower is CompDarkener)
@@ -34,8 +37,8 @@ public class CompDarkener : CompGlower
         return true;
     }
 
-    [HarmonyPatch(typeof(GlowGrid), nameof(GlowGrid.RegisterGlower))]
-    [HarmonyPostfix]
+    // [HarmonyPatch(typeof(GlowGrid), nameof(GlowGrid.RegisterGlower))]
+    // [HarmonyPostfix]
     public static void MoveDarkLast(List<object> ___lights)
     {
         var darkeners = new List<object>();

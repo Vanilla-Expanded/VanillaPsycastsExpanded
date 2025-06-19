@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Flameball</defName>
     <label>flameball</label>
     <description>Throw an orb of condensed flames, similar to a grenade, which explodes upon impact. The range scales with the caster’s psychic sensitivity.</description>
     <iconPath>Abilities/Conflagrator/Flameball</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_ShootProjectile</abilityClass>
     <castTime>60</castTime>
     <range>18.9</range>
     <rangeStatFactors>
@@ -22,18 +22,18 @@
         <psyfocusCost>0.02</psyfocusCost>
         <entropyGain>12</entropyGain>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+      <li Class="VEF.Abilities.AbilityExtension_Projectile">
         <projectile>VPE_Flameball</projectile>
         <forcedMissRadius>1.9</forcedMissRadius>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_SelfExplosion</defName>
     <label>self explosion</label>
     <description>Expels pressurized, flammable gas from the caster which immediately ignites. High chance of igniting those in the blast site, but does little damage without harming the caster.</description>
     <iconPath>Abilities/Conflagrator/SelfExplosion</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Explode</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Explode</abilityClass>
     <castTime>60</castTime>
     <radius>14.9</radius>
     <targetMode>Self</targetMode>
@@ -50,19 +50,19 @@
           <li>VPE_Flameball</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Explosion">
+      <li Class="VEF.Abilities.AbilityExtension_Explosion">
         <explosionRadius>14.9</explosionRadius>
         <onCaster>true</onCaster>
         <explosionDamageDef>Flame</explosionDamageDef>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Explosion</defName>
     <label>explosion</label>
     <description>Ignites a small amount of deepchem underneath the target area, which vents to the surface in an explosion. Burns the area and spills forth excess liquid.</description>
     <iconPath>Abilities/Conflagrator/Explosion</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Explode</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Explode</abilityClass>
     <range>14.9</range>
     <radius>7</radius>
     <targetMode>Location</targetMode>
@@ -82,20 +82,20 @@
           <li>VPE_SelfExplosion</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Explosion">
+      <li Class="VEF.Abilities.AbilityExtension_Explosion">
         <explosionRadius>7</explosionRadius>
         <onCaster>false</onCaster>
         <explosionDamageDef>Flame</explosionDamageDef>
         <casterImmune>false</casterImmune>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_FireShield</defName>
     <label>fire shield</label>
     <description>Creates an aura of blazing flames around the target for a time, preventing them from immolation and igniting any who try to attack them in melee. Duration scales with the caster’s psychic sensitivity.</description>
     <iconPath>Abilities/Conflagrator/FireShield</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <range>4.9</range>
     <targetMode>Pawn</targetMode>
     <targetingParameters>
@@ -121,17 +121,17 @@
           <li>VPE_SelfExplosion</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_FireShield</hediff>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_BreatheFlame</defName>
     <label>breathe flame</label>
     <description>Spews forth flammable liquid which immediately ignites, along with everything the flames touch.</description>
     <iconPath>Abilities/Conflagrator/BreatheFlame</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_ShootProjectile</abilityClass>
     <castTime>6</castTime>
     <range>9.9</range>
     <targetMode>Pawn</targetMode>
@@ -151,17 +151,17 @@
           <li>VPE_SelfExplosion</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+      <li Class="VEF.Abilities.AbilityExtension_Projectile">
         <projectile>VPE_FireBreath</projectile>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_EyeBlast</defName>
     <label>eye blast</label>
     <description>Emulating a star, the caster compresses highly energized gas which escapes in the desired direction, with damage scaling with psychic sensitivity. Ignites a small but distant area.</description>
     <iconPath>Abilities/Conflagrator/EyeBlast</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_ShootProjectile</abilityClass>
     <castTime>15</castTime>
     <range>24.9</range>
     <radius>3</radius>
@@ -182,17 +182,17 @@
           <li>VPE_Explosion</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+      <li Class="VEF.Abilities.AbilityExtension_Projectile">
         <projectile>VPE_EyeBlast</projectile>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_QuenchFlames</defName>
     <label>extinguish flames</label>
     <description>Converts a local deposit of deepchem into fire-retardant foam which sprays forth from the user in a large area.</description>
     <iconPath>Abilities/Conflagrator/QuenchFlames</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Explode</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Explode</abilityClass>
     <castTime>60</castTime>
     <targetMode>Self</targetMode>
     <radius>16.9</radius>
@@ -208,7 +208,7 @@
           <li>VPE_FireShield</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Explosion">
+      <li Class="VEF.Abilities.AbilityExtension_Explosion">
         <explosionRadius>16.9</explosionRadius>
         <onCaster>true</onCaster>
         <explosionDamageDef>Extinguish</explosionDamageDef>
@@ -218,13 +218,13 @@
         <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_MeteorShower</defName>
     <label>meteor shower</label>
     <description>Skips and immolates orbiting meteoroids to strike a designated area. The number of impacts scales with psychic sensitivity.</description>
     <iconPath>Abilities/Conflagrator/MeteorShower</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Skyfallers</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Skyfallers</abilityClass>
     <castTime>180</castTime>
     <range>36.9</range>
     <radius>9.9</radius>
@@ -245,18 +245,18 @@
           <li>VPE_BreatheFlame</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Skyfaller">
+      <li Class="VEF.Abilities.AbilityExtension_Skyfaller">
         <skyfaller>VPE_SmallMeteorite_Incoming</skyfaller>
         <rocks>1</rocks>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_FireBeam</defName>
     <label>fire beam</label>
     <description>Attempts to recreate the power of a star inside a concentrated column of almost liquidized oxygen. The resulting emission of plasma is so powerful that only the most advanced weapons systems can hope to compare. The long, intense concentration ends with the caster falling into a coma.</description>
     <iconPath>Abilities/Conflagrator/FireBeam</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_OrbitalStrike</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_OrbitalStrike</abilityClass>
     <castTime>300</castTime>
     <durationTime>180</durationTime>
     <range>45.9</range>
@@ -274,15 +274,15 @@
           <li>VPE_EyeBlast</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+      <li Class="VEF.Abilities.AbilityExtension_Projectile">
         <projectile>VPE_FireBeam</projectile>
       </li>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
         <hours>6</hours>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_FlameTornado</defName>
     <label>fire tornado</label>
     <description>Attempts to recreate the power of a star inside a vortex of concentrated oxygen. The mess of reactions occurring creates flammable byproducts in its wake while also leaving its trajectory completely unpredictable.</description>
@@ -308,5 +308,5 @@
         </prerequisites>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 </Defs>

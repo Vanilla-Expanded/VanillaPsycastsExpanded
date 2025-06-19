@@ -8,7 +8,7 @@
         <hediffClass>HediffWithComps</hediffClass>
 		<isBad>false</isBad>
         <comps>
-            <li Class="VFECore.Shields.HediffCompProperties_Shield">
+            <li Class="VEF.Hediffs.HediffCompProperties_Shield">
                 <compClass>VanillaPsycastsExpanded.Conflagrator.HediffComp_FireShield</compClass>
                 <graphic>
                     <texPath>Effects/Conflagrator/FireShieldBubble/FireShieldBubble</texPath>
@@ -47,8 +47,8 @@
         <initialSeverity>1</initialSeverity>
         <hediffClass>HediffWithComps</hediffClass>
         <comps>
-            <li Class="VFECore.Shields.HediffCompProperties_DamageAura">
-                <compClass>VFECore.Shields.HediffComp_DamageAura</compClass>
+            <li Class="VEF.Hediffs.HediffCompProperties_DamageAura">
+                <compClass>VEF.Hediffs.HediffComp_DamageAura</compClass>
                 <graphic>
                     <texPath>Effects/Staticlord/StaticAura/StaticAura</texPath>
                     <drawSize>(14, 14)</drawSize>

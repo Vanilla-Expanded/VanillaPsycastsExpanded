@@ -8,7 +8,7 @@
 		<hediffClass>HediffWithComps</hediffClass>
 		<isBad>false</isBad>
 		<comps>
-			<li Class="VFECore.Shields.HediffCompProperties_Draw">
+			<li Class="VEF.Hediffs.HediffCompProperties_Draw">
 				<compClass>VanillaPsycastsExpanded.Staticlord.HediffComp_Recharge</compClass>
 				<graphic>
 					<texPath>Effects/Staticlord/Recharge</texPath>
@@ -594,7 +594,7 @@
 		<isBad>false</isBad>
 		<comps>
 			<li Class="HediffCompProperties">
-				<compClass>VFECore.HediffComp_Phasing</compClass>
+				<compClass>VEF.Hediffs.HediffComp_Phasing</compClass>
 			</li>
 			<li Class="VanillaPsycastsExpanded.HediffCompProperties_SpawnMote">
 				<moteDef>VPE_MatterPhasing</moteDef>

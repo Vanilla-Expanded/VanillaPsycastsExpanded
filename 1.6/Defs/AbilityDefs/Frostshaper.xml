@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_IceBreath</defName>
     <label>breathe ice</label>
     <description>Breathe forward a stream of psychic entropy, the resulting cold cutting and inducing hypothermia scaling with the distance to the target.</description>
@@ -23,18 +23,18 @@
         <psyfocusCost>0.08</psyfocusCost>
         <entropyGain>26</entropyGain>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+      <li Class="VEF.Abilities.AbilityExtension_Projectile">
         <projectile>VPE_IceBreathe</projectile>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_IceSpike</defName>
     <label>ice spike</label>
     <description>Condenses vapor with psychic entropy into an icicle launched at a target, the damage and accuracy scaling with psychic sensitivity.</description>
     <iconPath>Abilities/Frostshaper/IceSpike</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_ShootProjectile</abilityClass>
     <castTime>12</castTime>
     <range>22.9</range>
     <castSound>VPE_IceSpike_Cast</castSound>
@@ -55,21 +55,21 @@
         <psyfocusCost>0.04</psyfocusCost>
         <entropyGain>12</entropyGain>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+      <li Class="VEF.Abilities.AbilityExtension_Projectile">
         <projectile>VPE_IceSpike</projectile>
         <accuracyStatFactors>
           <PsychicSensitivity>1</PsychicSensitivity>
         </accuracyStatFactors>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_IceShield</defName>
     <label>ice shield</label>
     <description>Creates an aura of psychic entropy around the target for a time, preventing them from experiencing cold and inducing hypothermia on any who try to attack them in melee. Duration scales with psychic sensitivity of the caster.</description>
     <iconPath>Abilities/Frostshaper/IceShield</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <targetingParameters>
       <canTargetPawns>true</canTargetPawns>
       <canTargetBuildings>false</canTargetBuildings>
@@ -92,13 +92,13 @@
         <psyfocusCost>0.02</psyfocusCost>
         <entropyGain>25</entropyGain>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_IceShield</hediff>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_FrostRay</defName>
     <label>frost ray</label>
     <description>Push forth a concentrated stream of psychic entropy for a few seconds, rapidly inducing cuts and hypothermia. The duration scales with the caster’s psychic sensitivity.</description>
@@ -123,16 +123,16 @@
           <li>VPE_IceSpike</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Projectile">
+      <li Class="VEF.Abilities.AbilityExtension_Projectile">
         <projectile>VPE_FrostRay</projectile>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_FrostRay</hediff>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_IceCrystal</defName>
     <label>ice crystal</label>
     <description>Creates a node of psychic entropy in the form of a crystal, sapping the heat from the room for the next 5 days.</description>
@@ -142,7 +142,7 @@
     <durationTime>300000</durationTime>
     <range>6.9</range>
     <targetMode>Location</targetMode>
-    <abilityClass>VFECore.Abilities.Ability_SpawnBuilding</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_SpawnBuilding</abilityClass>
     <needsTicking>true</needsTicking>
     <chance>0</chance>
     <modExtensions>
@@ -157,10 +157,10 @@
           <li>VPE_IceShield</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Building">
+      <li Class="VEF.Abilities.AbilityExtension_Building">
         <building>VPE_IceCrystal</building>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_EffecterOnTarget">
         <effecterDef>Skip_Exit</effecterDef>
         <maintainForTicks>60</maintainForTicks>
         <scale>0.42</scale>
@@ -170,14 +170,14 @@
         <depth>0.5</depth>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_ColdZone</defName>
     <label>cold zone</label>
     <description>Cause an area to manifest nodes of psychic entropy for the next 24 hours, drastically lowering the temperature.</description>
     <iconPath>Abilities/Frostshaper/ColdZone</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <targetMode>Location</targetMode>
     <castTime>180</castTime>
     <durationTime>60000</durationTime>
@@ -201,9 +201,9 @@
         <spawnRate>0.00062</spawnRate>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_IceBlock</defName>
     <label>ice block</label>
     <description>Combining nodes of psychic entropy and a skipgate linked to an ocean, creating a large block of ice to form in the target location. Fragile and can melt if the temperature is above freezing.</description>
@@ -225,13 +225,13 @@
           <li>VPE_SnapFreeze</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Building">
+      <li Class="VEF.Abilities.AbilityExtension_Building">
         <building>VPE_IceWall</building>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_SnapFreeze</defName>
     <label>snap freeze</label>
     <description>Creates motes of psychic entropy and miniature skipgates to water reservoirs above all the targets in a small area, encasing them in ice. Victims will experience hypothermia but the ice can melt prematurely if the temperature is above freezing.</description>
@@ -261,13 +261,13 @@
           <li>VPE_IceCrystal</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_IceBlock</hediff>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_IceWall</defName>
     <label>ice wall</label>
     <description>Combining nodes of psychic entropy and miniature skipgates linked to an ocean, creating a circular wall of ice to form around the caster. Fragile and can melt if the temperature is above freezing.</description>
@@ -290,19 +290,19 @@
           <li>VPE_IceBlock</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Building">
+      <li Class="VEF.Abilities.AbilityExtension_Building">
         <building>VPE_IceWall</building>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Blizzard</defName>
     <label>blizzard</label>
     <description>Using differential-pressure skipgates, water-linked skipgates and nodes of psychic entropy, creates a swirling blizzard away from the caster. Those exposed to the tempest experience reduced sight, moving and manipulation, as well as hypothermia buildup and cutting cold. Duration scales with the caster’s psychic sensitivity and puts them in a coma.</description>
     <iconPath>Abilities/Frostshaper/Blizzard</iconPath>
     <durationTime>1200</durationTime>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <castTime>360</castTime>
     <targetMode>Self</targetMode>
     <goodwillImpact>-75</goodwillImpact>
@@ -321,10 +321,10 @@
           <li>VPE_IceWall</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_AdditionalRadius">
+      <li Class="VEF.Abilities.AbilityExtension_AdditionalRadius">
         <radius>5</radius>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_BlizzardSource</hediff>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
@@ -334,5 +334,5 @@
         <autoApply>false</autoApply>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 </Defs>

@@ -96,8 +96,7 @@ public class PsychicStatusGizmo : Gizmo
         var rect2 = rect.ContractedBy(6f);
         var num = Mathf.Repeat(Time.time, 0.85f);
 
-        var psycast = (((MainTabWindow_Inspect)MainButtonDefOf.Inspect.TabWindow).LastMouseoverGizmo as Command_Ability)?.ability?.def
-          ?.GetModExtension<AbilityExtension_Psycast>();
+        var psycast = (MapGizmoUtility.LastMouseOverGizmo as Command_Ability)?.ability?.def?.GetModExtension<AbilityExtension_Psycast>();
 
         var num2 = num switch
         {

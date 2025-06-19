@@ -20,11 +20,11 @@
                 {
                     codes[i + 1].labels.Add(label);
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Pawn_HealthTracker), "hediffSet"));
-                    yield return new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(HediffSet), "hediffs"));
-                    yield return new CodeInstruction(OpCodes.Ldloc_2);
-                    yield return new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(List<Hediff>), "get_Item"));
-                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Pawn_HealthTracker_ShouldBeDeadFromLethalDamageThreshold_Patch), nameof(IsNotRegeneratingHediff)));
+                    yield return new CodeInstruction(OpCodes.Ldfld, typeof(Pawn_HealthTracker).Field(nameof(Pawn_HealthTracker.hediffSet)));
+                    yield return new CodeInstruction(OpCodes.Ldfld, typeof(HediffSet).Field(nameof(HediffSet.hediffs)));
+                    yield return new CodeInstruction(OpCodes.Ldloc_1);
+                    yield return new CodeInstruction(OpCodes.Callvirt, typeof(List<Hediff>).IndexerGetter([typeof(int)]));
+                    yield return new CodeInstruction(OpCodes.Call, typeof(Pawn_HealthTracker_ShouldBeDeadFromLethalDamageThreshold_Patch).Method(nameof(IsNotRegeneratingHediff)));
                     yield return new CodeInstruction(OpCodes.Brfalse_S, codes[i].operand);
                 }
             }

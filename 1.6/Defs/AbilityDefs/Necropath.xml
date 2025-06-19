@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
 		<defName>VPE_WordofFear</defName>
 		<label>word of fear</label>
 		<description>Induces panic by overloading their flight response system for a duration scaling with their psychic sensitivity. Considered a hostile action.</description>
@@ -25,14 +25,14 @@
 				<durationScalesWithCaster>true</durationScalesWithCaster>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_Liferot</defName>
 		<label>liferot</label>
 		<description>Psychically induces randomized mass necrosis in a target, exposing the afflicted body parts to infection and inducing vomiting. Duration scales with the target’s psychic sensitivity and is an overtly hostile action.</description>
 		<iconPath>Abilities/Necropath/Liferot</iconPath>
-		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+		<abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
 		<castSound>VPE_Liferot_Cast</castSound>
 		<castTime>30</castTime>
 		<goodwillImpact>-100</goodwillImpact>
@@ -56,14 +56,14 @@
 					<li>VPE_WordofFear</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>VPE_Liferot</hediff>
 				<durationMultiplier>PsychicSensitivity</durationMultiplier>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_StealVitality</defName>
 		<label>steal vitality</label>
 		<description>Siphons vitality from a nearby source, transferring the target’s natural healing factor, movement speed, and consciousness to the caster for a full day. Considered an overtly hostile action.</description>
@@ -85,13 +85,13 @@
 					<li>VPE_WordofFear</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>VPE_LostVitality</hediff>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_ParalysisPulse</defName>
 		<label>paralysis pulse</label>
 		<description>Emits a cloud of black particles from the caster, which afflicts all, caster included, within the area with paralytic abasia for a full day. The radius scales with the caster’s psychic sensitivity.</description>
@@ -128,13 +128,13 @@
 					<li>VPE_Liferot</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>Abasia</hediff>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
 		<defName>VPE_Corpsetalk</defName>
 		<label>corpsetalk</label>
 		<description>Target a corpse and temporarily appropriate the victim’s skills to make up for the caster’s deficiencies. Effect lasts for a season before returning to normal.</description>
@@ -165,19 +165,19 @@
 					<li>VPE_WordofFear</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>VPE_CorpseTalk</hediff>
 				<applyAuto>false</applyAuto>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_Ghostwalk</defName>
 		<label>ghostwalk</label>
 		<description>Coats the caster in a layer of temporary psychic atrophy, allowing them to walk through structures unimpeded and without damaging anything. Duration scales with the caster’s psychic sensitivity.</description>
 		<iconPath>Abilities/Necropath/Ghostwalk</iconPath>
-		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+		<abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
 		<castTime>60</castTime>
 		<durationTime>720</durationTime>
 		<targetMode>Self</targetMode>
@@ -193,14 +193,14 @@
 					<li>VPE_StealVitality</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>VPE_Ghostwalk</hediff>
 				<durationMultiplier>PsychicSensitivity</durationMultiplier>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_ConsumeBodies</defName>
 		<label>consume bodies</label>
 		<description>Psychically strips all remaining life force from nearby humanoid corpses and stores the essence as a permanent stacking buffer to neural heat.</description>
@@ -235,14 +235,14 @@
 				</prerequisites>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
 		<defName>VPE_Deathshield</defName>
 		<label>deathshield</label>
 		<description>Locks the touched target’s life force in place for a day, preventing them from dying. After this period, they can die from accumulated wounds, blood loss, or missing limbs or organs.</description>
 		<iconPath>Abilities/Necropath/Deathshield</iconPath>
-		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+		<abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
 		<targetMode>Pawn</targetMode>
 		<castTime>180</castTime>
 		<durationTime>60000</durationTime>
@@ -259,13 +259,13 @@
 					<li>VPE_ConsumeBodies</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>VPE_DeathShield</hediff>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_Enthrall</defName>
 		<label>enthrall</label>
 		<description>Psychically strips the deceased target’s life force and infuses it directly into their bones, animating them for a full day. The only remaining instinct is to inflict pain on the caster’s enemies.</description>
@@ -297,9 +297,9 @@
 				</prerequisites>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
 		<defName>VPE_Resurrect</defName>
 		<label>resurrect</label>
 		<description>By sacrificing a natural finger, the caster is able to imitate the effects of resurrector mech serum on any non-dessicated corpse, the psychic energy repairing broken-down tissues and kickstarting the body back to life. The target will be incapacitated and their allegiances will remain the same. The less preserved the body is, the more likely the target is to suffer from negative side effects. The long, intense concentration ends with the caster falling into a coma.</description>
@@ -334,5 +334,5 @@
 				<hours>6</hours>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 </Defs>

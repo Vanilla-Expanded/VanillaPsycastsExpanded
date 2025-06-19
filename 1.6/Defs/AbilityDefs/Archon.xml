@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
 		<defName>VPE_WordofTrust</defName>
 		<label>word of trust</label>
 		<description>Speak to the prisoner while using psychic suggestion to reduce his resistance to recruitment. This psycast can only reduce a prisoner's resistance, but cannot recruit him.</description>
@@ -27,13 +27,13 @@
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_AbilityOffsetPrisonerResistance">
 				<offset>-20</offset>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_SocialInteraction">
+			<li Class="VEF.Abilities.AbilityExtension_SocialInteraction">
 				<interactionDef>WordOfTrust</interactionDef>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
 		<defName>VPE_WordofProductivity</defName>
 		<label>word of productivity</label>
 		<description>Using words of motivation with a heaping boost to metabolism, makes the touched target a more productive member of society for the next few days. Considered a hostile action and duration is affected by the target’s psychic sensitivity.</description>
@@ -54,13 +54,13 @@
 					<li>VPE_WordofTrust</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>VPE_Productivity</hediff>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_BlindingPulse</defName>
 		<label>blinding pulse</label>
 		<description>Induce noise in the visual centers of the brain, obscuring vision of everyone near the target point. Lasts for half a minute, affected by psychic sensitivity.</description>
@@ -70,7 +70,7 @@
 		<radius>7</radius>
 		<range>25</range>
 		<durationTime>1800</durationTime>
-		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+		<abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
 		<fleckOnTarget>PsycastAreaEffect</fleckOnTarget>
 		<fleckOnTargetScaleWithRadius>true</fleckOnTargetScaleWithRadius>
 		<goodwillImpact>-15</goodwillImpact>
@@ -92,15 +92,15 @@
 					<li>VPE_WordofTrust</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>PsychicBlindness</hediff>
 				<durationMultiplier>PsychicSensitivity</durationMultiplier>
 				<bodyPartToApply>Brain</bodyPartToApply>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
 		<defName>VPE_WordofAlliance</defName>
 		<label>word of alliance</label>
 		<description>Speak words of friendship and benefits to a close target using psychic suggestion, coaxing them into improving their relations. Ineffective against hostility and scales with high psychic sensitivity.</description>
@@ -123,9 +123,9 @@
 				</prerequisites>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_GroupLink</defName>
 		<label>group link</label>
 		<description>Creates a sphere of psychic suggestion around the caster, linking all pawns within to the caster and allowing any single target “Word of” psycast to affect all others. The effect ends when those linked move out of range.</description>
@@ -148,13 +148,13 @@
 					<li>VPE_BlindingPulse</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>VPE_GroupLink</hediff>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
 		<defName>VPE_WordofPain</defName>
 		<label>word of pain</label>
 		<description>Induces noise in the target’s pain centers of the brain and overstimulates their nerve endings, scaling with their psychic sensitivity.</description>
@@ -175,18 +175,18 @@
 					<li>VPE_BlindingPulse</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>VPE_PsychicPain</hediff>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_MindBreak</defName>
 		<label>mind break</label>
 		<description>Using concentrated harmonic psychic noise, lobotomizes the target and turns them into a serving, restless thrall. Very much unappreciated by their former factions.</description>
 		<iconPath>Abilities/Archon/MindBreak</iconPath>
-		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+		<abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
 		<targetingParameters>
 			<canTargetSelf>True</canTargetSelf>
 			<canTargetAnimals>False</canTargetAnimals>
@@ -217,9 +217,9 @@
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_JoinFaction" />
 
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
 		<defName>VPE_WordofProtection</defName>
 		<label>word of protection</label>
 		<description>Using harmonic psychic noise, physically alters the target’s body to be more durable and resistant to damage. Lasts a long time and scales with the caster’s psychic sensitivity.</description>
@@ -241,15 +241,15 @@
 					<li>VPE_WordofPain</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>VPE_Protection</hediff>
 				<durationMultiplier>PsychicSensitivity</durationMultiplier>
 				<durationMultiplierFromCaster>true</durationMultiplierFromCaster>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastGoToTargetBase">
 		<defName>VPE_DrainPsyessence</defName>
 		<label>drain psyessence</label>
 		<description>Targeting a downed psychically-talented pawn, induces intense harmonic psychic noise to liquify their flesh and convert it into psyessence to be absorbed by the caster as their own accumulated psychic talent. The final moments of psychic disintegration will be felt by everyone for many kilometers around, causing diplomatic consequences with all factions.</description>
@@ -269,14 +269,14 @@
 				</prerequisites>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 
-	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_MassHallucination</defName>
 		<label>mass hallucination</label>
 		<description>Creating a massive burst of psychic suggestion, convinced nearby pawns that rooms are the absolute best they could possibly be. The caster is put into a coma and the resulting effect lasts for five days.</description>
 		<iconPath>Abilities/Archon/MassHallucination</iconPath>
-		<!-- Replace with VFECore.Abilities.Ability_Blank for 1.6 update. -->
+		<!-- Replace with VEF.Abilities.Ability_Blank for 1.6 update. -->
 		<!-- We cannot do this right now as modifying abilityClass doesn't update existing abilities in-game. -->
 		<!-- Once that happens, also consider adding warnings for using Ability_PsychicComa (or remove it entirely). -->
 		<abilityClass>VanillaPsycastsExpanded.Ability_PsychicComa</abilityClass>
@@ -304,12 +304,12 @@
 					<li>VPE_WordofProtection</li>
 				</prerequisites>
 			</li>
-			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+			<li Class="VEF.Abilities.AbilityExtension_Hediff">
 				<hediff>VPE_Hallucination</hediff>
 			</li>
 			<li Class="VanillaPsycastsExpanded.AbilityExtension_PsychicComa">
 				<hours>120</hours>
 			</li>
 		</modExtensions>
-	</VFECore.Abilities.AbilityDef>
+	</VEF.Abilities.AbilityDef>
 </Defs>

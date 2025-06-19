@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_SolarPinhole</defName>
     <label>solar pinhole</label>
     <description>Generate a microscopic skipgate linked to the core of a nearby star for a few days. Solar material leaks through the pinprick in spacetime, illuminating and warming the surrounding area until it closes. The light is enough to work by, but not enough to grow plants.</description>
     <iconPath>Abilities/Skipmaster/SolarPinhole</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Spawn</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Spawn</abilityClass>
     <needsTicking>true</needsTicking>
     <castTime>15</castTime>
     <durationTime>30000</durationTime>
@@ -22,15 +22,15 @@
         <psyfocusCost>0.08</psyfocusCost>
         <entropyGain>0</entropyGain>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Spawn">
+      <li Class="VEF.Abilities.AbilityExtension_Spawn">
         <thing>SolarPinhole</thing>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_EffecterOnTarget">
         <effecterDef>Skip_Exit</effecterDef>
         <maintainForTicks>60</maintainForTicks>
         <scale>0.42</scale>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_FleckOnTarget">
         <fleckDefs>
           <li>PsycastSkipInnerExit</li>
           <li>PsycastSkipOuterRingExit</li>
@@ -40,8 +40,8 @@
         <preCastTicks>5</preCastTicks>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Chunkskip</defName>
     <label>chunk skip</label>
     <description>Skip the 5 chunks of rock or slag to scatter them near the target point. This is useful for producing cover during offensive operations.</description>
@@ -70,8 +70,8 @@
         <clamorRadius>10</clamorRadius>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Waterskip</defName>
     <label>waterskip</label>
     <description>Douse a target in water, extinguishing fires and shorting any electrical structures. The water is archotechnologically skipped from distant bodies of water or underground aquifers, with the amount skipped scaling with psychic sensitivity.</description>
@@ -98,11 +98,11 @@
           <li>VPE_SolarPinhole</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_EffecterOnTarget">
         <effecterDef>Skip_Exit</effecterDef>
         <maintainForTicks>60</maintainForTicks>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_FleckOnTarget">
         <fleckDefs>
           <li>PsycastSkipInnerExit</li>
           <li>PsycastSkipOuterRingExit</li>
@@ -115,8 +115,8 @@
         <clamorRadius>10</clamorRadius>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_ChaosSkip</defName>
     <label>chaos skip</label>
     <description>Teleport the target to a random position from where he started, the distance scaling with the caster’s psychic sensitivity. Stuns the target for a second and is considered a hostile action.</description>
@@ -147,7 +147,7 @@
         <mustBeSelectable>true</mustBeSelectable>
         <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
       </li>
-      <li Class="VFECore.Abilities.TargetingParametersForAoE">
+      <li Class="VEF.Abilities.TargetingParametersForAoE">
         <canTargetLocations>true</canTargetLocations>
         <canTargetBlockedLocations>false</canTargetBlockedLocations>
       </li>
@@ -168,12 +168,12 @@
         <clamorType>Ability</clamorType>
         <clamorRadius>10</clamorRadius>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Stun">
+      <li Class="VEF.Abilities.AbilityExtension_Stun">
         <stunTicks>70~120</stunTicks>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Skip</defName>
     <label>skip</label>
     <description>Teleport the target to a desired position, the distance scaling with the caster’s psychic sensitivity, from his starting point. This is considered a hostile action.</description>
@@ -201,7 +201,7 @@
         <mustBeSelectable>true</mustBeSelectable>
         <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
       </li>
-      <li Class="VFECore.Abilities.TargetingParametersForAoE">
+      <li Class="VEF.Abilities.TargetingParametersForAoE">
         <canTargetLocations>true</canTargetLocations>
         <canTargetBlockedLocations>false</canTargetBlockedLocations>
       </li>
@@ -221,12 +221,12 @@
         <clamorType>Ability</clamorType>
         <clamorRadius>10</clamorRadius>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Stun">
+      <li Class="VEF.Abilities.AbilityExtension_Stun">
         <stunTicks>70~120</stunTicks>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Wallraise</defName>
     <label>wall raise</label>
     <description>Form a temporary wall by skipping rubble and soil up from deep under the ground. Decent range and useful in blocking line of sight and movement for a few hours.</description>
@@ -262,12 +262,12 @@
         <clamorType>Ability</clamorType>
         <clamorRadius>25</clamorRadius>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_EffecterOnTarget">
         <effecterDef>Skip_Exit</effecterDef>
         <maintainForTicks>60</maintainForTicks>
         <scale>1.55</scale>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_FleckOnTarget">
         <fleckDefs>
           <li>PsycastSkipInnerExit</li>
           <li>PsycastSkipOuterRingExit</li>
@@ -277,8 +277,8 @@
         <preCastTicks>5</preCastTicks>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Smokepop</defName>
     <label>smokepop</label>
     <description>Skip dust particles up from under the ground surface to form a thick cloud. This reduces the accuracy of any shot fired through it, and prevents turrets from locking on entirely.</description>
@@ -305,12 +305,12 @@
         <clamorType>Ability</clamorType>
         <clamorRadius>15</clamorRadius>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_EffecterOnTarget">
         <effecterDef>Skip_Exit</effecterDef>
         <maintainForTicks>60</maintainForTicks>
         <scale>3</scale>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_FleckOnTarget">
         <fleckDefs>
           <li>PsycastSkipInnerExit</li>
           <li>PsycastSkipOuterRingExit</li>
@@ -320,8 +320,8 @@
         <scale>3</scale>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_MassChaosSkip</defName>
     <label>mass chaos skip</label>
     <description>Skip everyone near a target point to a random location nearby. Considered a nuisance as it can put allies in danger.</description>
@@ -338,7 +338,7 @@
     </targetModes>
     <targetingParametersList>
       <li IsNull="True" />
-      <li Class="VFECore.Abilities.TargetingParametersForAoE">
+      <li Class="VEF.Abilities.TargetingParametersForAoE">
         <canTargetLocations>true</canTargetLocations>
         <canTargetBlockedLocations>false</canTargetBlockedLocations>
       </li>
@@ -365,16 +365,16 @@
         <clamorType>Ability</clamorType>
         <clamorRadius>10</clamorRadius>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Stun">
+      <li Class="VEF.Abilities.AbilityExtension_Stun">
         <stunTicks>70~120</stunTicks>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_RandomRadius">
+      <li Class="VEF.Abilities.AbilityExtension_RandomRadius">
         <minRadius>6.9</minRadius>
         <maxRadius>24.9</maxRadius>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Skipdoor</defName>
     <label>skipdoor</label>
     <description>Creates an opening to a network of skipgates which can be placed in any location with a permanent presence. The network is tied to a group’s collective consciousness, allowing others to use it and different psycasters can add to it. However, the entry points are sensitive to physical disturbances which can cause them to collapse.</description>
@@ -397,8 +397,8 @@
         </prerequisites>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Farskip</defName>
     <label>farskip</label>
     <description>Skip the caster, along with anyone standing near them, to a willing ally at a distant location. This can send people far across the planet, and the skipped people will always appear near a random ally on the target map and be stunned for a few seconds from the journey.</description>
@@ -428,5 +428,5 @@
         <clamorRadius>10</clamorRadius>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 </Defs>

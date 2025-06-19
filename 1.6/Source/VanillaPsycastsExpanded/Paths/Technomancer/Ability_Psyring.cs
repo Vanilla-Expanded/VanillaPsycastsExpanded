@@ -88,39 +88,30 @@ public class Psyring : Apparel
         alreadyHad = false;
     }
 
-    [HarmonyPatch(typeof(FloatMenuMakerMap), "AddHumanlikeOrders")]
+    [HarmonyPatch(typeof(FloatMenuOptionProvider_Wear), "GetSingleOptionFor")]
     [HarmonyPostfix]
-    public static void EquipConditions(Vector3 clickPos, Pawn pawn, ref List<FloatMenuOption> opts)
+    public static void EquipConditions(Thing clickedThing, FloatMenuContext context, ref FloatMenuOption __result)
     {
-        var c = IntVec3.FromVector3(clickPos);
-        if (pawn.apparel != null)
+        if (__result == null)
+            return;
+
+        var pawn = context.FirstSelectedPawn;
+        if (pawn.apparel == null)
+            return;
+        if (clickedThing is not Psyring psyring)
+            return;
+
+        if (__result.Label.Contains("ForceWear".Translate(psyring.LabelShort, psyring)))
         {
-            var thingList = c.GetThingList(pawn.Map);
-            for (var i = 0; i < thingList.Count; i++)
-                if (thingList[i] is Psyring psyring)
-                {
-                    var toCheck = "ForceWear".Translate(psyring.LabelShort, psyring);
-                    var floatMenuOption = opts.FirstOrDefault(x => x.Label.Contains(toCheck));
-                    if (floatMenuOption != null)
-                    {
-                        if (pawn.Psycasts() == null)
-                        {
-                            opts.Remove(floatMenuOption);
-                            opts.Add(new(
-                                "CannotWear".Translate(psyring.LabelShort, psyring) + " (" + "VPE.NotPsycaster".Translate() + ")",
-                                null));
-                        }
+            if (pawn.Psycasts() == null)
+                __result = new(
+                    $"{"CannotWear".Translate(psyring.LabelShort, psyring)} ({"VPE.NotPsycaster".Translate()})",
+                    null);
 
-                        if (pawn.apparel.WornApparel.OfType<Psyring>().Any())
-                        {
-                            opts.Remove(floatMenuOption);
-                            opts.Add(new(
-                                "CannotWear".Translate(psyring.LabelShort, psyring) + " (" + "VPE.AlreadyPsyring".Translate() + ")", null));
-                        }
-                    }
-
-                    break;
-                }
+            if (pawn.apparel.WornApparel.OfType<Psyring>().Any())
+                __result= new(
+                    $"{"CannotWear".Translate(psyring.LabelShort, psyring)} ({"VPE.AlreadyPsyring".Translate()})",
+                    null);
         }
     }
 }

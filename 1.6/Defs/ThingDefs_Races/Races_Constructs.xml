@@ -9,6 +9,7 @@
 			<MeatAmount>0</MeatAmount>
 			<LeatherAmount>0</LeatherAmount>
 			<ArmorRating_Heat>2.00</ArmorRating_Heat>
+			<Wildness>0</Wildness>
 		</statBases>
 		<uiIconScale>1.5</uiIconScale>
 		<tradeTags>
@@ -23,7 +24,6 @@
 			<showTrainables>false</showTrainables>
 			<playerCanChangeMaster>false</playerCanChangeMaster>
 			<hideTrainingTab>true</hideTrainingTab>
-			<wildness>0</wildness>
 			<useMeatFrom>Pig</useMeatFrom>
 			<petness>0</petness>
 			<hediffGiverSets Inherit="False"/>
@@ -61,11 +61,11 @@
 			</li>
 		</tools>
 		<comps>
-			<li Class="AnimalBehaviours.CompProperties_InitialHediff">
+			<li Class="VEF.AnimalBehaviours.CompProperties_InitialHediff">
 				<hediffname>VPE_NoPain</hediffname>
 				<hediffseverity>1</hediffseverity>
 			</li>
-			<li Class="AnimalBehaviours.CompProperties_Draftable">
+			<li Class="VEF.AnimalBehaviours.CompProperties_Draftable">
 				<makeNonFleeingToo>true</makeNonFleeingToo>
 			</li>
 			<li Class="VanillaPsycastsExpanded.CompProperties_BreakLink">
@@ -73,11 +73,11 @@
 				<gizmoLabel>VPE_BreakLink</gizmoLabel>
 				<gizmoDesc>VPE_BreakLinkDesc</gizmoDesc>
 			</li>
-			<li Class="AnimalBehaviours.CompProperties_DiseaseImmunity">
+			<li Class="VEF.AnimalBehaviours.CompProperties_DiseaseImmunity">
 				<hediffsToRemove><li>Animal_Plague</li><li>Animal_Flu</li><li>AB_AnimalSporesAllergy</li></hediffsToRemove>
 				<tickInterval>2000</tickInterval>
 			</li>
-			<li Class="AnimalBehaviours.CompProperties_DiseaseEventImmunity">
+			<li Class="VEF.AnimalBehaviours.CompProperties_DiseaseEventImmunity">
 				
 			</li>
 		</comps>
@@ -134,7 +134,7 @@
 			<MoveSpeed>3.6</MoveSpeed>
 		</statBases>
 		<comps>
-			<li Class="AnimalBehaviours.CompProperties_InitialHediff">
+			<li Class="VEF.AnimalBehaviours.CompProperties_InitialHediff">
 				<hediffname>VPE_NoPain</hediffname>
 				<hediffseverity>1</hediffseverity>
 			</li>
@@ -143,13 +143,13 @@
 				<gizmoLabel>VPE_BreakLink</gizmoLabel>
 				<gizmoDesc>VPE_BreakLinkDesc</gizmoDesc>
 			</li>
-			<li Class="AnimalBehaviours.CompProperties_DoesntFlee" />
+			<li Class="VEF.AnimalBehaviours.CompProperties_DoesntFlee" />
 			<li Class="VanillaPsycastsExpanded.CompProperties_SetStoneColour"/>
-			<li Class="AnimalBehaviours.CompProperties_DiseaseImmunity">
+			<li Class="VEF.AnimalBehaviours.CompProperties_DiseaseImmunity">
 				<hediffsToRemove><li>Animal_Plague</li><li>Animal_Flu</li><li>AB_AnimalSporesAllergy</li></hediffsToRemove>
 				<tickInterval>2000</tickInterval>
 			</li>
-			<li Class="AnimalBehaviours.CompProperties_DiseaseEventImmunity">
+			<li Class="VEF.AnimalBehaviours.CompProperties_DiseaseEventImmunity">
 				
 			</li>
 		</comps>

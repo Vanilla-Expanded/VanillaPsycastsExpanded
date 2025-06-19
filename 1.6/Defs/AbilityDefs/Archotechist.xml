@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Burden</defName>
     <label>burden</label>
     <description>Slow the target for a short time by suppressing motor activity in the brain. Considered a hostile action and affected by the target’s psychic sensitivity.</description>
     <iconPath>Abilities/Archotechist/Burden</iconPath>
     <targetMode>Pawn</targetMode>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <castTime>15</castTime>
     <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
     <goodwillImpact>-15</goodwillImpact>
@@ -21,20 +21,20 @@
         <entropyGain>8</entropyGain>
         <psychic>true</psychic>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>PsychicBurden</hediff>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Stun</defName>
     <label>stun</label>
     <description>Momentarily disrupts motor function in the target's brain, preventing any movement. This lasts for a few seconds and is considered a hostile action.</description>
     <iconPath>Abilities/Archotechist/Stun</iconPath>
     <targetMode>Pawn</targetMode>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <castTime>15</castTime>
     <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
     <goodwillImpact>-15</goodwillImpact>
@@ -49,13 +49,13 @@
         <entropyGain>24</entropyGain>
         <psychic>true</psychic>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Stun">
+      <li Class="VEF.Abilities.AbilityExtension_Stun">
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_PsychicShock</defName>
     <label>psychic shock</label>
     <description>Psychically shocks the target's mind with chaotic images, blocking coherent perception and dropping them into a state of psychic shock. There is a risk of brain damage and is overtly hostile.</description>
@@ -81,14 +81,14 @@
           <li>VPE_Stun</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_PsychicShock</hediff>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_NeuralHeatDump</defName>
     <label>neural heat dump</label>
     <description>Instantly dump all your neural heat into a conscious ally. As a side effect, the target will fall into a debilitating, harmless coma for about a day. The target must actively accept the psychic invasion, so only conscious allies can be targeted.</description>
@@ -100,7 +100,7 @@
       <onlyTargetColonists>True</onlyTargetColonists>
       <neverTargetIncapacitated>True</neverTargetIncapacitated>
     </targetingParameters>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <castTime>60</castTime>
     <fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
     <goodwillImpact>-15</goodwillImpact>
@@ -122,14 +122,14 @@
         <targetReceivesEntropy>true</targetReceivesEntropy>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Berserk</defName>
     <label>berserk</label>
     <description>Induce a berserker psychosis in the target's mind, causing them to attack anyone nearby. They regain rationality after 15 seconds, depending on their psychic sensitivity.</description>
     <iconPath>Abilities/Archotechist/Berserk</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <castTime>15</castTime>
     <durationTime>900</durationTime>
     <range>20</range>
@@ -159,9 +159,9 @@
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_AggressiveHeatDump</defName>
     <label>aggressive heat dump</label>
     <description>Instantly dump all of your neural heat into a target, causing them to explode with an area of effect relative to the heat lost. A good declaration of war.</description>
@@ -192,9 +192,9 @@
         </prerequisites>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_BerserkPulse</defName>
     <label>berserk pulse</label>
     <description>Generate an overwhelming rush of undirected rage in everyone near the target point. Considered an overt act of aggression and lasts several seconds.</description>
@@ -232,15 +232,15 @@
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_PsychicDrone</defName>
     <label>psychic drone</label>
     <description>Creates a massive psychic drone aura around the caster tuned to hostiles, frequently driving them insane until they overcome the break. Duration scales with the caster’s psychic sensitivity.</description>
     <iconPath>Abilities/Archotechist/PsychicDrone</iconPath>
     <targetMode>Self</targetMode>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <castSound>VPE_PsychicDrone_Cast</castSound>
     <durationTime>1800</durationTime>
     <castTime>60</castTime>
@@ -258,14 +258,14 @@
           <li>VPE_AggressiveHeatDump</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_PsychicDrone</hediff>
         <durationMultiplier>PsychicSensitivity</durationMultiplier>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_NeuralHeatDetonation</defName>
     <label>neural heat detonation</label>
     <description>Efficiently but indiscriminately dumps all of the caster’s neural heat into an explosion away from themselves, the size being relative to the heat lost.</description>
@@ -287,14 +287,14 @@
         </prerequisites>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Neuroquake</defName>
     <label>neuroquake</label>
     <description>Find a discontinuity in the psychic field and unfold it, releasing a massive amount of psychic energy. Every creature in range but outside of the safe inner circle will be driven violently insane. Casting this takes 12 seconds of meditation, and afterwards, the caster will go into a psychic coma. The disturbing neuroquake echoes will inflict pain on everyone for many kilometers around, causing diplomatic consequences with all factions.</description>
     <iconPath>Abilities/Archotechist/Neuroquake</iconPath>
-    <abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+    <abilityClass>VEF.Abilities.Ability_Blank</abilityClass>
     <jobDef>VFEA_UseAbilityUninterruptible</jobDef>
     <castTime>720</castTime>
     <targetMode>Self</targetMode>
@@ -306,7 +306,7 @@
     <warmupPreEndSoundTicks>300</warmupPreEndSoundTicks>
     <radius>60</radius>
     <modExtensions>
-      <li Class="VFECore.Abilities.AbilityExtension_ConfirmationMessage">
+      <li Class="VEF.Abilities.AbilityExtension_ConfirmationMessage">
         <message>If you use neuroquake, everyone in this region will feel the neuroquake echo, you will lose goodwill with every non-hostile faction.\n\nNeuroquake takes 12 seconds to cast, and cannot be interrupted. When complete, the caster will fall into a psychic coma for up to 5 days.\n\nEveryone in range except those in a small circle around the caster will be affected.\n\nDo you really want to cast neuroquake?</message>
       </li>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
@@ -319,10 +319,10 @@
           <li>VPE_PsychicDrone</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_AdditionalRadius">
+      <li Class="VEF.Abilities.AbilityExtension_AdditionalRadius">
         <radius>5.9</radius>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_ScreenShaker">
+      <li Class="VEF.Abilities.AbilityExtension_ScreenShaker">
         <intensity>2</intensity>
       </li>
       <li Class="VanillaPsycastsExpanded.AbilityExtension_Neuroquake">
@@ -330,7 +330,7 @@
         <goodwillImpactForNeuroquake>-10</goodwillImpactForNeuroquake>
         <worldRangeTiles>4</worldRangeTiles>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_FleckOnTarget">
         <fleckDef>PsychicApplyNeuroquake</fleckDef>
         <sound>Psycast_Neuroquake_Effect</sound>
       </li>
@@ -338,5 +338,5 @@
         <hours>120</hours>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 </Defs>

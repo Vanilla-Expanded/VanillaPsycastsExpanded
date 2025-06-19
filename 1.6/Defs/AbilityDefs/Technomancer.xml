@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_EnchantQuality</defName>
     <label>enchant quality</label>
     <description>Psychically manipulate an object or structure to improve its overall quality. Maximum quality depends on psychic sensitivity.</description>
@@ -35,8 +35,8 @@
         <entropyGain>0</entropyGain>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Mend</defName>
     <label>mend</label>
     <description>Psychically manipulate an object or structure to restore its condition. Requires high psychic sensitivity for any meaningful restoration.</description>
@@ -74,8 +74,8 @@
         <entropyGain>0</entropyGain>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_ConjureHeatPearls</defName>
     <label>conjure heat pearls</label>
     <description>Converts the caster’s neural heat into compressed metaphysical pearls. Completely harmless, but dumps a tremendous amount of neural heat into a small area when shattered.</description>
@@ -96,8 +96,8 @@
         </prerequisites>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Haywire</defName>
     <label>haywire</label>
     <description>Subjects an area to psychic interference, temporarily reconfiguring up to 3 automated weapons systems to protect the caster and their allies. Duration scales with the caster’s psychic sensitivity.</description>
@@ -124,12 +124,12 @@
           <li>VPE_Mend</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_Haywire</hediff>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_Power</defName>
     <label>power</label>
     <description>Metaphysically alters the designated equipment’s power input to extract energy directly from fluctuations in the quantum foam for a few days. Duration scales with psychic sensitivity.</description>
@@ -165,12 +165,12 @@
           <li>VPE_Mend</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_InfinitePower</hediff>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_RockConstruct</defName>
     <label>rock construct</label>
     <description>Compresses a portion of the caster’s neural heat tolerance into metaphysical crystals, then implanting them into a stone chunk. Creates a construct capable of simple chores. Breaking the crystals restores heat tolerance.</description>
@@ -205,7 +205,7 @@
           <li>VPE_ConjureHeatPearls</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_FleckOnTarget">
         <fleckDefs>
           <li>PsycastSkipInnerExit</li>
           <li>PsycastSkipOuterRingExit</li>
@@ -214,14 +214,14 @@
         <sound>Psycast_Skip_Exit</sound>
         <preCastTicks>10</preCastTicks>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_EffecterOnTarget">
         <effecterDef>Skip_Exit</effecterDef>
         <maintainForTicks>60</maintainForTicks>
         <scale>0.42</scale>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_SteelConstruct</defName>
     <label>steel construct</label>
     <description>Compresses a portion of the caster’s neural heat tolerance into metaphysical crystals, then implanting them into steel slag. Creates a construct that guards the caster. Breaking the crystals restores heat tolerance.</description>
@@ -256,7 +256,7 @@
           <li>VPE_Power</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_FleckOnTarget">
         <fleckDefs>
           <li>PsycastSkipInnerExit</li>
           <li>PsycastSkipOuterRingExit</li>
@@ -265,14 +265,14 @@
         <sound>Psycast_Skip_Exit</sound>
         <preCastTicks>10</preCastTicks>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+      <li Class="VEF.Abilities.AbilityExtension_EffecterOnTarget">
         <effecterDef>Skip_Exit</effecterDef>
         <maintainForTicks>60</maintainForTicks>
         <scale>0.42</scale>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_CraftPsyRing</defName>
     <label>craft psyring</label>
     <description>Psychically alters the form of a piece of eltex into the shape of a ring, which is imbued with psycasting knowledge of the caster. When worn by another psycaster, this temporarily allows them to use this knowledge to perform the stored psycast without practice.</description>
@@ -307,7 +307,7 @@
           <li>VPE_RockConstruct</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_WarmupEffecter">
+      <li Class="VEF.Abilities.AbilityExtension_WarmupEffecter">
         <effecterDef>VPE_Knowledge</effecterDef>
         <scale>0.42</scale>
       </li>
@@ -317,8 +317,8 @@
         </excludedAbilities>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_WordOfAbilityBase">
     <defName>VPE_WordofProgress</defName>
     <label>word of progress</label>
     <description>Speak words encouraging problem solving capabilities while psychically hypercharging the target’s mind with keen insight. The target will experience double research speed and intellectual skill gain for 5 days, scaling with their psychic sensitivity.</description>
@@ -340,12 +340,12 @@
           <li>VPE_SteelConstruct</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_Hediff">
+      <li Class="VEF.Abilities.AbilityExtension_Hediff">
         <hediff>VPE_Smartbuzz</hediff>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
-  <VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+  </VEF.Abilities.AbilityDef>
+  <VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
     <defName>VPE_ReverseEngineer</defName>
     <label>reverse engineer</label>
     <description>Psychically manipulate an object or structure to learn its history and principles, annihilating it in the process. Extremely taxing, resulting in the caster falling into a temporary coma.</description>
@@ -380,7 +380,7 @@
           <li>VPE_WordofProgress</li>
         </prerequisites>
       </li>
-      <li Class="VFECore.Abilities.AbilityExtension_WarmupEffecter">
+      <li Class="VEF.Abilities.AbilityExtension_WarmupEffecter">
         <effecterDef>VPE_Knowledge</effecterDef>
         <scale>0.42</scale>
       </li>
@@ -388,5 +388,5 @@
         <hours>12</hours>
       </li>
     </modExtensions>
-  </VFECore.Abilities.AbilityDef>
+  </VEF.Abilities.AbilityDef>
 </Defs>

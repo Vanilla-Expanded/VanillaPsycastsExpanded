@@ -113,7 +113,7 @@
 		<label>lucky</label>
 		<description>Psychically-induced luck that allows this person to always hit their target, and never be hit by their enemy.</description>
 		<comps>
-			<li Class="VFECore.HediffCompProperties_Targeting">
+			<li Class="VEF.Hediffs.HediffCompProperties_Targeting">
 				<neverMiss>true</neverMiss>
 				<alwaysMiss>true</alwaysMiss>
 			</li>
@@ -124,7 +124,7 @@
 		<label>unlucky</label>
 		<description>Psychically-induced bad luck that stops this person from ever hitting their target, whilst always being hit by the enemy.</description>
 		<comps>
-			<li Class="VFECore.HediffCompProperties_Targeting">
+			<li Class="VEF.Hediffs.HediffCompProperties_Targeting">
 				<alwaysHit>true</alwaysHit>
 				<neverHit>true</neverHit>
 			</li>

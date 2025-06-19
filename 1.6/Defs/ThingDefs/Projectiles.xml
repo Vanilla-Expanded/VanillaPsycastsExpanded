@@ -22,10 +22,10 @@
 			<shadowSize>0.6</shadowSize>
 		</projectile>
 	</ThingDef>
-	<VFECore.ExpandableProjectileDef ParentName="BaseBullet">
+	<VEF.Weapons.ExpandableProjectileDef ParentName="BaseBullet">
 		<defName>VPE_FireBreath</defName>
 		<label>fire breath</label>
-		<thingClass>VFECore.FlamethrowProjectile</thingClass>
+		<thingClass>VEF.Weapons.FlamethrowProjectile</thingClass>
 		<graphicData>
 			<texPath>Effects/Conflagrator/BreatheFlame/FireBreath</texPath>
 			<texPathFadeOut>Effects/Conflagrator/BreatheFlame/FireBreathFadeOut</texPathFadeOut>
@@ -49,11 +49,11 @@
 		<tickDamageRate>20</tickDamageRate>
 		<dealsDamageOnce>true</dealsDamageOnce>
 		<minDistanceToAffect>2</minDistanceToAffect>
-	</VFECore.ExpandableProjectileDef>
+	</VEF.Weapons.ExpandableProjectileDef>
 	<ThingDef ParentName="BaseBullet">
 		<defName>VPE_EyeBlast</defName>
 		<label>eye blast</label>
-		<thingClass>VFECore.BeamProjectile</thingClass>
+		<thingClass>VEF.Weapons.BeamProjectile</thingClass>
 		<drawOffscreen>true</drawOffscreen>
 		<graphicData>
 			<texPath>Effects/Conflagrator/EyeBlastFirebeam/EyeBlastFirebeam</texPath>
@@ -69,10 +69,10 @@
 			<explosionRadius>3</explosionRadius>
 		</projectile>
 		<comps>
-			<li><compClass>VFECore.Abilities.CompAbilityProjectile</compClass></li>
+			<li><compClass>VEF.Abilities.CompAbilityProjectile</compClass></li>
 		</comps>
 		<modExtensions>
-			<li Class="VFECore.ProjectileExtension">
+			<li Class="VEF.Weapons.ProjectileExtension">
 				<flashIntensity>100</flashIntensity>
 				<hitFleck>VPE_EyeBlast</hitFleck>
 			</li>
@@ -82,7 +82,7 @@
 		<defName>VPE_Bolt</defName>
 		<label>bolt</label>
 		<description>A bolt launched by a staticlord</description>
-		<thingClass>VFECore.Abilities.AbilityProjectile</thingClass>
+		<thingClass>VEF.Abilities.AbilityProjectile</thingClass>
 		<drawOffscreen>true</drawOffscreen>
 		<graphicData Class="VanillaPsycastsExpanded.Graphics.GraphicData_Animated">
 			<texPath>Effects/Staticlord/Bolt</texPath>
@@ -121,10 +121,10 @@
 			<speed>140</speed>
 		</projectile>
 		<comps>
-			<li><compClass>VFECore.Abilities.CompAbilityProjectile</compClass></li>
+			<li><compClass>VEF.Abilities.CompAbilityProjectile</compClass></li>
 		</comps>
 		<modExtensions>
-			<li Class="VFEMech.TeslaChainingProps">
+			<li Class="VEF.Weapons.TeslaChainingProps">
 				<maxBounceCount>4</maxBounceCount>
 				<damageDef>Flame</damageDef>
 				<explosionDamageDef>EMP</explosionDamageDef>
@@ -159,7 +159,7 @@
 		</projectile>
     </ThingDef>
 	
-	<VFECore.ExpandableProjectileDef ParentName="BaseBullet">
+	<VEF.Weapons.ExpandableProjectileDef ParentName="BaseBullet">
 		<defName>VPE_IceBreathe</defName>
 		<label>ice breathe</label>
 		<thingClass>VanillaPsycastsExpanded.IceBreatheProjectile</thingClass>
@@ -186,13 +186,13 @@
 		<tickDamageRate>20</tickDamageRate>
 		<dealsDamageOnce>true</dealsDamageOnce>
 		<minDistanceToAffect>0.5</minDistanceToAffect>
-	</VFECore.ExpandableProjectileDef>
+	</VEF.Weapons.ExpandableProjectileDef>
 	
 	<ThingDef ParentName="BaseBullet">
 		<defName>VPE_IceSpike</defName>
 		<label>ice spike</label>
 		<description>A spike of ice launched by the frostshaper.</description>
-		<thingClass>VFECore.Abilities.AbilityProjectile</thingClass>
+		<thingClass>VEF.Abilities.AbilityProjectile</thingClass>
 		<tickerType>Normal</tickerType>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
 		<drawOffscreen>true</drawOffscreen>

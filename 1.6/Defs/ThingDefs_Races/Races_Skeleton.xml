@@ -8,6 +8,7 @@
 			<MeatAmount>0</MeatAmount>
 			<LeatherAmount>0</LeatherAmount>
 			<ArmorRating_Heat>2.00</ArmorRating_Heat>
+			<Wildness>0</Wildness>
 		</statBases>
 		<uiIconScale>1.5</uiIconScale>
 		<tradeTags>
@@ -22,7 +23,6 @@
 			<playerCanChangeMaster>false</playerCanChangeMaster>
 			<hideTrainingTab>true</hideTrainingTab>
 			<disableAreaControl>true</disableAreaControl>
-			<wildness>0</wildness>
 			<useMeatFrom>Pig</useMeatFrom>
 			<petness>0</petness>
 			<hediffGiverSets Inherit="False"/>
@@ -82,26 +82,26 @@
 			</li>
 		</tools>
 		<comps>
-			<li Class="AnimalBehaviours.CompProperties_InitialHediff">
+			<li Class="VEF.AnimalBehaviours.CompProperties_InitialHediff">
 				<hediffname>VPE_NoPain</hediffname>
 				<hediffseverity>1</hediffseverity>
 			</li>
 			
-			<li Class="AnimalBehaviours.CompProperties_InitialMentalState">
+			<li Class="VEF.AnimalBehaviours.CompProperties_InitialMentalState">
 				<mentalstate>VPE_Manhunter</mentalstate>
 			
 			</li>
-			<li Class="AnimalBehaviours.CompProperties_DieAfterPeriod">
+			<li Class="VEF.AnimalBehaviours.CompProperties_DieAfterPeriod">
 				<timeToDieInTicks>60000</timeToDieInTicks>
 				<effect>true</effect>
 				<effectFilth>Filth_CorpseBile</effectFilth>
 			
 			</li>
-			<li Class="AnimalBehaviours.CompProperties_DiseaseImmunity">
+			<li Class="VEF.AnimalBehaviours.CompProperties_DiseaseImmunity">
 				<hediffsToRemove><li>Animal_Plague</li><li>Animal_Flu</li><li>AB_AnimalSporesAllergy</li></hediffsToRemove>
 				<tickInterval>2000</tickInterval>
 			</li>
-			<li Class="AnimalBehaviours.CompProperties_DiseaseEventImmunity">
+			<li Class="VEF.AnimalBehaviours.CompProperties_DiseaseEventImmunity">
 				
 			</li>
 			
