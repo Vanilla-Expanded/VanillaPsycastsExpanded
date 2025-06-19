@@ -205,7 +205,7 @@
         </graphicData>
         <comps>
             <li Class="VanillaPsycastsExpanded.Nightstalker.CompProperties_Darkness">
-                <glowRadius>4.9</glowRadius>
+                <darknessRange>4.9</darknessRange>
             </li>
             <li>
                 <compClass>VEF.Abilities.CompDuration</compClass>

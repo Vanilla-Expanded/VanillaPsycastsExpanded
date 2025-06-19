@@ -1,94 +1,99 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
-using RimWorld;
-using UnityEngine;
 using Verse;
 
 namespace VanillaPsycastsExpanded.Nightstalker;
 
 [HarmonyPatch]
 [StaticConstructorOnStartup]
-public class CompDarkener : CompGlower
+public class CompDarkener : ThingComp
 {
-    private static readonly AccessTools.FieldRef<object, CompGlower> lightGlower;
-    private static readonly Dictionary<Map, HashSet<IntVec3>> darkCells = new();
+    private static readonly Dictionary<Map, Dictionary<IntVec3, int>> darkCells = new();
 
-    static CompDarkener()
+    private CompProperties_Darkness Props => (CompProperties_Darkness)props;
+
+    private static Dictionary<IntVec3, int> DarkCellsFor(Map map, bool create = true)
     {
-        var glowGridLight = AccessTools.Inner(typeof(GlowGrid), "Light");
-        Log.Error($"CompDarkener - needs fixing.");
-        // lightGlower = AccessTools.FieldRefAccess<CompGlower>(glowGridLight, "glower");
-    }
-
-    protected override bool ShouldBeLitNow => true;
-
-    // TODO: Fix all those patches to work with the new glower system
-    
-    // [HarmonyPatch(typeof(GlowGrid), "CombineColors")]
-    // [HarmonyPrefix]
-    public static bool CombineColorsDark(ref Color32 __result, CompGlower toAddGlower)
-    {
-        if (toAddGlower is CompDarkener)
+        if (!darkCells.TryGetValue(map, out var cells))
         {
-            __result = new(0, 0, 0, 0);
-            return false;
+            if (!create)
+                return null;
+
+            cells = new Dictionary<IntVec3, int>();
+            darkCells[map] = cells;
         }
 
-        return true;
+        return cells;
     }
 
-    // [HarmonyPatch(typeof(GlowGrid), nameof(GlowGrid.RegisterGlower))]
-    // [HarmonyPostfix]
-    public static void MoveDarkLast(List<object> ___lights)
+    public override void PostSpawnSetup(bool respawningAfterLoad)
     {
-        var darkeners = new List<object>();
-        for (var i = ___lights.Count; i-- > 0;)
+        var cells = DarkCellsFor(parent.Map);
+
+        foreach (var pos in GenRadial.RadialCellsAround(parent.Position, Props.darknessRange, true))
         {
-            var light = ___lights[i];
-            if (lightGlower(light) is CompDarkener)
+            if (cells.TryGetValue(pos, out var darkeners))
+                cells[pos] = darkeners + 1;
+            else
+                cells[pos] = 1;
+
+            parent.Map.glowGrid.LightBlockerAdded(pos);
+        }
+    }
+
+    public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
+    {
+        var cells = DarkCellsFor(map);
+
+        foreach (var pos in GenRadial.RadialCellsAround(parent.Position, Props.darknessRange, true))
+        {
+            if (cells.TryGetValue(pos, out var darkeners))
             {
-                darkeners.Add(light);
-                ___lights.RemoveAt(i);
+                if (darkeners == 1)
+                    cells.Remove(pos);
+                else
+                    cells[pos] = darkeners - 1;
             }
+            else darkeners = 0;
+
+            // There may be some other building blocking light in the cell already,
+            // so we can only
+            var anyBlockers = false;
+            var list = map.thingGrid.ThingsListAt(pos);
+            for (var i = 0; i < list.Count; i++)
+            {
+                if (darkeners > 0 || IsLightBlocker(list[i]))
+                {
+                    anyBlockers = true;
+                    break;
+                }
+            }
+
+            if (!anyBlockers)
+                parent.Map.glowGrid.LightBlockerRemoved(pos);
         }
 
-        ___lights.AddRange(darkeners);
+        // Do a bit of cleanup
+        if (!cells.Any())
+            darkCells.Remove(map);
     }
+
+    // In vanilla, blockLight only works with buildings.
+    // Also, CompDarkener is handled differently so no need to check for it.
+    private static bool IsLightBlocker(Thing thing) => thing.def.blockLight && thing is Building;
 
     [HarmonyPatch(typeof(GlowGrid), nameof(GlowGrid.GroundGlowAt))]
     [HarmonyPrefix]
     public static void IgnoreSkyDark(IntVec3 c, ref bool ignoreSky, Map ___map)
     {
-        if (darkCells.TryGetValue(___map, out var set) && set.Contains(c)) ignoreSky = true;
-    }
-
-    public override void PostSpawnSetup(bool respawningAfterLoad)
-    {
-        base.PostSpawnSetup(respawningAfterLoad);
-        RecacheDarkCells(parent.Map);
-    }
-
-    public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
-    {
-        base.PostDeSpawn(map);
-        RecacheDarkCells(map);
-    }
-
-    private static void RecacheDarkCells(Map map)
-    {
-        if (!darkCells.TryGetValue(map, out var set)) set = new();
-        foreach (var thing in map.listerThings.AllThings)
-            if (thing.TryGetComp<CompGlower>() is CompDarkener darkener)
-                foreach (var cell in GenRadial.RadialCellsAround(thing.Position, darkener.GlowRadius, true))
-                    set.Add(cell);
-        if (set.Count == 0)
-            darkCells.Remove(map);
-        else
-            darkCells[map] = set;
+        if (darkCells.TryGetValue(___map, out var set) && set.ContainsKey(c)) ignoreSky = true;
     }
 }
 
-public class CompProperties_Darkness : CompProperties_Glower
+public class CompProperties_Darkness : CompProperties
 {
+    public float darknessRange;
+
     public CompProperties_Darkness() => compClass = typeof(CompDarkener);
 }
