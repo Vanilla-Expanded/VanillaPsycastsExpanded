@@ -81,6 +81,16 @@
 				<glowColor>(255,255,255,0)</glowColor>
 			</li>
 		</comps>
+		<damageMultipliers>
+			<li>
+				<damageDef>Flame</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<damageDef>Burn</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+		</damageMultipliers>
 	</ThingDef>
 
 
@@ -137,6 +147,9 @@
 			<blueprintGraphicData>
 				<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
 			</blueprintGraphicData>
+			<deconstructible>false</deconstructible>
+			<displayAttackToDestroyOnInspectPane>true</displayAttackToDestroyOnInspectPane>
+			<alwaysDeconstructible>false</alwaysDeconstructible>
 		</building>
 		<comps>
 			<li Class="CompProperties_MeditationFocus">
@@ -156,6 +169,14 @@
 			</li>
 			<li>
 				<damageDef>Thump</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<damageDef>Flame</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<damageDef>Burn</damageDef>
 				<multiplier>2</multiplier>
 			</li>
 		</damageMultipliers>
