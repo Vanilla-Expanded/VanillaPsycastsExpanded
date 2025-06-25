@@ -19,7 +19,7 @@ public static class Pawn_EntropyTracker_GetGizmo_Prefix
     }
 }
 
-[HarmonyPatch(typeof(Pawn_PsychicEntropyTracker), nameof(Pawn_PsychicEntropyTracker.GainPsyfocus))]
+[HarmonyPatch(typeof(Pawn_PsychicEntropyTracker), nameof(Pawn_PsychicEntropyTracker.GainPsyfocus_NewTemp))]
 public static class Pawn_EntropyTracker_GainPsyfocus_Postfix
 {
     [HarmonyTranspiler]
