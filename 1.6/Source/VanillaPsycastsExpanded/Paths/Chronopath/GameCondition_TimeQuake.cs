@@ -8,7 +8,7 @@ using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
-using VEF;
+using VEF.Buildings;
 using Ability = VEF.Abilities.Ability;
 
 [StaticConstructorOnStartup]
