@@ -52,7 +52,7 @@ public class PsycastsMod : Mod
         Listing_Standard listing = new();
         listing.Begin(inRect);
         listing.Label("VPE.XPPerPercent".Translate() + ": " + Settings.XPPerPercent);
-        Settings.XPPerPercent = listing.Slider(Settings.XPPerPercent, 0.1f, 10f);
+        Settings.XPPerPercent = listing.Slider(Settings.XPPerPercent, 0, 10f);
         listing.Label("VPE.PsycasterSpawnBaseChance".Translate() + ": " + Settings.baseSpawnChance * 100 + "%");
         Settings.baseSpawnChance = listing.Slider(Settings.baseSpawnChance, 0, 1f);
         listing.Label("VPE.PsycasterSpawnAdditional".Translate() + ": " + Settings.additionalAbilityChance * 100 + "%");
