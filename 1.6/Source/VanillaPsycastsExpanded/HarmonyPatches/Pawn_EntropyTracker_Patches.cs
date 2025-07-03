@@ -22,29 +22,10 @@ public static class Pawn_EntropyTracker_GetGizmo_Prefix
 [HarmonyPatch(typeof(Pawn_PsychicEntropyTracker), nameof(Pawn_PsychicEntropyTracker.GainPsyfocus_NewTemp))]
 public static class Pawn_EntropyTracker_GainPsyfocus_Postfix
 {
-    [HarmonyTranspiler]
-    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    public static void Postfix(Pawn_PsychicEntropyTracker __instance, int delta, Thing focus = null)
     {
-        var codes = instructions.ToList();
-        var info = AccessTools.Method(typeof(MeditationUtility), nameof(MeditationUtility.PsyfocusGainPerTick));
-        var idx1 = codes.FindIndex(ins => ins.Calls(info));
-        var gain = generator.DeclareLocal(typeof(float));
-        codes.InsertRange(idx1 + 1, new[]
-        {
-            new CodeInstruction(OpCodes.Stloc, gain),
-            new CodeInstruction(OpCodes.Ldloc, gain)
-        });
-
-        var idx2 = codes.FindIndex(ins => ins.opcode == OpCodes.Ret);
-        var labels = codes[idx2].ExtractLabels();
-        codes.InsertRange(idx2, new[]
-        {
-            new CodeInstruction(OpCodes.Ldarg_0).WithLabels(labels),
-            new CodeInstruction(OpCodes.Ldloc, gain),
-            CodeInstruction.Call(typeof(Pawn_EntropyTracker_GainPsyfocus_Postfix), nameof(GainXpFromPsyfocus))
-        });
-
-        return codes;
+        var gain = MeditationUtility.PsyfocusGainPerTick(__instance.Pawn, focus) * (float)delta;
+        __instance.GainXpFromPsyfocus(gain);
     }
 
     public static void GainXpFromPsyfocus(this Pawn_PsychicEntropyTracker __instance, float gain)
