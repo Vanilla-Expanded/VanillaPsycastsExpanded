@@ -14,9 +14,15 @@ public class Ability_Construct_Rock : Ability
     static Ability_Construct_Rock()
     {
         foreach (ThingDef def in DefDatabase<ThingDef>.AllDefs)
-            if (def.IsNonResourceNaturalRock)
+            if (IsNonResourceNaturalRock(def))
                 if (def.building.mineableThing != null)
                     chunkCache.Add(def.building.mineableThing);
+    }
+
+    public static bool IsNonResourceNaturalRock(ThingDef def)
+    {
+        return def.category == ThingCategory.Building && def.building != null 
+            && def.building.isNaturalRock && !def.building.isResourceRock && !def.IsSmoothed;
     }
 
     public override void Cast(params GlobalTargetInfo[] targets)
