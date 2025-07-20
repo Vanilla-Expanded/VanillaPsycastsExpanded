@@ -35,7 +35,7 @@ public class Ability_Construct_Rock : Ability
             Thing thing = target.Thing;
             GenSpawn.Spawn(construct, thing.Position, thing.Map, thing.Rotation);
             construct.TryGetComp<CompSetStoneColour>().SetStoneColour(thing.def);
-            thing.Destroy();
+            thing.SplitOff(1).Destroy();
         }
     }
 

@@ -16,7 +16,7 @@ public class Ability_Construct_Steel : Ability
             construct.TryGetComp<CompBreakLink>().Pawn = this.pawn;
             Thing thing = target.Thing;
             GenSpawn.Spawn(construct, thing.Position, thing.Map, thing.Rotation);
-            thing.Destroy();
+            thing.SplitOff(1).Destroy();
         }
     }
 
