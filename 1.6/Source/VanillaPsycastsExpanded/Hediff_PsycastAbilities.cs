@@ -91,6 +91,7 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
 
     private void RecacheCurStage()
     {
+        minHeatGivers.RemoveAll(giver => giver == null || !giver.IsActive);
         curStage = new()
         {
             statOffsets = new()
@@ -258,6 +259,6 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
     {
         base.Tick();
         if (currentlyChanneling is { IsActive: false }) currentlyChanneling = null;
-        if (minHeatGivers.RemoveAll(giver => !giver.IsActive) > 0) RecacheCurStage();
+        if (minHeatGivers.RemoveAll(giver => giver is null || !giver.IsActive) > 0) RecacheCurStage();
     }
 }

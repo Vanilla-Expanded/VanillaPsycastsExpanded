@@ -26,7 +26,13 @@ public class AbilityExtension_Psycast : AbilityExtension_AbilityMod
     public bool spaceAfter;
     public override bool ShowGizmoOnPawn(Pawn pawn)
     {
-        return pawn.Psycasts().previousUnlockedPaths.Contains(path) is false;
+        var psycasts = pawn.Psycasts();
+        if (psycasts is null)
+        {
+            Log.Error("AbilityExtension_Psycast.ShowGizmoOnPawn called on a pawn that does not have Psycasts.");
+            return false;
+        }
+        return psycasts.previousUnlockedPaths.Contains(path) is false;
     }
     public bool PrereqsCompleted(Pawn pawn) => PrereqsCompleted(pawn.GetComp<CompAbilities>());
 
