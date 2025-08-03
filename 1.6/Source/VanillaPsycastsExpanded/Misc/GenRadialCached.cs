@@ -12,6 +12,7 @@ namespace VanillaPsycastsExpanded;
 public static class GenRadialCached
 {
     private static Dictionary<Key, HashSet<Thing>> cache = new();
+    private static Dictionary<Key, HashSet<CompMeditationFocus>> meditationFocusCache = new();
     private static Dictionary<Key, float> wealthCache = new();
 
     static GenRadialCached()
@@ -59,6 +60,26 @@ public static class GenRadialCached
         return wealth;
     }
 
+    public static IEnumerable<CompMeditationFocus> MeditationFociAround(IntVec3 center, Map map, float radius, bool useCenter)
+    {
+        Key key = new(center, radius, map.Index, useCenter);
+
+        meditationFocusCache ??= [];
+        if (meditationFocusCache.TryGetValue(key, out var value)) return value;
+
+        value = [];
+        var things = RadialDistinctThingsAround(ref key, map);
+        foreach (var thing in things)
+        {
+            var comp = thing.TryGetComp<CompMeditationFocus>();
+            if (comp != null)
+                value.Add(comp);
+        }
+
+        meditationFocusCache[key] = value;
+        return value;
+    }
+
     [HarmonyPatch(typeof(Thing), nameof(Thing.SpawnSetup))]
     [HarmonyPostfix]
     public static void SpawnSetup_Postfix(Thing __instance)
@@ -83,6 +104,10 @@ public static class GenRadialCached
             if (key.mapId >= idx)
             {
                 cache.Remove(key);
+
+                if (meditationFocusCache.TryGetValue(key, out var foci))
+                    meditationFocusCache.Remove(key);
+
                 if (wealthCache.TryGetValue(key, out var wealth))
                     wealthCache.Remove(key);
                 else
@@ -92,6 +117,8 @@ public static class GenRadialCached
                 {
                     var newKey = key.DecrementMapId();
                     cache.Add(newKey, value);
+                    if (foci != null)
+                        meditationFocusCache.Add(newKey, foci);
                     if (!float.IsNaN(wealth))
                         wealthCache.Add(newKey, wealth);
                 }
@@ -107,6 +134,7 @@ public static class GenRadialCached
             if (pair.Key.mapId != thing.Map.Index || !thing.OccupiedRect().ClosestCellTo(pair.Key.loc).InHorDistOf(pair.Key.loc, pair.Key.radius))
                 return false;
 
+            meditationFocusCache.Remove(pair.Key);
             wealthCache.Remove(pair.Key);
             return true;
         });

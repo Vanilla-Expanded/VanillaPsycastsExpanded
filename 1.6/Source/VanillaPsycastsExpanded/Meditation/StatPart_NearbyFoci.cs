@@ -16,7 +16,8 @@ public class StatPart_NearbyFoci : StatPart
         {
             ShouldApply =  false;
             // Use foreach loop over Linq's Sum() to avoid the overhead invoking the delegate, which had significant effect on performance.
-            foreach (var tuple in AllFociNearby(req.Thing, req.Pawn)) val += tuple.value;
+            var list = AllFociNearby(req.Thing, req.Pawn);
+            for (var i = 0; i < list.Count; i++) val += list[i].value;
         }
         finally
         {
@@ -24,35 +25,27 @@ public class StatPart_NearbyFoci : StatPart
         }
     }
 
-    private static IEnumerable<(Thing thing, float value)> AllFociNearby(Thing main, Pawn pawn)
+    private static List<(Thing thing, float value)> AllFociNearby(Thing main, Pawn pawn)
     {
         var compMain = main.TryGetComp<CompMeditationFocus>();
         if (compMain == null)
         {
-            return Enumerable.Empty<(Thing, float)>();
+            return [];
         }
         var map = pawn.Map;
         var pos = main.Position;
         var collectedFocusTypes = new HashSet<MeditationFocusDef>(compMain.Props.focusTypes);
         var potentialFoci = new List<(Thing thing, List<MeditationFocusDef> types, float value)>();
-        float searchRadiusSq = MeditationUtility.FocusObjectSearchRadius * MeditationUtility.FocusObjectSearchRadius;
-        List<Thing> thingsInGroup = map.listerThings.ThingsInGroup(ThingRequestGroup.MeditationFocus);
-        for (int i = 0; i < thingsInGroup.Count; i++)
+        var meditationFoci = GenRadialCached.MeditationFociAround(pos, map, MeditationUtility.FocusObjectSearchRadius, true);
+        foreach (var focus in meditationFoci)
         {
-            Thing thing = thingsInGroup[i];
-            if (thing.Position.DistanceToSquared(pos) > searchRadiusSq)
+            if (!focus.CanPawnUse(pawn))
             {
                 continue;
             }
 
-            var comp = thing.TryGetComp<CompMeditationFocus>();
-            if (comp == null || !comp.CanPawnUse(pawn))
-            {
-                continue;
-            }
-
-            float strength = thing.GetStatValueForPawn(StatDefOf.MeditationFocusStrength, pawn);
-            potentialFoci.Add((thing, comp.Props.focusTypes, strength));
+            float strength = focus.parent.GetStatValueForPawn(StatDefOf.MeditationFocusStrength, pawn);
+            potentialFoci.Add((focus.parent, focus.Props.focusTypes, strength));
         }
 
         potentialFoci.Sort((a, b) => b.value.CompareTo(a.value));
