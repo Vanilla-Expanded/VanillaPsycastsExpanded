@@ -22,8 +22,8 @@ public class StatPart_Group : StatPart_Focus
 
     private static int MeditatingPawnsAround(Thing thing)
     {
-        return thing.Map.mapPawns.PawnsInFaction(thing.Faction)
-                    .Count(p => p.Position.InHorDistOf(thing.Position, 5f) && p.CurJobDef == JobDefOf.Meditate);
+        return thing.Map.mapPawns.AllHumanlikeSpawned
+                    .Count(p => p.CurJobDef == JobDefOf.Meditate && p.Position.InHorDistOf(thing.Position, 5f));
     }
 
     public override string ExplanationPart(StatRequest req)

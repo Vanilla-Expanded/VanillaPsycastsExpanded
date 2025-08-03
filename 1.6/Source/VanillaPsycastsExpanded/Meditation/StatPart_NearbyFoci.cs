@@ -27,26 +27,52 @@ public class StatPart_NearbyFoci : StatPart
     private static IEnumerable<(Thing thing, float value)> AllFociNearby(Thing main, Pawn pawn)
     {
         var compMain = main.TryGetComp<CompMeditationFocus>();
-        if (compMain == null) return Enumerable.Empty<(Thing, float)>();
-
-        HashSet<MeditationFocusDef> focusTypes = compMain.Props.focusTypes.ToHashSet();
-        List<(Thing thing, List<MeditationFocusDef> foci, float value)> foci =
-            (from thing in GenRadialCached.RadialDistinctThingsAround(main.Position, main.Map, MeditationUtility.FocusObjectSearchRadius, true)
-             let comp = thing.TryGetComp<CompMeditationFocus>()
-             where comp != null && comp.CanPawnUse(pawn)
-             let value = thing.GetStatValueForPawn(
-                 StatDefOf.MeditationFocusStrength, pawn)
-             orderby value descending
-             select (thing, comp.Props.focusTypes, value)).ToList();
-
-        List<(Thing, float)> result = new();
-        foreach ((Thing thing, List<MeditationFocusDef> types, float value) in foci)
-            if (types.Any(type => !focusTypes.Contains(type)))
+        if (compMain == null)
+        {
+            return Enumerable.Empty<(Thing, float)>();
+        }
+        var map = pawn.Map;
+        var pos = main.Position;
+        var collectedFocusTypes = new HashSet<MeditationFocusDef>(compMain.Props.focusTypes);
+        var potentialFoci = new List<(Thing thing, List<MeditationFocusDef> types, float value)>();
+        float searchRadiusSq = MeditationUtility.FocusObjectSearchRadius * MeditationUtility.FocusObjectSearchRadius;
+        List<Thing> thingsInGroup = map.listerThings.ThingsInGroup(ThingRequestGroup.MeditationFocus);
+        for (int i = 0; i < thingsInGroup.Count; i++)
+        {
+            Thing thing = thingsInGroup[i];
+            if (thing.Position.DistanceToSquared(pos) > searchRadiusSq)
             {
-                focusTypes.UnionWith(types);
-                result.Add((thing, value));
+                continue;
             }
 
+            var comp = thing.TryGetComp<CompMeditationFocus>();
+            if (comp == null || !comp.CanPawnUse(pawn))
+            {
+                continue;
+            }
+
+            float strength = thing.GetStatValueForPawn(StatDefOf.MeditationFocusStrength, pawn);
+            potentialFoci.Add((thing, comp.Props.focusTypes, strength));
+        }
+
+        potentialFoci.Sort((a, b) => b.value.CompareTo(a.value));
+        var result = new List<(Thing, float)>();
+
+        foreach ((Thing thing, List<MeditationFocusDef> types, float value) in potentialFoci)
+        {
+            bool hasNewType = false;
+            foreach (MeditationFocusDef type in types)
+            {
+                if (collectedFocusTypes.Add(type))
+                {
+                    hasNewType = true;
+                }
+            }
+            if (hasNewType)
+            {
+                result.Add((thing, value));
+            }
+        }
         return result;
     }
 
