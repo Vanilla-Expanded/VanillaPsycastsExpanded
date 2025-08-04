@@ -248,9 +248,9 @@ public class Hediff_PsycastAbilities : Hediff_Abilities
         level switch
         {
             <= 1 => 100,
-            <= 20 => Mathf.RoundToInt(ExperienceRequiredForLevel(level - 1) * 1.15f),
-            <= 30 => Mathf.RoundToInt(ExperienceRequiredForLevel(level - 1) * 1.10f),
-            _ => Mathf.RoundToInt(ExperienceRequiredForLevel(level - 1) * 1.05f)
+            <= 20 => Mathf.RoundToInt(100 * Mathf.Pow(1.15f, level - 1)),
+            <= 30 => Mathf.RoundToInt(1636 * Mathf.Pow(1.10f, level - 20)),
+            _ => Mathf.RoundToInt(4243 * Mathf.Pow(1.05f, level - 30))
         };
 
     public override void GiveRandomAbilityAtLevel(int? forLevel = null) { }
