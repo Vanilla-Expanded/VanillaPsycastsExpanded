@@ -64,13 +64,13 @@ public class Ability_TransmuteStone : Ability
                         Replace(thing, chosenRock);
                     else
                         foreach (var rockDef in naturalRockDefs)
-                            if (rockDef.building.mineableThing == thing.def)
+                            if (rockDef.building.mineableThing!=null && rockDef.building.mineableThing == thing.def)
                                 Replace(thing, chosenRock.building.mineableThing);
-                            else if (rockDef.building.smoothedThing == thing.def)
+                            else if (rockDef.building.smoothedThing!=null &&rockDef.building.smoothedThing == thing.def)
                                 Replace(thing, chosenRock.building.smoothedThing);
-                            else if (rockDef.building.mineableThing.butcherProducts[0].thingDef == thing.def)
+                            else if (rockDef.building.mineableThing?.butcherProducts[0]?.thingDef == thing.def)
                                 Replace(thing, chosenRock.building.mineableThing.butcherProducts[0].thingDef);
-                            else if (thing.Stuff != null && thing.Stuff == rockDef.building.mineableThing.butcherProducts[0].thingDef)
+                            else if (thing.Stuff != null && thing.Stuff == rockDef.building.mineableThing?.butcherProducts[0]?.thingDef)
                                 Replace(thing, stuff: chosenRock.building.mineableThing.butcherProducts[0].thingDef);
 
                 var grid = map.terrainGrid;
