@@ -45,9 +45,10 @@ public class CompDarkener : ThingComp
     public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
     {
         var cells = DarkCellsFor(map);
-
+        
         foreach (var pos in GenRadial.RadialCellsAround(parent.Position, Props.darknessRange, true))
         {
+            
             if (cells.TryGetValue(pos, out var darkeners))
             {
                 if (darkeners == 1)
@@ -57,6 +58,7 @@ public class CompDarkener : ThingComp
             }
             else darkeners = 0;
 
+            
             // There may be some other building blocking light in the cell already,
             // so we can only
             var anyBlockers = false;
@@ -69,9 +71,10 @@ public class CompDarkener : ThingComp
                     break;
                 }
             }
+           
 
             if (!anyBlockers)
-                parent.Map.glowGrid.LightBlockerRemoved(pos);
+                parent.Map?.glowGrid?.LightBlockerRemoved(pos);
         }
 
         // Do a bit of cleanup

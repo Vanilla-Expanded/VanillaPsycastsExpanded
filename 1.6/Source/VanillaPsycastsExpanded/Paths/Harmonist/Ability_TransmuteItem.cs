@@ -54,6 +54,8 @@ public class Ability_TransmuteItem : Ability
         if (thingDef.IsCorpse) return false;
         if (thingDef.MadeFromStuff) return false;
         if (thingDef.IsEgg) return false;
+        if (thingDef == ThingDefOf.Apparel_CerebrexNode) return false;
+        if (thingDef == VPE_DefOf.MechanoidTransponder) return false;
         if (thingDef.tradeTags != null)
             if (thingDef.tradeTags.Any(tag => tag.Contains("CE") && tag.Contains("Ammo")))
                 return false;
@@ -71,6 +73,10 @@ public class Ability_TransmuteItem : Ability
         if (target.Thing.MarketValue < 1f)
         {
             if (showMessages) Messages.Message("VPE.TooCheap".Translate(), MessageTypeDefOf.RejectInput, false);
+            return false;
+        }
+        if(target.Thing.def == ThingDefOf.Apparel_CerebrexNode)
+        {
             return false;
         }
 

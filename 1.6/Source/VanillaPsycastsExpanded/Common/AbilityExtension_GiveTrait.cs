@@ -19,7 +19,7 @@
                 var pawn = target.Thing as Pawn;
                 if (!pawn.story?.traits?.HasTrait(trait, degree) ?? false)
                 {
-                    pawn.story.traits.GainTrait(new Trait(trait, degree));
+                    pawn.story.traits.GainTrait(new Trait(trait, degree),suppressConflicts: true);
                     pawn.needs.AddOrRemoveNeedsAsAppropriate(); // for thrall
                 }
             }

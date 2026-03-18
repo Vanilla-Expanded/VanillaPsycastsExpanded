@@ -650,8 +650,8 @@
 			<li>
 				<compClass>VanillaPsycastsExpanded.Nightstalker.HediffComp_DissapearsOnAttack</compClass>
 			</li>
-			<li>
-				<compClass>HediffComp_Invisibility</compClass>
+			<li Class="HediffCompProperties_Invisibility">
+				<visibleToPlayer>true</visibleToPlayer>
 			</li>
 		</comps>
 	</HediffDef>

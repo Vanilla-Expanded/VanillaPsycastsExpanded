@@ -39,7 +39,7 @@
         <defName>VPE_IntenseShadows</defName>
         <conditionClass>VanillaPsycastsExpanded.Nightstalker.GameCondition_IntenseShadows</conditionClass>
         <label>intensified shadows</label>
-        <description>text.todo</description>
+        <description>All areas on this zone with less than 50% light levels have been plunged into pitch darkness.</description>
         <endMessage>The shadows return to normal.</endMessage>
         <preventRain>false</preventRain>
         <canBePermanent>false</canBePermanent>

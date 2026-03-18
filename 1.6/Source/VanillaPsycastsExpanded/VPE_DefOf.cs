@@ -59,6 +59,8 @@ public static class VPE_DefOf
     public static ThingDef VPE_Mote_ParalysisPulse;
     public static ThingDef VPE_SoulOrbTransfer;
     public static ThingDef VPE_SoulFromSky;
+    [MayRequireBiotech]
+    public static ThingDef MechanoidTransponder;
 
     public static TraitDef VPE_Thrall;
     public static SoundDef VPE_Recharge_Sustainer;

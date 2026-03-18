@@ -16,7 +16,7 @@ public class Ability_IncreaseQuality : Ability
         foreach (var target in targets)
         {
             var comp = target.Thing.GetInnerIfMinified().TryGetComp<CompQuality>();
-            if (comp == null || comp.Quality >= MaxQuality) return;
+            if (comp == null || comp.Quality >= MaxQuality || target.Thing is Book) return;
             comp.SetQuality(comp.Quality + 1, ArtGenerationContext.Colony);
             for (var i = 0; i < 16; i++) FleckMaker.ThrowMicroSparks(target.Thing.TrueCenter(), pawn.Map);
         }
