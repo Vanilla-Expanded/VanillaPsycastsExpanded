@@ -274,7 +274,7 @@
 	<VEF.Abilities.AbilityDef ParentName="VPE_PsycastBase">
 		<defName>VPE_MassHallucination</defName>
 		<label>mass hallucination</label>
-		<description>Creating a massive burst of psychic suggestion, convinced nearby pawns that rooms are the absolute best they could possibly be. The caster is put into a coma and the resulting effect lasts for five days.</description>
+		<description>Creating a massive burst of psychic suggestion, convinces nearby pawns that rooms are the absolute best they could possibly be. The caster is put into a coma and the resulting effect lasts for five days.</description>
 		<iconPath>Abilities/Archon/MassHallucination</iconPath>
 		<!-- Replace with VEF.Abilities.Ability_Blank for 1.6 update. -->
 		<!-- We cannot do this right now as modifying abilityClass doesn't update existing abilities in-game. -->
