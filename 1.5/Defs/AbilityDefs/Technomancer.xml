@@ -54,6 +54,7 @@
       <canTargetLocations>false</canTargetLocations>
       <canTargetBuildings>true</canTargetBuildings>
       <canTargetPawns>true</canTargetPawns>
+      <canTargetSelf>true</canTargetSelf>
       <canTargetMechs>true</canTargetMechs>
       <canTargetAnimals>false</canTargetAnimals>
       <onlyRepairableMechs>true</onlyRepairableMechs>
