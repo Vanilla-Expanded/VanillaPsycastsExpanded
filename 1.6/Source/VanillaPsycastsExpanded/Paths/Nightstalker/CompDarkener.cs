@@ -74,7 +74,7 @@ public class CompDarkener : ThingComp
            
 
             if (!anyBlockers)
-                parent.Map?.glowGrid?.LightBlockerRemoved(pos);
+                map.glowGrid?.LightBlockerRemoved(pos);
         }
 
         // Do a bit of cleanup
