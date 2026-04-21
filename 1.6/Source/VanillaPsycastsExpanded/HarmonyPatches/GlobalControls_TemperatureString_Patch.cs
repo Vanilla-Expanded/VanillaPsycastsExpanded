@@ -30,11 +30,11 @@
 
         public static void ModifyTemperatureIfNeeded(ref float result, IntVec3 cell, Map map)
         {
-            if (GenTemperature_GetTemperatureForCell_Patch.cachedComp?.map != map)
+            if (GenTemperature_TryGetTemperatureForCell_Patch.cachedComp?.map != map)
             {
-                GenTemperature_GetTemperatureForCell_Patch.cachedComp = map.GetComponent<MapComponent_PsycastsManager>();
+                GenTemperature_TryGetTemperatureForCell_Patch.cachedComp = map.GetComponent<MapComponent_PsycastsManager>();
             }
-            if (GenTemperature_GetTemperatureForCell_Patch.cachedComp.TryGetOverridenTemperatureFor(cell, out var value))
+            if (GenTemperature_TryGetTemperatureForCell_Patch.cachedComp.TryGetOverridenTemperatureFor(cell, out var value))
             {
                 result = value;
             }

@@ -4,7 +4,7 @@
     using Verse;
 
     [HarmonyPatch(typeof(GenTemperature), nameof(GenTemperature.TryGetTemperatureForCell))]
-    public static class GenTemperature_GetTemperatureForCell_Patch
+    public static class GenTemperature_TryGetTemperatureForCell_Patch
     {
         public static MapComponent_PsycastsManager cachedComp;
         public static bool Prefix(IntVec3 c, Map map, ref float tempResult, ref bool __result)
