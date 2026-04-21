@@ -29,19 +29,26 @@
 
         public bool TryGetOverridenTemperatureFor(IntVec3 cell, out float result)
         {
-            foreach (FixedTemperatureZone coldZone in this.temperatureZones)
-                if (cell.DistanceTo(coldZone.center) <= coldZone.radius)
+            for (var i = 0; i < this.temperatureZones.Count; i++)
+            {
+                var coldZone = this.temperatureZones[i];
+                if (cell.DistanceToSquared(coldZone.center) <= coldZone.radius * coldZone.radius)
                 {
                     result = coldZone.fixedTemperature;
                     return true;
                 }
+            }
 
-            foreach (Hediff_BlizzardSource hediff in this.blizzardSources)
-                if (cell.DistanceTo(hediff.pawn.Position) <= hediff.ability.GetRadiusForPawn())
+            for (var i = 0; i < this.blizzardSources.Count; i++)
+            {
+                var hediff = this.blizzardSources[i];
+                var radius = hediff.ability.GetRadiusForPawn();
+                if (cell.DistanceTo(hediff.pawn.Position) <= radius * radius)
                 {
                     result = -60; // hardcoded for now, doesn't matter much
                     return true;
                 }
+            }
 
             result = -1f;
             return false;

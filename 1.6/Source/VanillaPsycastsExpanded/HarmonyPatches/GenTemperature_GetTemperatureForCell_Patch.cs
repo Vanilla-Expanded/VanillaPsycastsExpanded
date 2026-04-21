@@ -3,19 +3,20 @@
     using HarmonyLib;
     using Verse;
 
-    [HarmonyPatch(typeof(GenTemperature), "GetTemperatureForCell")]
+    [HarmonyPatch(typeof(GenTemperature), nameof(GenTemperature.TryGetTemperatureForCell))]
     public static class GenTemperature_GetTemperatureForCell_Patch
     {
         public static MapComponent_PsycastsManager cachedComp;
-        public static bool Prefix(IntVec3 c, Map map, ref float __result)
+        public static bool Prefix(IntVec3 c, Map map, ref float tempResult, ref bool __result)
         {
+            if (map == null)
+                return true;
             if (cachedComp?.map != map)
-            {
                 cachedComp = map.GetComponent<MapComponent_PsycastsManager>();
-            }
             if (cachedComp.TryGetOverridenTemperatureFor(c, out var value))
             {
-                __result = value;
+                tempResult = value;
+                __result = true;
                 return false;
             }
             return true;
