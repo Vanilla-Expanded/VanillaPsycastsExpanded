@@ -40,7 +40,6 @@
 		<iconPath>Abilities/Archon/WordofProductivity</iconPath>
 		<castTime>120</castTime>
 		<durationTime>300000</durationTime>
-		<goodwillImpact>-10</goodwillImpact>
 		<showUndrafted>true</showUndrafted>
 		<chance>0</chance>
 		<modExtensions>
