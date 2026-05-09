@@ -14,10 +14,9 @@ public class StatPart_NearbyFoci : StatPart
         if (req.Thing == null || req.Pawn == null || !ShouldApply || req.Thing.Map == null) return;
         try
         {
+            
             ShouldApply =  false;
-            // Use foreach loop over Linq's Sum() to avoid the overhead invoking the delegate, which had significant effect on performance.
-            var list = AllFociNearby(req.Thing, req.Pawn);
-            for (var i = 0; i < list.Count; i++) val += list[i].value;
+            val = NearbyFocusBoostCachingUtility.GetOrCacheModifiedFociBoost(req.Pawn, req.Thing, val);
         }
         finally
         {
@@ -25,7 +24,7 @@ public class StatPart_NearbyFoci : StatPart
         }
     }
 
-    private static List<(Thing thing, float value)> AllFociNearby(Thing main, Pawn pawn)
+    public static List<(Thing thing, float value)> AllFociNearby(Thing main, Pawn pawn)
     {
         var compMain = main.TryGetComp<CompMeditationFocus>();
         if (compMain == null)
@@ -43,7 +42,7 @@ public class StatPart_NearbyFoci : StatPart
             {
                 continue;
             }
-
+            
             float strength = focus.parent.GetStatValueForPawn(StatDefOf.MeditationFocusStrength, pawn);
             potentialFoci.Add((focus.parent, focus.Props.focusTypes, strength));
         }
