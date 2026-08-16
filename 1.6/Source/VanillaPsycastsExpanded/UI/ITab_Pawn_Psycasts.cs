@@ -230,7 +230,7 @@ public class ITab_Pawn_Psycasts : ITab
             Widgets.EndScrollView();
         }
 
-        listing.CheckboxLabeled("VPE.UseAltBackground".Translate(), ref useAltBackgrounds);
+        //listing.CheckboxLabeled("VPE.UseAltBackground".Translate(), ref useAltBackgrounds);
         if (Prefs.DevMode) listing.CheckboxLabeled("VPE.DevMode".Translate(), ref devMode);
         listing.End();
         if (pathsByTab.NullOrEmpty())
