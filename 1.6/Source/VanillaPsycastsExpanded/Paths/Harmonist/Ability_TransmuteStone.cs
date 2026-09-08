@@ -3,6 +3,7 @@ using HarmonyLib;
 using RimWorld.Planet;
 using Verse;
 using VEF.Abilities;
+using System.Linq;
 
 namespace VanillaPsycastsExpanded.Harmonist;
 
@@ -20,7 +21,7 @@ public class Ability_TransmuteStone : Ability
         {
             var map = target.Map;
             Find.World.NaturalRockTypesIn(map.Tile); // Force the game to generate the rocks list we are querying
-            var naturalRockDefs = allNaturalRockDefs(Find.World);
+            List<ThingDef> naturalRockDefs = allNaturalRockDefs(Find.World).Where(x => x.building?.mineablePreventMeteorite != true).ToList();
             var chosenRock = naturalRockDefs.RandomElement();
 
             TerrainDef NewTerrain(TerrainDef terrain)
