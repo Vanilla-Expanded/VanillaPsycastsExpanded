@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <SoundDef>
+      <defName>VPE_IceSpike_Cast</defName>
+      <context>MapOnly</context>
+      <maxSimultaneous>1</maxSimultaneous>
+      <subSounds>
+        <li>
+          <grains>
+            <li Class="AudioGrain_Clip">
+              <clipPath>Frostshaper/Psycast_IceSpike_Cast_01a</clipPath>
+            </li>
+          </grains>
+          <volumeRange>42</volumeRange>
+          <distRange>20~50</distRange>
+        </li>
+      </subSounds>
+    </SoundDef>
+	
+    <SoundDef>
+      <defName>VPE_BreatheIce_Cast</defName>
+      <context>MapOnly</context>
+      <maxSimultaneous>1</maxSimultaneous>
+      <subSounds>
+        <li>
+          <grains>
+            <li Class="AudioGrain_Clip">
+              <clipPath>Frostshaper/Psycast_BreatheIce_Cast_01a</clipPath>
+            </li>
+          </grains>
+          <volumeRange>42</volumeRange>
+          <distRange>20~50</distRange>
+        </li>
+      </subSounds>
+    </SoundDef>
+	
+    <SoundDef>
+      <defName>VPE_IceBlock_Cast</defName>
+      <context>MapOnly</context>
+      <maxSimultaneous>1</maxSimultaneous>
+      <subSounds>
+        <li>
+          <grains>
+            <li Class="AudioGrain_Clip">
+              <clipPath>Frostshaper/Psycast_IceBlock_Cast_01a</clipPath>
+            </li>
+          </grains>
+          <volumeRange>42</volumeRange>
+          <distRange>20~50</distRange>
+        </li>
+      </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+      <defName>VPE_IceCrystal_Cast</defName>
+      <context>MapOnly</context>
+      <maxSimultaneous>1</maxSimultaneous>
+      <subSounds>
+        <li>
+          <grains>
+            <li Class="AudioGrain_Clip">
+              <clipPath>Frostshaper/Psycast_IceCrystal_Cast_01a</clipPath>
+            </li>
+          </grains>
+          <volumeRange>42</volumeRange>
+          <distRange>20~50</distRange>
+        </li>
+      </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+      <defName>VPE_IceShield_Cast</defName>
+      <context>MapOnly</context>
+      <maxSimultaneous>1</maxSimultaneous>
+      <subSounds>
+        <li>
+          <grains>
+            <li Class="AudioGrain_Clip">
+              <clipPath>Frostshaper/Psycast_IceShield_Cast_01a</clipPath>
+            </li>
+          </grains>
+          <volumeRange>42</volumeRange>
+          <distRange>20~50</distRange>
+        </li>
+      </subSounds>
+    </SoundDef>
+	
+    <SoundDef>
+      <defName>VPE_IceShield_End</defName>
+      <context>MapOnly</context>
+      <maxSimultaneous>1</maxSimultaneous>
+      <subSounds>
+        <li>
+          <grains>
+            <li Class="AudioGrain_Clip">
+              <clipPath>Frostshaper/Psycast_IceShield_End_01a</clipPath>
+            </li>
+          </grains>
+          <volumeRange>42</volumeRange>
+          <distRange>20~50</distRange>
+        </li>
+      </subSounds>
+    </SoundDef>
+
+	<SoundDef>
+		<defName>VPE_FrostRay_Sustainer</defName>
+		<context>MapOnly</context>
+		<sustain>True</sustain>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Frostshaper/Psycast_FrostRay_Sustainer_01a</clipPath>
+					</li>
+				</grains>
+				<volumeRange>42</volumeRange>
+				<distRange>20~50</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	
+	<SoundDef>
+		<defName>VPE_IceShield_Sustainer</defName>
+		<context>MapOnly</context>
+		<sustain>True</sustain>
+		<maxSimultaneous>1</maxSimultaneous>
+		<maxVoices>1</maxVoices>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Frostshaper/Psycast_IceShield_Sustainer_01a</clipPath>
+					</li>
+				</grains>
+				<volumeRange>42</volumeRange>
+				<distRange>20~50</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	
+</Defs>

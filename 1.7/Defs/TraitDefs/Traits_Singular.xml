@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TraitDef>
+    <defName>VPE_Thrall</defName>
+    <commonality>0</commonality>
+    <disabledWorkTags>ManualSkilled, Social</disabledWorkTags>
+    <degreeDatas>
+      <li>
+        <label>thrall</label>
+        <description>Psychic enthrallment caused by incredibly strong mental influence. Thralls don't need to sleep or have recreation, but are unable to do skilled work and engage in social interactions.</description>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+</Defs>

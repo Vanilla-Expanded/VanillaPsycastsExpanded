@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RaidStrategyDef>
+    <defName>VPE_ImmediateAttack_Psycasters</defName>
+    <workerClass>VanillaPsycastsExpanded.RaidStrategyWorker_ImmediateAttack_Psycasters</workerClass>
+    <selectionWeightPerPointsCurve>
+      <points>
+        <li>(0, 1)</li>
+      </points>
+    </selectionWeightPerPointsCurve>
+    <selectionWeightCurvesPerFaction>
+      <li>
+        <faction>Mechanoid</faction>
+        <selectionWeightPerPointsCurve>
+          <points>
+            <li>(0, 1)</li> <!-- Constant 1 -->
+          </points>
+        </selectionWeightPerPointsCurve>
+      </li>
+    </selectionWeightCurvesPerFaction>
+    <pointsFactorCurve>
+      <points>
+        <li>0, 1</li>
+      </points>
+    </pointsFactorCurve>
+    <arriveModes>
+      <li>EdgeWalkIn</li>
+      <li>EdgeWalkInGroups</li>
+    </arriveModes>
+    <letterLabelEnemy>Raid (Psycaster)</letterLabelEnemy>
+    <arrivalTextEnemy>These raiders seem to be led by a powerful psycaster. Psycasters can use psychic powers to manipulate the battlefield and easily tip the scales of the conflict. You should watch out for them, and prioritise targeting them when you see that they are about to cast a psycast.
+
+Psycasters in this group:
+</arrivalTextEnemy>
+    <letterLabelFriendly>Friendlies (Psycaster)</letterLabelFriendly>
+    <arrivalTextFriendly>They are moving in to help you immediately.</arrivalTextFriendly>
+  </RaidStrategyDef>
+  
+</Defs>

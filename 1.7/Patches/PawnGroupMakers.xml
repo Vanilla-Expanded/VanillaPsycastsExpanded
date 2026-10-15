@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+   <Operation Class="PatchOperationSequence">
+      <operations>
+         <li Class="PatchOperationAdd">
+            <xpath>Defs/FactionDef[defName = "Empire"]/pawnGroupMakers</xpath>
+            <value>
+               <li Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid">
+                  <kindDef>Combat</kindDef>
+                  <commonality>10</commonality>
+                  <options>
+                     <Empire_Fighter_Trooper>5</Empire_Fighter_Trooper>
+                     <Empire_Fighter_Janissary>3.5</Empire_Fighter_Janissary>
+                     <Empire_Fighter_Cataphract>2</Empire_Fighter_Cataphract>
+                     <Empire_Fighter_Champion>4</Empire_Fighter_Champion>
+                     <Empire_Caster_Conflagrator>0.2</Empire_Caster_Conflagrator>
+                     <Empire_Caster_Archotechist>0.2</Empire_Caster_Archotechist>
+                     <Empire_Caster_Warlord_Ranged>0.2</Empire_Caster_Warlord_Ranged>
+					 <Empire_Caster_Warlord_Melee>0.2</Empire_Caster_Warlord_Melee>
+                  </options>
+               </li>
+               <li Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid">
+                  <kindDef>Combat</kindDef>
+                  <commonality>100</commonality>
+                  <options>
+                     <Empire_Fighter_Trooper>5</Empire_Fighter_Trooper>
+                     <Empire_Fighter_Janissary>3.5</Empire_Fighter_Janissary>
+                     <Empire_Fighter_Cataphract>2</Empire_Fighter_Cataphract>
+                     <Empire_Fighter_Champion>4</Empire_Fighter_Champion>
+                     <Empire_Caster_Warlord_Ranged>0.2</Empire_Caster_Warlord_Ranged>
+					 <Empire_Caster_Warlord_Melee>0.2</Empire_Caster_Warlord_Melee>
+                     <Empire_Caster_Protector>0.4</Empire_Caster_Protector>
+                  </options>
+               </li>
+               <li Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid">
+                  <kindDef>Combat</kindDef>
+                  <commonality>50</commonality>
+                  <options>
+                     <Empire_Fighter_Trooper>5</Empire_Fighter_Trooper>
+                     <Empire_Fighter_Janissary>3.5</Empire_Fighter_Janissary>
+                     <Empire_Fighter_Cataphract>2</Empire_Fighter_Cataphract>
+                     <Empire_Fighter_Champion>4</Empire_Fighter_Champion>
+                     <Empire_Caster_Archotechist>0.1</Empire_Caster_Archotechist>
+                  </options>
+               </li>
+            </value>
+         </li>
+         <li Class="PatchOperationAdd">
+            <xpath>Defs/FactionDef[@Name = "TribeBase"]/pawnGroupMakers</xpath>
+            <value>
+               <li Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid">
+                  <kindDef>Combat</kindDef>
+                  <commonality>100</commonality>
+                  <options>
+                     <Tribal_Penitent>5</Tribal_Penitent>
+                     <Tribal_Warrior>5</Tribal_Warrior>
+                     <Tribal_Archer>10</Tribal_Archer>
+                     <Tribal_Hunter>10</Tribal_Hunter>
+                     <Tribal_HeavyArcher>10</Tribal_HeavyArcher>
+                     <Tribal_Berserker>5</Tribal_Berserker>
+                     <Tribal_ChiefRanged>3</Tribal_ChiefRanged>
+                     <Tribal_ChiefMelee>1.5</Tribal_ChiefMelee>
+                     <Tribal_Caster_Wildspeaker>0.1</Tribal_Caster_Wildspeaker>
+                  </options>
+               </li>
+               <li Class="VanillaPsycastsExpanded.PawnGroupMaker_PsycasterRaid">
+                  <kindDef>Combat</kindDef>
+                  <commonality>70</commonality>
+                  <options>
+                     <Tribal_Penitent>5</Tribal_Penitent>
+                     <Tribal_Warrior>5</Tribal_Warrior>
+                     <Tribal_Archer>10</Tribal_Archer>
+                     <Tribal_Hunter>10</Tribal_Hunter>
+                     <Tribal_HeavyArcher>10</Tribal_HeavyArcher>
+                     <Tribal_Berserker>5</Tribal_Berserker>
+                     <Tribal_ChiefRanged>3</Tribal_ChiefRanged>
+                     <Tribal_ChiefMelee>1.5</Tribal_ChiefMelee>
+                     <Tribal_Caster_Conflagrator>0.1</Tribal_Caster_Conflagrator>
+                     <Tribal_Caster_Frostshaper>0.1</Tribal_Caster_Frostshaper>
+                     <Tribal_Caster_Staticlord>0.1</Tribal_Caster_Staticlord>
+                  </options>
+               </li>
+            </value>
+         </li>
+      </operations>
+   </Operation>
+</Patch>

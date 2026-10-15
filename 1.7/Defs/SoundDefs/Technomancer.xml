@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<SoundDef>
+		<defName>VPE_EnchantQuality_Cast</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Technomancer/Psycast_EnchantQuality_Cast_01a</clipPath>
+					</li>
+				</grains>
+				<volumeRange>42</volumeRange>
+				<distRange>20~50</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>VPE_Mend_Cast</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Technomancer/Psycast_Mend_Cast_01a</clipPath>
+					</li>
+				</grains>
+				<volumeRange>42</volumeRange>
+				<distRange>20~50</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>VPE_NeuralHeat_Blast</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Technomancer/BlastNeuralHeat</clipPath>
+					</li>
+				</grains>
+				<volumeRange>42</volumeRange>
+				<distRange>20~50</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>VPE_ConjureHeatPearls_Cast</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Technomancer/Psycast_ConjureHeatPearls_Cast_01a</clipPath>
+					</li>
+				</grains>
+				<volumeRange>42</volumeRange>
+				<distRange>20~50</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>VPE_Haywire_Cast</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Technomancer/Psycast_Haywire_Cast_01a</clipPath>
+					</li>
+				</grains>
+				<volumeRange>42</volumeRange>
+				<distRange>20~50</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>VPE_Psyring_Cast</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Technomancer/Psycast_Psyring_Cast_01a</clipPath>
+					</li>
+				</grains>
+				<volumeRange>42</volumeRange>
+				<distRange>20~50</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+	  <defName>VPE_Psyring_Warmup</defName>
+	  <context>MapOnly</context>
+	  <maxSimultaneous>5</maxSimultaneous>
+	  <priorityMode>PrioritizeNearest</priorityMode>
+	  <sustain>True</sustain>
+	  <sustainFadeoutTime>0.1</sustainFadeoutTime>
+	  <subSounds>
+		<li>
+			<grains>
+				<li Class="AudioGrain_Clip">
+					<clipPath>Technomancer/Psycast_Psyring_Sustainer_01a</clipPath>
+				</li>
+			</grains>
+		  <volumeRange>20~25</volumeRange>
+		  <pitchRange>0.9~1.1</pitchRange>
+		  <muteWhenPaused>True</muteWhenPaused>
+		</li>
+	  </subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>VPE_ReverseEngineer_Cast</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Technomancer/Psycast_ReverseEngineer_Cast_01a</clipPath>
+					</li>
+				</grains>
+				<volumeRange>42</volumeRange>
+				<distRange>20~50</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+
+	<!-- Construct sounds -->
+
+	<SoundDef>
+		<defName>VPE_Pawn_RockConstruct_Call</defName>
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Technomancer/RockConstruct/Call</clipFolderPath>
+					</li>
+				</grains>
+				<volumeRange>15.42672~14.7734</volumeRange>
+				<pitchRange>0.9770588~1.137647</pitchRange>
+				<distRange>0~50.40025</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>VPE_Pawn_RockConstruct_Angry</defName>
+		<context>MapOnly</context>
+		<maxVoices>2</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Technomancer/RockConstruct/Angry</clipFolderPath>
+					</li>
+				</grains>
+				<volumeRange>25~25</volumeRange>
+				<pitchRange>0.9541176~1.137647</pitchRange>
+				<distRange>0~70</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>VPE_Pawn_RockConstruct_Wounded</defName>  
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Technomancer/RockConstruct/Wounded</clipFolderPath>
+					</li>
+				</grains>      
+				<volumeRange>15~15</volumeRange>      
+				<pitchRange>0.9311765~1.091765</pitchRange>      
+				<distRange>0~70</distRange>      
+				<repeatMode>NeverTwice</repeatMode>      
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>VPE_Pawn_RockConstruct_Death</defName>  
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Technomancer/RockConstruct/Death</clipFolderPath>
+					</li>
+				</grains>      
+				<volumeRange>20~20</volumeRange>      
+				<pitchRange>0.9311764~1.068824</pitchRange>      
+				<distRange>0~70</distRange>      
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+	
+	<SoundDef>
+		<defName>VPE_Pawn_SteelConstruct_Call</defName>
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Technomancer/SteelConstruct/Call</clipFolderPath>
+					</li>
+				</grains>
+				<volumeRange>15.42672~14.7734</volumeRange>
+				<pitchRange>0.9770588~1.137647</pitchRange>
+				<distRange>0~50.40025</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>VPE_Pawn_SteelConstruct_Angry</defName>
+		<context>MapOnly</context>
+		<maxVoices>2</maxVoices>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Technomancer/SteelConstruct/Angry</clipFolderPath>
+					</li>
+				</grains>
+				<volumeRange>25~25</volumeRange>
+				<pitchRange>0.9541176~1.137647</pitchRange>
+				<distRange>0~70</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>VPE_Pawn_SteelConstruct_Wounded</defName>  
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Technomancer/SteelConstruct/Wounded</clipFolderPath>
+					</li>
+				</grains>      
+				<volumeRange>15~15</volumeRange>      
+				<pitchRange>0.9311765~1.091765</pitchRange>      
+				<distRange>0~70</distRange>      
+				<repeatMode>NeverTwice</repeatMode>      
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>VPE_Pawn_SteelConstruct_Death</defName>  
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Technomancer/SteelConstruct/Death</clipFolderPath>
+					</li>
+				</grains>      
+				<volumeRange>20~20</volumeRange>      
+				<pitchRange>0.9311764~1.068824</pitchRange>      
+				<distRange>0~70</distRange>      
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+</Defs>

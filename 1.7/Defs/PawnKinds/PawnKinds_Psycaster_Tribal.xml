@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+   <PawnKindDef ParentName="TribalBase">
+      <defName>Tribal_Caster_Wildspeaker</defName>
+      <label>wildspeaker</label>
+      <combatPower>250</combatPower>
+      <itemQuality>Normal</itemQuality>
+      <canBeSapper>false</canBeSapper>
+      <apparelMoney>2000~3000</apparelMoney>
+      <apparelRequired>
+         <li>VPE_Apparel_EltexMask</li>
+      </apparelRequired>
+      <requiredWorkTags>
+         <li>Violent</li>
+      </requiredWorkTags>
+      <weaponMoney>9999</weaponMoney>
+      <weaponTags Inherit="False">
+         <li>VPE_EltexMelee</li>
+      </weaponTags>
+      <initialWillRange>5~7</initialWillRange>
+      <initialResistanceRange>24~40</initialResistanceRange>
+      <modExtensions>
+         <li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+            <implantDef>VPE_PsycastAbilityImplant</implantDef>
+            <initialLevel>1</initialLevel>
+            <statUpgradePoints>2~6</statUpgradePoints>
+            <unlockedPaths>
+               <VPE_Wildspeaker>1~4|2~12</VPE_Wildspeaker>
+            </unlockedPaths>
+         </li>
+      </modExtensions>
+   </PawnKindDef>
+   
+   <PawnKindDef ParentName="TribalBase">
+      <defName>Tribal_Caster_Conflagrator</defName>
+      <label>conflagator</label>
+      <combatPower>250</combatPower>
+      <itemQuality>Normal</itemQuality>
+      <canBeSapper>false</canBeSapper>
+      <apparelMoney>2000~3000</apparelMoney>
+      <apparelRequired>
+         <li>VPE_Apparel_EltexMask</li>
+      </apparelRequired>
+      <requiredWorkTags>
+         <li>Violent</li>
+      </requiredWorkTags>
+      <weaponMoney>9999</weaponMoney>
+      <weaponTags Inherit="False">
+         <li>VPE_EltexMelee</li>
+      </weaponTags>
+      <initialWillRange>5~7</initialWillRange>
+      <initialResistanceRange>24~40</initialResistanceRange>
+      <modExtensions>
+         <li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+            <implantDef>VPE_PsycastAbilityImplant</implantDef>
+            <initialLevel>1</initialLevel>
+            <statUpgradePoints>2~6</statUpgradePoints>
+            <unlockedPaths>
+               <VPE_Conflagrator>1~4|2~12</VPE_Conflagrator>
+            </unlockedPaths>
+         </li>
+      </modExtensions>
+   </PawnKindDef>
+   
+   <PawnKindDef ParentName="TribalBase">
+      <defName>Tribal_Caster_Frostshaper</defName>
+      <label>frostshaper</label>
+      <combatPower>250</combatPower>
+      <itemQuality>Normal</itemQuality>
+      <canBeSapper>false</canBeSapper>
+      <apparelMoney>2000~3000</apparelMoney>
+      <apparelRequired>
+         <li>VPE_Apparel_EltexMask</li>
+      </apparelRequired>
+      <requiredWorkTags>
+         <li>Violent</li>
+      </requiredWorkTags>
+      <weaponMoney>9999</weaponMoney>
+      <weaponTags Inherit="False">
+         <li>VPE_EltexMelee</li>
+      </weaponTags>
+      <initialWillRange>5~7</initialWillRange>
+      <initialResistanceRange>24~40</initialResistanceRange>
+      <modExtensions>
+         <li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+            <implantDef>VPE_PsycastAbilityImplant</implantDef>
+            <initialLevel>1</initialLevel>
+            <statUpgradePoints>2~6</statUpgradePoints>
+            <unlockedPaths>
+               <VPE_Frostshaper>1~4|2~12</VPE_Frostshaper>
+            </unlockedPaths>
+         </li>
+      </modExtensions>
+   </PawnKindDef>
+   
+   <PawnKindDef ParentName="TribalBase">
+      <defName>Tribal_Caster_Staticlord</defName>
+      <label>staticlord</label>
+      <combatPower>250</combatPower>
+      <itemQuality>Normal</itemQuality>
+      <canBeSapper>false</canBeSapper>
+      <apparelMoney>2000~3000</apparelMoney>
+      <apparelRequired>
+         <li>VPE_Apparel_EltexMask</li>
+      </apparelRequired>
+      <requiredWorkTags>
+         <li>Violent</li>
+      </requiredWorkTags>
+      <weaponMoney>9999</weaponMoney>
+      <weaponTags Inherit="False">
+         <li>VPE_EltexMelee</li>
+      </weaponTags>
+      <initialWillRange>5~7</initialWillRange>
+      <initialResistanceRange>24~40</initialResistanceRange>
+      <modExtensions>
+         <li Class="VanillaPsycastsExpanded.PawnKindAbilityExtension_Psycasts">
+            <implantDef>VPE_PsycastAbilityImplant</implantDef>
+            <initialLevel>1</initialLevel>
+            <statUpgradePoints>2~6</statUpgradePoints>
+            <unlockedPaths>
+               <VPE_Staticlord>1~4|2~12</VPE_Staticlord>
+            </unlockedPaths>
+         </li>
+      </modExtensions>
+   </PawnKindDef>
+   
+</Defs>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<VEF.AnimalBehaviours.AnimalsDisabledFromQuestsDef>
+		<defName>VPE_DisabledQuestAnimals</defName>
+		<disabledFromQuestsPawns>
+			<li>VPE_SteelConstruct</li>
+			<li>VPE_RockConstruct</li>
+			<li>VPE_SummonedSkeleton</li>
+		</disabledFromQuestsPawns>
+	</VEF.AnimalBehaviours.AnimalsDisabledFromQuestsDef>
+</Defs>

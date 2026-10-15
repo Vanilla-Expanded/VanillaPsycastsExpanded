@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <DamageDef>
+        <defName>VPE_NeuralHeatBlast</defName>
+        <label>neural heat blast</label>
+        <workerClass>VanillaPsycastsExpanded.Technomancer.DamageWorker_NeuralHeatBlast</workerClass>
+        <externalViolence>false</externalViolence>
+        <isExplosive>false</isExplosive>
+        <defaultDamage>1</defaultDamage>
+        <defaultStoppingPower>0.5</defaultStoppingPower>
+        <explosionHeatEnergyPerCell>10</explosionHeatEnergyPerCell>
+        <explosionCellFleck>VPE_NeuralHeatBlast</explosionCellFleck>
+        <explosionColorCenter>(1, 0.3, 0.1)</explosionColorCenter>
+        <explosionColorEdge>(0.6, 0.3, 0.2)</explosionColorEdge>
+        <soundExplosion>VPE_NeuralHeat_Blast</soundExplosion>
+        <combatLogRules>Damage_Bomb</combatLogRules>
+    </DamageDef>
+
+  <DamageDef>
+    <defName>VPE_Rot</defName>
+    <label>rot</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been rotted to death.</deathMessage>
+    <hediff>VPE_Rot</hediff>
+    <hediffSkin>VPE_Rot</hediffSkin>
+    <hediffSolid>VPE_Rot</hediffSolid>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <overkillPctToDestroyPart>0~0.1</overkillPctToDestroyPart>
+  </DamageDef>
+</Defs>

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef Name="VPE_CraftEltexGear" Abstract = "True">
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+	<workSkill>Crafting</workSkill>
+    <effectWorking>Tailor</effectWorking>
+    <soundWorking>Recipe_Tailor</soundWorking>
+    <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+	<allowMixingIngredients>false</allowMixingIngredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>VPE_Eltex</li>
+      </thingDefs>
+      <categories>
+        <li>Textiles</li>
+      </categories>
+    </fixedIngredientFilter>
+    <researchPrerequisite>VPE_EltexGear</researchPrerequisite>
+    <skillRequirements>
+      <Crafting>6</Crafting>
+    </skillRequirements>
+    <recipeUsers>
+      <li>HandTailoringBench</li>
+      <li>ElectricTailoringBench</li>
+    </recipeUsers>
+	<useIngredientsForColor>false</useIngredientsForColor>
+  </RecipeDef>
+  
+  <RecipeDef Name="VPE_CraftEltexGearSmithy" ParentName="VPE_CraftEltexGear" Abstract = "True">
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Smith</soundWorking>
+    <recipeUsers Inherit = "False">
+      <li>ElectricSmithy</li>
+      <li>FueledSmithy</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef ParentName="VPE_CraftEltexGear">
+    <defName>VPE_Make_EltexRobe</defName>
+    <label>make eltex robe</label>
+    <description>Make an eltex robe.</description>
+    <jobString>Making eltex robe.</jobString>
+    <workAmount>20000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Textiles</li>
+          </categories>
+        </filter>
+        <count>100</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VPE_Eltex</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+    <products>
+      <Apparel_PsyfocusRobe>1</Apparel_PsyfocusRobe>
+    </products>
+  </RecipeDef>
+  
+  <RecipeDef ParentName="VPE_CraftEltexGear">
+    <defName>VPE_Make_EltexMask</defName>
+    <label>make eltex mask</label>
+    <description>Make an eltex mask.</description>
+    <jobString>Making eltex mask.</jobString>
+    <workAmount>8000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>WoodLog</li>
+          </thingDefs>
+        </filter>
+        <count>50</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VPE_Eltex</li>
+          </thingDefs>
+        </filter>
+        <count>6</count>
+      </li>
+    </ingredients>
+	<researchPrerequisite>VPE_CasterGear</researchPrerequisite>
+    <products>
+      <VPE_Apparel_EltexMask>1</VPE_Apparel_EltexMask>
+    </products>
+  </RecipeDef>
+  
+  <RecipeDef ParentName="VPE_CraftEltexGear">
+    <defName>VPE_Make_EltexCape</defName>
+    <label>make eltex cape</label>
+    <description>Make an eltex cape.</description>
+    <jobString>Making eltex cape.</jobString>
+    <workAmount>16000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Textiles</li>
+          </categories>
+        </filter>
+        <count>80</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VPE_Eltex</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+	<researchPrerequisite>VPE_CasterGear</researchPrerequisite>
+    <products>
+      <VPE_Apparel_EltexCape>1</VPE_Apparel_EltexCape>
+    </products>
+  </RecipeDef>
+  
+  <RecipeDef ParentName="VPE_CraftEltexGear">
+    <defName>VPE_Make_EltexVest</defName>
+    <label>make eltex vest</label>
+    <description>Make an eltex vest.</description>
+    <jobString>Making eltex vest.</jobString>
+    <workAmount>12000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Textiles</li>
+          </categories>
+        </filter>
+        <count>45</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VPE_Eltex</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <products>
+      <Apparel_PsyfocusVest>1</Apparel_PsyfocusVest>
+    </products>
+  </RecipeDef>
+  
+  <RecipeDef ParentName="VPE_CraftEltexGear">
+    <defName>VPE_Make_EltexShirt</defName>
+    <label>make eltex shirt</label>
+    <description>Make an eltex shirt.</description>
+    <jobString>Making eltex shirt.</jobString>
+    <workAmount>6000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Textiles</li>
+          </categories>
+        </filter>
+        <count>65</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VPE_Eltex</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <Apparel_PsyfocusShirt>1</Apparel_PsyfocusShirt>
+    </products>
+  </RecipeDef>
+  
+  <RecipeDef ParentName="VPE_CraftEltexGearSmithy">
+    <defName>VPE_Make_EltexStaff</defName>
+    <label>make eltex staff</label>
+    <description>Make an eltex staff.</description>
+    <jobString>Making eltex staff.</jobString>
+	<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <workAmount>18000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>35</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VPE_Eltex</li>
+          </thingDefs>
+        </filter>
+        <count>8</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>VPE_Eltex</li>
+		<li>Plasteel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <MeleeWeapon_PsyfocusStaff>1</MeleeWeapon_PsyfocusStaff>
+    </products>
+  </RecipeDef>
+ 
+  <RecipeDef ParentName="VPE_CraftEltexGearSmithy">
+    <defName>VPE_Make_EltexHelmet</defName>
+    <label>make eltex helmet</label>
+    <description>Make an eltex helmet.</description>
+    <jobString>Making eltex helmet.</jobString>
+    <workAmount>8000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>40</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VPE_Eltex</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>VPE_Eltex</li>
+		<li>Plasteel</li>
+		<li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Apparel_PsyfocusHelmet>1</Apparel_PsyfocusHelmet>
+    </products>
+  </RecipeDef>
+  
+  <RecipeDef ParentName="VPE_CraftEltexGearSmithy">
+    <defName>VPE_Make_EltexSkullcap</defName>
+    <label>make eltex skullcap</label>
+    <description>Make an eltex skullcap.</description>
+    <jobString>Making eltex skullcap.</jobString>
+    <workAmount>2000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>15</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VPE_Eltex</li>
+          </thingDefs>
+        </filter>
+        <count>8</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>VPE_Eltex</li>
+		<li>Plasteel</li>
+		<li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Apparel_EltexSkullcap>1</Apparel_EltexSkullcap>
+    </products>
+  </RecipeDef>
+
+</Defs>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <SoundDef>
+      <defName>VPE_Skipdoor_Sustainer</defName>
+      <context>MapOnly</context>
+      <sustain>True</sustain>
+      <maxSimultaneous>1</maxSimultaneous>
+      <maxVoices>1</maxVoices>
+      <priorityMode>PrioritizeNearest</priorityMode>
+      <subSounds>
+        <li>
+          <grains>
+            <li Class="AudioGrain_Clip">
+              <clipPath>Skipmaster/Psycast_Skipgate_Sustainer_01a</clipPath>
+            </li>
+          </grains>
+          <volumeRange>53</volumeRange>
+          <distRange>20~50</distRange>
+          <sustainLoop>True</sustainLoop>
+        </li>
+      </subSounds>
+    </SoundDef>
+    <SoundDef>
+      <defName>VPE_SkipGate_Cast</defName>
+      <context>MapOnly</context>
+      <maxSimultaneous>1</maxSimultaneous>
+      <subSounds>
+        <li>
+          <grains>
+            <li Class="AudioGrain_Clip">
+              <clipPath>Skipmaster/Psycast_SkipGate_Cast_01a</clipPath>
+            </li>
+          </grains>
+          <volumeRange>53</volumeRange>
+          <distRange>20~50</distRange>
+        </li>
+      </subSounds>
+    </SoundDef>
+</Defs>
