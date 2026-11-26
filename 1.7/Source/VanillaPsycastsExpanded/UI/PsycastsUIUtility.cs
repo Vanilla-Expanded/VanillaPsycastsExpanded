@@ -1,20 +1,22 @@
 ﻿namespace VanillaPsycastsExpanded.UI
 {
+    using RimWorld;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using RimWorld;
     using UnityEngine;
-    using Verse;
-    using Verse.Sound;
     using VEF.Abilities;
     using VEF.Utils;
+    using Verse;
+    using Verse.Sound;
+    using static AlienRace.CachedData;
     using AbilityDef = VEF.Abilities.AbilityDef;
 
     [StaticConstructorOnStartup]
     public static class PsycastsUIUtility
     {
         private static readonly Dictionary<MeditationFocusDef, Texture2D> meditationIcons;
+        public static readonly Texture2D PlaceholderImage = ContentFinder<Texture2D>.Get("UI/PsyfocusIcons/PsyfocusPlaceholder");
 
         private static readonly float[][] abilityTreeXOffsets =
         {
@@ -34,17 +36,8 @@
                 MeditationFocusExtension ext = def.GetModExtension<MeditationFocusExtension>();
                 if (ext is null)
                 {
-                    // Defs created in patch operations (used to?) result in null ModContentPack, so let's safely handle it.
-                    // And since we're at it, let's add some extra precautions just in case to prevent any issues.
-                    string warningContinuation = $"Please ask {def.modContentPack?.ModMetaData?.AuthorsString ?? "its authors"} to add one.";
-
-                    // A different message for official content. Someone actually reported the warning on Ludeon's Discord server as a bug...
-                    if (def.modContentPack?.IsOfficialMod == true)
-                        warningContinuation = "It's marked as an official DLC, and if that's the case then please report this to Vanilla Expanded team so it can receive an icon.";
-
-                    Log.Warning(
-                        $"MeditationFocusDef {def} does not have a MeditationFocusExtension, which means it will not have an icon in the Psycasts UI.\n{warningContinuation}");
-                    meditationIcons.Add(def, BaseContent.WhiteTex);
+                   
+                    meditationIcons.Add(def, PlaceholderImage);
                 }
                 else
                 {
