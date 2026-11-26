@@ -43,7 +43,10 @@ public class Skipdoor : DoorTeleporter, IMinHeatGiver
         }
         else if (ticksLeftThisToil == 15)
         {
-            targetCell = GenAdj.CellsAdjacentCardinal(dest).Where(c => c.Standable(targetMap)).RandomElement();
+            // RandomElement() on an empty set returns (0,0,0), which teleported pawns to the map corner.
+            if (!GenAdj.CellsAdjacentCardinal(dest).Where(c => c.Standable(targetMap) && !c.Fogged(targetMap)).TryRandomElement(out targetCell)
+                && !GenAdj.CellsAdjacent8Way(dest).Where(c => c.Standable(targetMap) && !c.Fogged(targetMap)).TryRandomElement(out targetCell))
+                targetCell = dest.Position;
             teleportEffecters[thing] = EffecterDefOf.Skip_Exit.Spawn(targetCell, targetMap);
             teleportEffecters[thing].ticksLeft = 15;
         }
