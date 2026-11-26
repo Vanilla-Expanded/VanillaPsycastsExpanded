@@ -1,4 +1,5 @@
-﻿using Verse;
+﻿using System.Reflection;
+using Verse;
 
 namespace VanillaPsycastsExpanded.HarmonyPatches;
 
@@ -7,6 +8,6 @@ public static class HarmonyInit
 {
     static HarmonyInit()
     {
-        PsycastsMod.Harm.PatchAll();
+        PsycastsMod.Harm.PatchAll(Assembly.GetExecutingAssembly());
     }
 }
